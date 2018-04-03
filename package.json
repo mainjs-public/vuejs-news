@@ -4,6 +4,12 @@
   "description": "Nuxt.js project",
   "author": "Dang Tien Ngoc <dangtienngoc@hotmail.com>",
   "private": true,
+  "config": {
+   "nuxt": {
+     "host": "0.0.0.0",
+     "port": "4000"
+   }
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
