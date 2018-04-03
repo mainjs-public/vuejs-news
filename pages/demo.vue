@@ -6,7 +6,7 @@
         new24-fontend
       </h1>
       <h2 class="subtitle">
-        new24-fontend
+        {{ persons }}
       </h2>
       <div class="links">
         <a
@@ -24,6 +24,17 @@
 
 <script>
 import AppLogo from '~/components/AppLogo.vue'
+import gql from 'graphql-tag'
+
+const postsQuery = gql`
+  query {
+    persons {
+      id,
+      first_name,
+      last_name,
+    }
+  }
+`
 
 export default {
   components: {
@@ -31,7 +42,29 @@ export default {
   },
   data() {
     return {
-      name: 'NGOC'
+      persons: [],
+    }
+  },
+  fetch (context) {
+    console.log('fetch');
+    let client = context.app.apolloProvider.defaultClient;
+    client.query({ query: postsQuery })
+    .then((res) => res.data)
+    .then(data => {
+      console.log(data);
+    });
+  },
+  created() {
+    this.test();
+  },
+  methods: {
+    test(){
+      // receive the associated Apollo client 
+      const client = this.$apollo.getClient()
+      client.query({ query: postsQuery })
+      .then((res) => {
+        this.persons = res.data.persons
+      })
     }
   }
 }

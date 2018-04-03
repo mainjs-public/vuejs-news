@@ -5,10 +5,10 @@
   "author": "Dang Tien Ngoc <dangtienngoc@hotmail.com>",
   "private": true,
   "config": {
-   "nuxt": {
-     "host": "0.0.0.0",
-     "port": "4000"
-   }
+    "nuxt": {
+      "host": "0.0.0.0",
+      "port": "4000"
+    }
   },
   "scripts": {
     "dev": "nuxt",
@@ -19,7 +19,11 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "nuxt": "^1.0.0"
+    "@nuxtjs/apollo": "^3.0.5",
+    "apollo-client": "^2.2.8",
+    "graphql-tag": "^2.8.0",
+    "isomorphic-fetch": "^2.2.1",
+    "nuxt": "^1.4.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

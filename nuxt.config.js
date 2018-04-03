@@ -2,6 +2,15 @@ module.exports = {
   /*
   ** Headers of the page
   */
+  // Add apollo module
+  modules: ['@nuxtjs/apollo'],
+ 
+  // Give apollo module options
+  apollo: {
+    clientConfigs: {
+      default: '~/apollo/client-configs/default.js'
+    }
+  },
   head: {
     title: 'new24-fontend',
     meta: [
