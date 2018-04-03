@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="70ab87c0-2c8e-4225-ab8e-42bb8079c365" name="Default" comment="design page index(home)" />
+    <list default="true" id="70ab87c0-2c8e-4225-ab8e-42bb8079c365" name="Default" comment="design page index(home)">
+      <change beforePath="" afterPath="$PROJECT_DIR$/pages/category-style1.vue" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/components/LayoutHeading.vue" afterPath="$PROJECT_DIR$/components/LayoutHeading.vue" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -24,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LayoutHeading.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LayoutHeading.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/LayoutHeading.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="13" column="44" lean-forward="false" selection-start-line="5" selection-start-column="8" selection-end-line="13" selection-end-column="44" />
+            <state relative-caret-position="630">
+              <caret line="93" column="42" lean-forward="false" selection-start-line="93" selection-start-column="42" selection-end-line="93" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -66,11 +70,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LayoutFooter.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LayoutFooter.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/LayoutFooter.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="432">
               <caret line="160" column="0" lean-forward="false" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="category-style1.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/category-style1.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1466">
+              <caret line="269" column="18" lean-forward="false" selection-start-line="269" selection-start-column="18" selection-end-line="269" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -114,10 +128,11 @@
         <option value="$PROJECT_DIR$/assets/css/style.css" />
         <option value="$PROJECT_DIR$/assets/css/owl.carousel.css" />
         <option value="$PROJECT_DIR$/layouts/default.vue" />
-        <option value="$PROJECT_DIR$/components/LayoutHeading.vue" />
         <option value="$PROJECT_DIR$/nuxt.config.js" />
         <option value="$PROJECT_DIR$/pages/index.vue" />
         <option value="$PROJECT_DIR$/components/LayoutFooter.vue" />
+        <option value="$PROJECT_DIR$/pages/category-style1.vue" />
+        <option value="$PROJECT_DIR$/components/LayoutHeading.vue" />
       </list>
     </option>
   </component>
@@ -169,17 +184,7 @@
             <path>
               <item name="new24-frontend" type="b2602c69:ProjectViewProjectNode" />
               <item name="new24-frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="new24-frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="new24-frontend" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="new24-frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="new24-frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -223,7 +228,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1522719898476</updated>
-      <workItem from="1522719900537" duration="13859000" />
+      <workItem from="1522719900537" duration="15485000" />
     </task>
     <task id="LOCAL-00001" summary="design page index(home)">
       <created>1522734390368</created>
@@ -236,7 +241,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13859000" />
+    <option name="totallyTimeSpent" value="15485000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -345,14 +350,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/LayoutHeading.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="44" lean-forward="false" selection-start-line="5" selection-start-column="8" selection-end-line="13" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nuxt.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
@@ -384,7 +381,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -393,6 +390,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="160" column="0" lean-forward="false" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/category-style1.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1466">
+          <caret line="269" column="18" lean-forward="false" selection-start-line="269" selection-start-column="18" selection-end-line="269" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/LayoutHeading.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="93" column="42" lean-forward="false" selection-start-line="93" selection-start-column="42" selection-end-line="93" selection-end-column="42" />
           <folding />
         </state>
       </provider>
