@@ -25,7 +25,7 @@
               <div class="header-top-left">
                 <ul>
                   <li><span id="today"></span></li>
-                  <li><a href="account.html">Sign In / Join</a></li>
+                  <li><a href="/account">Sign In / Join</a></li>
                   <li><a href="contact.html">Contact</a></li>
                   <li>London, 27 <sup>o</sup> C</li>
                 </ul>
@@ -155,7 +155,7 @@
                           </ul>
                         </li>
                         <li><a href="#">Testimonial</a></li>
-                        <li><a href="#">Account</a></li>
+                        <li><a href="/account">Account</a></li>
                         <li><a href="#">Contact</a></li>
                         <li><a href="#">Error-404</a></li>
                       </ul>

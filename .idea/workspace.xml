@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="70ab87c0-2c8e-4225-ab8e-42bb8079c365" name="Default" comment="design page index(home)">
-      <change beforePath="" afterPath="$PROJECT_DIR$/pages/category-style1.vue" />
+    <list default="true" id="70ab87c0-2c8e-4225-ab8e-42bb8079c365" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/pages/account.vue" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/components/LayoutHeading.vue" afterPath="$PROJECT_DIR$/components/LayoutHeading.vue" />
     </list>
@@ -31,8 +31,18 @@
       <file leaf-file-name="LayoutHeading.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/LayoutHeading.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="93" column="42" lean-forward="false" selection-start-line="93" selection-start-column="42" selection-end-line="93" selection-end-column="42" />
+            <state relative-caret-position="1774">
+              <caret line="157" column="45" lean-forward="false" selection-start-line="157" selection-start-column="45" selection-end-line="157" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="account.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/account.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="520">
+              <caret line="55" column="26" lean-forward="false" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -132,6 +142,7 @@
         <option value="$PROJECT_DIR$/pages/index.vue" />
         <option value="$PROJECT_DIR$/components/LayoutFooter.vue" />
         <option value="$PROJECT_DIR$/pages/category-style1.vue" />
+        <option value="$PROJECT_DIR$/pages/account.vue" />
         <option value="$PROJECT_DIR$/components/LayoutHeading.vue" />
       </list>
     </option>
@@ -228,7 +239,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1522719898476</updated>
-      <workItem from="1522719900537" duration="15485000" />
+      <workItem from="1522719900537" duration="15872000" />
     </task>
     <task id="LOCAL-00001" summary="design page index(home)">
       <created>1522734390368</created>
@@ -237,11 +248,18 @@
       <option name="project" value="LOCAL" />
       <updated>1522734390369</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="design page category style 1">
+      <created>1522736180149</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1522736180149</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15485000" />
+    <option name="totallyTimeSpent" value="15872000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -275,7 +293,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="design page index(home)" />
-    <option name="LAST_COMMIT_MESSAGE" value="design page index(home)" />
+    <MESSAGE value="design page category style 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="design page category style 1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -402,10 +421,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pages/account.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="55" column="26" lean-forward="false" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/components/LayoutHeading.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="93" column="42" lean-forward="false" selection-start-line="93" selection-start-column="42" selection-end-line="93" selection-end-column="42" />
+        <state relative-caret-position="1774">
+          <caret line="157" column="45" lean-forward="false" selection-start-line="157" selection-start-column="45" selection-end-line="157" selection-end-column="45" />
           <folding />
         </state>
       </provider>
