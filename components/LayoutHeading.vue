@@ -126,7 +126,7 @@
                     </li>
                     <li><a href="#" class="has">Pages <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
                       <ul class="sub-menu">
-                        <li><a href="#">About</a></li>
+                        <li><a href="/about">About</a></li>
                         <li class="has"><a href="#">Blog <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                           <ul>
                             <li><a href="#">Blog</a></li>

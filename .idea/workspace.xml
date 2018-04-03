@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70ab87c0-2c8e-4225-ab8e-42bb8079c365" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/pages/account.vue" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/pages/about.vue" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/components/LayoutHeading.vue" afterPath="$PROJECT_DIR$/components/LayoutHeading.vue" />
     </list>
@@ -31,8 +31,18 @@
       <file leaf-file-name="LayoutHeading.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/LayoutHeading.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1774">
-              <caret line="157" column="45" lean-forward="false" selection-start-line="157" selection-start-column="45" selection-end-line="157" selection-end-column="45" />
+            <state relative-caret-position="278">
+              <caret line="128" column="43" lean-forward="false" selection-start-line="128" selection-start-column="43" selection-end-line="128" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="about.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/about.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2948">
+              <caret line="146" column="37" lean-forward="false" selection-start-line="146" selection-start-column="37" selection-end-line="146" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -122,6 +132,7 @@
       <find>brealin</find>
       <find>LayoutFooter</find>
       <find>owl-stage</find>
+      <find>active</find>
     </findStrings>
     <dirStrings>
       <dir>E:\Nuxt\magazine\new24-frontend</dir>
@@ -143,6 +154,7 @@
         <option value="$PROJECT_DIR$/components/LayoutFooter.vue" />
         <option value="$PROJECT_DIR$/pages/category-style1.vue" />
         <option value="$PROJECT_DIR$/pages/account.vue" />
+        <option value="$PROJECT_DIR$/pages/about.vue" />
         <option value="$PROJECT_DIR$/components/LayoutHeading.vue" />
       </list>
     </option>
@@ -197,6 +209,17 @@
               <item name="new24-frontend" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="new24-frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new24-frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new24-frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new24-frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -239,7 +262,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1522719898476</updated>
-      <workItem from="1522719900537" duration="15872000" />
+      <workItem from="1522719900537" duration="16199000" />
     </task>
     <task id="LOCAL-00001" summary="design page index(home)">
       <created>1522734390368</created>
@@ -255,11 +278,18 @@
       <option name="project" value="LOCAL" />
       <updated>1522736180149</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="design page account">
+      <created>1522736574155</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1522736574155</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15872000" />
+    <option name="totallyTimeSpent" value="16199000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -294,7 +324,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="design page index(home)" />
     <MESSAGE value="design page category style 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="design page category style 1" />
+    <MESSAGE value="design page account" />
+    <option name="LAST_COMMIT_MESSAGE" value="design page account" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -429,10 +460,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pages/about.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2948">
+          <caret line="146" column="37" lean-forward="false" selection-start-line="146" selection-start-column="37" selection-end-line="146" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/jquery.meanmenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5375">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <marker date="1502187832000" expanded="true" signature="8364:8375" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/components/LayoutHeading.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1774">
-          <caret line="157" column="45" lean-forward="false" selection-start-line="157" selection-start-column="45" selection-end-line="157" selection-end-column="45" />
+        <state relative-caret-position="278">
+          <caret line="128" column="43" lean-forward="false" selection-start-line="128" selection-start-column="43" selection-end-line="128" selection-end-column="43" />
           <folding />
         </state>
       </provider>
