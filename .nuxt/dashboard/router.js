@@ -4,8 +4,8 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 const _64c3790b = () => import('..\\..\\apps\\dashboard\\pages\\category\\index.vue' /* webpackChunkName: "pages_category_index" */).then(m => m.default || m)
-const _3aefdce1 = () => import('..\\..\\apps\\dashboard\\pages\\category\\edit.vue' /* webpackChunkName: "pages_category_edit" */).then(m => m.default || m)
-const _773b7b9a = () => import('..\\..\\apps\\dashboard\\pages\\category\\_id.vue' /* webpackChunkName: "pages_category__id" */).then(m => m.default || m)
+const _3bfb6881 = () => import('..\\..\\apps\\dashboard\\pages\\category\\edit\\index.vue' /* webpackChunkName: "pages_category_edit_index" */).then(m => m.default || m)
+const _76c8d1ae = () => import('..\\..\\apps\\dashboard\\pages\\category\\edit\\_id.vue' /* webpackChunkName: "pages_category_edit__id" */).then(m => m.default || m)
 const _f8ca91ee = () => import('..\\..\\apps\\dashboard\\pages\\index.vue' /* webpackChunkName: "pages_index" */).then(m => m.default || m)
 
 
@@ -73,13 +73,13 @@ export function createRouter () {
 		},
 		{
 			path: "/category/edit",
-			component: _3aefdce1,
+			component: _3bfb6881,
 			name: "category-edit"
 		},
 		{
-			path: "/category/:id",
-			component: _773b7b9a,
-			name: "category-id"
+			path: "/category/edit/:id",
+			component: _76c8d1ae,
+			name: "category-edit-id"
 		},
 		{
 			path: "/",
