@@ -1,343 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="12398f11-0a76-480d-9ec7-3aec11061e5d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.editorconfig" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/new24-frontend.iml" afterPath="$PROJECT_DIR$/.idea/new24-frontend.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apollo/client-configs/default.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apollo/queries/persons.gql" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/components/AppLogo.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/components/LayoutFooter.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/components/LayoutHeading.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/components/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/layouts/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/layouts/default.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/middleware/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/nuxt.config.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/pages/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pages/about.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pages/account.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pages/category-style1.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pages/contact.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pages/demo.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pages/index.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/plugins/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/css/animate.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/css/bootstrap.min.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/css/font-awesome.min.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/css/hover-min.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/css/lightbox.min.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/css/magnific-popup.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/css/meanmenu.min.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/css/nivo-slider.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/css/owl.carousel.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/css/preview.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/css/responsive.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/favicon.ico" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/Flaticon.eot" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/Flaticon.svg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/Flaticon.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/Flaticon.woff" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/FontAwesome.otf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/_flaticon.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/flaticon.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/flaticon.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.eot" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.svg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.woff" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.woff2" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/home.eot" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/home.svg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/home.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/home.woff" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/hotel-team.eot" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/hotel-team.svg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/hotel-team.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/hotel-team.woff" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/Trending/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/Trending/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/Trending/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/Trending/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/Trending/5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/Trending/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/about/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/about/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/about/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/add/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/add/1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/add/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/add/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/add/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/add/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/banner/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/banner/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/banner/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/banner/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/banner/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/banner/banner.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/blog/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/blog/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/blog/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/blog/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/blog/5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/blog/6.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/blog/7.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/blog/8.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/blog/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/breaking/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/breaking/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/breaking/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/breaking/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/breaking/5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/breaking/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/category/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/category/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/category/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/category/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/category/5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/category/6.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/category/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/close.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/comma-icon.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/error.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/fashion-cat/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/fashion-cat/10.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/fashion-cat/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/fashion-cat/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/fashion-cat/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/fashion-cat/5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/fashion-cat/6.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/fashion-cat/7.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/fashion-cat/8.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/fashion-cat/9.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/fashion-cat/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/fav.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/fetuered/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/fetuered/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/fetuered/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/fetuered/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/fetuered/5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/fetuered/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/fetuered/video-icon.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/flicker/1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/flicker/10.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/flicker/11.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/flicker/12.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/flicker/2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/flicker/3.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/flicker/4.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/flicker/5.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/flicker/6.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/flicker/7.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/flicker/8.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/flicker/9.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/flicker/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/footer-logo.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/footer-top.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/gallery/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/gallery/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/gallery/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/gallery/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/gallery/5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/gallery/6.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/gallery/7.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/gallery/8.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/gallery/9.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/gallery/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/gallery2/7.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/gallery2/8.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/gallery2/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/health-cat/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/health-cat/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/health-cat/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/health-cat/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/health-cat/5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/health-cat/6.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/health-cat/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home2/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home2/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home2/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/home2/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/hot-news/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/hot-news/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/hot-news/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/hot-news/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/hot-news/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/loading.gif" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/logo.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/mega-menu/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/mega-menu/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/mega-menu/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/mega-menu/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/mega-menu/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/news-slider-image/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/news-slider-image/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/news-slider-image/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/news-slider-image/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/news-slider-image/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/next.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/politics-cat/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/politics-cat/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/politics-cat/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/politics-cat/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/politics-cat/5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/politics-cat/6.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/politics-cat/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/popular/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/popular/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/popular/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/popular/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/popular/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/post-images/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/post-images/post-1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/post-images/post-2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/post-images/post-3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/prev.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/science-cat/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/science-cat/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/science-cat/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/science-cat/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/science-cat/5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/science-cat/6.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/science-cat/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/sidebar-images/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/sidebar-images/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/sidebar-images/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/sidebar-images/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/sidebar/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/sidebar/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/sidebar/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/sidebar/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/sidebar/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/single/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/single/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/single/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/single/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/single/5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/single/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/single/editor.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/single/illustrator.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/single/publisher.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/single/toya.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/slider/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/slider/slide_1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/slider/slide_3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/sports-cat/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/sports-cat/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/sports-cat/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/sports-cat/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/sports-cat/5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/sports-cat/6.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/sports-cat/7.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/sports-cat/8.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/sports-cat/9.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/sports-cat/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/tab/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/tab/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/tab/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/tab/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/tab/5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/tab/6.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/tab/7.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/tab/8.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/tab/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/team/1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/team/2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/team/3.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/team/4.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/team/5.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/team/6.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/team/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/team/anthoni.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/team/cruse.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/team/hussy.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/team/jon.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/team/karlos.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/team/keya.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/team/lan.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/team/mahabub.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/team/peter.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/team/raisha.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/team/rashid.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/team/ridisha.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/team/tom.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/testimonial/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/testimonial/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/testimonial/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/testimonial/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/testimonial/5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/testimonial/6.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/testimonial/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/videos-cat/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/videos-cat/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/videos-cat/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/videos-cat/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/videos-cat/5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/videos-cat/6.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/videos-cat/7.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/videos-cat/8.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/videos-cat/9.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/videos-cat/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/world-cat/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/world-cat/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/world-cat/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/world-cat/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/world-cat/5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/world-cat/6.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/world-cat/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/world/1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/world/2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/world/3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/world/4.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/world/5.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/world/6.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/images/world/Thumbs.db" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/inc/custom-slider/css/nivo-slider.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/inc/custom-slider/css/preview.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/inc/custom-slider/home.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/inc/custom-slider/img/arrows-2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/inc/custom-slider/img/arrows.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/inc/custom-slider/img/bullets-2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/inc/custom-slider/img/bullets.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/inc/custom-slider/img/loading-2.gif" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/inc/custom-slider/img/loading.gif" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/inc/custom-slider/js/jquery.nivo.slider.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/js/bootstrap.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/js/contact.form.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/js/home.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery-ui.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.appear.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.counterup.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.magnific-popup.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.meanmenu.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.nivo.slider.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/js/lightbox.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/js/main.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/js/modernizr-2.8.3.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/js/owl.carousel.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/js/simplyCountdown.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/js/waypoints.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/js/wow.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/store/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" afterPath="$PROJECT_DIR$/yarn.lock" />
-    </list>
+    <list default="true" id="12398f11-0a76-480d-9ec7-3aec11061e5d" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -420,6 +84,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="12398f11-0a76-480d-9ec7-3aec11061e5d" name="Default" comment="" />
@@ -427,18 +94,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1523329312490</updated>
-      <workItem from="1523329314396" duration="175000" />
+      <workItem from="1523329314396" duration="344000" />
     </task>
+    <task id="LOCAL-00001" summary="give home and dashboard in page">
+      <created>1523329624387</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1523329624388</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175000" />
+    <option name="totallyTimeSpent" value="344000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973656" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -456,8 +132,15 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="give home and dashboard in page" />
+    <option name="LAST_COMMIT_MESSAGE" value="give home and dashboard in page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
