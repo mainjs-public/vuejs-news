@@ -1,11 +1,342 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="70ab87c0-2c8e-4225-ab8e-42bb8079c365" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/pages/contact.vue" />
+    <list default="true" id="12398f11-0a76-480d-9ec7-3aec11061e5d" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.editorconfig" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/new24-frontend.iml" afterPath="$PROJECT_DIR$/.idea/new24-frontend.iml" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/components/LayoutHeading.vue" afterPath="$PROJECT_DIR$/components/LayoutHeading.vue" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/apollo/client-configs/default.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/apollo/queries/persons.gql" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/assets/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/AppLogo.vue" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/LayoutFooter.vue" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/LayoutHeading.vue" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/layouts/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/layouts/default.vue" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/middleware/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/nuxt.config.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change beforePath="$PROJECT_DIR$/pages/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/about.vue" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/account.vue" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/category-style1.vue" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/contact.vue" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/demo.vue" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/index.vue" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/plugins/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/css/animate.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/css/bootstrap.min.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/css/font-awesome.min.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/css/hover-min.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/css/lightbox.min.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/css/magnific-popup.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/css/meanmenu.min.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/css/nivo-slider.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/css/owl.carousel.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/css/preview.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/css/responsive.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/favicon.ico" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/Flaticon.eot" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/Flaticon.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/Flaticon.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/Flaticon.woff" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/FontAwesome.otf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/_flaticon.scss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/flaticon.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/flaticon.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.eot" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.woff" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.woff2" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/home.eot" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/home.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/home.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/home.woff" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/hotel-team.eot" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/hotel-team.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/hotel-team.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/hotel-team.woff" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/Trending/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/Trending/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/Trending/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/Trending/4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/Trending/5.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/Trending/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/about/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/about/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/about/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/add/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/add/1.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/add/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/add/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/add/4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/add/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/banner/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/banner/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/banner/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/banner/4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/banner/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/banner/banner.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/blog/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/blog/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/blog/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/blog/4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/blog/5.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/blog/6.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/blog/7.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/blog/8.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/blog/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/breaking/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/breaking/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/breaking/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/breaking/4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/breaking/5.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/breaking/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/category/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/category/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/category/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/category/4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/category/5.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/category/6.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/category/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/close.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/comma-icon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/error.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/fashion-cat/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/fashion-cat/10.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/fashion-cat/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/fashion-cat/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/fashion-cat/4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/fashion-cat/5.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/fashion-cat/6.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/fashion-cat/7.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/fashion-cat/8.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/fashion-cat/9.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/fashion-cat/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/fav.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/fetuered/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/fetuered/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/fetuered/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/fetuered/4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/fetuered/5.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/fetuered/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/fetuered/video-icon.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/flicker/1.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/flicker/10.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/flicker/11.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/flicker/12.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/flicker/2.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/flicker/3.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/flicker/4.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/flicker/5.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/flicker/6.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/flicker/7.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/flicker/8.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/flicker/9.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/flicker/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/footer-logo.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/footer-top.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/gallery/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/gallery/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/gallery/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/gallery/4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/gallery/5.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/gallery/6.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/gallery/7.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/gallery/8.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/gallery/9.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/gallery/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/gallery2/7.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/gallery2/8.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/gallery2/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/health-cat/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/health-cat/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/health-cat/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/health-cat/4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/health-cat/5.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/health-cat/6.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/health-cat/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/home2/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/home2/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/home2/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/home2/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/hot-news/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/hot-news/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/hot-news/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/hot-news/4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/hot-news/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/loading.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/logo.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/mega-menu/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/mega-menu/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/mega-menu/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/mega-menu/4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/mega-menu/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/news-slider-image/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/news-slider-image/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/news-slider-image/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/news-slider-image/4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/news-slider-image/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/next.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/politics-cat/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/politics-cat/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/politics-cat/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/politics-cat/4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/politics-cat/5.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/politics-cat/6.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/politics-cat/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/popular/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/popular/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/popular/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/popular/4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/popular/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/post-images/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/post-images/post-1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/post-images/post-2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/post-images/post-3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/prev.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/science-cat/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/science-cat/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/science-cat/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/science-cat/4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/science-cat/5.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/science-cat/6.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/science-cat/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/sidebar-images/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/sidebar-images/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/sidebar-images/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/sidebar-images/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/sidebar/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/sidebar/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/sidebar/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/sidebar/4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/sidebar/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/single/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/single/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/single/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/single/4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/single/5.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/single/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/single/editor.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/single/illustrator.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/single/publisher.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/single/toya.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/slider/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/slider/slide_1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/slider/slide_3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/sports-cat/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/sports-cat/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/sports-cat/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/sports-cat/4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/sports-cat/5.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/sports-cat/6.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/sports-cat/7.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/sports-cat/8.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/sports-cat/9.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/sports-cat/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/tab/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/tab/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/tab/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/tab/4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/tab/5.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/tab/6.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/tab/7.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/tab/8.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/tab/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/team/1.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/team/2.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/team/3.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/team/4.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/team/5.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/team/6.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/team/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/team/anthoni.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/team/cruse.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/team/hussy.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/team/jon.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/team/karlos.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/team/keya.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/team/lan.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/team/mahabub.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/team/peter.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/team/raisha.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/team/rashid.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/team/ridisha.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/team/tom.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/testimonial/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/testimonial/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/testimonial/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/testimonial/4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/testimonial/5.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/testimonial/6.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/testimonial/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/videos-cat/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/videos-cat/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/videos-cat/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/videos-cat/4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/videos-cat/5.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/videos-cat/6.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/videos-cat/7.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/videos-cat/8.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/videos-cat/9.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/videos-cat/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/world-cat/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/world-cat/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/world-cat/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/world-cat/4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/world-cat/5.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/world-cat/6.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/world-cat/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/world/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/world/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/world/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/world/4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/world/5.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/world/6.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/world/Thumbs.db" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/inc/custom-slider/css/nivo-slider.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/inc/custom-slider/css/preview.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/inc/custom-slider/home.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/inc/custom-slider/img/arrows-2.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/inc/custom-slider/img/arrows.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/inc/custom-slider/img/bullets-2.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/inc/custom-slider/img/bullets.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/inc/custom-slider/img/loading-2.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/inc/custom-slider/img/loading.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/inc/custom-slider/js/jquery.nivo.slider.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/js/bootstrap.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/js/contact.form.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/js/home.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/js/jquery-ui.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/js/jquery.appear.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/js/jquery.counterup.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/js/jquery.magnific-popup.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/js/jquery.meanmenu.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/js/jquery.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/js/jquery.nivo.slider.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/js/lightbox.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/js/main.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/js/modernizr-2.8.3.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/js/owl.carousel.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/js/simplyCountdown.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/js/waypoints.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/js/wow.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/store/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" afterPath="$PROJECT_DIR$/yarn.lock" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,160 +348,8 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/index.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-23266">
-              <caret line="95" column="26" lean-forward="false" selection-start-line="95" selection-start-column="26" selection-end-line="95" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LayoutHeading.vue" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/components/LayoutHeading.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1936">
-              <caret line="43" column="22" lean-forward="false" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="contact.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/contact.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="65" column="61" lean-forward="false" selection-start-line="65" selection-start-column="61" selection-end-line="65" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="about.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/about.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2948">
-              <caret line="146" column="37" lean-forward="false" selection-start-line="146" selection-start-column="37" selection-end-line="146" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="account.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/account.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="55" column="26" lean-forward="false" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="default.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/layouts/default.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="18" />
-              <folding>
-                <element signature="e#106#165#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppLogo.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/AppLogo.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="35" column="12" lean-forward="false" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nuxt.config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nuxt.config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="26" column="35" lean-forward="false" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LayoutFooter.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/LayoutFooter.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="160" column="0" lean-forward="false" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="category-style1.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/category-style1.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1466">
-              <caret line="269" column="18" lean-forward="false" selection-start-line="269" selection-start-column="18" selection-end-line="269" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Vue Single File Component" />
-      </list>
-    </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>.nuxt-pro</find>
-      <find>comma-i</find>
-      <find>font-aw</find>
-      <find>fontawesome-webfont.eot</find>
-      <find>font-a</find>
-      <find>owl.vid</find>
-      <find>today</find>
-      <find>jQuery</find>
-      <find>brealin</find>
-      <find>LayoutFooter</find>
-      <find>owl-stage</find>
-      <find>active</find>
-      <find>contact.p</find>
-    </findStrings>
-    <dirStrings>
-      <dir>E:\Nuxt\magazine\new24-frontend</dir>
-      <dir>E:\Nuxt\magazine\new24-frontend\assets\css</dir>
-      <dir>E:\Nuxt\magazine\new24-frontend\static\js</dir>
-    </dirStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/assets/css/style.css" />
-        <option value="$PROJECT_DIR$/assets/css/owl.carousel.css" />
-        <option value="$PROJECT_DIR$/layouts/default.vue" />
-        <option value="$PROJECT_DIR$/nuxt.config.js" />
-        <option value="$PROJECT_DIR$/pages/index.vue" />
-        <option value="$PROJECT_DIR$/components/LayoutFooter.vue" />
-        <option value="$PROJECT_DIR$/pages/category-style1.vue" />
-        <option value="$PROJECT_DIR$/pages/account.vue" />
-        <option value="$PROJECT_DIR$/pages/about.vue" />
-        <option value="$PROJECT_DIR$/pages/contact.vue" />
-        <option value="$PROJECT_DIR$/components/LayoutHeading.vue" />
-      </list>
-    </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
@@ -204,7 +383,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -212,31 +391,18 @@
               <item name="new24-frontend" type="b2602c69:ProjectViewProjectNode" />
               <item name="new24-frontend" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="new24-frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="new24-frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="new24-frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="new24-frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="settings.editor.selected.configurable" value="configurable.group.language" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../leaders_new/leaders" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="E:\Nuxt\magazine\new24-frontend\node_modules\eslint" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
   <component name="RunDashboard">
@@ -254,256 +420,47 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="70ab87c0-2c8e-4225-ab8e-42bb8079c365" name="Default" comment="" />
-      <created>1522719898476</created>
+      <changelist id="12398f11-0a76-480d-9ec7-3aec11061e5d" name="Default" comment="" />
+      <created>1523329312490</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1522719898476</updated>
-      <workItem from="1522719900537" duration="16594000" />
+      <updated>1523329312490</updated>
+      <workItem from="1523329314396" duration="175000" />
     </task>
-    <task id="LOCAL-00001" summary="design page index(home)">
-      <created>1522734390368</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1522734390369</updated>
-    </task>
-    <task id="LOCAL-00002" summary="design page category style 1">
-      <created>1522736180149</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1522736180149</updated>
-    </task>
-    <task id="LOCAL-00003" summary="design page account">
-      <created>1522736574155</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1522736574155</updated>
-    </task>
-    <task id="LOCAL-00004" summary="design page about">
-      <created>1522736910642</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1522736910642</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16594000" />
+    <option name="totallyTimeSpent" value="175000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973656" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973656" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="design page index(home)" />
-    <MESSAGE value="design page category style 1" />
-    <MESSAGE value="design page account" />
-    <MESSAGE value="design page about" />
-    <option name="LAST_COMMIT_MESSAGE" value="design page about" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.nuxt/components/nuxt-loading.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="2501" column="21" lean-forward="false" selection-start-line="2501" selection-start-column="21" selection-end-line="2501" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/owl.carousel.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="144" column="2" lean-forward="false" selection-start-line="144" selection-start-column="2" selection-end-line="144" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/bootstrap.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10785">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/font-awesome.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="58" lean-forward="false" selection-start-line="3" selection-start-column="58" selection-end-line="3" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/AppLogo.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="35" column="12" lean-forward="false" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/lightbox.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="2" lean-forward="false" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/bootstrap.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="30" column="111" lean-forward="false" selection-start-line="30" selection-start-column="105" selection-end-line="30" selection-end-column="111" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nuxt.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="26" column="35" lean-forward="false" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layouts/default.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="18" />
-          <folding>
-            <element signature="e#106#165#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-23266">
-          <caret line="95" column="26" lean-forward="false" selection-start-line="95" selection-start-column="26" selection-end-line="95" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/jquery.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/LayoutFooter.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="160" column="0" lean-forward="false" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/category-style1.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1466">
-          <caret line="269" column="18" lean-forward="false" selection-start-line="269" selection-start-column="18" selection-end-line="269" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/account.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="55" column="26" lean-forward="false" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/about.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2948">
-          <caret line="146" column="37" lean-forward="false" selection-start-line="146" selection-start-column="37" selection-end-line="146" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/jquery.meanmenu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5375">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <marker date="1502187832000" expanded="true" signature="8364:8375" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/contact.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="65" column="61" lean-forward="false" selection-start-line="65" selection-start-column="61" selection-end-line="65" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/LayoutHeading.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1936">
-          <caret line="43" column="22" lean-forward="false" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>
