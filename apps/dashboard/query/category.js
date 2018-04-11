@@ -42,7 +42,7 @@ const a = `query {
 `;
 
 export const addCategory = gql`
-  mutation mutationCategory($input: Object) {
+  mutation mutationCategory($input: MutationCategoryInput!) {
     mutationCategory(input: $input) {
       id
     }

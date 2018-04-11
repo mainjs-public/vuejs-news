@@ -2,13 +2,12 @@
     <div>
         <section class="content-header">
             <h1>
-                {{info.title}}
-                <!--<small>advanced tables</small>-->
+                {{data.id ? "1" : "2"}}
             </h1>
             <ol class="breadcrumb">
                 <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
                 <li><a href="/category">Category</a></li>
-                <li class="active">{{info.title}}</li>
+                <li class="active">{{data.id ? "1" : "2"}}</li>
             </ol>
         </section>
         {{data}}
@@ -18,7 +17,7 @@
                     <div class="box">
                         <div>
                             <div class="box-header with-border">
-                                <h3 class="box-title">{{info.form_title}}</h3>
+                                <h3 class="box-title">{{data.id ? "1" : "2"}}</h3>
                             </div>
                             <!-- /.box-header -->
                             <!-- form start -->
@@ -40,15 +39,13 @@
                                             <label class="help-block" v-if="error.slug">{{error.slug}}</label>
                                         </div>
                                     </div>
-                                    <!--<div class="form-group" v-bind:class="{ 'has-error': error.image ? true : false }">-->
-                                        <!--<label class="col-sm-1 control-label">Image</label>-->
+                                    <div class="form-group">
+                                        <label class="col-sm-1 control-label">Image</label>
 
-                                        <!--<div class="col-sm-11">-->
-                                            <!--<input type="file" @change="processFile($event)"/>-->
-                                            <!--<img :src="data.image" v-if="data.image !== ''"/>-->
-                                            <!--<label class="help-block" v-if="error.image">{{error.image}}</label>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
+                                        <div class="col-sm-11">
+                                            <input v-model="data.image" type="text" class="form-control" placeholder="Image"/>
+                                        </div>
+                                    </div>
                                     <div class="form-group" v-bind:class="{ 'has-error': error.description ? true : false }">
                                         <label class="col-sm-1 control-label">Description</label>
 
@@ -67,11 +64,10 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-1 control-label">Status</label>
-
                                         <div class="col-sm-11">
-                                            <select class="form-control" :value="data.status.toString()" @change="changeSelect($event)">
-                                                <option value="true">True</option>
-                                                <option value="false">False</option>
+                                            <select class="form-control" v-model="data.status">
+                                                <option :value="true">True</option>
+                                                <option :value="false">False</option>
                                             </select>
                                         </div>
                                     </div>
@@ -79,7 +75,7 @@
                                 <!-- /.box-body -->
                                 <div class="box-footer">
                                     <button type="submit" class="btn btn-default">Cancel</button>
-                                    <button type="submit" class="btn btn-info pull-right" @click="onSuccess">Ok</button>
+                                    <button type="submit" class="btn btn-info pull-right" @click="onClick">Submit</button>
                                 </div>
                                 <!-- /.box-footer -->
                             </form>
@@ -94,51 +90,11 @@
 <script>
   // import { addCategory } from '~/query/category.js'
   export default {
-    props: ['data', 'status'],
+    props: ['data', 'onClick'],
     data() {
-      return {
-        info: {
-            title: this.status === 'edit' ? 'Edit category' : 'Add category',
-            form_title: this.status === 'edit' ? 'Form edit category' : 'Form add category',
-            button: 'Edit',
-        },
-        error: {},
-      };
-    },
-    methods: {
-      processFile: function (event) {
-        this.data.image = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtdYe3FTd_dtcmwRwTZ03rhLACVSDYYTxpRLvm7yP3Rhry0IvD';
-      },
-      changeSelect: function (event) {
-        this.data.status = event.target.value === 'true' ? true : false;
-      },
-      onSuccess: function () {
-        const error = {}
-        const data = this.data;
-        if (data.name === '') {
-          error.name = 'Field Name emtpy';
+        return {
+            error: {},
         }
-        if (data.slug === '') {
-          error.slug = 'Field Name slug';
-        }
-        if (data.image === '') {
-          error.image = 'Please choice Image';
-        }
-        if (data.description === '') {
-          error.description = 'Field Description emtpy';
-        }
-        if (data.content === '') {
-          error.name = 'Field Content emtpy';
-        }
-        this.error = error;
-        if ( error === {}) {
-          console.log('tes onsuccess');
-          if (this.status === 'add') {
-            // const client = this.$apollo.getClient()
-            // this.$apollo.mutate({mutation: addCategory, variables: {input : this.data}});
-          };
-        };
-      },
     }
   }
 </script>
