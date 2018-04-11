@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12398f11-0a76-480d-9ec7-3aec11061e5d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/dashboard/components/FormCategory.vue" afterPath="$PROJECT_DIR$/apps/dashboard/components/FormCategory.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/dashboard/pages/category/edit.vue" afterPath="$PROJECT_DIR$/apps/dashboard/pages/category/edit.vue" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/apps/dashboard/pages/category/index.vue" afterPath="$PROJECT_DIR$/apps/dashboard/pages/category/index.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/dashboard/query/category.js" afterPath="$PROJECT_DIR$/apps/dashboard/query/category.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,7 +20,7 @@
       <file leaf-file-name="LayoutMenu.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/dashboard/components/LayoutMenu.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
+            <state relative-caret-position="196">
               <caret line="25" column="10" lean-forward="false" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
               <folding />
             </state>
@@ -41,7 +37,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FormCategory.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FormCategory.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/dashboard/components/FormCategory.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1239">
@@ -57,17 +53,17 @@
         <entry file="file://$PROJECT_DIR$/apps/dashboard/query/category.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="506">
-              <caret line="23" column="12" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="23" selection-end-column="11" />
+              <caret line="23" column="11" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="23" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/dashboard/pages/category/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="689">
-              <caret line="107" column="15" lean-forward="true" selection-start-line="94" selection-start-column="7" selection-end-line="107" selection-end-column="8" />
+            <state relative-caret-position="557">
+              <caret line="59" column="36" lean-forward="false" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -109,8 +105,8 @@
       <find>postQuery</find>
       <find>&lt;img</find>
       <find>addCategoryQuery</find>
-      <find>value</find>
       <find>app.loadLayout</find>
+      <find>value</find>
     </findStrings>
     <dirStrings>
       <dir>E:\Nuxt\magazine\new24-frontend\apps\dashboard\components</dir>
@@ -138,8 +134,8 @@
         <option value="$PROJECT_DIR$/apps/dashboard/pages/category/edit/_id.vue" />
         <option value="$PROJECT_DIR$/apps/dashboard/query/category.js" />
         <option value="$PROJECT_DIR$/apps/dashboard/pages/category/edit.vue" />
-        <option value="$PROJECT_DIR$/apps/dashboard/pages/category/index.vue" />
         <option value="$PROJECT_DIR$/apps/dashboard/components/FormCategory.vue" />
+        <option value="$PROJECT_DIR$/apps/dashboard/pages/category/index.vue" />
       </list>
     </option>
   </component>
@@ -281,7 +277,7 @@
       <workItem from="1523415993909" duration="55000" />
       <workItem from="1523416061209" duration="152000" />
       <workItem from="1523416427674" duration="3000" />
-      <workItem from="1523416507447" duration="6279000" />
+      <workItem from="1523416507447" duration="6462000" />
     </task>
     <task id="LOCAL-00001" summary="give home and dashboard in page">
       <created>1523329624387</created>
@@ -311,11 +307,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523412231882</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="edit category">
+      <created>1523422817063</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1523422817063</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38969000" />
+    <option name="totallyTimeSpent" value="39152000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -352,7 +355,8 @@
     <MESSAGE value="file gitignore and eslint" />
     <MESSAGE value="add and find a category" />
     <MESSAGE value="close a value addCategory" />
-    <option name="LAST_COMMIT_MESSAGE" value="close a value addCategory" />
+    <MESSAGE value="edit category" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit category" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -596,14 +600,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/dashboard/components/LayoutMenu.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="25" column="10" lean-forward="false" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/dashboard/pages/index.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3014">
@@ -629,22 +625,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/dashboard/query/category.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="23" column="12" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="23" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/dashboard/pages/category/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="689">
-          <caret line="107" column="15" lean-forward="true" selection-start-line="94" selection-start-column="7" selection-end-line="107" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/dashboard/pages/category/edit.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="704">
@@ -662,6 +642,30 @@
           <folding>
             <marker date="1523422767563" expanded="true" signature="5320:5326" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/dashboard/components/LayoutMenu.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="25" column="10" lean-forward="false" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/dashboard/query/category.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="23" column="11" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="23" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/dashboard/pages/category/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="557">
+          <caret line="59" column="36" lean-forward="false" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>

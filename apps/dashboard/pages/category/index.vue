@@ -30,7 +30,6 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Number</th>
                                     <th>Image</th>
                                     <th>Name</th>
                                     <th>Content</th>
@@ -42,8 +41,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="(category, index) in categories" v-bind:key="category.id">
-                                    <td>{{index+1}}</td>
+                                <tr v-for="category of categories" v-bind:key="category.id">
                                     <td><img :src="category.image"/></td>
                                     <td>{{category.name}}</td>
                                     <td>{{category.content}}</td>
@@ -60,7 +58,6 @@
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <th>Number</th>
                                     <th>Image</th>
                                     <th>Name</th>
                                     <th>Content</th>
