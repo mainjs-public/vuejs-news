@@ -10,6 +10,7 @@
     "bootstrap-slider": "^10.0.0",
     "bootstrap-timepicker": "^0.5.2",
     "concurrently": "^3.5.1",
+    "eslint": "^4.19.1",
     "express": "^4.16.3",
     "font-awesome": "^4.7.0",
     "fs": "^0.0.1-security",

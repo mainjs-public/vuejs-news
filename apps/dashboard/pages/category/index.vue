@@ -52,7 +52,7 @@
                                     <td>{{category.updated}}</td>
                                     <td>{{category.status}}</td>
                                     <td>
-                                        <button class="btn btn-primary" style="margin-right: 10px">Edit</button>
+                                        <a :href="`/category/edit/${category.id}`" class="btn btn-primary" style="margin-right: 10px">Edit</a>
                                         <button class="btn btn-danger">Delete</button>
                                     </td>
                                 </tr>
@@ -82,31 +82,30 @@
 </template>
 
 <script>
-  import gql from 'graphql-tag';
-  const postsQuery = gql`
-      query {
-        categories {
-          id,
-          name,
-          created,
-          image,
-          updated,
-          description,
-          status,
-          content,
-        }
-      }
-    `;
+  import { query } from '~/query/category.js';
   export default {
-    asyncData (context, callback) {
-      const client = context.app.apolloProvider.defaultClient;
-      client.query({ query: postsQuery })
-        .then((res) => res.data)
-    .then(data => {
-        callback(null, { categories: data.categories});
-    });
-      // return { categories: 'nuxt' }
+    // asyncData (context, callback) {
+    //   const client = context.app.apolloProvider.defaultClient;
+    //   client.query({ query: query })
+    //     .then((res) => res.data)
+    // .then(data => {
+    //     callback(null, { categories: data.categories});
+    // });
+    // },
+    data() {
+      return {
+        categories: []
+      }
     },
+    created() {
+      const client = this.$apollo.getClient();
+      client.query({ query: query })
+        .then((res) => res.data)
+        .then(data => {
+          // callback(null, { categories: data.categories});
+          this.categories = data.categories;
+      });
+    }
   }
 </script>
 
