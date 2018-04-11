@@ -92,7 +92,7 @@
 </template>
 
 <script>
-  import { addCategory } from '~/query/category.js'
+  // import { addCategory } from '~/query/category.js'
   export default {
     props: ['data', 'status'],
     data() {
@@ -135,7 +135,7 @@
           console.log('tes onsuccess');
           if (this.status === 'add') {
             // const client = this.$apollo.getClient()
-            this.$apollo.mutate({mutation: addCategory, variables: this.data});
+            // this.$apollo.mutate({mutation: addCategory, variables: {input : this.data}});
           };
         };
       },

@@ -84,14 +84,28 @@
 <script>
   import { query } from '~/query/category.js';
   export default {
-    asyncData (context, callback) {
-      const client = context.app.apolloProvider.defaultClient;
+    // asyncData (context, callback) {
+    //   const client = context.app.apolloProvider.defaultClient;
+    //   client.query({ query: query })
+    //     .then((res) => res.data)
+    // .then(data => {
+    //     callback(null, { categories: data.categories});
+    // });
+    // },
+    data() {
+      return {
+        categories: []
+      }
+    },
+    created() {
+      const client = this.$apollo.getClient();
       client.query({ query: query })
         .then((res) => res.data)
-    .then(data => {
-        callback(null, { categories: data.categories});
-    });
-    },
+        .then(data => {
+          // callback(null, { categories: data.categories});
+          this.categories = data.categories;
+      });
+    }
   }
 </script>
 
