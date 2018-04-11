@@ -5,6 +5,7 @@ export const query = gql`
       id,
       name,
       image,
+      slug,
       description,
       status,
       content,
@@ -30,6 +31,14 @@ export const addCategory = gql`
   mutation mutationCategory($input: MutationCategoryInput!) {
     mutationCategory(input: $input) {
       id
+    }
+  }
+`;
+
+export const deleteCategory = gql`
+  mutation deleteCategory($input: DeleteCategoryInput!) {
+    deleteCategory(input: $input) {
+      count
     }
   }
 `;

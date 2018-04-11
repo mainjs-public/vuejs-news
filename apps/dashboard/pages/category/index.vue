@@ -32,8 +32,7 @@
                                 <tr>
                                     <th>Image</th>
                                     <th>Name</th>
-                                    <th>Content</th>
-                                    <th>Description</th>
+                                    <th>Slug</th>
                                     <th>Created</th>
                                     <th>Updated</th>
                                     <th>Status</th>
@@ -44,14 +43,13 @@
                                 <tr v-for="category of categories" v-bind:key="category.id">
                                     <td><img :src="category.image"/></td>
                                     <td>{{category.name}}</td>
-                                    <td>{{category.content}}</td>
-                                    <td>{{category.description}}</td>
+                                    <td>{{category.slug}}</td>
                                     <td>{{category.created}}</td>
                                     <td>{{category.updated}}</td>
                                     <td>{{category.status}}</td>
                                     <td>
                                         <a :href="`/category/edit?id=${category.id}`" class="btn btn-primary" style="margin-right: 10px">Edit</a>
-                                        <button class="btn btn-danger">Delete</button>
+                                        <button class="btn btn-danger" @click="deleteCategory(category.id)">Delete</button>
                                     </td>
                                 </tr>
 
@@ -60,8 +58,7 @@
                                 <tr>
                                     <th>Image</th>
                                     <th>Name</th>
-                                    <th>Content</th>
-                                    <th>Description</th>
+                                    <th>Slug</th>
                                     <th>Created</th>
                                     <th>Updated</th>
                                     <th>Status</th>
@@ -79,7 +76,8 @@
 </template>
 
 <script>
-  import { query } from '~/query/category.js';
+  import { query, deleteCategory } from '~/query/category.js';
+  import remove from 'lodash/remove';
   export default {
     asyncData (context, callback) {
       const client = context.app.apolloProvider.defaultClient;
@@ -89,6 +87,14 @@
         callback(null, { categories: data.categories});
     });
     },
+    methods: {
+      deleteCategory(id) {
+        console.log('test id', id);
+        // this.$apollo.mutate({ mutation: deleteCategory, variables: { input: {categoryID: id }}});
+        this.$apollo.mutate({ mutation: deleteCategory, variables: { input: {categoryId: id } }})
+        this.categories = remove(this.categories, o => { return o.id !== id});
+      },
+    }
     // data() {
     //   return {
     //     categories: []
