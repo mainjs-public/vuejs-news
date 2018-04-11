@@ -52,7 +52,7 @@
                                     <td>{{category.updated}}</td>
                                     <td>{{category.status}}</td>
                                     <td>
-                                        <a :href="`/category/edit/${category.id}`" class="btn btn-primary" style="margin-right: 10px">Edit</a>
+                                        <a :href="`/category/edit?id=${category.id}`" class="btn btn-primary" style="margin-right: 10px">Edit</a>
                                         <button class="btn btn-danger">Delete</button>
                                     </td>
                                 </tr>
@@ -84,28 +84,28 @@
 <script>
   import { query } from '~/query/category.js';
   export default {
-    // asyncData (context, callback) {
-    //   const client = context.app.apolloProvider.defaultClient;
-    //   client.query({ query: query })
-    //     .then((res) => res.data)
-    // .then(data => {
-    //     callback(null, { categories: data.categories});
-    // });
-    // },
-    data() {
-      return {
-        categories: []
-      }
-    },
-    created() {
-      const client = this.$apollo.getClient();
+    asyncData (context, callback) {
+      const client = context.app.apolloProvider.defaultClient;
       client.query({ query: query })
         .then((res) => res.data)
-        .then(data => {
-          // callback(null, { categories: data.categories});
-          this.categories = data.categories;
-      });
-    }
+    .then(data => {
+        callback(null, { categories: data.categories});
+    });
+    },
+    // data() {
+    //   return {
+    //     categories: []
+    //   }
+    // },
+    // created() {
+    //   const client = this.$apollo.getClient();
+    //   client.query({ query: query })
+    //     .then((res) => res.data)
+    //     .then(data => {
+    //       // callback(null, { categories: data.categories});
+    //       this.categories = data.categories;
+    //   });
+    // }
   }
 </script>
 

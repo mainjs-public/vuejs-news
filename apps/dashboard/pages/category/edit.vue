@@ -6,7 +6,7 @@
 
 <script>
     import FormCategory from '~/components/FormCategory.vue';
-    import { addCategory } from '~/query/category';
+    import { addCategory, getCategory } from '~/query/category';
     const initData = {
         name: '',
         slug: '',
@@ -17,13 +17,31 @@
     };
 
     export default {
+      asyncData(context, callback) {
+        if(context.route.query.id) {
+          const id = context.route.query.id ;
+          const client = context.app.apolloProvider.defaultClient;
+          client.query({ query: getCategory, variables: {categoryId: id} })
+            .then((res) => res.data)
+            .then(data => {
+              const { category } = data;
+              callback(null, {data: {
+                  clientMutationId: category.id,
+                  name: category.name,
+                  image: category.image,
+                  description: category.description,
+                  status: category.status,
+                  content: category.content,
+                  slug: category.slug,
+                }});
+            }
+          );
+        } else {
+          callback(null, {data: initData});
+        }
+      },
       components: {
         FormCategory,
-      },
-      data() {
-        return {
-          data: initData,
-        }
       },
       methods: {
         onSuccess: function () {
@@ -54,7 +72,7 @@
           };
         },
         onClick(e) {
-          // receive the associated Apollo client 
+          // receive the associated Apollo client
           // const client = this.$apollo.getClient();
           // most likely you would call mutations like following:
           this.$apollo.mutate({ mutation: addCategory, variables: { input: this.data }});

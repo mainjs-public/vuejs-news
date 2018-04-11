@@ -10,7 +10,6 @@
                 <li class="active">{{data.id ? "1" : "2"}}</li>
             </ol>
         </section>
-        {{data}}
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
