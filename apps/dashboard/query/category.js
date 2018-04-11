@@ -25,14 +25,14 @@ export const getCategory = gql`
   }
 `;
 
-export const getCategory = gql`
-  query {
-    category(id: $categoryId) {
-      id,
-        name
-    }
-  }
-`;
+// export const getCategory = gql`
+//   query {
+//     category(id: $categoryId) {
+//       id,
+//         name
+//     }
+//   }
+// `;
 const a = `query {
   category(categoryId: "5acafee3cfd429988a6df17c") {
     id,

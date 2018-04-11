@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="12398f11-0a76-480d-9ec7-3aec11061e5d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/apps/dashboard/components/FormCategory.vue" afterPath="$PROJECT_DIR$/apps/dashboard/components/FormCategory.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/dashboard/pages/category/edit/_id.vue" afterPath="$PROJECT_DIR$/apps/dashboard/pages/category/edit/_id.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/dashboard/pages/category/index.vue" afterPath="$PROJECT_DIR$/apps/dashboard/pages/category/index.vue" />
       <change beforePath="$PROJECT_DIR$/apps/dashboard/query/category.js" afterPath="$PROJECT_DIR$/apps/dashboard/query/category.js" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" afterPath="$PROJECT_DIR$/yarn.lock" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -65,8 +60,8 @@
       <file leaf-file-name="category.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/dashboard/query/category.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="41" column="2" lean-forward="false" selection-start-line="41" selection-start-column="2" selection-end-line="41" selection-end-column="2" />
+            <state relative-caret-position="531">
+              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="3" selection-end-line="34" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -286,7 +281,7 @@
       <updated>1523329312490</updated>
       <workItem from="1523329314396" duration="23020000" />
       <workItem from="1523370819566" duration="5524000" />
-      <workItem from="1523410952523" duration="1125000" />
+      <workItem from="1523410952523" duration="1240000" />
     </task>
     <task id="LOCAL-00001" summary="give home and dashboard in page">
       <created>1523329624387</created>
@@ -302,11 +297,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523371044915</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add and find a category">
+      <created>1523412148561</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1523412148561</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29669000" />
+    <option name="totallyTimeSpent" value="29784000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -341,7 +343,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="give home and dashboard in page" />
     <MESSAGE value="file gitignore and eslint" />
-    <option name="LAST_COMMIT_MESSAGE" value="file gitignore and eslint" />
+    <MESSAGE value="add and find a category" />
+    <option name="LAST_COMMIT_MESSAGE" value="add and find a category" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -608,8 +611,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/dashboard/query/category.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="41" column="2" lean-forward="false" selection-start-line="41" selection-start-column="2" selection-end-line="41" selection-end-column="2" />
+        <state relative-caret-position="531">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="3" selection-end-line="34" selection-end-column="5" />
           <folding />
         </state>
       </provider>
