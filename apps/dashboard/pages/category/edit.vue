@@ -6,7 +6,7 @@
 
 <script>
     import FormCategory from '~/components/FormCategory.vue';
-    import { addCategory, getCategory } from '~/query/category';
+    import { addCategory, getCategory } from '~/apollo/queries/category';
     const initData = {
         name: '',
         slug: '',

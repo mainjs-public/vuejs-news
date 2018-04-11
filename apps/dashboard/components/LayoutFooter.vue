@@ -234,6 +234,21 @@
           })
         })
       </script>
+      <script>
+        $(function () {
+          // Replace the <textarea id="editor1"> with a CKEditor
+          // instance, using default configuration.
+          CKEDITOR.replace('editor1')
+          //bootstrap WYSIHTML5 - text editor
+          $('.textarea').wysihtml5()
+        })
+      </script>
+      <script>
+        $(function () {
+          //Initialize Select2 Elements
+          $('.select2').select2()
+        })
+      </script>
       <!-- jvectormap -->
       <!--<script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>-->
       <!--<script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>-->

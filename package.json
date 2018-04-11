@@ -21,7 +21,9 @@
     "moment": "^2.22.0",
     "nuxt": "^1.4.0",
     "path": "^0.12.7",
-    "vue": "^2.5.16"
+    "quill": "1.3.6",
+    "vue": "^2.5.16",
+    "vue-quill-editor": "^3.0.6"
   },
   "scripts": {
     "home:dev": "nuxt --config-file apps/home/nuxt.config.js -p=4000",

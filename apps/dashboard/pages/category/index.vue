@@ -76,7 +76,7 @@
 </template>
 
 <script>
-  import { query, deleteCategory } from '~/query/category.js';
+  import { query, deleteCategory } from '~/apollo/queries/category.js';
   import remove from 'lodash/remove';
   export default {
     asyncData (context, callback) {
@@ -89,9 +89,7 @@
     },
     methods: {
       deleteCategory(id) {
-        console.log('test id', id);
-        // this.$apollo.mutate({ mutation: deleteCategory, variables: { input: {categoryID: id }}});
-        this.$apollo.mutate({ mutation: deleteCategory, variables: { input: {categoryId: id } }})
+        this.$apollo.mutate({ mutation: deleteCategory, variables: { input: {categoryId: id } }});
         this.categories = remove(this.categories, o => { return o.id !== id});
       },
     }

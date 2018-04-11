@@ -10,6 +10,10 @@ module.exports = {
       default: '~/apollo/client-configs/default.js'
     }
   },
+  plugins: [
+    // ssr: false to only include it on client-side
+    { src: '~/plugins/quill.js', ssr: false }
+  ],
   head: {
     title: 'Dasboard: new24-fontend',
     meta: [
@@ -38,9 +42,12 @@ module.exports = {
       { src: '/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js'},
       { src: '/bower_components/jquery-slimscroll/jquery.slimscroll.min.js'},
       { src: '/bower_components/fastclick/lib/fastclick.js'},
+      { src: '/bower_components/ckeditor/ckeditor.js'},
+      { src: '/bower_components/select2/dist/js/select2.full.min.js'},
+      { src: '/plugins/iCheck/icheck.min.js'},
       { src: '/dist/js/adminlte.min.js'},
       { src: '/dist/js/pages/dashboard.js'},
-      { src: '/dist/js/demo.js'}
+      { src: '/dist/js/demo.js'},
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
