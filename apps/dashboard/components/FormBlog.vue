@@ -6,7 +6,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="/category">Category</a></li>
+                <li><a href="/blog">Blog</a></li>
                 <li class="active">{{data.id ? "Edit" : "Add"}}</li>
             </ol>
         </section>
@@ -16,7 +16,7 @@
                     <div class="box">
                         <div>
                             <div class="box-header with-border">
-                                <h3 class="box-title">{{data.id ? "Edit Category" : "Add Category"}}</h3>
+                                <h3 class="box-title">{{data.id ? "Edit blog" : "Add blog"}}</h3>
                             </div>
                             <!-- /.box-header -->
                             <!-- form start -->
@@ -57,10 +57,22 @@
                                         <label class="col-sm-1 control-label">Content</label>
 
                                         <div class="col-sm-11">
-                                            <input v-model="data.content" type="text" class="form-control" placeholder="Content">
+                                            <quill-editor ref="myTextEditor"
+                                                          v-model="data.content"
+                                                          :options="editorOption"
+                                            >
+                                            </quill-editor>
                                             <label class="help-block" v-if="error.content">{{error.content}}</label>
                                         </div>
                                     </div>
+                                    <!--<div class="form-group" v-bind:class="{ 'has-error': error.content ? true : false }">-->
+                                        <!--<label class="col-sm-1 control-label">Tags</label>-->
+
+                                        <!--<div class="col-sm-11">-->
+                                            <!--<input v-model="data.tags" type="text" class="form-control" placeholder="Content">-->
+                                            <!--<label class="help-block" v-if="error.content">{{error.content}}</label>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
                                     <div class="form-group">
                                         <label class="col-sm-1 control-label">Status</label>
                                         <div class="col-sm-11">
@@ -87,13 +99,40 @@
 </template>
 
 <script>
-  // import { addCategory } from '~/query/category.js'
   export default {
     props: ['data', 'onClick'],
     data() {
-        return {
-            error: {},
+      return {
+        error: {},
+        editorOption: {
+          modules: {
+            toolbar: [
+              ['bold', 'italic', 'underline', 'strike'],
+              ['blockquote', 'code-block'],
+              [{ 'header': 1 }, { 'header': 2 }],
+              [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+              [{ 'script': 'sub' }, { 'script': 'super' }],
+              [{ 'indent': '-1' }, { 'indent': '+1' }],
+              [{ 'direction': 'rtl' }],
+              [{ 'size': ['small', false, 'large', 'huge'] }],
+              [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+              [{ 'font': [] }],
+              [{ 'color': [] }, { 'background': [] }],
+              [{ 'align': [] }],
+              ['clean'],
+              ['link', 'image', 'video']
+            ],
+            syntax: {
+              highlight: text => hljs.highlightAuto(text).value
+          }
         }
-    }
+      }
+      }
+    },
+    computed: {
+      editor() {
+        return this.$refs.myTextEditor.quill
+      },
+    },
   }
 </script>
