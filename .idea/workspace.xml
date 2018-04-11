@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12398f11-0a76-480d-9ec7-3aec11061e5d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/apps/dashboard/components/LayoutFooter.vue" afterPath="$PROJECT_DIR$/apps/dashboard/components/LayoutFooter.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/dashboard/components/LayoutHeading.vue" afterPath="$PROJECT_DIR$/apps/dashboard/components/LayoutHeading.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/dashboard/pages/blog/index.vue" afterPath="$PROJECT_DIR$/apps/dashboard/pages/blog/index.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/dashboard/pages/category/index.vue" afterPath="$PROJECT_DIR$/apps/dashboard/pages/category/index.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -60,7 +60,7 @@
       <file leaf-file-name="index.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/dashboard/pages/category/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
+            <state relative-caret-position="-540">
               <caret line="59" column="36" lean-forward="false" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
               <folding />
             </state>
@@ -181,8 +181,8 @@
         <option value="$PROJECT_DIR$/apps/dashboard/query/category.js" />
         <option value="$PROJECT_DIR$/apps/dashboard/pages/category/edit.vue" />
         <option value="$PROJECT_DIR$/apps/dashboard/components/FormCategory.vue" />
-        <option value="$PROJECT_DIR$/apps/dashboard/pages/category/index.vue" />
         <option value="$PROJECT_DIR$/apps/dashboard/components/LayoutMenu.vue" />
+        <option value="$PROJECT_DIR$/apps/dashboard/pages/category/index.vue" />
       </list>
     </option>
   </component>
@@ -708,7 +708,7 @@
     <entry file="file://$PROJECT_DIR$/apps/dashboard/query/category.js" />
     <entry file="file://$PROJECT_DIR$/apps/dashboard/pages/category/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
+        <state relative-caret-position="-540">
           <caret line="59" column="36" lean-forward="false" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
           <folding />
         </state>

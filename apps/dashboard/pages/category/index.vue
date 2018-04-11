@@ -79,34 +79,25 @@
   import { query, deleteCategory } from '~/apollo/queries/category.js';
   import remove from 'lodash/remove';
   export default {
-    asyncData (context, callback) {
-      const client = context.app.apolloProvider.defaultClient;
-      client.query({ query: query })
-        .then((res) => res.data)
-    .then(data => {
-        callback(null, { categories: data.categories});
-    });
-    },
     methods: {
       deleteCategory(id) {
         this.$apollo.mutate({ mutation: deleteCategory, variables: { input: {categoryId: id } }});
         this.categories = remove(this.categories, o => { return o.id !== id});
       },
+    },
+    data() {
+      return {
+        categories: []
+      }
+    },
+    mounted() {
+      const client = this.$apollo.getClient();
+      client.query({ query: query })
+        .then((res) => res.data)
+        .then(data => {
+          this.categories = data.categories;
+        });
     }
-    // data() {
-    //   return {
-    //     categories: []
-    //   }
-    // },
-    // created() {
-    //   const client = this.$apollo.getClient();
-    //   client.query({ query: query })
-    //     .then((res) => res.data)
-    //     .then(data => {
-    //       // callback(null, { categories: data.categories});
-    //       this.categories = data.categories;
-    //   });
-    // }
   }
 </script>
 

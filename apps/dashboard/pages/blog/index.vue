@@ -81,18 +81,23 @@
 <script>
   import { query } from '~/apollo/queries/blog.js';
   export default {
-    asyncData (context, callback) {
-      const client = context.app.apolloProvider.defaultClient;
-      client.query({ query: query })
-        .then((res) => res.data)
-    .then(data => {
-        callback(null, { blogs: data.blogs});
-    });
-    },
     method: {
       deleteBlog(id) {
         console.log('id')
       },
+    },
+    data() {
+      return {
+        blogs: []
+      }
+    },
+    mounted() {
+      const client = this.$apollo.getClient();
+      client.query({ query: query })
+        .then((res) => res.data)
+        .then(data => {
+          this.blogs = data.blogs;
+        });
     }
   }
 </script>
