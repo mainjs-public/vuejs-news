@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="12398f11-0a76-480d-9ec7-3aec11061e5d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/apps/dashboard/pages/category/index.vue" afterPath="$PROJECT_DIR$/apps/dashboard/pages/category/index.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/dashboard/components/LayoutMenu.vue" afterPath="$PROJECT_DIR$/apps/dashboard/components/LayoutMenu.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,8 +20,18 @@
       <file leaf-file-name="LayoutMenu.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/dashboard/components/LayoutMenu.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="25" column="10" lean-forward="false" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+            <state relative-caret-position="322">
+              <caret line="28" column="95" lean-forward="false" selection-start-line="28" selection-start-column="95" selection-end-line="28" selection-end-column="95" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/dashboard/pages/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="22">
+              <caret line="181" column="48" lean-forward="false" selection-start-line="181" selection-start-column="48" selection-end-line="181" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -62,8 +72,28 @@
       <file leaf-file-name="index.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/dashboard/pages/category/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="557">
+            <state relative-caret-position="586">
               <caret line="59" column="36" lean-forward="false" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LayoutFooter.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/dashboard/components/LayoutFooter.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1056">
+              <caret line="63" column="50" lean-forward="false" selection-start-line="63" selection-start-column="50" selection-end-line="63" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LayoutHeading.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/dashboard/components/LayoutHeading.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="338">
+              <caret line="46" column="67" lean-forward="false" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -105,8 +135,8 @@
       <find>postQuery</find>
       <find>&lt;img</find>
       <find>addCategoryQuery</find>
-      <find>app.loadLayout</find>
       <find>value</find>
+      <find>app.loadLayout</find>
     </findStrings>
     <dirStrings>
       <dir>E:\Nuxt\magazine\new24-frontend\apps\dashboard\components</dir>
@@ -122,7 +152,6 @@
       <list>
         <option value="$PROJECT_DIR$/apps/dashboard/nuxt.config.js" />
         <option value="$PROJECT_DIR$/apps/dashboard/components/LayoutHeading.vue" />
-        <option value="$PROJECT_DIR$/apps/dashboard/components/LayoutMenu.vue" />
         <option value="$PROJECT_DIR$/apps/dashboard/pages/index.vue" />
         <option value="$PROJECT_DIR$/apps/dashboard/store/index.js" />
         <option value="$PROJECT_DIR$/apps/dashboard/pages/category/_id.vue" />
@@ -136,6 +165,7 @@
         <option value="$PROJECT_DIR$/apps/dashboard/pages/category/edit.vue" />
         <option value="$PROJECT_DIR$/apps/dashboard/components/FormCategory.vue" />
         <option value="$PROJECT_DIR$/apps/dashboard/pages/category/index.vue" />
+        <option value="$PROJECT_DIR$/apps/dashboard/components/LayoutMenu.vue" />
       </list>
     </option>
   </component>
@@ -237,7 +267,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="settings.editor.selected.configurable" value="configurable.group.language" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -277,7 +307,7 @@
       <workItem from="1523415993909" duration="55000" />
       <workItem from="1523416061209" duration="152000" />
       <workItem from="1523416427674" duration="3000" />
-      <workItem from="1523416507447" duration="6462000" />
+      <workItem from="1523416507447" duration="7786000" />
     </task>
     <task id="LOCAL-00001" summary="give home and dashboard in page">
       <created>1523329624387</created>
@@ -314,17 +344,23 @@
       <option name="project" value="LOCAL" />
       <updated>1523422817063</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="delete column number in table">
+      <created>1523423024946</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1523423024946</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39152000" />
+    <option name="totallyTimeSpent" value="40476000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24920969" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24920969" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -356,7 +392,8 @@
     <MESSAGE value="add and find a category" />
     <MESSAGE value="close a value addCategory" />
     <MESSAGE value="edit category" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit category" />
+    <MESSAGE value="delete column number in table" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete column number in table" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -538,13 +575,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/dashboard/components/LayoutFooter.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2632">
-          <caret line="63" column="50" lean-forward="false" selection-start-line="63" selection-start-column="50" selection-end-line="63" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/dashboard/assets/dist/js/demo.js" />
     <entry file="file://$PROJECT_DIR$/apps/dashboard/assets/dist/js/adminlte.js" />
     <entry file="file://$PROJECT_DIR$/.nuxt/dashboard/router.js" />
@@ -553,13 +583,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/dashboard/components/LayoutHeading.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="46" column="67" lean-forward="false" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="67" />
         </state>
       </provider>
     </entry>
@@ -597,13 +620,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="23" column="60" lean-forward="false" selection-start-line="23" selection-start-column="60" selection-end-line="23" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/dashboard/pages/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3014">
-          <caret line="181" column="48" lean-forward="false" selection-start-line="181" selection-start-column="48" selection-end-line="181" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -645,10 +661,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/apps/dashboard/components/LayoutHeading.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="46" column="67" lean-forward="false" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/dashboard/components/LayoutFooter.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1056">
+          <caret line="63" column="50" lean-forward="false" selection-start-line="63" selection-start-column="50" selection-end-line="63" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/apps/dashboard/components/LayoutMenu.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="25" column="10" lean-forward="false" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+        <state relative-caret-position="322">
+          <caret line="28" column="95" lean-forward="false" selection-start-line="28" selection-start-column="95" selection-end-line="28" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/dashboard/pages/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="181" column="48" lean-forward="false" selection-start-line="181" selection-start-column="48" selection-end-line="181" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -663,7 +703,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/dashboard/pages/category/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
+        <state relative-caret-position="586">
           <caret line="59" column="36" lean-forward="false" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
           <folding />
         </state>
