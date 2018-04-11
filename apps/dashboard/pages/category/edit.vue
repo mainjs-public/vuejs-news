@@ -5,6 +5,7 @@
 </template>
 
 <script>
+    import omit from 'lodash/omit';
     import FormCategory from '~/components/FormCategory.vue';
     import { addCategory, getCategory } from '~/apollo/queries/category';
     const initData = {
@@ -27,12 +28,7 @@
               const { category } = data;
               callback(null, {data: {
                   clientMutationId: category.id,
-                  name: category.name,
-                  image: category.image,
-                  description: category.description,
-                  status: category.status,
-                  content: category.content,
-                  slug: category.slug,
+                  ...category,
                 }});
             }
           );
@@ -72,10 +68,8 @@
           };
         },
         onClick(e) {
-          // receive the associated Apollo client
-          // const client = this.$apollo.getClient();
-          // most likely you would call mutations like following:
-          this.$apollo.mutate({ mutation: addCategory, variables: { input: this.data }});
+          const addData = omit(this.data, ['id']);
+          this.$apollo.mutate({ mutation: addCategory, variables: { input: addData }});
           e.preventDefault();
         }
       }

@@ -2,12 +2,12 @@
     <div>
         <section class="content-header">
             <h1>
-                {{data.id ? "1" : "2"}}
+                {{data.id ? "Edit" : "Add"}}
             </h1>
             <ol class="breadcrumb">
                 <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
                 <li><a href="/category">Category</a></li>
-                <li class="active">{{data.id ? "1" : "2"}}</li>
+                <li class="active">{{data.id ? "Edit" : "Add"}}</li>
             </ol>
         </section>
         <section class="content">
@@ -16,7 +16,7 @@
                     <div class="box">
                         <div>
                             <div class="box-header with-border">
-                                <h3 class="box-title">{{data.id ? "1" : "2"}}</h3>
+                                <h3 class="box-title">{{data.id ? "Edit Category" : "Add Category"}}</h3>
                             </div>
                             <!-- /.box-header -->
                             <!-- form start -->
