@@ -41,7 +41,7 @@
                                 </thead>
                                 <tbody>
                                 <tr v-for="category of categories" v-bind:key="category.id">
-                                    <td><img :src="category.image"/></td>
+                                    <td><img class="img-circle img-md" :src="category.image"/></td>
                                     <td>{{category.name}}</td>
                                     <td>{{category.slug}}</td>
                                     <td>{{category.created}}</td>
