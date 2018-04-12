@@ -7,7 +7,7 @@ export const state = () => ({
 });
 
 export const mutations = {
-  fetchRequest() {
+  fetchRequest(state) {
     state.loading = true;
     state.error = {};
   },
