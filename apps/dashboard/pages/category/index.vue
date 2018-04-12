@@ -27,7 +27,7 @@
                         </div>
                         <!-- /.box-header -->
                         <div v-if="$apollo.loading">Loading...</div>
-                        <div class="box-body">
+                        <div v-else class="box-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
@@ -49,7 +49,7 @@
                                     <td>{{category.updated}}</td>
                                     <td>{{category.status}}</td>
                                     <td>
-                                        <a :href="`/category/edit?id=${category.id}`" class="btn btn-primary" style="margin-right: 10px">Edit</a>
+                                        <nuxt-link :to="`/category/edit?id=${category.id}`" class="btn btn-primary" style="margin-right: 10px">Edit</nuxt-link>
                                         <button class="btn btn-danger" @click="deleteCategory(category.id)">Delete</button>
                                     </td>
                                 </tr>
