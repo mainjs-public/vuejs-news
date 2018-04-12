@@ -26,18 +26,18 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">MAIN NAVIGATION</li>
-                <li><a href="/"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+                <li><nuxt-link to="/"><i class="fa fa-dashboard"></i> <span>Dashboard</span></nuxt-link></li>
                 <li class="active treeview">
-                    <a href="#">
+                    <nuxt-link to="#">
                         <i class="fa fa-dashboard"></i>
                         <span>Catalog</span>
                         <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
                         </span>
-                    </a>
+                    </nuxt-link>
                     <ul class="treeview-menu">
-                        <li><a href="/category"><i class="fa fa-circle-o"></i> Category</a></li>
-                        <li><a href="/blog"><i class="fa fa-circle-o"></i> Blog</a></li>
+                        <li><nuxt-link to="/category"><i class="fa fa-circle-o"></i> Category</nuxt-link></li>
+                        <li><nuxt-link to="/blog"><i class="fa fa-circle-o"></i> Blog</nuxt-link></li>
                     </ul>
                 </li>
 
