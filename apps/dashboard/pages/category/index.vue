@@ -26,11 +26,7 @@
                             </div>
                         </div>
                         <!-- /.box-header -->
-                        <div class="callout callout-danger" v-if="error.message">
-                            <h4>Error!</h4>
-
-                            <p>{{error.message}}</p>
-                        </div>
+                        <div v-if="$apollo.loading">Loading...</div>
                         <div class="box-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
@@ -44,9 +40,18 @@
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody v-if="loading">
-                                <tr >
-                                    <td colspan="7" style="text-align: center">...Loading</td>
+                                <tbody>
+                                <tr v-for="category of categories" v-bind:key="category.id">
+                                    <td><img class="img-circle img-md" :src="category.image"/></td>
+                                    <td>{{category.name}}</td>
+                                    <td>{{category.slug}}</td>
+                                    <td>{{category.created}}</td>
+                                    <td>{{category.updated}}</td>
+                                    <td>{{category.status}}</td>
+                                    <td>
+                                        <a :href="`/category/edit?id=${category.id}`" class="btn btn-primary" style="margin-right: 10px">Edit</a>
+                                        <button class="btn btn-danger" @click="deleteCategory(category.id)">Delete</button>
+                                    </td>
                                 </tr>
                                 </tbody>
                                 <tbody v-if="!loading">
@@ -85,20 +90,17 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
+  import { query } from '~/apollo/queries/category.js';
   export default {
-    computed: {
-      categories () { return this.$store.state.category.list },
-      loading () { return this.$store.state.category.loading },
-      error () { return this.$store.state.category.error }
+    data () {
+      return {
+        categories: [],
+      }
     },
-    methods: {
-      ...mapActions({
-        fetch: 'category/fetch'
-      })
-    },
-    created() {
-      this.fetch();
+    apollo: {
+      categories: {
+        query: query,
+      }
     }
   }
 </script>
