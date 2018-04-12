@@ -27,8 +27,12 @@ export const actions =  {
     let client = this.app.apolloProvider.defaultClient;
     commit('fetchRequest');
     client.query({ query: query })
-      .then((res) => res.data)
+      .then((res) => {
+        console.log(res);
+        return res.data;
+      })
       .then(data => {
+        console.log(data);
         commit('fetchSuccess', data.categories);
       })
       .catch(error => commit('fetchError', error));

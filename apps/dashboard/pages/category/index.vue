@@ -26,6 +26,7 @@
                             </div>
                         </div>
                         <!-- /.box-header -->
+                        <div v-if="$apollo.loading">Loading...</div>
                         <div class="box-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
@@ -76,20 +77,17 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
+  import { query } from '~/apollo/queries/category.js';
   export default {
-    computed: {
-      categories () { return this.$store.state.category.list },
-      loading () { return this.$store.state.category.loading },
-      error () { return this.$store.state.category.error }
+    data () {
+      return {
+        categories: [],
+      }
     },
-    methods: {
-      ...mapActions({
-        fetch: 'category/fetch'
-      })
-    },
-    created() {
-      this.fetch();
+    apollo: {
+      categories: {
+        query: query,
+      }
     }
   }
 </script>
