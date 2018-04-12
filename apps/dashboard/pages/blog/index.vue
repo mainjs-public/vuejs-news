@@ -42,7 +42,7 @@
                                 </thead>
                                 <tbody>
                                 <tr v-for="blog of blogs" v-bind:key="blog.id">
-                                    <td><img :src="category.image"/></td>
+                                    <td><img :src="blog.image"/></td>
                                     <td>{{blog.name}}</td>
                                     <td>{{blog.slug}}</td>
                                     <td>{{blog.created}}</td>
@@ -50,8 +50,8 @@
                                     <td>{{blog.status}}</td>
                                     <td>{{blog.viewed}}</td>
                                     <td>
-                                        <a :href="`#`" class="btn btn-primary" style="margin-right: 10px">Edit</a>
-                                        <button class="btn btn-danger" @click="deleteBlog(blog.id)">Delete</button>
+                                        <a :href="`/blog/edit?id=${blog.id}`" class="btn btn-primary" style="margin-right: 10px">Edit</a>
+                                        <button class="btn btn-danger" @click="deleteblog(blog.id)">Delete</button>
                                     </td>
                                 </tr>
 
@@ -79,24 +79,31 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex';
   import { query } from '~/apollo/queries/blog.js';
   export default {
-    asyncData (context, callback) {
-      const client = context.app.apolloProvider.defaultClient;
-      client.query({ query: query })
-        .then((res) => res.data)
-    .then(data => {
-        callback(null, { blogs: data.blogs});
-    });
+    methods: {
+      ...mapActions([
+        'deleteblog',
+      ]),
     },
-    method: {
-      deleteBlog(id) {
-        console.log('id')
-      },
-    }
+    computed: {
+      blogs: function() {
+        return this.$store.state.blogs
+      }
+    },
+    // data() {
+    //   return {
+    //     blogs: []
+    //   }
+    // },
+    // mounted() {
+    //   const client = this.$apollo.getClient();
+    //   client.query({ query: query })
+    //     .then((res) => res.data)
+    //     .then(data => {
+    //       this.blogs = data.blogs;
+    //     });
+    // }
   }
 </script>
-
-<style scoped>
-
-</style>

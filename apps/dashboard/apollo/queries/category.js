@@ -12,7 +12,7 @@ export const query = gql`
 `;
 
 export const getCategory = gql`
-  query categoryQuery($categoryId: ID) {
+  query categoryQuery($categoryId: ID!) {
     category(categoryId: $categoryId) {
       id,
       name,

@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="12398f11-0a76-480d-9ec7-3aec11061e5d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/apps/dashboard/components/LayoutMenu.vue" afterPath="$PROJECT_DIR$/apps/dashboard/components/LayoutMenu.vue" />
-    </list>
+    <list default="true" id="12398f11-0a76-480d-9ec7-3aec11061e5d" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -20,7 +17,7 @@
       <file leaf-file-name="LayoutMenu.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/dashboard/components/LayoutMenu.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
+            <state relative-caret-position="616">
               <caret line="28" column="95" lean-forward="false" selection-start-line="28" selection-start-column="95" selection-end-line="28" selection-end-column="95" />
               <folding />
             </state>
@@ -30,7 +27,7 @@
       <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/dashboard/pages/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
+            <state relative-caret-position="3982">
               <caret line="181" column="48" lean-forward="false" selection-start-line="181" selection-start-column="48" selection-end-line="181" selection-end-column="48" />
               <folding />
             </state>
@@ -50,20 +47,8 @@
       <file leaf-file-name="FormCategory.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/dashboard/components/FormCategory.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1239">
+            <state relative-caret-position="242">
               <caret line="11" column="18" lean-forward="false" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-              <folding>
-                <marker date="1523422767563" expanded="true" signature="5320:5326" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="category.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/dashboard/query/category.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="23" column="11" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="23" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -72,7 +57,7 @@
       <file leaf-file-name="index.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/dashboard/pages/category/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="586">
+            <state relative-caret-position="-540">
               <caret line="59" column="36" lean-forward="false" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
               <folding />
             </state>
@@ -82,9 +67,19 @@
       <file leaf-file-name="LayoutFooter.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/dashboard/components/LayoutFooter.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1056">
+            <state relative-caret-position="1386">
               <caret line="63" column="50" lean-forward="false" selection-start-line="63" selection-start-column="50" selection-end-line="63" selection-end-column="50" />
-              <folding />
+              <folding>
+                <marker date="1523458888389" expanded="true" signature="1166:1544" ph="..." />
+                <marker date="1523458888389" expanded="true" signature="1662:2042" ph="..." />
+                <marker date="1523458888389" expanded="true" signature="2160:2540" ph="..." />
+                <marker date="1523458888389" expanded="true" signature="2658:3039" ph="..." />
+                <marker date="1523458888389" expanded="true" signature="3358:3859" ph="..." />
+                <marker date="1523458888389" expanded="true" signature="3977:4471" ph="..." />
+                <marker date="1523458888389" expanded="true" signature="4589:5089" ph="..." />
+                <marker date="1523458888389" expanded="true" signature="5207:5706" ph="..." />
+                <marker date="1523458888389" expanded="true" signature="8794:8864" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -92,9 +87,30 @@
       <file leaf-file-name="LayoutHeading.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/dashboard/components/LayoutHeading.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
+            <state relative-caret-position="1012">
               <caret line="46" column="67" lean-forward="false" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="67" />
-              <folding />
+              <folding>
+                <marker date="1523458429810" expanded="true" signature="110:357" ph="..." />
+                <marker date="1523458429810" expanded="true" signature="613:692" ph="..." />
+                <marker date="1523458429810" expanded="true" signature="1011:1180" ph="..." />
+                <marker date="1523458429810" expanded="true" signature="1586:2279" ph="..." />
+                <marker date="1523458429810" expanded="true" signature="2478:3180" ph="..." />
+                <marker date="1523458429810" expanded="true" signature="3322:4003" ph="..." />
+                <marker date="1523458429810" expanded="true" signature="4154:4854" ph="..." />
+                <marker date="1523458429810" expanded="true" signature="4996:5686" ph="..." />
+                <marker date="1523458429810" expanded="true" signature="6186:6352" ph="..." />
+                <marker date="1523458429810" expanded="true" signature="6742:6904" ph="..." />
+                <marker date="1523458429810" expanded="true" signature="7046:7361" ph="..." />
+                <marker date="1523458429810" expanded="true" signature="7503:7658" ph="..." />
+                <marker date="1523458429810" expanded="true" signature="7800:7958" ph="..." />
+                <marker date="1523458429810" expanded="true" signature="8100:8259" ph="..." />
+                <marker date="1523458429810" expanded="true" signature="8735:8890" ph="..." />
+                <marker date="1523458429810" expanded="true" signature="9298:10159" ph="..." />
+                <marker date="1523458429810" expanded="true" signature="10387:11258" ph="..." />
+                <marker date="1523458429810" expanded="true" signature="11477:12349" ph="..." />
+                <marker date="1523458429810" expanded="true" signature="12568:13447" ph="..." />
+                <marker date="1523458429810" expanded="true" signature="14061:14269" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -102,11 +118,9 @@
       <file leaf-file-name="edit.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/dashboard/pages/category/edit.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="704">
-              <caret line="32" column="42" lean-forward="false" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
-              <folding>
-                <element signature="e#115#172#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="660">
+              <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -164,8 +178,8 @@
         <option value="$PROJECT_DIR$/apps/dashboard/query/category.js" />
         <option value="$PROJECT_DIR$/apps/dashboard/pages/category/edit.vue" />
         <option value="$PROJECT_DIR$/apps/dashboard/components/FormCategory.vue" />
-        <option value="$PROJECT_DIR$/apps/dashboard/pages/category/index.vue" />
         <option value="$PROJECT_DIR$/apps/dashboard/components/LayoutMenu.vue" />
+        <option value="$PROJECT_DIR$/apps/dashboard/pages/category/index.vue" />
       </list>
     </option>
   </component>
@@ -308,6 +322,7 @@
       <workItem from="1523416061209" duration="152000" />
       <workItem from="1523416427674" duration="3000" />
       <workItem from="1523416507447" duration="7786000" />
+      <workItem from="1523457803523" duration="607000" />
     </task>
     <task id="LOCAL-00001" summary="give home and dashboard in page">
       <created>1523329624387</created>
@@ -355,12 +370,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40476000" />
+    <option name="totallyTimeSpent" value="41083000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24920969" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24851191" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -400,14 +415,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/dashboard/query/category.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/dashboard/query/category.js" />
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -444,9 +452,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2002">
           <caret line="91" column="2" lean-forward="false" selection-start-line="91" selection-start-column="2" selection-end-line="91" selection-end-column="2" />
-          <folding>
-            <marker date="1523422767563" expanded="true" signature="5320:5326" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -458,14 +464,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/dashboard/query/category.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/dashboard/query/category.js" />
     <entry file="file://$PROJECT_DIR$/apps/dashboard/components/LayoutMenu.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="550">
@@ -487,20 +486,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2090">
           <caret line="95" column="2" lean-forward="false" selection-start-line="95" selection-start-column="2" selection-end-line="95" selection-end-column="2" />
-          <folding>
-            <marker date="1523422767563" expanded="true" signature="5320:5326" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/dashboard/query/category.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/apps/dashboard/query/category.js" />
     <entry file="file://$PROJECT_DIR$/apps/dashboard/pages/category/index.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2310">
@@ -527,14 +517,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/dashboard/pages/category/edit/index.vue" />
-    <entry file="file://$PROJECT_DIR$/apps/dashboard/query/category.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/dashboard/query/category.js" />
     <entry file="file://$PROJECT_DIR$/apps/dashboard/pages/index.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3982">
@@ -569,9 +552,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2926">
           <caret line="133" column="0" lean-forward="false" selection-start-line="133" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
-          <folding>
-            <marker date="1523422767563" expanded="true" signature="5320:5326" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -643,43 +624,70 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/dashboard/pages/category/edit.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="32" column="42" lean-forward="false" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
-          <folding>
-            <element signature="e#115#172#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="660">
+          <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/dashboard/components/FormCategory.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1239">
+        <state relative-caret-position="242">
           <caret line="11" column="18" lean-forward="false" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-          <folding>
-            <marker date="1523422767563" expanded="true" signature="5320:5326" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/dashboard/components/LayoutHeading.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
+        <state relative-caret-position="1012">
           <caret line="46" column="67" lean-forward="false" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="67" />
-          <folding />
+          <folding>
+            <marker date="1523458429810" expanded="true" signature="110:357" ph="..." />
+            <marker date="1523458429810" expanded="true" signature="613:692" ph="..." />
+            <marker date="1523458429810" expanded="true" signature="1011:1180" ph="..." />
+            <marker date="1523458429810" expanded="true" signature="1586:2279" ph="..." />
+            <marker date="1523458429810" expanded="true" signature="2478:3180" ph="..." />
+            <marker date="1523458429810" expanded="true" signature="3322:4003" ph="..." />
+            <marker date="1523458429810" expanded="true" signature="4154:4854" ph="..." />
+            <marker date="1523458429810" expanded="true" signature="4996:5686" ph="..." />
+            <marker date="1523458429810" expanded="true" signature="6186:6352" ph="..." />
+            <marker date="1523458429810" expanded="true" signature="6742:6904" ph="..." />
+            <marker date="1523458429810" expanded="true" signature="7046:7361" ph="..." />
+            <marker date="1523458429810" expanded="true" signature="7503:7658" ph="..." />
+            <marker date="1523458429810" expanded="true" signature="7800:7958" ph="..." />
+            <marker date="1523458429810" expanded="true" signature="8100:8259" ph="..." />
+            <marker date="1523458429810" expanded="true" signature="8735:8890" ph="..." />
+            <marker date="1523458429810" expanded="true" signature="9298:10159" ph="..." />
+            <marker date="1523458429810" expanded="true" signature="10387:11258" ph="..." />
+            <marker date="1523458429810" expanded="true" signature="11477:12349" ph="..." />
+            <marker date="1523458429810" expanded="true" signature="12568:13447" ph="..." />
+            <marker date="1523458429810" expanded="true" signature="14061:14269" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/dashboard/components/LayoutFooter.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1056">
+        <state relative-caret-position="1386">
           <caret line="63" column="50" lean-forward="false" selection-start-line="63" selection-start-column="50" selection-end-line="63" selection-end-column="50" />
-          <folding />
+          <folding>
+            <marker date="1523458888389" expanded="true" signature="1166:1544" ph="..." />
+            <marker date="1523458888389" expanded="true" signature="1662:2042" ph="..." />
+            <marker date="1523458888389" expanded="true" signature="2160:2540" ph="..." />
+            <marker date="1523458888389" expanded="true" signature="2658:3039" ph="..." />
+            <marker date="1523458888389" expanded="true" signature="3358:3859" ph="..." />
+            <marker date="1523458888389" expanded="true" signature="3977:4471" ph="..." />
+            <marker date="1523458888389" expanded="true" signature="4589:5089" ph="..." />
+            <marker date="1523458888389" expanded="true" signature="5207:5706" ph="..." />
+            <marker date="1523458888389" expanded="true" signature="8794:8864" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/dashboard/components/LayoutMenu.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
+        <state relative-caret-position="616">
           <caret line="28" column="95" lean-forward="false" selection-start-line="28" selection-start-column="95" selection-end-line="28" selection-end-column="95" />
           <folding />
         </state>
@@ -687,23 +695,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/dashboard/pages/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
+        <state relative-caret-position="3982">
           <caret line="181" column="48" lean-forward="false" selection-start-line="181" selection-start-column="48" selection-end-line="181" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/dashboard/query/category.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="23" column="11" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="23" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/dashboard/query/category.js" />
     <entry file="file://$PROJECT_DIR$/apps/dashboard/pages/category/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
+        <state relative-caret-position="-540">
           <caret line="59" column="36" lean-forward="false" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
           <folding />
         </state>
