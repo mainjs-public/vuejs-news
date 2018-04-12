@@ -76,27 +76,20 @@
 </template>
 
 <script>
-  import { query, deleteCategory } from '~/apollo/queries/category.js';
-  import remove from 'lodash/remove';
+  import { mapActions } from 'vuex'
   export default {
+    computed: {
+      categories () { return this.$store.state.category.list },
+      loading () { return this.$store.state.category.loading },
+      error () { return this.$store.state.category.error }
+    },
     methods: {
-      deleteCategory(id) {
-        this.$apollo.mutate({ mutation: deleteCategory, variables: { input: {categoryId: id } }});
-        this.categories = remove(this.categories, o => { return o.id !== id});
-      },
+      ...mapActions({
+        fetch: 'category/fetch'
+      })
     },
-    data() {
-      return {
-        categories: []
-      }
-    },
-    mounted() {
-      const client = this.$apollo.getClient();
-      client.query({ query: query })
-        .then((res) => res.data)
-        .then(data => {
-          this.categories = data.categories;
-        });
+    created() {
+      this.fetch();
     }
   }
 </script>
