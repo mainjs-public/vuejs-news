@@ -13,8 +13,8 @@
 <script>
   import { mapActions } from 'vuex';
   import { getBlog } from '~/apollo/queries/blog';
-  import omit from 'lodash/omit'
   import FormBlog from '~/components/FormBlog.vue';
+  import omit from 'lodash/omit';
   const initData = {
     name: '',
     slug: '',
@@ -35,23 +35,23 @@
         getData: true,
       }
     },
-    // mounted() {
-    //   if (this.blogId !== '') {
-    //     // let client = context.app.apolloProvider.defaultClient;
-    //     const client = this.$apollo.getClient();
-    //     client.query({ query: getBlog , variables: {blogId: this.blogId}})
-    //       .then((res) => {
-    //         return res.data;
-    //       })
-    //       .then(data => {
-    //         this.data = data.blog;
-    //       })
-    //       .catch(error => {
-    //         console.log('test error', error)
-    //         this.getData = false
-    //       });
-    //   }
-    // },
+    mounted() {
+      if (this.blogId !== '') {
+        // let client = context.app.apolloProvider.defaultClient;
+        const client = this.$apollo.getClient();
+        client.query({ query: getBlog , variables: {blogId: this.blogId}})
+          .then((res) => {
+            return res.data;
+          })
+          .then(data => {
+            const blog = omit(data.blog, ['category', '__typename'])
+            this.data = {...blog, category_id: data.blog.category.id};
+          })
+          .catch(error => {
+            this.getData = false
+          });
+      }
+    },
     methods: {
       ...mapActions({
         editBlog: 'blog/editBlog'

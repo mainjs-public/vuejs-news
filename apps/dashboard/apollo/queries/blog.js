@@ -20,13 +20,14 @@ export const query = gql`
 export const getBlog = gql`
   query blogQuery($blogId: ID!) {
     blog(blogId: $blogId) {
-      id,
+      clientMutationId: id,
       name,
       slug,
-      created,
-      updated,
       status,
       image,
+      category {
+        id,
+      },
       description,
       content
     }
