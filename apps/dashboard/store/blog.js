@@ -1,4 +1,4 @@
-import { query } from '~/apollo/queries/category.js';
+import { query, addBlog  } from '~/apollo/queries/blog.js';
 
 export const state = () => ({
   list: [],
@@ -11,10 +11,8 @@ export const mutations = {
     state.loading = true;
     state.error = {};
   },
-  fetchSuccess(state, lists) {
-    state.list = lists;
+  addSuccess(state) {
     state.loading = false;
-    state.error = {};
   },
   fetchError(state, error) {
     state.loading = false;
@@ -28,14 +26,28 @@ export const actions =  {
     commit('fetchRequest');
     client.query({ query: query })
       .then((res) => {
+      console.log(res);
+    return res.data;
+  })
+  .then(data => {
+      console.log(data);
+    commit('fetchSuccess', data.categories);
+  })
+  .catch(error => commit('fetchError', error));
+  },
+  addBlog({ commit }, data) {
+    let client = this.app.apolloProvider.defaultClient;
+    commit('fetchRequest');
+    client.mutate({ mutation: addBlog, variables: {input : data} })
+      .then((res) => {
         console.log(res);
         return res.data;
       })
       .then(data => {
         console.log(data);
-        commit('fetchSuccess', data.categories);
+        commit('addSuccess');
       })
       .catch(error => commit('fetchError', error));
-  },
+  }
 };
 

@@ -26,7 +26,7 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-xs-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                        <nuxt-link to="/" class="btn btn-primary btn-block btn-flat">Sign In</nuxt-link>
                     </div>
                     <!-- /.col -->
                 </div>

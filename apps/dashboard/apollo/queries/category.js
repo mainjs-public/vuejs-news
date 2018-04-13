@@ -6,7 +6,6 @@ export const query = gql`
       name,
       image,
       slug,
-      status,
     }
   }
 `;

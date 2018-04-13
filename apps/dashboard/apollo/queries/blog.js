@@ -9,7 +9,14 @@ export const query = gql`
       created,
       updated,
       status,
-      viewed,
+    }
+  }
+`;
+
+export const addBlog = gql`
+  mutation mutationBlog($input: MutationBlogInput!) {
+    mutationBlog(input: $input) {
+      id
     }
   }
 `;

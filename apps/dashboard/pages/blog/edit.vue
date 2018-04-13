@@ -1,15 +1,14 @@
 <template>
     <div>
-        {{data}}
-        <form-blog :data="data" :onClick="editblog"/>
+        <!--<span>{{data}}</span>-->
+        <form-blog :data="data" :onClick="onclick" :loading="loading" :error="error"/>
     </div>
 </template>
 
 <script>
-  import find from 'lodash/find';
-  import join from 'lodash/join';
-  import FormBlog from '~/components/FormBlog.vue';
   import { mapActions } from 'vuex';
+  import omit from 'lodash/omit'
+  import FormBlog from '~/components/FormBlog.vue';
   const initData = {
     name: '',
     slug: '',
@@ -17,45 +16,30 @@
     description: '',
     content: '',
     tags: [],
-    string_tags: '',
     status: true,
-    category: ''
+    category_id: ''
   };
   export default {
-    asyncData(context, callback) {
-      if (context.route.query.id) {
-        callback(null, {idBlog: context.route.query.id});
-      } else {
-        callback(null, {idBlog: ''});
-      }
-    },
-    computed: {
-      blogs: function () {
-        return this.$store.state.blogs
-      }
-    },
     data() {
       return {
         data: initData,
       }
     },
-    mounted() {
-      const existBlog = find(this.blogs, o => { return o.id === this.idBlog });
-      if (existBlog) {
-        this.data = {...existBlog, string_tags: join(existBlog.tags, ',')};
-      }
-    },
-    components:{
-      FormBlog
-    },
     methods: {
-      ...mapActions([
-        'editblog',
-      ]),
-      onClick(e) {
-        console.log('success click blog');
+      ...mapActions({
+        addBlog: 'blog/addBlog'
+      }),
+      onclick(e) {
+        this.addBlog(this.data);
         e.preventDefault();
       },
+    },
+    computed: {
+        loading () { return this.$store.state.blog.loading },
+        error () { return this.$store.state.blog.error }
+    },
+    components: {
+      FormBlog
     }
   }
 </script>
