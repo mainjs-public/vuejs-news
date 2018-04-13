@@ -1,4 +1,4 @@
-import { query, addBlog  } from '~/apollo/queries/blog.js';
+import { query, editBlog, deleteBlog  } from '~/apollo/queries/blog.js';
 
 export const state = () => ({
   list: [],
@@ -11,7 +11,10 @@ export const mutations = {
     state.loading = true;
     state.error = {};
   },
-  addSuccess(state) {
+  editSuccess(state) {
+    state.loading = false;
+  },
+  deleteSuccess(state) {
     state.loading = false;
   },
   fetchError(state, error) {
@@ -35,17 +38,31 @@ export const actions =  {
   })
   .catch(error => commit('fetchError', error));
   },
-  addBlog({ commit }, data) {
+  editBlog({ commit }, data) {
     let client = this.app.apolloProvider.defaultClient;
     commit('fetchRequest');
-    client.mutate({ mutation: addBlog, variables: {input : data} })
+    client.mutate({ mutation: editBlog, variables: {input : data} })
       .then((res) => {
         console.log(res);
         return res.data;
       })
       .then(data => {
         console.log(data);
-        commit('addSuccess');
+        commit('editSuccess');
+      })
+      .catch(error => commit('fetchError', error));
+  },
+  deleteBlog({ commit }, id) {
+    let client = this.app.apolloProvider.defaultClient;
+    commit('fetchRequest');
+    client.mutate({ mutation: deleteBlog, variables: {input : { blogId : id}} })
+      .then((res) => {
+        console.log(res);
+        return res.data;
+      })
+      .then(data => {
+        console.log(data);
+        commit('deleteSuccess');
       })
       .catch(error => commit('fetchError', error));
   }

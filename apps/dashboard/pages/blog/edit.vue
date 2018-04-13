@@ -1,12 +1,18 @@
 <template>
     <div>
         <!--<span>{{data}}</span>-->
-        <form-blog :data="data" :onClick="onclick" :loading="loading" :error="error"/>
+        <form-blog :data="data" :onClick="onclick" :loading="loading" :error="error" v-if="getData"/>
+        <div v-else>
+            <span>
+                Error get data of blog
+            </span>
+        </div>
     </div>
 </template>
 
 <script>
   import { mapActions } from 'vuex';
+  import { getBlog } from '~/apollo/queries/blog';
   import omit from 'lodash/omit'
   import FormBlog from '~/components/FormBlog.vue';
   const initData = {
@@ -20,17 +26,38 @@
     category_id: ''
   };
   export default {
+    asyncData({ route }, callback) {
+      callback(null, { blogId: route.query.id ? route.query.id: ''})
+    },
     data() {
       return {
         data: initData,
+        getData: true,
       }
     },
+    // mounted() {
+    //   if (this.blogId !== '') {
+    //     // let client = context.app.apolloProvider.defaultClient;
+    //     const client = this.$apollo.getClient();
+    //     client.query({ query: getBlog , variables: {blogId: this.blogId}})
+    //       .then((res) => {
+    //         return res.data;
+    //       })
+    //       .then(data => {
+    //         this.data = data.blog;
+    //       })
+    //       .catch(error => {
+    //         console.log('test error', error)
+    //         this.getData = false
+    //       });
+    //   }
+    // },
     methods: {
       ...mapActions({
-        addBlog: 'blog/addBlog'
+        editBlog: 'blog/editBlog'
       }),
       onclick(e) {
-        this.addBlog(this.data);
+        this.editBlog(this.data);
         e.preventDefault();
       },
     },

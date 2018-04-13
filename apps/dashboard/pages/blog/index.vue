@@ -49,7 +49,7 @@
                                     <td>{{blog.status}}</td>
                                     <td>
                                         <nuxt-link :to="`/blog/edit?id=${blog.id}`" class="btn btn-primary btn-xs" style="margin-right: 10px">Edit</nuxt-link>
-                                        <button class="btn btn-danger btn-xs" @click="deleteCategory(blog.id)">Delete</button>
+                                        <button class="btn btn-danger btn-xs" @click="deleteClick($event, blog.id)">Delete</button>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -69,6 +69,7 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex';
   import { query } from '~/apollo/queries/blog.js';
   export default {
     data () {
@@ -80,7 +81,16 @@
       blogs: {
         query: query,
       }
-    }
+    },
+    methods: {
+      ...mapActions({
+        deleteBlog: 'blog/deleteBlog'
+      }),
+      deleteClick(e, id) {
+        this.deleteBlog(id);
+        e.preventDefault();
+      },
+    },
   }
 </script>
 
