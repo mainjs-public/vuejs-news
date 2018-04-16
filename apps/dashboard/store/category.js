@@ -1,4 +1,4 @@
-import { query, deleteCategory } from '~/apollo/queries/category.js';
+import {query, deleteCategory} from '~/apollo/queries/category.js';
 
 export const state = () => ({
   list: [],
@@ -25,11 +25,11 @@ export const mutations = {
   }
 };
 
-export const actions =  {
-  fetch({ commit }) {
+export const actions = {
+  fetch({commit}) {
     let client = this.app.apolloProvider.defaultClient;
     commit('fetchRequest');
-    client.query({ query: query })
+    client.query({query: query})
       .then((res) => {
         console.log(res);
         return res.data;
@@ -40,10 +40,16 @@ export const actions =  {
       })
       .catch(error => commit('fetchError', error));
   },
-  deleteCategory({ commit }, id) {
+  deleteCategory({commit}, id) {
     let client = this.app.apolloProvider.defaultClient;
     commit('fetchRequest');
-    client.mutate({ mutation: deleteCategory, variables: {input : { categoryId : id}} })
+    client.mutate({
+      mutation: deleteCategory,
+      variables: {input: {categoryId: id}},
+      refetchQueries: [{
+        query: query,
+      }]
+    })
       .then((res) => {
         return res.data;
       })
