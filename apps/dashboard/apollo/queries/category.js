@@ -8,7 +8,6 @@ export const query = gql`
       slug,
       created,
       updated,
-      status,
     }
   }
 `;
