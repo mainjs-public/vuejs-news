@@ -67,6 +67,7 @@ module.exports = {
     '~static/bower_components/jvectormap/jquery-jvectormap.css',
     '~static/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css',
     '~static/bower_components/bootstrap-daterangepicker/daterangepicker.css',
-    '~static/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css'
+    '~static/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css',
+    '~static/plugins/iCheck/square/blue.css'
   ],
 }

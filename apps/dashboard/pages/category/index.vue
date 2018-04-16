@@ -49,7 +49,7 @@
                                     <td>{{category.status}}</td>
                                     <td>
                                         <nuxt-link :to="`/category/edit?id=${category.id}`" class="btn btn-primary btn-xs" style="margin-right: 10px">Edit</nuxt-link>
-                                        <button class="btn btn-danger btn-xs" @click="deleteCategory(category.id)">Delete</button>
+                                        <button class="btn btn-danger btn-xs" @click="deleteClick($event, category.id)">Delete</button>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -64,6 +64,7 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex';
   import { query } from '~/apollo/queries/category.js';
   export default {
     data () {
@@ -75,7 +76,16 @@
       categories: {
         query: query,
       }
-    }
+    },
+    methods: {
+      ...mapActions({
+        deleteCategory: 'category/deleteCategory'
+      }),
+      deleteClick(e, id) {
+        this.deleteCategory(id);
+        e.preventDefault();
+      },
+    },
   }
 </script>
 

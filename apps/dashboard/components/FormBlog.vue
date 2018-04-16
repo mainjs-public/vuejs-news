@@ -19,16 +19,17 @@
                                 <h3 class="box-title">{{data.id ? "Edit blog" : "Add blog"}}</h3>
                             </div>
                             <!-- /.box-header -->
+                            <div class="alert alert-danger alert-dismissible" style="margin: 0px 10px" v-if="error.message">
+                                <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                                {{error.message}}
+                            </div>
                             <!-- form start -->
                             <form class="form-horizontal">
                                 <div class="box-body">
                                     <div class="form-group">
                                         <label class="col-sm-1 control-label">Category</label>
                                         <div class="col-sm-11">
-                                            <select class="form-control" v-model="data.category">
-                                                <option :value="''">None</option>
-                                                <option v-for="category of categories" v-bind:key="category.id" :value="category.id">{{category.name}}</option>
-                                            </select>
+                                            <select-category :category="data.category_id" :onchange="onchangeCategory"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -78,7 +79,7 @@
                                         <label class="col-sm-1 control-label">Tags</label>
 
                                         <div class="col-sm-11">
-                                            <input v-model="data.string_tags" type="text" class="form-control" placeholder="Content">
+                                            <input v-model="data.tags" type="text" class="form-control" placeholder="Tags">
                                             <!--<label class="help-block" v-if="error.content">{{error.content}}</label>-->
                                         </div>
                                     </div>
@@ -95,7 +96,10 @@
                                 <!-- /.box-body -->
                                 <div class="box-footer">
                                     <button type="submit" class="btn btn-default">Cancel</button>
-                                    <button type="submit" class="btn btn-info pull-right" @click="clickButton">Submit</button>
+                                    <button type="submit" class="btn btn-info pull-right" @click="onClick($event)">
+                                        <i class="fa fa-circle-o-notch fa-spin" v-if="loading"></i>
+                                        Submit
+                                    </button>
                                 </div>
                                 <!-- /.box-footer -->
                             </form>
@@ -108,12 +112,13 @@
 </template>
 
 <script>
-  import { query } from '~/apollo/queries/category.js';
+  import SelectCategory from './SelectCategory.vue';
+  import join from 'lodash/join';
+  import split from 'lodash/split';
   export default {
-    props: ['data', 'onClick'],
+    props: ['data', 'onClick', 'loading', 'error'],
     data() {
       return {
-        error: {},
         editorOption: {
           modules: {
             toolbar: [
@@ -144,24 +149,13 @@
         return this.$refs.myTextEditor.quill
       },
     },
+    components: {
+      SelectCategory
+    },
     methods: {
-      clickButton(e) {
-        this.onClick(this.data);
-        e.preventDefault();
+      onchangeCategory(value) {
+        this.data.category_id = value;
       },
-    },
-    data() {
-      return {
-        categories: []
-      }
-    },
-    mounted() {
-      const client = this.$apollo.getClient();
-      client.query({ query: query })
-        .then((res) => res.data)
-        .then(data => {
-            this.categories = data.categories;
-        });
     }
   }
 </script>

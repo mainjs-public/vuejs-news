@@ -4,12 +4,48 @@ export const query = gql`
     blogs {
       id,
       name,
-      image,
       slug,
       created,
       updated,
       status,
-      viewed,
+      category {
+        id,
+        name
+      },
+      image
+    }
+  }
+`;
+
+export const getBlog = gql`
+  query blogQuery($blogId: ID!) {
+    blog(blogId: $blogId) {
+      clientMutationId: id,
+      name,
+      slug,
+      status,
+      image,
+      category {
+        id,
+      },
+      description,
+      content,
+    }
+  }
+`;
+
+export const editBlog = gql`
+  mutation mutationBlog($input: MutationBlogInput!) {
+    mutationBlog(input: $input) {
+      id
+    }
+  }
+`;
+
+export const deleteBlog = gql`
+  mutation deleteBlog($input: DeleteBlogInput!) {
+    deleteBlog(input: $input) {
+      count
     }
   }
 `;

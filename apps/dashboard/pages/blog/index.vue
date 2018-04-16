@@ -6,7 +6,7 @@
                 <!--<small>advanced tables</small>-->
             </h1>
             <ol class="breadcrumb">
-                <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><nuxt-link to="/"><i class="fa fa-dashboard"></i> Home</nuxt-link></li>
                 <li class="active">Blogs</li>
             </ol>
         </section>
@@ -16,17 +16,17 @@
                     <div class="box">
                         <div class="box-header">
                             <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
-                                <h3 class="box-title">Data Table Of Blogs</h3>
-                                <a href="/blog/edit" class="btn btn-warning dropdown-toggle">
+                                <h3 class="box-title">Blogs List</h3>
+                                <nuxt-link to="/blog/edit" class="btn btn-primary">
                                     <div style="display: flex; flex-direction: row; align-items: center;">
-                                        <i class="fa ion-android-add-circle" style="font-size: 20px; margin-right: 15px"/>
-                                        <span style="font-size: 20px; font-weight: bold">Add</span>
+                                        <span>New blogs</span>
                                     </div>
-                                </a>
+                                </nuxt-link>
                             </div>
                         </div>
                         <!-- /.box-header -->
-                        <div class="box-body">
+                        <div v-if="$apollo.loading">Loading...</div>
+                        <div v-else class="box-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
@@ -36,38 +36,28 @@
                                     <th>Created</th>
                                     <th>Updated</th>
                                     <th>Status</th>
-                                    <th>Viewed</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
-                                <tbody>
+                                <tbody v-if="blogs.length > 0">
                                 <tr v-for="blog of blogs" v-bind:key="blog.id">
-                                    <td><img :src="blog.image"/></td>
+                                    <td><img class="img-circle img-sm" :src="blog.image"/></td>
                                     <td>{{blog.name}}</td>
                                     <td>{{blog.slug}}</td>
                                     <td>{{blog.created}}</td>
                                     <td>{{blog.updated}}</td>
                                     <td>{{blog.status}}</td>
-                                    <td>{{blog.viewed}}</td>
                                     <td>
-                                        <a :href="`/blog/edit?id=${blog.id}`" class="btn btn-primary" style="margin-right: 10px">Edit</a>
-                                        <button class="btn btn-danger" @click="deleteblog(blog.id)">Delete</button>
+                                        <nuxt-link :to="`/blog/edit?id=${blog.id}`" class="btn btn-primary btn-xs" style="margin-right: 10px">Edit</nuxt-link>
+                                        <button class="btn btn-danger btn-xs" @click="deleteClick($event, blog.id)">Delete</button>
                                     </td>
                                 </tr>
-
                                 </tbody>
-                                <tfoot>
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Name</th>
-                                    <th>Slug</th>
-                                    <th>Created</th>
-                                    <th>Updated</th>
-                                    <th>Status</th>
-                                    <th>Viewed</th>
-                                    <th>Actions</th>
-                                </tr>
-                                </tfoot>
+                                <tbody v-else>
+                                    <tr>
+                                        <td colspan="7" style="text-align: center">Blog Empty</td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                         <!-- /.box-body -->
@@ -82,28 +72,29 @@
   import { mapActions } from 'vuex';
   import { query } from '~/apollo/queries/blog.js';
   export default {
-    methods: {
-      ...mapActions([
-        'deleteblog',
-      ]),
-    },
-    computed: {
-      blogs: function() {
-        return this.$store.state.blogs
+    data () {
+      return {
+        blogs: [],
       }
     },
-    // data() {
-    //   return {
-    //     blogs: []
-    //   }
-    // },
-    // mounted() {
-    //   const client = this.$apollo.getClient();
-    //   client.query({ query: query })
-    //     .then((res) => res.data)
-    //     .then(data => {
-    //       this.blogs = data.blogs;
-    //     });
-    // }
+    apollo: {
+      blogs: {
+        query: query,
+        fetchPolicy: 'cache-and-network',
+      }
+    },
+    methods: {
+      ...mapActions({
+        deleteBlog: 'blog/deleteBlog'
+      }),
+      deleteClick(e, id) {
+        this.deleteBlog(id);
+        // e.preventDefault();
+      },
+    },
   }
 </script>
+
+<style scoped>
+
+</style>
