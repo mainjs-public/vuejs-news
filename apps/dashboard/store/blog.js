@@ -38,9 +38,9 @@ export const actions =  {
   })
   .catch(error => commit('fetchError', error));
   },
-  editBlog({ commit }, data) {
+  editBlog(context, data) {
     let client = this.app.apolloProvider.defaultClient;
-    commit('fetchRequest');
+    context.commit('fetchRequest');
     client.mutate({ mutation: editBlog, variables: {input : data} })
       .then((res) => {
         console.log(res);
@@ -48,9 +48,10 @@ export const actions =  {
       })
       .then(data => {
         console.log(data);
-        commit('editSuccess');
+        context.commit('editSuccess');
+        this.app.context.redirect('/blog');
       })
-      .catch(error => commit('fetchError', error));
+      .catch(error => context.commit('fetchError', error));
   },
   deleteBlog({ commit }, id) {
     let client = this.app.apolloProvider.defaultClient;
@@ -70,7 +71,10 @@ export const actions =  {
         console.log(data);
         commit('deleteSuccess');
       })
-      .catch(error => commit('fetchError', error));
+      .catch(error => {
+        commit('fetchError', error);
+        alert(error.message);
+      });
   }
 };
 
