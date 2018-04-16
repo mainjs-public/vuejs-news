@@ -21,7 +21,7 @@
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtdYe3FTd_dtcmwRwTZ03rhLACVSDYYTxpRLvm7yP3Rhry0IvD',
     description: '',
     content: '',
-    tags: [],
+    tags: "",
     status: true,
     category_id: ''
   };
@@ -35,17 +35,17 @@
         getData: true,
       }
     },
-    mounted() {
+    async mounted() {
       if (this.blogId !== '') {
         // let client = context.app.apolloProvider.defaultClient;
         const client = this.$apollo.getClient();
-        client.query({ query: getBlog , variables: {blogId: this.blogId}})
+        await client.query({ query: getBlog , variables: {blogId: this.blogId}})
           .then((res) => {
             return res.data;
           })
           .then(data => {
             const blog = omit(data.blog, ['category', '__typename'])
-            this.data = {...blog, category_id: data.blog.category.id};
+            this.data = {...blog, category_id: data.blog.category.id, tags: ''};
           })
           .catch(error => {
             this.getData = false

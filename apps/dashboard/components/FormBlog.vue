@@ -79,7 +79,7 @@
                                         <label class="col-sm-1 control-label">Tags</label>
 
                                         <div class="col-sm-11">
-                                            <input v-model="string_tag" @change="onchangeTag" type="text" class="form-control" placeholder="Tags">
+                                            <input v-model="data.tags" type="text" class="form-control" placeholder="Tags">
                                             <!--<label class="help-block" v-if="error.content">{{error.content}}</label>-->
                                         </div>
                                     </div>
@@ -119,7 +119,6 @@
     props: ['data', 'onClick', 'loading', 'error'],
     data() {
       return {
-        string_tag: join(this.data.tags, ','),
         editorOption: {
           modules: {
             toolbar: [
@@ -156,9 +155,6 @@
     methods: {
       onchangeCategory(value) {
         this.data.category_id = value;
-      },
-      onchangeTag() {
-        this.data.tags = split(this.string_tag, ',');
       },
     }
   }

@@ -29,7 +29,7 @@ export const getBlog = gql`
         id,
       },
       description,
-      content
+      content,
     }
   }
 `;
