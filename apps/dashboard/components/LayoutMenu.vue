@@ -40,6 +40,7 @@
                         <li><nuxt-link to="/blog"><i class="fa fa-circle-o"></i> Blog</nuxt-link></li>
                     </ul>
                 </li>
+                <li><nuxt-link to="/setting"><i class="fa fa-dashboard"></i> <span>Setting</span></nuxt-link></li>
                 <li><nuxt-link to="/login"><i class="fa fa-dashboard"></i> <span>Login</span></nuxt-link></li>
             </ul>
         </section>
