@@ -80,6 +80,7 @@
     apollo: {
       blogs: {
         query: query,
+        fetchPolicy: 'cache-and-network',
       }
     },
     methods: {
@@ -88,7 +89,7 @@
       }),
       deleteClick(e, id) {
         this.deleteBlog(id);
-        e.preventDefault();
+        // e.preventDefault();
       },
     },
   }
