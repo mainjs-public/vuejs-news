@@ -1,13 +1,14 @@
 <template>
     <div>
-        <section class="content-header">
+        <section class="content-header" style="display: flex; align-items: center; flex-direction: row">
+            <nuxt-link class="btn btn-default" style="margin-right: 10px" to="/blog">Back</nuxt-link>
             <h1>
-                {{ data.id ? "Edit" : "Add"}}
+                {{ data.clientMutationId ? "Edit" : "Add"}}
             </h1>
             <ol class="breadcrumb">
                 <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
                 <li><a href="/blog">Blog</a></li>
-                <li class="active">{{data.id ? "Edit" : "Add"}}</li>
+                <li class="active">{{data.clientMutationId ? "Edit" : "Add"}}</li>
             </ol>
         </section>
         <section class="content">
@@ -16,7 +17,7 @@
                     <div class="box">
                         <div>
                             <div class="box-header with-border">
-                                <h3 class="box-title">{{data.id ? "Edit blog" : "Add blog"}}</h3>
+                                <h3 class="box-title">{{data.clientMutationId ? "Edit blog" : "Add blog"}}</h3>
                             </div>
                             <!-- /.box-header -->
                             <div class="alert alert-danger alert-dismissible" style="margin: 0px 10px" v-if="error.message">
@@ -95,10 +96,10 @@
                                 </div>
                                 <!-- /.box-body -->
                                 <div class="box-footer">
-                                    <button type="submit" class="btn btn-default">Cancel</button>
+                                    <button type="submit" class="btn btn-default" @click="onCancel($event)">Cancel</button>
                                     <button type="submit" class="btn btn-info pull-right" @click="onClick($event)">
                                         <i class="fa fa-circle-o-notch fa-spin" v-if="loading"></i>
-                                        Submit
+                                        Save
                                     </button>
                                 </div>
                                 <!-- /.box-footer -->
@@ -113,8 +114,6 @@
 
 <script>
   import SelectCategory from './SelectCategory.vue';
-  import join from 'lodash/join';
-  import split from 'lodash/split';
   export default {
     props: ['data', 'onClick', 'loading', 'error'],
     data() {
@@ -156,6 +155,9 @@
       onchangeCategory(value) {
         this.data.category_id = value;
       },
+      onCancel(e) {
+        e.preventDefault();
+      }
     }
   }
 </script>
