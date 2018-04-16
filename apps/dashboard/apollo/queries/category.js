@@ -8,6 +8,7 @@ export const query = gql`
       slug,
       created,
       updated,
+      status
     }
   }
 `;
@@ -19,14 +20,14 @@ export const getCategory = gql`
       name,
       image,
       description,
-      status,
-      content,
       slug,
+      content,
+      status
     }
   }
 `;
 
-export const addCategory = gql`
+export const editCategory = gql`
   mutation mutationCategory($input: MutationCategoryInput!) {
     mutationCategory(input: $input) {
       id

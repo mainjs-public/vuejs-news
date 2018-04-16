@@ -77,6 +77,7 @@
                                             <quill-editor ref="myTextEditor"
                                                           v-model="data.content"
                                                           :options="editorOption"
+                                                          style="display: inline-block; height: 20rem"
                                             >
                                             </quill-editor>
                                             <!--<label class="help-block" v-if="error.content">{{error.content}}</label>-->
