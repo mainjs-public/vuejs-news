@@ -55,7 +55,13 @@ export const actions =  {
   deleteBlog({ commit }, id) {
     let client = this.app.apolloProvider.defaultClient;
     commit('fetchRequest');
-    client.mutate({ mutation: deleteBlog, variables: {input : { blogId : id}} })
+    client.mutate({
+      mutation: deleteBlog,
+      variables: {input : { blogId : id}} ,
+      refetchQueries: [{
+        query: query,
+      }]
+    })
       .then((res) => {
         console.log(res);
         return res.data;
