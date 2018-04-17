@@ -104,7 +104,8 @@
       onClick(e) {
         e.preventDefault();
       }
-    }
+    },
+    middleware: 'auth'
   }
 </script>
 

@@ -64,7 +64,8 @@
     },
     components: {
       TableCategory
-    }
+    },
+    middleware: 'auth'
   }
 </script>
 

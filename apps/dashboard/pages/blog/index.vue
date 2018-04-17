@@ -64,7 +64,8 @@
     },
     components: {
       TableBlog
-    }
+    },
+    middleware: 'auth'
   }
 </script>
 

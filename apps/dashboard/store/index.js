@@ -26,7 +26,6 @@ export const mutations = {
 export const actions = {
   // nuxtServerInit is called by Nuxt.js before server-rendering every page
   nuxtServerInit({ commit }, { req }) {
-    console.log('test req user', req.session)
     if (req.session && req.session.authUser) {
       commit('SET_USER', req.session.authUser)
     }
@@ -39,7 +38,7 @@ export const actions = {
         return res.data;
       })
       .then(data => {
-        commit('SET_USER', data);
+        commit('SET_USER', data.signIn);
         this.app.context.redirect('/');
       })
       .catch(error => commit('error_login', error));

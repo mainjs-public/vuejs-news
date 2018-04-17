@@ -14,7 +14,8 @@
 
 <script>
   export default {
-    name: 'megamenu'
+    name: 'megamenu',
+    middleware: 'auth'
   }
 </script>
 

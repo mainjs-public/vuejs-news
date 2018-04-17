@@ -62,6 +62,7 @@
     },
     components: {
       FormBlog
-    }
+    },
+    middleware: 'auth'
   }
 </script>

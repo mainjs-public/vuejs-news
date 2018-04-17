@@ -86,12 +86,10 @@
           this.login({email: this.email, password: this.password});
           event.preventDefault();
         },
-        async logout() {
-          try {
-            await this.$store.dispatch('logout')
-          } catch (e) {
-            this.error = e.message
-          }
+      },
+      asyncData({ redirect, store }) {
+        if(store.state.authUser){
+          redirect('/')
         }
       }
     }

@@ -59,6 +59,7 @@
     },
     components: {
       FormCategory
-    }
+    },
+    middleware: 'auth'
   }
 </script>
