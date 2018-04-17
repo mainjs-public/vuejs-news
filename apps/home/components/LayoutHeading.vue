@@ -25,8 +25,8 @@
               <div class="header-top-left">
                 <ul>
                   <li><span id="today"></span></li>
-                  <li><a href="/account">Sign In / Join</a></li>
-                  <li><a href="/contact">Contact</a></li>
+                  <li><nuxt-link to="/account">Sign In / Join</nuxt-link></li>
+                  <li><nuxt-link to="/contact">Contact</nuxt-link></li>
                   <li>London, 27 <sup>o</sup> C</li>
                 </ul>
               </div>
@@ -52,7 +52,7 @@
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div class="logo-area">
-                <a href="/"><img src="images/logo.png" alt="logo"></a>
+                <nuxt-link to="/"><img src="images/logo.png" alt="logo"></nuxt-link>
               </div>
             </div>
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
@@ -87,13 +87,8 @@
               <div class="main-menu navbar-collapse collapse">
                 <nav>
                   <ul>
-                    <li><a href="/" class="has dropdown-toggle">Home <i class="fa fa-chevron-down"
-                                                                                 aria-hidden="true"></i></a>
-                      <ul class="sub-menu">
-                        <li><a href="/">Home 1</a></li>
-                        <li><a href="#">Home 2</a></li>
-                        <li><a href="#">Home 3</a></li>
-                      </ul>
+                    <li>
+                      <nuxt-link to="/" class="has dropdown-toggle">Home </nuxt-link>
                     </li>
                     <li><a href="#" class="has">Mega Menu <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
                       <ul class="sub-menu mega">
@@ -161,9 +156,9 @@
                       </ul>
                     </li>
                     <li v-for="category of categories" v-bind:key="category.id">
-                      <a href="#">{{category.name}}</a>
+                      <nuxt-link to="#">{{category.name}}</nuxt-link>
                     </li>
-                    <li><a href="#">Videos</a></li>
+                    <li><nuxt-link to="#">Videos</nuxt-link></li>
                   </ul>
                 </nav>
               </div>
