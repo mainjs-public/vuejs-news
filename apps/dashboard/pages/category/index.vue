@@ -50,6 +50,7 @@
     apollo: {
       categories: {
         query: query,
+        fetchPolicy: 'cache-and-network',
       }
     },
     methods: {
