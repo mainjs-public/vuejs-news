@@ -1,6 +1,14 @@
 module.exports = {
   srcDir: __dirname,
   buildDir: '.nuxt/home',
+  modules: ['@nuxtjs/apollo'],
+
+  // Give apollo module options
+  apollo: {
+    clientConfigs: {
+      default: '~/apollo/client-configs/default.js'
+    }
+  },
   head: {
     title: 'new24-fontend',
     meta: [

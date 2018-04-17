@@ -1,19 +1,19 @@
 <template>
   <div>
     <!--Preloader area Start here-->
-    <div class="preloader">
-      <div class="sk-cube-grid">
-        <div class="sk-cube sk-cube1"></div>
-        <div class="sk-cube sk-cube2"></div>
-        <div class="sk-cube sk-cube3"></div>
-        <div class="sk-cube sk-cube4"></div>
-        <div class="sk-cube sk-cube5"></div>
-        <div class="sk-cube sk-cube6"></div>
-        <div class="sk-cube sk-cube7"></div>
-        <div class="sk-cube sk-cube8"></div>
-        <div class="sk-cube sk-cube9"></div>
-      </div>
-    </div>
+    <!--<div class="preloader">-->
+      <!--<div class="sk-cube-grid">-->
+        <!--<div class="sk-cube sk-cube1"></div>-->
+        <!--<div class="sk-cube sk-cube2"></div>-->
+        <!--<div class="sk-cube sk-cube3"></div>-->
+        <!--<div class="sk-cube sk-cube4"></div>-->
+        <!--<div class="sk-cube sk-cube5"></div>-->
+        <!--<div class="sk-cube sk-cube6"></div>-->
+        <!--<div class="sk-cube sk-cube7"></div>-->
+        <!--<div class="sk-cube sk-cube8"></div>-->
+        <!--<div class="sk-cube sk-cube9"></div>-->
+      <!--</div>-->
+    <!--</div>-->
     <!--Preloader area end here-->
 
     <!--Header area start here-->
@@ -160,13 +160,9 @@
                         <li><a href="#">Error-404</a></li>
                       </ul>
                     </li>
-                    <li><a href="#">Business</a></li>
-                    <li><a href="#">World</a></li>
-                    <li><a href="#">Fashion</a></li>
-                    <li><a href="#">Politics</a></li>
-                    <li><a href="#">Sports</a></li>
-                    <li><a href="#">Health</a></li>
-                    <li><a href="#">Science</a></li>
+                    <li v-for="category of categories" v-bind:key="category.id">
+                      <a href="#">{{category.name}}</a>
+                    </li>
                     <li><a href="#">Videos</a></li>
                   </ul>
                 </nav>
@@ -185,3 +181,10 @@
     </header>
   </div>
 </template>
+<script>
+  export default {
+    computed: {
+      categories () { return this.$store.state.categories},
+    },
+  }
+</script>
