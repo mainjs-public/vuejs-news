@@ -52,12 +52,12 @@
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div class="logo-area">
-                <nuxt-link to="/"><img src="images/logo.png" alt="logo"></nuxt-link>
+                <nuxt-link to="/"><img src="/images/logo.png" alt="logo"></nuxt-link>
               </div>
             </div>
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
               <div class="right-banner">
-                <img src="images/add/1.png" alt="add image">
+                <img src="/images/add/1.png" alt="add image">
               </div>
             </div>
           </div>
@@ -95,22 +95,22 @@
                         <div class="row">
                           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                              <a href="#"><img src="images/category/1.jpg" alt=""></a>
+                              <a href="#"><img src="/images/category/1.jpg" alt=""></a>
                               <h3><a href="#">Holiday Money: The Ultimate Guide to Buying</a></h3>
                               <p>Nulla ullamcorper orci metus, eu imperdiet quam is a dapibus ac...</p>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                              <a href="#"><img src="images/category/2.jpg" alt=""></a>
+                              <a href="#"><img src="/images/category/2.jpg" alt=""></a>
                               <h3><a href="#">The Exhibition Bankasy Doesn’t Want You to See </a></h3>
                               <p>Nulla ullamcorper orci metus, eu imperdiet quam is a dapibus ac...</p>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                              <a href="#"><img src="images/category/5.jpg" alt=""></a>
+                              <a href="#"><img src="/images/category/5.jpg" alt=""></a>
                               <h3><a href="#">How to End Boom And Bust: Make Cash Illegal </a></h3>
                               <p>Nulla ullamcorper orci metus, eu imperdiet quam is a dapibus ac...</p>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                              <a href="#"><img src="images/category/4.jpg" alt=""></a>
+                              <a href="#"><img src="/images/category/4.jpg" alt=""></a>
                               <h3><a href="#">Quiz: Turner Prize Nominee or Load of Old Rubbish? </a>
                               </h3>
                               <p>Nulla ullamcorper orci metus, eu imperdiet quam is a dapibus ac...</p>

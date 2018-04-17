@@ -13,27 +13,27 @@
                                 <div class="tickers col-md-10">
                                     <div id="top-news-slider" class="owl-carousel ">
                                         <div class="item">
-                                            <a href="blog-single.html"> <img src="images/breaking/1.jpg" alt="news image">
+                                            <a href="blog-single.html"> <img src="/images/breaking/1.jpg" alt="news image">
                                                 <span>Migrants Told: Stay in France </span></a>
                                         </div>
                                         <div class="item">
-                                            <a href="blog-single.html"><img src="images/breaking/2.jpg" alt="news image"> <span>Duo Scripta An The Prieirmod</span></a>
+                                            <a href="blog-single.html"><img src="/images/breaking/2.jpg" alt="news image"> <span>Duo Scripta An The Prieirmod</span></a>
                                         </div>
                                         <div class="item">
-                                            <a href="blog-single.html"><img src="images/breaking/3.jpg" alt="news image"> <span>Two Loser Idaho Pot Smugglers </span></a>
+                                            <a href="blog-single.html"><img src="/images/breaking/3.jpg" alt="news image"> <span>Two Loser Idaho Pot Smugglers </span></a>
                                         </div>
                                         <div class="item">
-                                            <a href="blog-single.html"><img src="images/breaking/4.jpg" alt="news image"> <span>Car racer gives herself a mid-Event</span></a>
+                                            <a href="blog-single.html"><img src="/images/breaking/4.jpg" alt="news image"> <span>Car racer gives herself a mid-Event</span></a>
                                         </div>
                                         <div class="item">
-                                            <a href="blog-single.html"><img src="images/breaking/5.jpg" alt="news image"> <span>Aaron Rodgers Criticizes </span></a>
+                                            <a href="blog-single.html"><img src="/images/breaking/5.jpg" alt="news image"> <span>Aaron Rodgers Criticizes </span></a>
                                         </div>
                                         <div class="item">
-                                            <a href="blog-single.html"> <img src="images/breaking/1.jpg" alt="news image">
+                                            <a href="blog-single.html"> <img src="/images/breaking/1.jpg" alt="news image">
                                                 <span>Detroit Natives Wary & Recovery</span></a>
                                         </div>
                                         <div class="item">
-                                            <a href="blog-single.html"><img src="images/breaking/4.jpg" alt="news image"> <span>Clinton campaign jilted as FBI</span></a>
+                                            <a href="blog-single.html"><img src="/images/breaking/4.jpg" alt="news image"> <span>Clinton campaign jilted as FBI</span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -46,8 +46,8 @@
                     <div class="slider-area">
                         <div class="bend niceties preview-2">
                             <div id="ensign-nivoslider" class="slides">
-                                <img src="images/slider/slide_1.jpg" alt="" title="#slider-direction-1"/>
-                                <img src="images/slider/slide_3.jpg" alt="" title="#slider-direction-2"/>
+                                <img src="/images/slider/slide_1.jpg" alt="" title="#slider-direction-1"/>
+                                <img src="/images/slider/slide_3.jpg" alt="" title="#slider-direction-2"/>
                             </div>
                             <!-- direction 2 -->
                             <div id="slider-direction-1" class="slider-direction">
@@ -111,7 +111,7 @@
                                     <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"> </i> June  28,  2017</span>
                                     <h3><a href="blog-single.html">Trudeau forced to refugees.</a></h3>
                                 </div>
-                                <div class="right-image"><a href="blog-single.html"><img src="images/sidebar-images/1.jpg"
+                                <div class="right-image"><a href="blog-single.html"><img src="/images/sidebar-images/1.jpg"
                                                                                          alt="sidebar image"></a></div>
                             </li>
                             <li>
@@ -120,7 +120,7 @@
                                     <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"> </i>June  28,  2017 </span>
                                     <h3><a href="blog-single.html">The exhibition Bankasy</a></h3>
                                 </div>
-                                <div class="right-image"><a href="blog-single.html"><img src="images/sidebar-images/2.jpg"
+                                <div class="right-image"><a href="blog-single.html"><img src="/images/sidebar-images/2.jpg"
                                                                                          alt="sidebar image"></a></div>
                             </li>
                             <li>
@@ -129,7 +129,7 @@
                                     <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"> </i> June  28,  2017 </span>
                                     <h3><a href="blog-single.html">Hurricane Harvey: evacuations.</a></h3>
                                 </div>
-                                <div class="right-image"><a href="blog-single.html"><img src="images/sidebar-images/3.jpg"
+                                <div class="right-image"><a href="blog-single.html"><img src="/images/sidebar-images/3.jpg"
                                                                                          alt="sidebar image"></a></div>
                             </li>
                         </ul>
@@ -156,7 +156,7 @@
                                 <div class="tab-top-content">
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 paddimg-right-none">
-                                            <a href="blog-single.html"><img src="images/tab/1.jpg" alt="sidebar image"></a>
+                                            <a href="blog-single.html"><img src="/images/tab/1.jpg" alt="sidebar image"></a>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 last-col">
                       <span class="date"><a href="#"><i class="fa fa-user-o"
@@ -173,7 +173,7 @@
                                     <div class="row">
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="images/tab/2.jpg" alt="News image"></a>
+                                                <a href="blog-single.html"><img src="/images/tab/2.jpg" alt="News image"></a>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
                         <span class="date"><i class="fa fa-calendar-check-o"
@@ -183,7 +183,7 @@
                                         </div>
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="images/tab/3.jpg" alt="News image"></a>
+                                                <a href="blog-single.html"><img src="/images/tab/3.jpg" alt="News image"></a>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
                         <span class="date"><i class="fa fa-calendar-check-o"
@@ -193,7 +193,7 @@
                                         </div>
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="images/tab/4.jpg" alt="News image"></a>
+                                                <a href="blog-single.html"><img src="/images/tab/4.jpg" alt="News image"></a>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
                         <span class="date"><i class="fa fa-calendar-check-o"
@@ -203,7 +203,7 @@
                                         </div>
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="images/tab/5.jpg" alt="News image"></a>
+                                                <a href="blog-single.html"><img src="/images/tab/5.jpg" alt="News image"></a>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
                         <span class="date"><i class="fa fa-calendar-check-o"
@@ -218,7 +218,7 @@
                                 <div class="tab-top-content">
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 paddimg-right-none">
-                                            <a href="blog-single.html"><img src="images/tab/7.jpg" alt="sidebar image"></a>
+                                            <a href="blog-single.html"><img src="/images/tab/7.jpg" alt="sidebar image"></a>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 last-col">
                       <span class="date"><a href="#"><i class="fa fa-user-o"
@@ -235,7 +235,7 @@
                                     <div class="row">
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="images/tab/2.jpg" alt="News image"></a>
+                                                <a href="blog-single.html"><img src="/images/tab/2.jpg" alt="News image"></a>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
                         <span class="date"><i class="fa fa-calendar-check-o"
@@ -245,7 +245,7 @@
                                         </div>
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="images/tab/3.jpg" alt="News image"></a>
+                                                <a href="blog-single.html"><img src="/images/tab/3.jpg" alt="News image"></a>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
                         <span class="date"><i class="fa fa-calendar-check-o"
@@ -255,7 +255,7 @@
                                         </div>
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="images/tab/2.jpg" alt="News image"></a>
+                                                <a href="blog-single.html"><img src="/images/tab/2.jpg" alt="News image"></a>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
                         <span class="date"><i class="fa fa-calendar-check-o"
@@ -265,7 +265,7 @@
                                         </div>
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="images/tab/5.jpg" alt="News image"></a>
+                                                <a href="blog-single.html"><img src="/images/tab/5.jpg" alt="News image"></a>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
                         <span class="date"><i class="fa fa-calendar-check-o"
@@ -281,7 +281,7 @@
                                 <div class="tab-top-content">
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 paddimg-right-none">
-                                            <a href="blog-single.html"><img src="images/tab/8.jpg" alt="sidebar image"></a>
+                                            <a href="blog-single.html"><img src="/images/tab/8.jpg" alt="sidebar image"></a>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 last-col">
                       <span class="date"><a href="#"><i class="fa fa-user-o"
@@ -298,7 +298,7 @@
                                     <div class="row">
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="images/tab/2.jpg" alt="News image"></a>
+                                                <a href="blog-single.html"><img src="/images/tab/2.jpg" alt="News image"></a>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
                         <span class="date"><i class="fa fa-calendar-check-o"
@@ -310,7 +310,7 @@
                                         </div>
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="images/tab/3.jpg" alt="News image"></a>
+                                                <a href="blog-single.html"><img src="/images/tab/3.jpg" alt="News image"></a>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
                         <span class="date"><i class="fa fa-calendar-check-o"
@@ -320,7 +320,7 @@
                                         </div>
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="images/tab/3.jpg" alt="News image"></a>
+                                                <a href="blog-single.html"><img src="/images/tab/3.jpg" alt="News image"></a>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
                         <span class="date"><i class="fa fa-calendar-check-o"
@@ -330,7 +330,7 @@
                                         </div>
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="images/tab/2.jpg" alt="News image"></a>
+                                                <a href="blog-single.html"><img src="/images/tab/2.jpg" alt="News image"></a>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
                         <span class="date"><i class="fa fa-calendar-check-o"
@@ -345,7 +345,7 @@
                                 <div class="tab-top-content">
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 paddimg-right-none">
-                                            <a href="blog-single.html"><img src="images/tab/1.jpg" alt="sidebar image"></a>
+                                            <a href="blog-single.html"><img src="/images/tab/1.jpg" alt="sidebar image"></a>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 last-col">
                       <span class="date"><a href="#"><i class="fa fa-user-o"
@@ -362,7 +362,7 @@
                                     <div class="row">
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="images/tab/2.jpg" alt="News image"></a>
+                                                <a href="blog-single.html"><img src="/images/tab/2.jpg" alt="News image"></a>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
                         <span class="date"><i class="fa fa-calendar-check-o"
@@ -372,18 +372,7 @@
                                         </div>
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="images/tab/3.jpg" alt="News image"></a>
-                                            </div>
-                                            <div class="col-sm-12 col-xs-9 img-content">
-                        <span class="date"><i class="fa fa-calendar-check-o"
-                                              aria-hidden="true"></i> June 28, 2017</span>
-
-                                                <h4><a href="#">SIS puts fierce fight & bombing</a></h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
-                                            <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="images/tab/2.jpg" alt="News image"></a>
+                                                <a href="blog-single.html"><img src="/images/tab/3.jpg" alt="News image"></a>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
                         <span class="date"><i class="fa fa-calendar-check-o"
@@ -394,7 +383,18 @@
                                         </div>
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="images/tab/4.jpg" alt="News image"></a>
+                                                <a href="blog-single.html"><img src="/images/tab/2.jpg" alt="News image"></a>
+                                            </div>
+                                            <div class="col-sm-12 col-xs-9 img-content">
+                        <span class="date"><i class="fa fa-calendar-check-o"
+                                              aria-hidden="true"></i> June 28, 2017</span>
+
+                                                <h4><a href="#">SIS puts fierce fight & bombing</a></h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
+                                            <div class="col-sm-12 col-xs-3 img-tab">
+                                                <a href="blog-single.html"><img src="/images/tab/4.jpg" alt="News image"></a>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
                         <span class="date"><i class="fa fa-calendar-check-o"
@@ -410,7 +410,7 @@
                                 <div class="tab-top-content">
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 paddimg-right-none">
-                                            <a href="blog-single.html"><img src="images/tab/7.jpg" alt="sidebar image"></a>
+                                            <a href="blog-single.html"><img src="/images/tab/7.jpg" alt="sidebar image"></a>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 last-col">
                                             <span class="date">james Bond </span><a href="#"><i class="fa fa-heart-o"
@@ -427,7 +427,7 @@
                                     <div class="row">
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="images/tab/2.jpg" alt="News image"></a>
+                                                <a href="blog-single.html"><img src="/images/tab/2.jpg" alt="News image"></a>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
                         <span class="date"><i class="fa fa-calendar-check-o"
@@ -437,7 +437,7 @@
                                         </div>
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="images/tab/3.jpg" alt="News image"></a>
+                                                <a href="blog-single.html"><img src="/images/tab/3.jpg" alt="News image"></a>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
                         <span class="date"><i class="fa fa-calendar-check-o"
@@ -447,7 +447,7 @@
                                         </div>
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="images/tab/2.jpg" alt="News image"></a>
+                                                <a href="blog-single.html"><img src="/images/tab/2.jpg" alt="News image"></a>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
                         <span class="date"><i class="fa fa-calendar-check-o"
@@ -458,7 +458,7 @@
                                         </div>
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="images/tab/4.jpg" alt="News image"></a>
+                                                <a href="blog-single.html"><img src="/images/tab/4.jpg" alt="News image"></a>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
                         <span class="date"><i class="fa fa-calendar-check-o"
@@ -484,7 +484,7 @@
 
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <div class="list-col">
-                                        <a href="blog-single.html"> <img src="images/Trending/1.jpg" alt=""
+                                        <a href="blog-single.html"> <img src="/images/Trending/1.jpg" alt=""
                                                                          title="Trending image"/></a>
                                         <div class="dsc">
                       <span class="date"> <i class="fa fa-calendar-check-o"
@@ -505,7 +505,7 @@
                                                     <div class="item-post">
                                                         <div class="row">
                                                             <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 paddimg-right-none">
-                                                                <a href="blog-single.html"> <img src="images/Trending/2.jpg"
+                                                                <a href="blog-single.html"> <img src="/images/Trending/2.jpg"
                                                                                                  alt="" title="Trending image"></a>
                                                             </div>
                                                             <div class="col-lg-8 col-md-8 col-sm-9 col-xs-9">
@@ -525,7 +525,7 @@
                                                     <div class="item-post">
                                                         <div class="row">
                                                             <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 paddimg-right-none">
-                                                                <a href="blog-single.html"> <img src="images/Trending/3.jpg"
+                                                                <a href="blog-single.html"> <img src="/images/Trending/3.jpg"
                                                                                                  alt="" title="Trending image"></a>
                                                             </div>
                                                             <div class="col-lg-8 col-md-8 col-sm-9 col-xs-9">
@@ -545,7 +545,7 @@
                                                     <div class="item-post">
                                                         <div class="row">
                                                             <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 paddimg-right-none">
-                                                                <a href="blog-single.html"> <img src="images/Trending/4.jpg"
+                                                                <a href="blog-single.html"> <img src="/images/Trending/4.jpg"
                                                                                                  alt="" title="Trending image"></a>
                                                             </div>
                                                             <div class="col-lg-8 col-md-8 col-sm-9 col-xs-9">
@@ -565,7 +565,7 @@
                                                     <div class="item-post">
                                                         <div class="row">
                                                             <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 paddimg-right-none">
-                                                                <a href="blog-single.html"> <img src="images/Trending/5.jpg"
+                                                                <a href="blog-single.html"> <img src="/images/Trending/5.jpg"
                                                                                                  alt="" title="Trending image"></a>
                                                             </div>
                                                             <div class="col-lg-8 col-md-8 col-sm-9 col-xs-9">
@@ -600,7 +600,7 @@
                                     </div>
                                     <div class="featured">
                                         <div class="blog-img">
-                                            <a href="blog-single.html"><img src="images/hot-news/1.jpg" alt=""
+                                            <a href="blog-single.html"><img src="/images/hot-news/1.jpg" alt=""
                                                                             title="News image"/></a>
                                         </div>
                                         <div class="blog-content">
@@ -613,7 +613,7 @@
                                         <li>
                                             <div class="row">
                                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-4">
-                                                    <a href="blog-single.html"><img src="images/hot-news/3.jpg"
+                                                    <a href="blog-single.html"><img src="/images/hot-news/3.jpg"
                                                                                     alt="News image"/></a>
                                                 </div>
                                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-8 content">
@@ -634,7 +634,7 @@
                                         <li>
                                             <div class="row">
                                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-4">
-                                                    <a href="blog-single.html"><img src="images/hot-news/2.jpg"
+                                                    <a href="blog-single.html"><img src="/images/hot-news/2.jpg"
                                                                                     alt="News image"/></a>
                                                 </div>
                                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-8 content">
@@ -653,7 +653,7 @@
                                         <li>
                                             <div class="row">
                                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-4">
-                                                    <a href="blog-single.html"><img src="images/hot-news/4.jpg"
+                                                    <a href="blog-single.html"><img src="/images/hot-news/4.jpg"
                                                                                     alt="News image"/></a>
                                                 </div>
                                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-8 content">
@@ -698,7 +698,7 @@
 
                         <!--Add Start Here -->
                         <div class="add-section">
-                            <img src="images/add/2.jpg" alt="add image">
+                            <img src="/images/add/2.jpg" alt="add image">
                         </div>
                         <!--Add Box End Here -->
 
@@ -726,7 +726,7 @@
                             <ul>
                                 <li>
                                     <a href="category.html" class="category-btn hvr-bounce-to-right">Business</a>
-                                    <div class="post-image"><img src="images/sidebar/1.jpg" alt="News image"></div>
+                                    <div class="post-image"><img src="/images/sidebar/1.jpg" alt="News image"></div>
                                     <div class="content">
                                         <h4>
                                             <a href="#">The exhibition Bankasy doesn’t want you to see</a>
@@ -753,7 +753,7 @@
                                             <div class="item-post">
                                                 <div class="row">
                                                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-3 paddimg-right-none">
-                                                        <img src="images/popular/1.jpg" alt="" title="News image">
+                                                        <img src="/images/popular/1.jpg" alt="" title="News image">
                                                     </div>
                                                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-9">
                                                         <h4><a href="#"> US should prepare for <br/> Russian election</a></h4>
@@ -771,7 +771,7 @@
                                             <div class="item-post">
                                                 <div class="row">
                                                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-3 paddimg-right-none">
-                                                        <img src="images/popular/2.jpg" alt="" title="News image">
+                                                        <img src="/images/popular/2.jpg" alt="" title="News image">
                                                     </div>
                                                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-9">
                                                         <h4><a href="blog-single.html"> Pellentesque Odio Nisi<br/> Euismod In
@@ -790,7 +790,7 @@
                                             <div class="item-post">
                                                 <div class="row">
                                                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-3 paddimg-right-none">
-                                                        <img src="images/popular/3.jpg" alt="" title="News image">
+                                                        <img src="/images/popular/3.jpg" alt="" title="News image">
                                                     </div>
                                                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-9">
                                                         <h4><a href="blog-single.html"> Erant Aeque Neius No <br/>Numes Electram</a>
@@ -809,7 +809,7 @@
                                             <div class="item-post">
                                                 <div class="row">
                                                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-3 paddimg-right-none">
-                                                        <img src="images/popular/4.jpg" alt="" title="News image">
+                                                        <img src="/images/popular/4.jpg" alt="" title="News image">
                                                     </div>
                                                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-9">
                                                         <h4><a href="blog-single.html"> Erant Aeque Neius No <br/>Numes Electram</a>
@@ -871,7 +871,7 @@
                         <!--Recent comments Start Here -->
                         <!--Add Start Here -->
                         <div class="add-section add-section2">
-                            <img src="images/add/3.jpg" alt="add image">
+                            <img src="/images/add/3.jpg" alt="add image">
                         </div>
                         <!--Add Box End Here -->
                     </div>
@@ -892,11 +892,11 @@
                     <div class="item">
                         <div class="single-videos">
                             <div class="images">
-                                <a href="#"><img src="images/fetuered/1.jpg" alt=""></a>
+                                <a href="#"><img src="/images/fetuered/1.jpg" alt=""></a>
                                 <div class="overley">
                                     <div class="videos-icon">
                                         <a class="popup-videos" href="http://www.youtube.com/watch?v=Cdajfy4voyY"><img
-                                                src="images/fetuered/video-icon.png" alt=""></a>
+                                                src="/images/fetuered/video-icon.png" alt=""></a>
                                     </div>
                                 </div>
                             </div>
@@ -911,11 +911,11 @@
                     <div class="item">
                         <div class="single-videos">
                             <div class="images">
-                                <a href="#"><img src="images/fetuered/2.jpg" alt=""></a>
+                                <a href="#"><img src="/images/fetuered/2.jpg" alt=""></a>
                                 <div class="overley">
                                     <div class="videos-icon">
                                         <a class="popup-videos" href="http://www.youtube.com/watch?v=Cdajfy4voyY"><img
-                                                src="images/fetuered/video-icon.png" alt=""></a>
+                                                src="/images/fetuered/video-icon.png" alt=""></a>
                                     </div>
                                 </div>
                             </div>
@@ -931,11 +931,11 @@
                     <div class="item">
                         <div class="single-videos">
                             <div class="images">
-                                <a href="#"><img src="images/fetuered/3.jpg" alt=""></a>
+                                <a href="#"><img src="/images/fetuered/3.jpg" alt=""></a>
                                 <div class="overley">
                                     <div class="videos-icon">
                                         <a class="popup-videos" href="http://www.youtube.com/watch?v=Cdajfy4voyY"><img
-                                                src="images/fetuered/video-icon.png" alt=""></a>
+                                                src="/images/fetuered/video-icon.png" alt=""></a>
                                     </div>
                                 </div>
                             </div>
@@ -951,11 +951,11 @@
                     <div class="item">
                         <div class="single-videos">
                             <div class="images">
-                                <a href="#"><img src="images/fetuered/4.jpg" alt=""></a>
+                                <a href="#"><img src="/images/fetuered/4.jpg" alt=""></a>
                                 <div class="overley">
                                     <div class="videos-icon">
                                         <a class="popup-videos" href="http://www.youtube.com/watch?v=Cdajfy4voyY"><img
-                                                src="images/fetuered/video-icon.png" alt=""></a>
+                                                src="/images/fetuered/video-icon.png" alt=""></a>
                                     </div>
                                 </div>
                             </div>
@@ -971,11 +971,11 @@
                     <div class="item">
                         <div class="single-videos">
                             <div class="images">
-                                <a href="#"><img src="images/fetuered/5.jpg" alt=""></a>
+                                <a href="#"><img src="/images/fetuered/5.jpg" alt=""></a>
                                 <div class="overley">
                                     <div class="videos-icon">
                                         <a class="popup-videos" href="http://www.youtube.com/watch?v=Cdajfy4voyY"><img
-                                                src="images/fetuered/video-icon.png" alt=""></a>
+                                                src="/images/fetuered/video-icon.png" alt=""></a>
                                     </div>
                                 </div>
                             </div>
@@ -991,11 +991,11 @@
                     <div class="item">
                         <div class="single-videos">
                             <div class="images">
-                                <a href="#"><img src="images/fetuered/2.jpg" alt=""></a>
+                                <a href="#"><img src="/images/fetuered/2.jpg" alt=""></a>
                                 <div class="overley">
                                     <div class="videos-icon">
                                         <a class="popup-videos" href="http://www.youtube.com/watch?v=Cdajfy4voyY"><img
-                                                src="images/fetuered/video-icon.png" alt=""></a>
+                                                src="/images/fetuered/video-icon.png" alt=""></a>
                                     </div>
                                 </div>
                             </div>
@@ -1045,7 +1045,7 @@
                                     </div>
                                     <div class="carousel-inner">
                                         <div class="item active">
-                                            <a href="#"><img src="images/news-slider-image/1.jpg" alt=""
+                                            <a href="#"><img src="/images/news-slider-image/1.jpg" alt=""
                                                              title="#slider-direction-1"/></a>
                                             <div class="dsc">
                                                 <span class="date">
@@ -1064,7 +1064,7 @@
                                         </div>
 
                                         <div class="item">
-                                            <a href="#"><img src="images/news-slider-image/3.jpg" alt=""
+                                            <a href="#"><img src="/images/news-slider-image/3.jpg" alt=""
                                                              title="#slider-direction-1"/></a>
                                             <div class="dsc">
                                                 <span class="date">
@@ -1109,7 +1109,7 @@
                                     </div>
                                     <div class="carousel-inner">
                                         <div class="item active">
-                                            <a href="#"><img src="images/news-slider-image/2.jpg" alt=""
+                                            <a href="#"><img src="/images/news-slider-image/2.jpg" alt=""
                                                              title="#slider-direction-1"/></a>
                                             <div class="dsc">
                                                 <span class="date">
@@ -1127,7 +1127,7 @@
                                             </div>
                                         </div>
                                         <div class="item">
-                                            <a href="#"><img src="images/news-slider-image/4.jpg" alt=""
+                                            <a href="#"><img src="/images/news-slider-image/4.jpg" alt=""
                                                              title="#slider-direction-1"/></a>
                                             <div class="dsc">
                                                 <span class="date">
@@ -1143,7 +1143,7 @@
                                             </div>
                                         </div>
                                         <div class="item">
-                                            <a href="#"><img src="images/news-slider-image/2.jpg" alt=""
+                                            <a href="#"><img src="/images/news-slider-image/2.jpg" alt=""
                                                              title="#slider-direction-1"/></a>
                                             <div class="dsc">
                                                 <span class="date">
@@ -1181,7 +1181,7 @@
                                         <div class="item-post">
 
                                             <div class="blog-image">
-                                                <a href="blog-single.html"><img src="images/world/5.jpg" alt=""
+                                                <a href="blog-single.html"><img src="/images/world/5.jpg" alt=""
                                                                                 title="News image"/></a>
                                             </div>
                                             <div class="content">
@@ -1204,7 +1204,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 content">
                                         <div class="item-post">
                                             <div class="blog-image">
-                                                <a href="blog-single.html"><img src="images/world/6.jpg" alt=""
+                                                <a href="blog-single.html"><img src="/images/world/6.jpg" alt=""
                                                                                 title="News image"/></a>
                                             </div>
                                             <div class="content">
@@ -1234,7 +1234,7 @@
                                         <div class="item-post">
                                             <div class="row">
                                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3 paddimg-right-none">
-                                                    <a href="blog-single.html"><img src="images/world/1.jpg" alt=""
+                                                    <a href="blog-single.html"><img src="/images/world/1.jpg" alt=""
                                                                                     title="News image"/></a>
                                                 </div>
                                                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-9">
@@ -1252,7 +1252,7 @@
                                         <div class="item-post">
                                             <div class="row">
                                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3 paddimg-right-none">
-                                                    <a href="blog-single.html"><img src="images/world/2.jpg" alt=""
+                                                    <a href="blog-single.html"><img src="/images/world/2.jpg" alt=""
                                                                                     title="News image"/></a>
                                                 </div>
                                                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-9">
@@ -1273,7 +1273,7 @@
                                         <div class="item-post">
                                             <div class="row">
                                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3 paddimg-right-none">
-                                                    <a href="blog-single.html"><img src="images/world/3.jpg" alt=""
+                                                    <a href="blog-single.html"><img src="/images/world/3.jpg" alt=""
                                                                                     title="News image"/></a>
                                                 </div>
                                                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-9">
@@ -1291,7 +1291,7 @@
                                         <div class="item-post">
                                             <div class="row">
                                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3 paddimg-right-none">
-                                                    <a href="blog-single.html"><img src="images/world/4.jpg" alt=""
+                                                    <a href="blog-single.html"><img src="/images/world/4.jpg" alt=""
                                                                                     title="News image"/></a>
                                                 </div>
                                                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-9">
@@ -1315,7 +1315,7 @@
                             <ul>
                                 <li>
                                     <a href="#" class="category-btn hvr-bounce-to-right">Business</a>
-                                    <div class="post-image"><a href="blog-single.html"><img src="images/sidebar/1.jpg"
+                                    <div class="post-image"><a href="blog-single.html"><img src="/images/sidebar/1.jpg"
                                                                                             alt="News image"/></a></div>
                                     <div class="content">
                                         <h4><a href="blog-single.html">The exhibition Bankasy doesn’t want you to see</a></h4>
@@ -1332,7 +1332,7 @@
                                 </li>
                                 <li>
                                     <a href="category-health.html" class="category-btn hvr-bounce-to-right">Health</a>
-                                    <div class="post-image"><a href="blog-single.html"><img src="images/sidebar/2.jpg"
+                                    <div class="post-image"><a href="blog-single.html"><img src="/images/sidebar/2.jpg"
                                                                                             alt="News image"/></a></div>
                                     <div class="content">
                                         <h4><a href="#">The exhibition Bankasy doesn’t want you to see</a></h4>
@@ -1348,7 +1348,7 @@
                                 </li>
                                 <li>
                                     <a href="#" class="category-btn hvr-bounce-to-right">Fashion</a>
-                                    <div class="post-image"><a href="blog-single.html"><img src="images/sidebar/3.jpg"
+                                    <div class="post-image"><a href="blog-single.html"><img src="/images/sidebar/3.jpg"
                                                                                             alt="News image"/></a></div>
                                     <div class="content">
                                         <h4><a href="#">The exhibition Bankasy doesn’t want you to see</a></h4>
@@ -1392,7 +1392,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <img src="images/footer-top.png" alt="footer">
+                        <img src="/images/footer-top.png" alt="footer">
                     </div>
                 </div>
             </div>
