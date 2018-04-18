@@ -825,39 +825,10 @@
     import { query } from '~/apollo/queries/blog.js';
     import chunk from 'lodash/chunk';
     export default {
-      async asyncData(context, callback) {
-        try {
-          const client = context.app.apolloProvider.defaultClient;
-          const data = await client.query({query: query});
-          callback(null, {data: data})
-        } catch(error) {
-          callback(null, {data: []})
-        }
-
-      },
       data() {
         return {
           blogs: [],
           chunk: chunk,
-          test: [
-            {
-              id: '1',
-              name: 'weohiwr sjdojepjdf pojdfojreojeorjo orejo'
-            },
-            {
-              id: '2',
-              name: 'weohiwr sjdojepjdf pojdfojreojeorjo orejo'
-            },
-            {
-              id: '3',
-              name: 'weohiwr sjdojepjdf pojdfojreojeorjo orejo'
-            },
-            {
-              id: '4',
-              name: 'weohiwr sjdojepjdf pojdfojreojeorjo orejo'
-            },
-
-          ],
         }
       },
       apollo: {
