@@ -5,14 +5,17 @@ export const query = gql`
       id,
       name,
       slug,
+      description,
       created,
-      updated,
       status,
+      image,
       category {
         id,
         name
       },
-      image
+      comments {
+        id
+      }
     }
   }
 `;

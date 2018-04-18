@@ -155,9 +155,13 @@
                         <li><a href="#">Error-404</a></li>
                       </ul>
                     </li>
-                    <li v-for="category of categories" v-bind:key="category.id">
-                      <nuxt-link to="#">{{category.name}}</nuxt-link>
-                    </li>
+                    <li><nuxt-link to="#">Business</nuxt-link></li>
+                    <li><nuxt-link to="#">World</nuxt-link></li>
+                    <li><nuxt-link to="#">Fashion</nuxt-link></li>
+                    <li><nuxt-link to="#">Politics</nuxt-link></li>
+                    <li><nuxt-link to="#">Sports</nuxt-link></li>
+                    <li><nuxt-link to="#">Health</nuxt-link></li>
+                    <li><nuxt-link to="#">Science</nuxt-link></li>
                     <li><nuxt-link to="#">Videos</nuxt-link></li>
                   </ul>
                 </nav>

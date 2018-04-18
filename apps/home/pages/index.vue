@@ -12,28 +12,9 @@
                                         class="fa fa-angle-double-right" aria-hidden="true"></i></div>
                                 <div class="tickers col-md-10">
                                     <div id="top-news-slider" class="owl-carousel ">
-                                        <div class="item">
-                                            <a href="blog-single.html"> <img src="/images/breaking/1.jpg" alt="news image">
-                                                <span>Migrants Told: Stay in France </span></a>
-                                        </div>
-                                        <div class="item">
-                                            <a href="blog-single.html"><img src="/images/breaking/2.jpg" alt="news image"> <span>Duo Scripta An The Prieirmod</span></a>
-                                        </div>
-                                        <div class="item">
-                                            <a href="blog-single.html"><img src="/images/breaking/3.jpg" alt="news image"> <span>Two Loser Idaho Pot Smugglers </span></a>
-                                        </div>
-                                        <div class="item">
-                                            <a href="blog-single.html"><img src="/images/breaking/4.jpg" alt="news image"> <span>Car racer gives herself a mid-Event</span></a>
-                                        </div>
-                                        <div class="item">
-                                            <a href="blog-single.html"><img src="/images/breaking/5.jpg" alt="news image"> <span>Aaron Rodgers Criticizes </span></a>
-                                        </div>
-                                        <div class="item">
-                                            <a href="blog-single.html"> <img src="/images/breaking/1.jpg" alt="news image">
-                                                <span>Detroit Natives Wary & Recovery</span></a>
-                                        </div>
-                                        <div class="item">
-                                            <a href="blog-single.html"><img src="/images/breaking/4.jpg" alt="news image"> <span>Clinton campaign jilted as FBI</span></a>
+                                        <div class="item" v-for="blog of blogs" v-bind:key="blog.id">
+                                            <a href="blog-single.html"> <img :src="blog.image" :alt="blog.name">
+                                                <span>{{blog.name}}</span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -46,55 +27,34 @@
                     <div class="slider-area">
                         <div class="bend niceties preview-2">
                             <div id="ensign-nivoslider" class="slides">
-                                <img src="/images/slider/slide_1.jpg" alt="" title="#slider-direction-1"/>
-                                <img src="/images/slider/slide_3.jpg" alt="" title="#slider-direction-2"/>
+                                <!--<img src="/images/slider/slide_1.jpg" alt="" title="#slider-direction-1"/>-->
+                                <!--<img src="/images/slider/slide_3.jpg" alt="" title="#slider-direction-2"/>-->
+                                <img v-for="(blog, index) in blogs" v-bind:key="blog.id" :src="blog.image" :title="`#slider-direction-${index+1}`"/>
                             </div>
                             <!-- direction 2 -->
-                            <div id="slider-direction-1" class="slider-direction">
+                            <div v-for="(blog, index) in blogs" v-bind:key="index" class="slider-direction" :id="`slider-direction-${index+1}`">
                                 <div class="slider-content t-cn s-tb slider-1">
                                     <div class="title-container s-tb-c">
                                         <div class="slider-botton">
                                             <ul>
                                                 <li>
-                                                    <a class="cat-link" href="category.html">Business</a>
+                                                    <nuxt-link class="cat-link" to="#">{{blog.category !== null ? blog.category.name : 'Category'}}</nuxt-link>
                                                     <span class="date">
-                                                    <i class="fa fa-calendar-check-o" aria-hidden="true"></i>November 28, 2017
-                                                </span>
+                                                        <i class="fa fa-calendar-check-o" aria-hidden="true"></i>{{blog.created}}
+                                                    </span>
                                                     <span class="comment">
-                                                    <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 50
-                                                    </a>
-                                                </span>
+                                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}} </a>
+                                                    </span>
                                                 </li>
                                             </ul>
                                         </div>
-                                        <h1 class="title1"><a href="blog.html"><span>Record</span> proportion of women<br/>on
-                                            degrees</a></h1>
-                                        <div class="title2">The exhibition Banksy doesn’t want to see whle travelling hear.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- direction 2 -->
-                            <div id="slider-direction-2" class="slider-direction">
-                                <div class="slider-content t-cn s-tb slider-2">
-                                    <div class="title-container s-tb-c">
-                                        <div class="slider-botton">
-                                            <ul>
-                                                <li>
-                                                    <a class="cat-link" href="category-world.html">World</a>
-                                                    <span class="date">
-                                                    <i class="fa fa-calendar-check-o" aria-hidden="true"></i>November 28, 2017
-                                                </span>
-                                                    <span class="comment">
-                                                    <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 50
-                                                    </a>
-                                                </span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <h1 class="title1"><a href="blog.html"><span>John</span> to retire as director</a></h1>
-                                        <div class="title2">The exhibition Banksy doesn’t want to see whle travelling hear.
-                                        </div>
+                                        <h1 class="title1">
+                                            <a href="blog.html">
+                                                <!--<span>Record</span> proportion of women<br/>on degrees-->
+                                                {{blog.name}}
+                                            </a>
+                                        </h1>
+                                        <div class="title2">{{blog.description}}</div>
                                     </div>
                                 </div>
                             </div>
@@ -105,32 +65,15 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 paddimg-left-none">
                     <div class="slider-right">
                         <ul>
-                            <li>
+                            <li v-for="(blog,index ) in blogs" v-bind:key="blog.id" v-if="index<3">
                                 <div class="right-content">
-                                    <span class="category"><a class="cat-link" href="blog.html">Business</a></span>
-                                    <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"> </i> June  28,  2017</span>
-                                    <h3><a href="blog-single.html">Trudeau forced to refugees.</a></h3>
+                                    <span class="category"><nuxt-link class="cat-link" to="#">{{blog.category !== null ? blog.category.name: 'Category'}}</nuxt-link></span>
+                                    <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"> </i> {{blog.created}}</span>
+                                    <h3><a href="blog-single.html">{{blog.decription}}</a></h3>
                                 </div>
-                                <div class="right-image"><a href="blog-single.html"><img src="/images/sidebar-images/1.jpg"
-                                                                                         alt="sidebar image"></a></div>
-                            </li>
-                            <li>
-                                <div class="right-content">
-                                    <span class="category"><a class="cat-link" href="blog.html">Health</a></span>
-                                    <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"> </i>June  28,  2017 </span>
-                                    <h3><a href="blog-single.html">The exhibition Bankasy</a></h3>
+                                <div class="right-image">
+                                    <nuxt-link to="#"><img :src="blog.image" alt="sidebar image" style="width: 100%; max-height: 184px"/></nuxt-link>
                                 </div>
-                                <div class="right-image"><a href="blog-single.html"><img src="/images/sidebar-images/2.jpg"
-                                                                                         alt="sidebar image"></a></div>
-                            </li>
-                            <li>
-                                <div class="right-content">
-                                    <span class="category"><a class="cat-link" href="blog.html">Science</a></span>
-                                    <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"> </i> June  28,  2017 </span>
-                                    <h3><a href="blog-single.html">Hurricane Harvey: evacuations.</a></h3>
-                                </div>
-                                <div class="right-image"><a href="blog-single.html"><img src="/images/sidebar-images/3.jpg"
-                                                                                         alt="sidebar image"></a></div>
                             </li>
                         </ul>
                     </div>
@@ -154,61 +97,28 @@
                         <div class="tab-content">
                             <div id="tab1" class="tab-pane fade in active">
                                 <div class="tab-top-content">
-                                    <div class="row">
+                                    <div class="row" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index === 0">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 paddimg-right-none">
-                                            <a href="blog-single.html"><img src="/images/tab/1.jpg" alt="sidebar image"></a>
+                                            <a href="blog-single.html"><img :src="blog.image" alt="sidebar image" style="width: 100%"/></a>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 last-col">
-                      <span class="date"><a href="#"><i class="fa fa-user-o"
-                                                        aria-hidden="true"></i> james Bond </a></span>
-                                            <span class="comment"><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 50</a></span>
-                                            <h3><a href="#">Migrants Told: Stay in France or go back to your country</a></h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nisl risus,
-                                                tristique diam id, blandit condimentum</p>
-                                            <a href="blog-single.html" class="read-more hvr-bounce-to-right">Read More</a>
+                                            <span class="date"><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> james Bond </a></span>
+                                            <span class="comment"><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}</a></span>
+                                            <h3><nuxt-link to="#">{{blog.name}}</nuxt-link></h3>
+                                            <p>{{blog.description}}</p>
+                                            <nuxt-link to="#" class="read-more hvr-bounce-to-right">Read More</nuxt-link>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="tab-bottom-content">
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<4">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="/images/tab/2.jpg" alt="News image"></a>
+                                                <nuxt-link to="#"><img :src="blog.image" alt="News image"></nuxt-link>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
-                        <span class="date"><i class="fa fa-calendar-check-o"
-                                              aria-hidden="true"> </i>June 28, 2017</span>
-                                                <h4><a href="blog-single.html">The Soccer Field Close.</a></h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
-                                            <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="/images/tab/3.jpg" alt="News image"></a>
-                                            </div>
-                                            <div class="col-sm-12 col-xs-9 img-content">
-                        <span class="date"><i class="fa fa-calendar-check-o"
-                                              aria-hidden="true"> </i>June 28, 2017</span>
-                                                <h4><a href="blog-single.html">The Soccer Field Close.</a></h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
-                                            <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="/images/tab/4.jpg" alt="News image"></a>
-                                            </div>
-                                            <div class="col-sm-12 col-xs-9 img-content">
-                        <span class="date"><i class="fa fa-calendar-check-o"
-                                              aria-hidden="true"> </i>June 28, 2017</span>
-                                                <h4><a href="blog-single.html">The Soccer Field Close.</a></h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
-                                            <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="/images/tab/5.jpg" alt="News image"></a>
-                                            </div>
-                                            <div class="col-sm-12 col-xs-9 img-content">
-                        <span class="date"><i class="fa fa-calendar-check-o"
-                                              aria-hidden="true"> </i>June 28, 2017</span>
-                                                <h4><a href="blog-single.html">The Soccer Field Close.</a></h4>
+                                                <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"> </i>{{blog.created}}</span>
+                                                <h4><nuxt-link to="#">{{blog.name}}</nuxt-link></h4>
                                             </div>
                                         </div>
                                     </div>
@@ -216,62 +126,28 @@
                             </div>
                             <div id="tab2" class="tab-pane fade">
                                 <div class="tab-top-content">
-                                    <div class="row">
+                                    <div class="row" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index === 0">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 paddimg-right-none">
-                                            <a href="blog-single.html"><img src="/images/tab/7.jpg" alt="sidebar image"></a>
+                                            <a href="blog-single.html"><img :src="blog.image" alt="sidebar image" style="width: 100%"></a>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 last-col">
-                      <span class="date"><a href="#"><i class="fa fa-user-o"
-                                                        aria-hidden="true"></i> james Bond </a></span>
-                                            <span class="comment"><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 50</a></span>
-                                            <h3><a href="#">Migrants Told: Stay in France or go back to your country</a></h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nisl risus,
-                                                tristique diam id, blandit condimentum</p>
-                                            <a href="blog-single.html" class="read-more hvr-bounce-to-right">READ MORE</a>
+                                            <span class="date"><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> james Bond </a></span>
+                                            <span class="comment"><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}</a></span>
+                                            <h3><nuxt-link to="#">{{blog.name}}</nuxt-link></h3>
+                                            <p>{{blog.description}}</p>
+                                            <nuxt-link to="#" class="read-more hvr-bounce-to-right">Read More</nuxt-link>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="tab-bottom-content">
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<4">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="/images/tab/2.jpg" alt="News image"></a>
+                                                <nuxt-link to="#"><img :src="blog.image" alt="News image"></nuxt-link>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
-                        <span class="date"><i class="fa fa-calendar-check-o"
-                                              aria-hidden="true"></i> June 28, 2017</span>
-                                                <h4><a href="blog-single.html">SIS puts fierce fight & bombing</a></h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
-                                            <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="/images/tab/3.jpg" alt="News image"></a>
-                                            </div>
-                                            <div class="col-sm-12 col-xs-9 img-content">
-                        <span class="date"><i class="fa fa-calendar-check-o"
-                                              aria-hidden="true"></i> June 28, 2017</span>
-                                                <h4><a href="blog-single.html">SIS puts fierce fight & bombing</a></h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
-                                            <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="/images/tab/2.jpg" alt="News image"></a>
-                                            </div>
-                                            <div class="col-sm-12 col-xs-9 img-content">
-                        <span class="date"><i class="fa fa-calendar-check-o"
-                                              aria-hidden="true"></i> June 28, 2017</span>
-                                                <h4><a href="blog-single.html">SIS puts fierce fight & bombing</a></h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
-                                            <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="/images/tab/5.jpg" alt="News image"></a>
-                                            </div>
-                                            <div class="col-sm-12 col-xs-9 img-content">
-                        <span class="date"><i class="fa fa-calendar-check-o"
-                                              aria-hidden="true"></i> June 28, 2017</span>
-
-                                                <h4><a href="blog-single.html">SIS puts fierce fight & bombing</a></h4>
+                                                <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"> </i>{{blog.created}}</span>
+                                                <h4><nuxt-link to="#">{{blog.name}}</nuxt-link></h4>
                                             </div>
                                         </div>
                                     </div>
@@ -279,63 +155,28 @@
                             </div>
                             <div id="tab3" class="tab-pane fade">
                                 <div class="tab-top-content">
-                                    <div class="row">
+                                    <div class="row" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index === 0">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 paddimg-right-none">
-                                            <a href="blog-single.html"><img src="/images/tab/8.jpg" alt="sidebar image"></a>
+                                            <a href="blog-single.html"><img :src="blog.image" alt="sidebar image" style="width: 100%"></a>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 last-col">
-                      <span class="date"><a href="#"><i class="fa fa-user-o"
-                                                        aria-hidden="true"></i> james Bond </a></span>
-                                            <span class="comment"><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 50</a></span>
-                                            <h3><a href="#">Migrants Told: Stay in France or go back to your country</a></h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nisl risus,
-                                                tristique diam id, blandit condimentum</p>
-                                            <a href="#" class="read-more hvr-bounce-to-right">Read More</a>
+                                            <span class="date"><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> james Bond </a></span>
+                                            <span class="comment"><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}</a></span>
+                                            <h3><nuxt-link to="#">{{blog.name}}</nuxt-link></h3>
+                                            <p>{{blog.description}}</p>
+                                            <nuxt-link to="#" class="read-more hvr-bounce-to-right">Read More</nuxt-link>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="tab-bottom-content">
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<4">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="/images/tab/2.jpg" alt="News image"></a>
+                                                <nuxt-link to="#"><img :src="blog.image" alt="News image"></nuxt-link>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
-                        <span class="date"><i class="fa fa-calendar-check-o"
-                                              aria-hidden="true"></i> June 28, 2017</span>
-
-
-                                                <h4><a href="#">SIS puts fierce fight & bombing</a></h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
-                                            <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="/images/tab/3.jpg" alt="News image"></a>
-                                            </div>
-                                            <div class="col-sm-12 col-xs-9 img-content">
-                        <span class="date"><i class="fa fa-calendar-check-o"
-                                              aria-hidden="true"></i> June 28, 2017</span>
-                                                <h4><a href="#">SIS puts fierce fight & bombing</a></h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
-                                            <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="/images/tab/3.jpg" alt="News image"></a>
-                                            </div>
-                                            <div class="col-sm-12 col-xs-9 img-content">
-                        <span class="date"><i class="fa fa-calendar-check-o"
-                                              aria-hidden="true"></i> June 28, 2017</span>
-                                                <h4><a href="#">SIS puts fierce fight & bombing</a></h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
-                                            <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="/images/tab/2.jpg" alt="News image"></a>
-                                            </div>
-                                            <div class="col-sm-12 col-xs-9 img-content">
-                        <span class="date"><i class="fa fa-calendar-check-o"
-                                              aria-hidden="true"></i> June 28, 2017</span>
-                                                <h4><a href="#">SIS puts fierce fight & bombing</a></h4>
+                                                <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"> </i>{{blog.created}}</span>
+                                                <h4><nuxt-link to="#">{{blog.name}}</nuxt-link></h4>
                                             </div>
                                         </div>
                                     </div>
@@ -343,64 +184,28 @@
                             </div>
                             <div id="tab4" class="tab-pane fade">
                                 <div class="tab-top-content">
-                                    <div class="row">
+                                    <div class="row" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index === 0">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 paddimg-right-none">
-                                            <a href="blog-single.html"><img src="/images/tab/1.jpg" alt="sidebar image"></a>
+                                            <a href="blog-single.html"><img :src="blog.image" alt="sidebar image" style="width: 100%"></a>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 last-col">
-                      <span class="date"><a href="#"><i class="fa fa-user-o"
-                                                        aria-hidden="true"></i> james Bond </a></span>
-                                            <span class="comment"><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 50</a></span>
-                                            <h3><a href="#">Migrants Told: Stay in France or go back to your country</a></h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nisl risus,
-                                                tristique diam id, blandit condimentum</p>
-                                            <a href="#" class="read-more hvr-bounce-to-right">Read More</a>
+                                            <span class="date"><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> james Bond </a></span>
+                                            <span class="comment"><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}</a></span>
+                                            <h3><nuxt-link to="#">{{blog.name}}</nuxt-link></h3>
+                                            <p>{{blog.description}}</p>
+                                            <nuxt-link to="#" class="read-more hvr-bounce-to-right">Read More</nuxt-link>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-bottom-content fadeInUp">
+                                <div class="tab-bottom-content">
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<4">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="/images/tab/2.jpg" alt="News image"></a>
+                                                <nuxt-link to="#"><img :src="blog.image" alt="News image"></nuxt-link>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
-                        <span class="date"><i class="fa fa-calendar-check-o"
-                                              aria-hidden="true"></i> June 28, 2017</span>
-                                                <h4><a href="#">SIS puts fierce fight & bombing</a></h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
-                                            <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="/images/tab/3.jpg" alt="News image"></a>
-                                            </div>
-                                            <div class="col-sm-12 col-xs-9 img-content">
-                        <span class="date"><i class="fa fa-calendar-check-o"
-                                              aria-hidden="true"></i> June 28, 2017</span>
-
-                                                <h4><a href="#">SIS puts fierce fight & bombing</a></h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
-                                            <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="/images/tab/2.jpg" alt="News image"></a>
-                                            </div>
-                                            <div class="col-sm-12 col-xs-9 img-content">
-                        <span class="date"><i class="fa fa-calendar-check-o"
-                                              aria-hidden="true"></i> June 28, 2017</span>
-
-                                                <h4><a href="#">SIS puts fierce fight & bombing</a></h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
-                                            <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="/images/tab/4.jpg" alt="News image"></a>
-                                            </div>
-                                            <div class="col-sm-12 col-xs-9 img-content">
-                        <span class="date"><i class="fa fa-calendar-check-o"
-                                              aria-hidden="true"></i> June 28, 2017</span>
-
-                                                <h4><a href="#">SIS puts fierce fight & bombing</a></h4>
+                                                <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"> </i>{{blog.created}}</span>
+                                                <h4><nuxt-link to="#">{{blog.name}}</nuxt-link></h4>
                                             </div>
                                         </div>
                                     </div>
@@ -408,62 +213,28 @@
                             </div>
                             <div id="tab5" class="tab-pane fade">
                                 <div class="tab-top-content">
-                                    <div class="row">
+                                    <div class="row" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index === 0">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 paddimg-right-none">
-                                            <a href="blog-single.html"><img src="/images/tab/7.jpg" alt="sidebar image"></a>
+                                            <a href="blog-single.html"><img :src="blog.image" alt="sidebar image" style="width: 100%"></a>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 last-col">
-                                            <span class="date">james Bond </span><a href="#"><i class="fa fa-heart-o"
-                                                                                                aria-hidden="true"></i> 50</a>
-                                            <span class="comment"><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 50</a></span>
-                                            <h3><a href="#">Migrants Told: Stay in France or go back to your country</a></h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nisl risus,
-                                                tristique diam id, blandit condimentum</p>
-                                            <a href="#" class="read-more hvr-bounce-to-right">READ MORE</a>
+                                            <span class="date"><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> james Bond </a></span>
+                                            <span class="comment"><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}</a></span>
+                                            <h3><nuxt-link to="#">{{blog.name}}</nuxt-link></h3>
+                                            <p>{{blog.description}}</p>
+                                            <nuxt-link to="#" class="read-more hvr-bounce-to-right">Read More</nuxt-link>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-bottom-content fadeInUp">
+                                <div class="tab-bottom-content">
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<4">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="/images/tab/2.jpg" alt="News image"></a>
+                                                <nuxt-link to="#"><img :src="blog.image" alt="News image"></nuxt-link>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
-                        <span class="date"><i class="fa fa-calendar-check-o"
-                                              aria-hidden="true"></i> June 28, 2017</span>
-                                                <h4><a href="#">SIS puts fierce fight & bombing</a></h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
-                                            <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="/images/tab/3.jpg" alt="News image"></a>
-                                            </div>
-                                            <div class="col-sm-12 col-xs-9 img-content">
-                        <span class="date"><i class="fa fa-calendar-check-o"
-                                              aria-hidden="true"></i> June 28, 2017</span>
-                                                <h4><a href="#">SIS puts fierce fight & bombing</a></h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
-                                            <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="/images/tab/2.jpg" alt="News image"></a>
-                                            </div>
-                                            <div class="col-sm-12 col-xs-9 img-content">
-                        <span class="date"><i class="fa fa-calendar-check-o"
-                                              aria-hidden="true"></i> June 28, 2017</span>
-
-                                                <h4><a href="#">SIS puts fierce fight & bombing</a></h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area">
-                                            <div class="col-sm-12 col-xs-3 img-tab">
-                                                <a href="blog-single.html"><img src="/images/tab/4.jpg" alt="News image"></a>
-                                            </div>
-                                            <div class="col-sm-12 col-xs-9 img-content">
-                        <span class="date"><i class="fa fa-calendar-check-o"
-                                              aria-hidden="true"></i> June 28, 2017</span>
-                                                <h4><a href="#">SIS puts fierce fight & bombing</a></h4>
+                                                <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"> </i>{{blog.created}}</span>
+                                                <h4><nuxt-link to="#">{{blog.name}}</nuxt-link></h4>
                                             </div>
                                         </div>
                                     </div>
@@ -478,101 +249,34 @@
                                         <h3 class="title-bg">Trending News</h3>
                                     </div>
                                     <div class="col-sm-4 text-right">
-                                        <a href="#">View More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                        <nuxt-link to="#">View More <i class="fa fa-angle-double-right" aria-hidden="true"></i></nuxt-link>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                    <div class="list-col">
-                                        <a href="blog-single.html"> <img src="/images/Trending/1.jpg" alt=""
-                                                                         title="Trending image"/></a>
+                                    <div class="list-col" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index===0">
+                                        <nuxt-link to="#"> <img :src="blog.image" alt="" title="Trending image" style="width: 100%;"/></nuxt-link>
                                         <div class="dsc">
-                      <span class="date"> <i class="fa fa-calendar-check-o"
-                                             aria-hidden="true"></i> November 28, 2017 </span>
-                                            <span class="comment"><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 50</a></span>
-                                            <h3><a href="blog-single.html">Two Loser Idaho Pot Smugglers Freak Out, Call 911 on
-                                                Themselves </a></h3>
-                                            <p>Blandit rutrum, erat et egestas ultricies, dolor tortor egestas enim, quiste
-                                                rhoncus sem the purus eu sapien curabitur.</p>
+                                            <span class="date"> <i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}} </span>
+                                            <span class="comment"><nuxt-link to="#"><i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}</nuxt-link></span>
+                                            <h3><nuxt-link to="#">{{blog.name}}</nuxt-link></h3>
+                                            <p>{{blog.description}}</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <ul class="news-post">
-                                        <li>
+                                        <li v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<4">
                                             <div class="row">
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
                                                     <div class="item-post">
                                                         <div class="row">
                                                             <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 paddimg-right-none">
-                                                                <a href="blog-single.html"> <img src="/images/Trending/2.jpg"
-                                                                                                 alt="" title="Trending image"></a>
+                                                                <nuxt-link to="#"> <img :src="blog.image" alt="" title="Trending image"></nuxt-link>
                                                             </div>
                                                             <div class="col-lg-8 col-md-8 col-sm-9 col-xs-9">
-                                                                <h4><a href="blog-single.html">Suspendisse Non Metus Consectetur
-                                                                    Nunc </a></h4>
-                                                                <span class="date"><i class="fa fa-calendar-check-o"
-                                                                                      aria-hidden="true"></i> June 28, 2017</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="row">
-                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
-                                                    <div class="item-post">
-                                                        <div class="row">
-                                                            <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 paddimg-right-none">
-                                                                <a href="blog-single.html"> <img src="/images/Trending/3.jpg"
-                                                                                                 alt="" title="Trending image"></a>
-                                                            </div>
-                                                            <div class="col-lg-8 col-md-8 col-sm-9 col-xs-9">
-                                                                <h4><a href="blog-single.html">Duo Scripta An The Prieirmod</a>
-                                                                </h4>
-                                                                <span class="date"><i class="fa fa-calendar-check-o"
-                                                                                      aria-hidden="true"></i> June 28, 2017</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="row">
-                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
-                                                    <div class="item-post">
-                                                        <div class="row">
-                                                            <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 paddimg-right-none">
-                                                                <a href="blog-single.html"> <img src="/images/Trending/4.jpg"
-                                                                                                 alt="" title="Trending image"></a>
-                                                            </div>
-                                                            <div class="col-lg-8 col-md-8 col-sm-9 col-xs-9">
-                                                                <h4><a href="blog-single.html">Terrorism Concerns Get UK
-                                                                    Tourists </a></h4>
-                                                                <span class="date"><i class="fa fa-calendar-check-o"
-                                                                                      aria-hidden="true"></i> June 28, 2017</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="row">
-                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
-                                                    <div class="item-post">
-                                                        <div class="row">
-                                                            <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 paddimg-right-none">
-                                                                <a href="blog-single.html"> <img src="/images/Trending/5.jpg"
-                                                                                                 alt="" title="Trending image"></a>
-                                                            </div>
-                                                            <div class="col-lg-8 col-md-8 col-sm-9 col-xs-9">
-                                                                <h4><a href="blog-single.html">Ranking The Royal King Comeback
-                                                                    Win </a></h4>
-                                                                <span class="date"><i class="fa fa-calendar-check-o"
-                                                                                      aria-hidden="true"></i> June 28, 2017</span>
+                                                                <h4><nuxt-link to="#">{{blog.name}}</nuxt-link></h4>
+                                                                <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -593,81 +297,32 @@
                                                 <h3 class="title-bg">What’s hot now</h3>
                                             </div>
                                             <div class="col-sm-4 text-right">
-                                                <a href="#">View More <i class="fa fa-angle-double-right"
-                                                                         aria-hidden="true"></i></a>
+                                                <nuxt-link to="#">View More <i class="fa fa-angle-double-right" aria-hidden="true"></i></nuxt-link>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="featured">
+                                    <div class="featured" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index===0">
                                         <div class="blog-img">
-                                            <a href="blog-single.html"><img src="/images/hot-news/1.jpg" alt=""
-                                                                            title="News image"/></a>
+                                            <nuxt-link to="#"><img :src="blog.image" alt="" title="News image" style="width: 100%; max-height: 400px"/></nuxt-link>
                                         </div>
                                         <div class="blog-content">
-                                            <a href="category-sports.html" class="cat-link">Sports</a><span class="date"><i
-                                                class="fa fa-calendar-check-o" aria-hidden="true"></i> November 28, 2017</span>
-                                            <h4><a href="#">Car racer gives herself a mid-Event haicut</a></h4>
+                                            <nuxt-link to="#" class="cat-link">{{blog.category!== null ? blog.category.name: 'Category'}}</nuxt-link><span class="date"><i
+                                                class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}</span>
+                                            <h4><nuxt-link to="#">{{blog.name}}</nuxt-link></h4>
                                         </div>
                                     </div>
                                     <ul class="news-post news-feature-mb">
-                                        <li>
+                                        <li v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<4">
                                             <div class="row">
                                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-4">
-                                                    <a href="blog-single.html"><img src="/images/hot-news/3.jpg"
-                                                                                    alt="News image"/></a>
+                                                    <nuxt-link to="#"><img :src="blog.image" alt="News image"/></nuxt-link>
                                                 </div>
                                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-8 content">
-                                                    <h4><a href="#">Clinton Campaign Jilted & Search Emails</a></h4>
-                                                    <span class="author"><a href="#"><i class="fa fa-user-o"
-                                                                                        aria-hidden="true"></i> yeamin</a></span>
-                                                    <span class="date"><i class="fa fa-calendar-check-o"
-                                                                          aria-hidden="true"></i> June 28, 2017</span>
-                                                    <span class="comment"><a href="#"><i class="fa fa-comment-o"
-                                                                                         aria-hidden="true"></i> 50</a></span>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestib vitae
-                                                        libero vel purus tincidunt aliquet at nec erat. Mauris the diam,
-                                                        ultrices quis leo sed lacinia egestas.The wise man there always holds in
-                                                        these matters.</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="row">
-                                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-4">
-                                                    <a href="blog-single.html"><img src="/images/hot-news/2.jpg"
-                                                                                    alt="News image"/></a>
-                                                </div>
-                                                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-8 content">
-                                                    <h4><a href="#">Aaron Rodgers Criticizes For</a></h4> <span class="date"><i
-                                                        class="fa fa-calendar-check-o"
-                                                        aria-hidden="true"></i> June 28, 2017</span>
-                                                    <span class="comment"><a href="#"><i class="fa fa-comment-o"
-                                                                                         aria-hidden="true"></i> 50</a></span>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestib vitae
-                                                        libero vel purus tincidunt aliquet at nec erat. Mauris the diam,
-                                                        ultrices quis leo sed lacinia egestas.The wise man there always holds in
-                                                        these matters.</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="row">
-                                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-4">
-                                                    <a href="blog-single.html"><img src="/images/hot-news/4.jpg"
-                                                                                    alt="News image"/></a>
-                                                </div>
-                                                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-8 content">
-                                                    <h4><a href="#">Detroit Natives Wary & Recovery Threatens</a></h4>
-                                                    <span class="author"><a href="#"><i class="fa fa-user-o"
-                                                                                        aria-hidden="true"></i> yeamin</a></span>
-                                                    <span class="date"><i class="fa fa-calendar-check-o"
-                                                                          aria-hidden="true"></i> June 28, 2017</span>
-                                                    <span class="comment"><a href="#"><i class="fa fa-comment-o"
-                                                                                         aria-hidden="true"></i> 50</a></span>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestib vitae
-                                                        libero vel purus tincidunt aliquet at nec erat. Mauris the diam,
-                                                        ultrices quis leo sed lacinia egestas.The wise man there always holds in
-                                                        these matters.</p>
+                                                    <h4><a href="#">{{blog.name}}</a></h4>
+                                                    <span class="author"><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> yeamin</a></span>
+                                                    <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}</span>
+                                                    <span class="comment"><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}</a></span>
+                                                    <p>{{blog.description}}</p>
                                                 </div>
                                             </div>
                                         </li>
@@ -724,19 +379,19 @@
                         <div class="sidebar popular">
                             <h3 class="title-bg">Popular Now</h3>
                             <ul>
-                                <li>
-                                    <a href="category.html" class="category-btn hvr-bounce-to-right">Business</a>
-                                    <div class="post-image"><img src="/images/sidebar/1.jpg" alt="News image"></div>
+                                <li v-for="(blog, index) in blogs" v-if="index===0" v-bind:key="blog.id">
+                                    <nuxt-link to="/" class="category-btn hvr-bounce-to-right">{{blog.category !== null? blog.category.name:'Category'}}</nuxt-link>
+                                    <div class="post-image"><img :src="blog.image" alt="News image"></div>
                                     <div class="content">
                                         <h4>
-                                            <a href="#">The exhibition Bankasy doesn’t want you to see</a>
+                                            <nuxt-link to="#">{{blog.name}}</nuxt-link>
                                         </h4>
                                         <span class="date">
-                                        <i class="fa fa-calendar-check-o" aria-hidden="true"></i> November 28, 2017
+                                        <i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}
                                     </span>
                                         <span class="comment">
                                         <a href="#">
-                                            <i class="fa fa-comment-o" aria-hidden="true"></i> 50
+                                            <i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}
                                         </a>
                                     </span>
                                     </div>
@@ -747,75 +402,17 @@
 
                         <div class="hot-news popular-related">
                             <ul class="news-post">
-                                <li>
+                                <li v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<4">
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
                                             <div class="item-post">
                                                 <div class="row">
                                                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-3 paddimg-right-none">
-                                                        <img src="/images/popular/1.jpg" alt="" title="News image">
+                                                        <img :src="blog.image" alt="" title="News image">
                                                     </div>
                                                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-9">
-                                                        <h4><a href="#"> US should prepare for <br/> Russian election</a></h4>
-                                                        <span class="date"><i class="fa fa-calendar-check-o"
-                                                                              aria-hidden="true"></i> June 28, 2017</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="row">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
-                                            <div class="item-post">
-                                                <div class="row">
-                                                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-3 paddimg-right-none">
-                                                        <img src="/images/popular/2.jpg" alt="" title="News image">
-                                                    </div>
-                                                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-9">
-                                                        <h4><a href="blog-single.html"> Pellentesque Odio Nisi<br/> Euismod In
-                                                            Pharet</a></h4>
-                                                        <span class="date"><i class="fa fa-calendar-check-o"
-                                                                              aria-hidden="true"></i> June 28, 2017</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="row">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
-                                            <div class="item-post">
-                                                <div class="row">
-                                                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-3 paddimg-right-none">
-                                                        <img src="/images/popular/3.jpg" alt="" title="News image">
-                                                    </div>
-                                                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-9">
-                                                        <h4><a href="blog-single.html"> Erant Aeque Neius No <br/>Numes Electram</a>
-                                                        </h4>
-                                                        <span class="date"><i class="fa fa-calendar-check-o"
-                                                                              aria-hidden="true"></i> June 28, 2017</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="row">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
-                                            <div class="item-post">
-                                                <div class="row">
-                                                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-3 paddimg-right-none">
-                                                        <img src="/images/popular/4.jpg" alt="" title="News image">
-                                                    </div>
-                                                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-9">
-                                                        <h4><a href="blog-single.html"> Erant Aeque Neius No <br/>Numes Electram</a>
-                                                        </h4>
-                                                        <span class="date"><i class="fa fa-calendar-check-o"
-                                                                              aria-hidden="true"></i> June 28, 2017</span>
+                                                        <h4><nuxt-link to="#">{{blog.name}}</nuxt-link></h4>
+                                                        <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1044,40 +641,19 @@
                                         </div>
                                     </div>
                                     <div class="carousel-inner">
-                                        <div class="item active">
-                                            <a href="#"><img src="/images/news-slider-image/1.jpg" alt=""
-                                                             title="#slider-direction-1"/></a>
+                                        <div class="item" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-bind:class="index===0? 'active': ''">
+                                            <nuxt-link to="#"><img :src="blog.image" alt="" title="#slider-direction-1" style="width: 100%"/></nuxt-link>
                                             <div class="dsc">
                                                 <span class="date">
                                                     <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                                                    November 28, 2017
+                                                    {{blog.created}}
                                                 </span>
                                                 <span class="comment">
-                                                    <a href="#"> <i class="fa fa-comment-o" aria-hidden="true"></i> 50
-                                                    </a>
+                                                    <nuxt-link to="#"> <i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}
+                                                    </nuxt-link>
                                                 </span>
-                                                <h4><a href="blog-single.html"> Nam suscipit pretium consectetur. Proin
-                                                    tristique fermentum.</a></h4>
-                                                <p>Blandit rutrum, erat et egestas ultricies, dolor tortor egestas enim, quiste
-                                                    rhoncus sem the purus eu sapien curabitur.</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <a href="#"><img src="/images/news-slider-image/3.jpg" alt=""
-                                                             title="#slider-direction-1"/></a>
-                                            <div class="dsc">
-                                                <span class="date">
-                                                    <i class="fa fa-calendar-check-o" aria-hidden="true"></i> November 28, 2017
-                                                </span>
-                                                <span class="comment">
-                                                    <a href="#"> <i class="fa fa-comment-o" aria-hidden="true"></i> 50
-                                                    </a>
-                                                </span>
-                                                <h4><a href="blog-single.html"> Nam suscipit pretium consectetur. Proin
-                                                    tristique fermentum.</a></h4>
-                                                <p>Blandit rutrum, erat et egestas ultricies, dolor tortor egestas enim, quiste
-                                                    rhoncus sem the purus eu sapien curabitur.</p>
+                                                <h4><nuxt-link to="/">{{blog.name}}</nuxt-link></h4>
+                                                <p>{{blog.description}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -1108,54 +684,19 @@
                                         </div>
                                     </div>
                                     <div class="carousel-inner">
-                                        <div class="item active">
-                                            <a href="#"><img src="/images/news-slider-image/2.jpg" alt=""
-                                                             title="#slider-direction-1"/></a>
+                                        <div class="item" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-bind:class="index===0? 'active': ''">
+                                            <nuxt-link to="#"><img :src="blog.image" alt="" title="#slider-direction-1" style="width: 100%;"/></nuxt-link>
                                             <div class="dsc">
                                                 <span class="date">
                                                     <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                                                    November 28, 2017
+                                                    {{blog.created}}
                                                 </span>
                                                 <span class="comment">
-                                                    <a href="#"> <i class="fa fa-comment-o" aria-hidden="true"></i> 50
-                                                    </a>
+                                                    <nuxt-link to="#"> <i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}
+                                                    </nuxt-link>
                                                 </span>
-                                                <h4><a href="blog-single.html">Disabled people must be front and centre on TV –
-                                                    representation</a></h4>
-                                                <p>Blandit rutrum, erat et egestas ultricies, dolor tortor egestas enim, quiste
-                                                    rhoncus sem the purus eu sapien curabitur.</p>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <a href="#"><img src="/images/news-slider-image/4.jpg" alt=""
-                                                             title="#slider-direction-1"/></a>
-                                            <div class="dsc">
-                                                <span class="date">
-                                                <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                                                November 28, 2017 </span>
-                                                <span class="comment">
-                                                <a href="#"> <i class="fa fa-comment-o" aria-hidden="true"></i> 50
-                                                </a></span>
-                                                <h4><a href="blog-single.html">After Kim Briggs’s death, cyclists must realise
-                                                    that they are traffic too</a></h4>
-                                                <p>Blandit rutrum, erat et egestas ultricies, dolor tortor egestas enim, quiste
-                                                    rhoncus sem the purus eu sapien curabitur.</p>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <a href="#"><img src="/images/news-slider-image/2.jpg" alt=""
-                                                             title="#slider-direction-1"/></a>
-                                            <div class="dsc">
-                                                <span class="date">
-                                                <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                                                November 28, 2017 </span>
-                                                <span class="comment">
-                                                <a href="#"> <i class="fa fa-comment-o" aria-hidden="true"></i> 50
-                                                </a></span>
-                                                <h4><a href="blog-single.html">The new-style GCSEs show why politicians must do
-                                                    more explaining.</a></h4>
-                                                <p>Blandit rutrum, erat et egestas ultricies, dolor tortor egestas enim, quiste
-                                                    rhoncus sem the purus eu sapien curabitur.</p>
+                                                <h4><nuxt-link to="/">{{blog.name}}</nuxt-link></h4>
+                                                <p>{{blog.description}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -1177,50 +718,23 @@
                         <ul class="news-post news-post2 around-news">
                             <li>
                                 <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 content">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 content" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<2">
                                         <div class="item-post">
 
                                             <div class="blog-image">
-                                                <a href="blog-single.html"><img src="/images/world/5.jpg" alt=""
-                                                                                title="News image"/></a>
+                                                <nuxt-link to="#"><img :src="blog.image" alt="" title="News image" style="width: 100%"/></nuxt-link>
                                             </div>
                                             <div class="content">
                                            <span class="date">
                                                 <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                                                November 28, 2017
+                                                {{blog.created}}
                                             </span>
                                                 <span class="comment">
-                                                <a href="#"> <i class="fa fa-comment-o" aria-hidden="true"></i> 50
-                                                </a>
+                                                <nuxt-link to="#"> <i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}
+                                                </nuxt-link>
                                             </span>
-                                                <h4><a href="blog-single.html">Clinton campaign jilted as FBI to search
-                                                    emails</a></h4>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestib vitae libero
-                                                    vel purus tincidunt aliquet at nec erat. Mauris the diam, ultrices quis leo
-                                                    sed lacinia egestas.The wise man there always holds in these matters.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 content">
-                                        <div class="item-post">
-                                            <div class="blog-image">
-                                                <a href="blog-single.html"><img src="/images/world/6.jpg" alt=""
-                                                                                title="News image"/></a>
-                                            </div>
-                                            <div class="content">
-                                            <span class="date">
-                                                <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                                                November 28, 2017
-                                            </span>
-                                                <span class="comment">
-                                                <a href="#"> <i class="fa fa-comment-o" aria-hidden="true"></i> 50
-                                                </a>
-                                            </span>
-                                                <h4><a href="blog-single.html">Clinton campaign jilted as FBI to search
-                                                    emails</a></h4>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestib vitae libero
-                                                    vel purus tincidunt aliquet at nec erat. Mauris the diam, ultrices quis leo
-                                                    sed lacinia egestas.The wise man there always holds in these matters.</p>
+                                                <h4><nuxt-link to="">{{blog.name}}</nuxt-link></h4>
+                                                <p>{{blog.description}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -1228,78 +742,20 @@
                             </li>
                         </ul>
                         <ul class="news-post news-post2 related">
-                            <li>
+                            <li v-for="(rowBlog, index) in chunk(blogs, 2)" v-bind:key="index" v-if="index < 2">
                                 <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 content">
+                                    <div v-for="blog of rowBlog" v-bind:key="blog.id" class="col-lg-6 col-md-6 col-sm-12 col-xs-12 content">
                                         <div class="item-post">
                                             <div class="row">
                                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3 paddimg-right-none">
-                                                    <a href="blog-single.html"><img src="/images/world/1.jpg" alt=""
-                                                                                    title="News image"/></a>
+                                                    <nuxt-link to="#"><img :src="blog.image" alt="" title="News image"/></nuxt-link>
                                                 </div>
                                                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-9">
-                                                    <h4><a href="blog-single.html">Pellentesque Odio Nisi Euismod In Pharet</a>
+                                                    <h4><nuxt-link to="#">{{blog.name}}</nuxt-link>
                                                     </h4>
                                                     <span class="date">
                                                 <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
                                                 November 28, 2017
-                                                </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 content">
-                                        <div class="item-post">
-                                            <div class="row">
-                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3 paddimg-right-none">
-                                                    <a href="blog-single.html"><img src="/images/world/2.jpg" alt=""
-                                                                                    title="News image"/></a>
-                                                </div>
-                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-9">
-                                                    <h4><a href="blog-single.html">prepare for Russian election</a></h4>
-                                                    <span class="date">
-                                                <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                                                June 28, 2017
-                                                </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 content">
-                                        <div class="item-post">
-                                            <div class="row">
-                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3 paddimg-right-none">
-                                                    <a href="blog-single.html"><img src="/images/world/3.jpg" alt=""
-                                                                                    title="News image"/></a>
-                                                </div>
-                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-9">
-                                                    <h4><a href="blog-single.html"> Erant Aeque Neius No Numes Electram </a>
-                                                    </h4>
-                                                    <span class="date">
-                                                <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                                                November 28, 2017
-                                                </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 content">
-                                        <div class="item-post">
-                                            <div class="row">
-                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3 paddimg-right-none">
-                                                    <a href="blog-single.html"><img src="/images/world/4.jpg" alt=""
-                                                                                    title="News image"/></a>
-                                                </div>
-                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-9">
-                                                    <h4><a href="blog-single.html">YouTube Acquire Twitch <br/>For $1Billion</a>
-                                                    </h4>
-                                                    <span class="date">
-                                                <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                                                June 28, 2017
                                                 </span>
                                                 </div>
                                             </div>
@@ -1313,52 +769,18 @@
                         <h3 class="title-bg featured-title">Featured News</h3>
                         <div class="sidebar">
                             <ul>
-                                <li>
-                                    <a href="#" class="category-btn hvr-bounce-to-right">Business</a>
-                                    <div class="post-image"><a href="blog-single.html"><img src="/images/sidebar/1.jpg"
-                                                                                            alt="News image"/></a></div>
+                                <li v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<3">
+                                    <nuxt-link to="#" class="category-btn hvr-bounce-to-right">{{blog.category !== null ? blog.category.name: 'Category'}}</nuxt-link>
+                                    <div class="post-image"><nuxt-link to="#"><img :src="blog.image" alt="News image"/></nuxt-link></div>
                                     <div class="content">
-                                        <h4><a href="blog-single.html">The exhibition Bankasy doesn’t want you to see</a></h4>
+                                        <h4><nuxt-link to="#">{{blog.name}}</nuxt-link></h4>
                                         <span class="date">
-                                        <i class="fa fa-calendar-check-o" aria-hidden="true"></i> November 28, 2017
+                                        <i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}
                                     </span>
                                         <span class="comment">
-                                        <a href="#">
-                                            <i class="fa fa-comment-o" aria-hidden="true"></i> 50
-                                        </a>
-                                    </span>
-
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="category-health.html" class="category-btn hvr-bounce-to-right">Health</a>
-                                    <div class="post-image"><a href="blog-single.html"><img src="/images/sidebar/2.jpg"
-                                                                                            alt="News image"/></a></div>
-                                    <div class="content">
-                                        <h4><a href="#">The exhibition Bankasy doesn’t want you to see</a></h4>
-                                        <span class="date">
-                                        <i class="fa fa-calendar-check-o" aria-hidden="true"></i> November 28, 2017
-                                    </span>
-                                        <span class="comment">
-                                        <a href="#">
-                                            <i class="fa fa-comment-o" aria-hidden="true"></i> 50
-                                        </a>
-                                    </span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="#" class="category-btn hvr-bounce-to-right">Fashion</a>
-                                    <div class="post-image"><a href="blog-single.html"><img src="/images/sidebar/3.jpg"
-                                                                                            alt="News image"/></a></div>
-                                    <div class="content">
-                                        <h4><a href="#">The exhibition Bankasy doesn’t want you to see</a></h4>
-                                        <span class="date">
-                                        <i class="fa fa-calendar-check-o" aria-hidden="true"></i> November 28, 2017
-                                    </span>
-                                        <span class="comment">
-                                        <a href="#">
-                                            <i class="fa fa-comment-o" aria-hidden="true"></i> 50
-                                        </a>
+                                        <nuxt-link to="#">
+                                            <i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}
+                                        </nuxt-link>
                                     </span>
 
                                     </div>
@@ -1399,3 +821,50 @@
         </div>
     </div>
 </template>
+<script>
+    import { query } from '~/apollo/queries/blog.js';
+    import chunk from 'lodash/chunk';
+    export default {
+      async asyncData(context, callback) {
+        try {
+          const client = context.app.apolloProvider.defaultClient;
+          const data = await client.query({query: query});
+          callback(null, {data: data})
+        } catch(error) {
+          callback(null, {data: []})
+        }
+
+      },
+      data() {
+        return {
+          blogs: [],
+          chunk: chunk,
+          test: [
+            {
+              id: '1',
+              name: 'weohiwr sjdojepjdf pojdfojreojeorjo orejo'
+            },
+            {
+              id: '2',
+              name: 'weohiwr sjdojepjdf pojdfojreojeorjo orejo'
+            },
+            {
+              id: '3',
+              name: 'weohiwr sjdojepjdf pojdfojreojeorjo orejo'
+            },
+            {
+              id: '4',
+              name: 'weohiwr sjdojepjdf pojdfojreojeorjo orejo'
+            },
+
+          ],
+        }
+      },
+      apollo: {
+        blogs: {
+          query: query,
+          fetchPolicy: 'cache-and-network',
+        }
+      },
+    }
+</script>

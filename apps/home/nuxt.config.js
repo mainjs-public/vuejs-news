@@ -20,7 +20,7 @@ module.exports = {
       { src: '/js/modernizr-2.8.3.min.js' },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/images/fav.png' }
     ]
   },
   css: [
