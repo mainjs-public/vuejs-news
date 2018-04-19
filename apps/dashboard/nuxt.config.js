@@ -29,7 +29,7 @@ module.exports = {
       // { src: 'https://oss.maxcdn.com/respond/1.4.2/respond.min.js' },
       { src: '/bower_components/jquery/dist/jquery.min.js'},
       // { src: '/bower_components/jquery-ui/jquery-ui.min.js'},
-      // { src: '/bower_components/bootstrap/dist/js/bootstrap.min.js'},
+      { src: '/bower_components/bootstrap/dist/js/bootstrap.min.js'},
       // { src: '/bower_components/raphael/raphael.min.js'},
       // { src: '/bower_components/morris.js/morris.min.js'},
       // { src: '/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js'},
