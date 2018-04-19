@@ -105,7 +105,7 @@
                                             <div class="image-manager-thumb img-thumbnail">
                                                 <img class="image-manager-thumb_image" :src="img.thumb">
                                                 <div class="image-manager-thumb_action">
-                                                    <a @click.prevent="onChange(img.path)" href="#"
+                                                    <a @click.prevent="selectImage(img.path)" href="#"
                                                        class="btn btn-success btn-xs" role="button">
                                                         <i class="fa fa-check" aria-hidden="true"></i>
                                                     </a>
@@ -355,6 +355,11 @@
 
       clearCache: function () {
 
+      },
+
+      selectImage(path) {
+        this.onChange(path);
+        $(`#${this.id}`).modal('hide');
       }
     }
   }
