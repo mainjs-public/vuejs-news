@@ -55,13 +55,6 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-1 control-label">Image</label>
-
-                                        <div class="col-sm-11">
-                                            <input v-model="data.image" type="text" class="form-control" placeholder="Image"/>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
                                         <label class="col-sm-1 control-label">Description</label>
 
                                         <div class="col-sm-11">
