@@ -59,7 +59,7 @@
                                         <label class="col-sm-1 control-label">Image</label>
 
                                         <div class="col-sm-11">
-                                            <input v-model="data.image" type="text" class="form-control" placeholder="Image"/>
+                                            <image-manager id="image" inputName="image" :value="data.image" :onChange="image => this.data.image = image" />
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -112,6 +112,7 @@
 
 <script>
   import SelectCategory from './SelectCategory.vue';
+  import ImageManager from './ImageManager.vue';
   export default {
     props: ['data', 'onClick'],
     data() {
@@ -149,7 +150,8 @@
       error () { return this.$store.state.blog.error }
     },
     components: {
-      SelectCategory
+      SelectCategory,
+      ImageManager
     },
     methods: {
       onchangeCategory(value) {
