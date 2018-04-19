@@ -161,7 +161,7 @@
     <!--<script src="js/lightbox.min.js"></script>-->
     <!-- Nivo slider js -->
     <script src="/inc/custom-slider/js/jquery.nivo.slider.js" type="text/javascript"></script>
-    <script src="inc/custom-slider/home.js" type="text/javascript"></script>
+    <script src="/inc/custom-slider/home.js" type="text/javascript"></script>
     <!-- main js -->
     <script src="/js/main.js"></script>
   </div>

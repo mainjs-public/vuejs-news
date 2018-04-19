@@ -125,7 +125,7 @@
                         <li class="has"><a href="/blog">Blog <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                           <ul>
                             <li><a href="/blog">Blog</a></li>
-                            <li><a href="/blog-single">Blog Single</a></li>
+                            <li><a href="/blog/rejorjo">Blog Single</a></li>
                           </ul>
                         </li>
                         <li><a href="#">Category <i class="fa fa-angle-right" aria-hidden="true"></i></a>

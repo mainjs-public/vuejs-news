@@ -19,7 +19,31 @@ export const query = gql`
     }
   }
 `;
-
+export const getBlogBySlug = gql`
+  query blogSlugQuery($slug: String!) {
+    blogSlug(slug: $slug) {
+      id,
+      name,
+      slug,
+      status,
+      image,
+      category {
+        id,
+        name
+      },
+      created,
+      description,
+      content,
+      comments {
+        id,
+        content,
+        created,
+        title,
+        status
+      }
+    }
+  }
+`;
 export const getBlog = gql`
   query blogQuery($blogId: ID!) {
     blog(blogId: $blogId) {

@@ -47,7 +47,7 @@
                                                 </a>
                                             </div>
                                             <div class="carousel-inner">
-                                                <div class="item" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index=== 0? 'active': ''">
+                                                <div class="item" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-bind:class="index=== 0? 'active': ''" v-if="index<4">
                                                     <div class="blog-image">
                                                         <nuxt-link to="#">
                                                             <i class="fa fa-link" aria-hidden="true"></i>
@@ -164,7 +164,7 @@
     data() {
       return {
         blogs: [],
-        category: {}
+        category: {},
       }
     },
     apollo: {
