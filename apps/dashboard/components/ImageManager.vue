@@ -2,7 +2,7 @@
 
     <div class="custom-image">
         <div class="image-manager-thumb img-thumbnail" v-bind:style="{width: '100px', height: '100px'}">
-            <img class="image-manager-thumb_image" :src="image_url">
+            <img class="image-manager-thumb_image" :src="previewImage">
             <div class="image-manager-thumb_action">
                 <a class="btn btn-success btn-xs" @click="openModal" data-toggle="modal" :href="'#' + id">
                     <i class="fa fa-picture-o" aria-hidden="true"></i>
@@ -27,22 +27,12 @@
                     </div>
                     <div class="modal-body image-manager">
 
-                        <form enctype="multipart/form-data"
-                              :id="id + 'form-upload'"
-                              v-if="upload"
-                              v-bind:style="{display: 'none'}"
-                        >
-                            <input :id="id + 'file'" type="file" name="images[]" v-on:change="chooseFiles"
-                                   multiple="multiple"/>
-                        </form>
-
                         <div class="clearfix well">
                             <div class="pull-left">
 
                                 <ol class="breadcrumb">
                                     <li v-for="breadcrumb in breadcrumbs">
-                                        <a href="#" @click.prevent="loadImage(breadcrumb.path)">{{ breadcrumb.name
-                                            }}</a>
+                                        <a href="#" @click.prevent="loadImage(breadcrumb)">{{ breadcrumb.name }}</a>
                                     </li>
                                 </ol>
 
@@ -76,24 +66,24 @@
 
                             <div class="col-xs-3">
                                 <ul class="list-group">
-                                    <li class="list-group-item" v-for="directorie in directories">
+                                    <li class="list-group-item" v-for="folder in folders">
                                         <a href="#" @click.prevent="">
-                                            <span @click.prevent="loadImage(directorie.path)">{{ directorie.name }}</span>
+                                            <span @click.prevent="loadImage(folder)">{{ folder.name }}</span>
                                             <i class="fa fa-trash pull-right"
                                                aria-hidden="true"
-                                               @click.prevent="removeFolder(directorie.path)"></i>
+                                               @click.prevent="deleteFolder(folder.id)"></i>
                                         </a>
                                     </li>
                                     <li :class="setActive">
-                                        <input @click="add_dir = true"
+                                        <input @click.prevent="add_dir = true"
                                                type="text"
                                                v-model="name"
                                                class="form-control"
                                                placeholder="Add Folder..."
-                                               @keyup.enter="addFolter"
+                                               @keyup.enter.prevent="addFolder"
                                         >
                                         <div v-if="add_dir">
-                                            <button class="btn btn-success btn-xs" type="button" @click="addFolter">
+                                            <button class="btn btn-success btn-xs" type="button" @click="addFolder">
                                                 <i class="fa fa-floppy-o" aria-hidden="true"></i>
                                             </button>
 
@@ -110,12 +100,12 @@
 
                             <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
                                 <div class="well image-manager-view">
-                                    <div class="row" v-if="images.length > 0">
-                                        <div class="col-xs-3" v-for="(img, i) in images">
+                                    <div class="row" v-if="imagesByFolderId.length > 0">
+                                        <div class="col-xs-3" v-for="(img, i) in imagesByFolderId">
                                             <div class="image-manager-thumb img-thumbnail">
                                                 <img class="image-manager-thumb_image" :src="img.thumb">
                                                 <div class="image-manager-thumb_action">
-                                                    <a @click.prevent="chooseImage(img)" href="#"
+                                                    <a @click.prevent="onChange(img.path)" href="#"
                                                        class="btn btn-success btn-xs" role="button">
                                                         <i class="fa fa-check" aria-hidden="true"></i>
                                                     </a>
@@ -166,248 +156,196 @@
 </template>
 
 <script>
-  module.exports = {
+  import kebabCase from 'lodash/kebabCase';
+  import request from '~/config/axios';
+  import {API_URL} from '~/config/api';
+  import {query, deleteFolder, createFolder} from '~/apollo/queries/folder';
+  import {query as queryImage} from '~/apollo/queries/image';
+
+  export default {
 
     data: function () {
       return {
-        add_dir: false,
-        directories: [],
-        count: 0,
+        index: 0,
         name: '',
-        upload: false,
-        files: '',
-        directorie: 'images',
-        images: [],
-        index: -1,
-
-        image_url: this.value != '' ? '/upload/' + this.value : '',
-        image_name: this.value != '' ? this.value : '',
-
+        image_name: '',
+        add_dir: false,
         errors: [],
-        second: 5,
         success: [],
+        folders: [],
+        folder: {
+          path: 'images',
+          id: 'null',
+        },
+        imagesByFolderId: [],
       }
     },
 
-    props: ['id', 'inputName', 'value'],
-
-    created: function () {
-
-    },
-
-    watch: {
-      directorie: function () {
-        this.fetchImage();
+    apollo: {
+      folders: {
+        query: query,
+      },
+      imagesByFolderId: {
+        query: queryImage,
+        variables() {
+          return {
+            folder_id: this.folder.id
+          }
+        },
+        update(data) {
+          let images = data.imagesByFolderId;
+          images = images.map(i => ({...i, thumb: `${API_URL}${i.path}`}));
+          return images;
+        },
       }
     },
+
+    props: ['id', 'inputName', 'value', 'onChange'],
 
     computed: {
       breadcrumbs: function () {
 
-        var breadcrumbs = this.directorie.split('/');
+        // var breadcrumbs = this.folder.path.split('/');
+        //
+        // var current = [];
+        //
+        // return breadcrumbs.map(function (breadcrumb, index) {
+        //
+        //   current.push(breadcrumb);
+        //
+        //   var li = {
+        //     name: breadcrumb,
+        //     path: current.join('/')
+        //   }
+        //
+        //   return li;
+        //
+        // });
 
-        var current = [];
+        var li = {
+          name: "Images",
+          path: "image",
+          id: 'null',
 
-        return breadcrumbs.map(function (breadcrumb, index) {
-
-          current.push(breadcrumb);
-
-          var li = {
-            name: breadcrumb,
-            path: current.join('/')
-          }
-
-          return li;
-
-        });
+        };
+        return [li];
 
       },
       setActive: function () {
         if (this.add_dir) return "list-group-item";
         return "not-active list-group-item";
+      },
+      previewImage: function () {
+        return `${API_URL}${this.value}`;
       }
-    },
-
-    updated: function () {
-      this.index = -1;
-
-      if (this.upload) {
-        $('#' + this.id + 'form-upload input[name=\'images[]\']').trigger('click');
-      }
-
-      this.upload = false;
     },
 
     methods: {
 
-      chooseImage: function (img) {
-        this.image_url = img.url;
-        this.image_name = img.image;
-        $('#' + this.id + ' .close').trigger('click');
-      },
-
       clearImage: function () {
-        this.image_url = 'http://placehold.it/350x150';
-        this.image_name = '';
+
       },
 
       deleteImage: function (img) {
-
-        axios.post('/api/upload-images/deleteimage', {
-          file: img.image,
-          directorie: this.directorie
-        })
-          .then(function (response) {
-            this.images = response.data;
-          }.bind(this))
-          .catch(function (error) {
-            console.log(error);
-          });
 
       },
 
       renameImage: function (old, ext, e) {
 
-        axios.post('/api/upload-images/renameimage', {
-          old: old,
-          new: this.directorie + "/" + e.target.value + "." + ext,
-          directorie: this.directorie
-        })
-          .then(function (response) {
-            this.images = response.data;
-          }.bind(this))
-          .catch(function (error) {
-            console.log(error);
-          });
-
       },
 
-      fetchData: function () {
-        axios.get('/api/upload-images/directories')
-          .then(function (response) {
-            this.directories = response.data;
-          }.bind(this))
-          .catch(function (error) {
-            console.log(error);
-          });
+      addFolder: function (e) {
+        e.preventDefault();
+        this.$apollo.mutate({
+          mutation: createFolder,
+          variables: {
+            input: {
+              name: this.name,
+              path: `images/${kebabCase(this.name)}`,
+            }
+          },
+          refetchQueries: [{
+            query: query,
+          }]
+        });
       },
 
-      addFolter: function (e) {
-        axios.post('/api/upload-images/createdirectorie', {
-          folder: this.name,
+      deleteFolder: function (id) {
+        this.$apollo.mutate({
+          mutation: deleteFolder,
+          variables: {
+            input: {
+              id
+            }
+          },
+          refetchQueries: [{
+            query: query,
+          }]
         })
-          .then(function (response) {
-            this.directories = response.data;
-            this.name = "";
-            this.add_dir = false;
-          }.bind(this))
-          .catch(function (error) {
-            console.log(error);
-          });
-      },
-
-      removeFolder: function (directorie) {
-
-        axios.post('/api/upload-images/removedirectorie', {
-          folder: directorie,
-        })
-          .then(function (response) {
-            this.directorie = "images";
-            this.directories = response.data;
-          }.bind(this))
-          .catch(function (error) {
-            console.log(error);
-          });
       },
 
       uploadImage: function () {
+        // Create input upload
+        const input = document.createElement("input");
+        input.setAttribute('type', "file");
+        input.setAttribute('name', "files");
+        input.setAttribute('multiple', '');
+        input.click();
+        input.addEventListener('change', this.chooseFiles, false);
 
-        this.upload = true;
+        this.input = input;
 
+        // Append to body
+        document.getElementsByTagName('body')[0].appendChild(this.input);
+
+        // Remove Input when focus body
+        document.body.onfocus = this.clearFocus();
+      },
+
+      clearFocus: function () {
+        document.getElementsByTagName('body')[0].removeChild(this.input);
+        document.body.onfocus = null;
       },
 
       chooseFiles: function (e) {
 
-        var images = e.target.files || e.dataTransfer.files;
+        const images = e.target.files || e.dataTransfer.files;
 
-        if (images.length <= 0) return;
+        if (images && images.length) {
 
-        var formData = new FormData();
+          // Create form data
+          const formData = new FormData();
+          for (let i = 0; i < images.length; i++) {
+            let file = images[i];
+            formData.set('file[' + file.name + ']', file);
+          }
 
-        for (var i = 0, f; file = images[i]; i++) {
-          formData.append('images[' + file.name + ']', file);
+          formData.set('path', this.folder.path);
+          formData.set('folder_id', this.folder.id);
+
+          request.post('upload', formData)
+            .then(res => {
+              this.folder = { ...this.folder, id: this.folder.id }
+          }).catch(e => console.log(e));
         }
-
-        formData.append('directorie', this.directorie);
-
-        axios.post('/api/upload-images/uploadimage', formData)
-          .then(function (response) {
-            this.images = response.data;
-            document.getElementById(this.id + 'file').value = "";
-            this.upload = true;
-          }.bind(this))
-          .catch(function (error) {
-            if (error.response.status == 422) {
-
-              this.errors = Object.keys(error.response.data).map(function (k) {
-                return error.response.data[k]
-              });
-
-              setTimeout(() => {
-                this.errors = [];
-              }, 5000);
-
-              var outtime = setInterval(() => {
-                this.second--;
-                if (this.second < 0) {
-                  this.second = 5;
-                  clearInterval(outtime)
-                }
-                ;
-              }, 1000);
-
-
-            } else {
-              console.log(error);
-            }
-
-          }.bind(this));
       },
 
-      loadImage: function (directorie) {
-        this.directorie = directorie;
-        this.fetchImage();
+      // Load image in folder
+      loadImage: function (folder) {
+        this.folder = folder;
       },
 
       fetchImage: function () {
 
-        axios.post('/api/upload-images/fetchimage', {
-          directorie: this.directorie
-        })
-          .then(function (response) {
-            this.images = response.data;
-            // console.log(response);
-          }.bind(this))
-          .catch(function (error) {
-            console.log(error);
-          });
       },
 
       openModal: function () {
-        this.fetchData();
-        this.fetchImage();
+        // this.fetchData();
+        // this.fetchImage();
       },
 
       clearCache: function () {
-        axios.post('/api/upload-images/clearCache', {
-          directorie: this.directorie
-        }).then(function (response) {
-          this.images = response.data;
-          this.success = ["You have clear cache!"];
-        }.bind(this))
-          .catch(function (error) {
-            console.log(error);
-          });
+
       }
     }
   }

@@ -35,5 +35,9 @@
     "home:dev": "nuxt --config-file apps/home/nuxt.config.js -p=4000",
     "dashboard:dev": "nuxt --config-file apps/dashboard/nuxt.config.js -p=2000",
     "dev": "concurrently \"npm run home:dev\" \"npm run dashboard:dev\""
+  },
+  "devDependencies": {
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2"
   }
 }
