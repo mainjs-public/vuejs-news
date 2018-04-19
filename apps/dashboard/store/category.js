@@ -1,4 +1,4 @@
-import {query, deleteCategory} from '~/apollo/queries/category.js';
+import {query, editCategory, deleteCategory} from '~/apollo/queries/category.js';
 
 export const state = () => ({
   list: [],
@@ -15,6 +15,9 @@ export const mutations = {
     state.list = lists;
     state.loading = false;
     state.error = {};
+  },
+  editSuccess(state) {
+    state.loading = false;
   },
   deleteSuccess(state) {
     state.loading = false;
@@ -39,6 +42,19 @@ export const actions = {
         commit('fetchSuccess', data.categories);
       })
       .catch(error => commit('fetchError', error));
+  },
+  editCategory(context, data) {
+    let client = this.app.apolloProvider.defaultClient;
+    context.commit('fetchRequest');
+    client.mutate({ mutation: editCategory, variables: {input : data} })
+      .then((res) => {
+        return res.data;
+      })
+      .then(data => {
+        context.commit('editSuccess');
+        this.app.context.redirect('/category');
+      })
+      .catch(error => context.commit('fetchError', error));
   },
   deleteCategory({commit}, id) {
     let client = this.app.apolloProvider.defaultClient;

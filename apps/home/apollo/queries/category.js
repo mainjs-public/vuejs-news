@@ -6,9 +6,7 @@ export const query = gql`
       name,
       image,
       slug,
-      created,
-      updated,
-      status
+      created
     }
   }
 `;
@@ -23,22 +21,6 @@ export const getCategory = gql`
       slug,
       content,
       status
-    }
-  }
-`;
-
-export const editCategory = gql`
-  mutation mutationCategory($input: MutationCategoryInput!) {
-    mutationCategory(input: $input) {
-      id
-    }
-  }
-`;
-
-export const deleteCategory = gql`
-  mutation deleteCategory($input: DeleteCategoryInput!) {
-    deleteCategory(input: $input) {
-      count
     }
   }
 `;

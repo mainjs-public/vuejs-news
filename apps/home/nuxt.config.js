@@ -1,6 +1,14 @@
 module.exports = {
   srcDir: __dirname,
   buildDir: '.nuxt/home',
+  modules: ['@nuxtjs/apollo'],
+
+  // Give apollo module options
+  apollo: {
+    clientConfigs: {
+      default: '~/apollo/client-configs/default.js'
+    }
+  },
   head: {
     title: 'new24-fontend',
     meta: [
@@ -12,7 +20,7 @@ module.exports = {
       { src: '/js/modernizr-2.8.3.min.js' },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/images/fav.png' }
     ]
   },
   css: [

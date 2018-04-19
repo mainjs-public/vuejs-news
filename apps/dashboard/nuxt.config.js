@@ -1,3 +1,5 @@
+const bodyParser = require('body-parser');
+const session = require('express-session');
 module.exports = {
   srcDir: __dirname,
   buildDir: '.nuxt/dashboard',
@@ -70,4 +72,13 @@ module.exports = {
     '~static/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css',
     '~static/plugins/iCheck/square/blue.css'
   ],
+  serverMiddleware: [
+    bodyParser.json(),
+    session({
+      secret: 'super-secret-key',
+      resave: false,
+      saveUninitialized: false,
+      cookie: { maxAge: 60000 }
+    }),
+  ]
 }

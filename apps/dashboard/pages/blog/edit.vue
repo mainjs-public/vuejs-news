@@ -1,12 +1,14 @@
 <template>
-    <div>
-        <!--<span>{{data}}</span>-->
-        <form-blog :data="data" :onClick="onclick" :loading="loading" :error="error" v-if="getData"/>
+    <div v-if="!loading">
+        <form-blog :data="data" :onClick="onclick" v-if="!error_data.message"/>
         <div v-else>
             <span>
                 Error get data of blog
             </span>
         </div>
+    </div>
+    <div v-else>
+        ...loading
     </div>
 </template>
 
@@ -26,30 +28,29 @@
     category_id: ''
   };
   export default {
-    asyncData({ route }, callback) {
-      callback(null, { blogId: route.query.id ? route.query.id: ''})
-    },
     data() {
       return {
-        data: initData,
-        getData: true,
+        data: {},
+        loading: true,
+        error_data: {}
       }
     },
     async mounted() {
-      if (this.blogId !== '') {
-        // let client = context.app.apolloProvider.defaultClient;
-        const client = this.$apollo.getClient();
-        await client.query({ query: getBlog , variables: {blogId: this.blogId}})
-          .then((res) => {
-            return res.data;
-          })
-          .then(data => {
-            const blog = omit(data.blog, ['category', '__typename'])
-            this.data = {...blog, category_id: data.blog.category.id, tags: ''};
-          })
-          .catch(error => {
-            this.getData = false
-          });
+      try {
+        if(this.$router.app._route.query.id) {
+          const blogId = this.$router.app._route.query.id;
+          const client = this.$apollo.getClient();
+          const data =  await client.query({ query: getBlog , variables: {blogId: blogId}});
+          const blog = data.data.blog;
+          const new_blog = { ...blog, category_id: blog.category.id || '', tags: ''};
+          this.data = omit(new_blog, ['category', '__typename']);
+        } else {
+          this.data = {...initData};
+        }
+        this.loading = false;
+      } catch (error) {
+        this.loading = false;
+        this.error_data = error;
       }
     },
     methods: {
@@ -61,12 +62,9 @@
         e.preventDefault();
       },
     },
-    computed: {
-        loading () { return this.$store.state.blog.loading },
-        error () { return this.$store.state.blog.error }
-    },
     components: {
       FormBlog
-    }
+    },
+    middleware: 'auth'
   }
 </script>

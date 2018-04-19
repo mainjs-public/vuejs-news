@@ -1,19 +1,19 @@
 <template>
   <div>
     <!--Preloader area Start here-->
-    <div class="preloader">
-      <div class="sk-cube-grid">
-        <div class="sk-cube sk-cube1"></div>
-        <div class="sk-cube sk-cube2"></div>
-        <div class="sk-cube sk-cube3"></div>
-        <div class="sk-cube sk-cube4"></div>
-        <div class="sk-cube sk-cube5"></div>
-        <div class="sk-cube sk-cube6"></div>
-        <div class="sk-cube sk-cube7"></div>
-        <div class="sk-cube sk-cube8"></div>
-        <div class="sk-cube sk-cube9"></div>
-      </div>
-    </div>
+    <!--<div class="preloader">-->
+      <!--<div class="sk-cube-grid">-->
+        <!--<div class="sk-cube sk-cube1"></div>-->
+        <!--<div class="sk-cube sk-cube2"></div>-->
+        <!--<div class="sk-cube sk-cube3"></div>-->
+        <!--<div class="sk-cube sk-cube4"></div>-->
+        <!--<div class="sk-cube sk-cube5"></div>-->
+        <!--<div class="sk-cube sk-cube6"></div>-->
+        <!--<div class="sk-cube sk-cube7"></div>-->
+        <!--<div class="sk-cube sk-cube8"></div>-->
+        <!--<div class="sk-cube sk-cube9"></div>-->
+      <!--</div>-->
+    <!--</div>-->
     <!--Preloader area end here-->
 
     <!--Header area start here-->
@@ -25,8 +25,8 @@
               <div class="header-top-left">
                 <ul>
                   <li><span id="today"></span></li>
-                  <li><a href="/account">Sign In / Join</a></li>
-                  <li><a href="/contact">Contact</a></li>
+                  <li><nuxt-link to="/account">Sign In / Join</nuxt-link></li>
+                  <li><nuxt-link to="/contact">Contact</nuxt-link></li>
                   <li>London, 27 <sup>o</sup> C</li>
                 </ul>
               </div>
@@ -52,12 +52,12 @@
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div class="logo-area">
-                <a href="/"><img src="images/logo.png" alt="logo"></a>
+                <nuxt-link to="/"><img src="/images/logo.png" alt="logo"></nuxt-link>
               </div>
             </div>
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
               <div class="right-banner">
-                <img src="images/add/1.png" alt="add image">
+                <img src="/images/add/1.png" alt="add image">
               </div>
             </div>
           </div>
@@ -87,35 +87,30 @@
               <div class="main-menu navbar-collapse collapse">
                 <nav>
                   <ul>
-                    <li><a href="/" class="has dropdown-toggle">Home <i class="fa fa-chevron-down"
-                                                                                 aria-hidden="true"></i></a>
-                      <ul class="sub-menu">
-                        <li><a href="/">Home 1</a></li>
-                        <li><a href="#">Home 2</a></li>
-                        <li><a href="#">Home 3</a></li>
-                      </ul>
+                    <li>
+                      <nuxt-link to="/" class="has dropdown-toggle">Home </nuxt-link>
                     </li>
                     <li><a href="#" class="has">Mega Menu <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
                       <ul class="sub-menu mega">
                         <div class="row">
                           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                              <a href="#"><img src="images/category/1.jpg" alt=""></a>
+                              <a href="#"><img src="/images/category/1.jpg" alt=""></a>
                               <h3><a href="#">Holiday Money: The Ultimate Guide to Buying</a></h3>
                               <p>Nulla ullamcorper orci metus, eu imperdiet quam is a dapibus ac...</p>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                              <a href="#"><img src="images/category/2.jpg" alt=""></a>
+                              <a href="#"><img src="/images/category/2.jpg" alt=""></a>
                               <h3><a href="#">The Exhibition Bankasy Doesn’t Want You to See </a></h3>
                               <p>Nulla ullamcorper orci metus, eu imperdiet quam is a dapibus ac...</p>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                              <a href="#"><img src="images/category/5.jpg" alt=""></a>
+                              <a href="#"><img src="/images/category/5.jpg" alt=""></a>
                               <h3><a href="#">How to End Boom And Bust: Make Cash Illegal </a></h3>
                               <p>Nulla ullamcorper orci metus, eu imperdiet quam is a dapibus ac...</p>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                              <a href="#"><img src="images/category/4.jpg" alt=""></a>
+                              <a href="#"><img src="/images/category/4.jpg" alt=""></a>
                               <h3><a href="#">Quiz: Turner Prize Nominee or Load of Old Rubbish? </a>
                               </h3>
                               <p>Nulla ullamcorper orci metus, eu imperdiet quam is a dapibus ac...</p>
@@ -130,7 +125,7 @@
                         <li class="has"><a href="/blog">Blog <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                           <ul>
                             <li><a href="/blog">Blog</a></li>
-                            <li><a href="/blog-single">Blog Single</a></li>
+                            <li><a href="/blog/rejorjo">Blog Single</a></li>
                           </ul>
                         </li>
                         <li><a href="#">Category <i class="fa fa-angle-right" aria-hidden="true"></i></a>
@@ -160,14 +155,14 @@
                         <li><a href="#">Error-404</a></li>
                       </ul>
                     </li>
-                    <li><a href="#">Business</a></li>
-                    <li><a href="#">World</a></li>
-                    <li><a href="#">Fashion</a></li>
-                    <li><a href="#">Politics</a></li>
-                    <li><a href="#">Sports</a></li>
-                    <li><a href="#">Health</a></li>
-                    <li><a href="#">Science</a></li>
-                    <li><a href="#">Videos</a></li>
+                    <li><nuxt-link to="#">Business</nuxt-link></li>
+                    <li><nuxt-link to="#">World</nuxt-link></li>
+                    <li><nuxt-link to="#">Fashion</nuxt-link></li>
+                    <li><nuxt-link to="#">Politics</nuxt-link></li>
+                    <li><nuxt-link to="#">Sports</nuxt-link></li>
+                    <li><nuxt-link to="#">Health</nuxt-link></li>
+                    <li><nuxt-link to="#">Science</nuxt-link></li>
+                    <li><nuxt-link to="#">Videos</nuxt-link></li>
                   </ul>
                 </nav>
               </div>
@@ -185,3 +180,10 @@
     </header>
   </div>
 </template>
+<script>
+  export default {
+    computed: {
+      categories () { return this.$store.state.categories},
+    },
+  }
+</script>

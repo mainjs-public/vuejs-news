@@ -43,11 +43,9 @@ export const actions =  {
     context.commit('fetchRequest');
     client.mutate({ mutation: editBlog, variables: {input : data} })
       .then((res) => {
-        console.log(res);
         return res.data;
       })
       .then(data => {
-        console.log(data);
         context.commit('editSuccess');
         this.app.context.redirect('/blog');
       })
@@ -64,11 +62,9 @@ export const actions =  {
       }]
     })
       .then((res) => {
-        console.log(res);
         return res.data;
       })
       .then(data => {
-        console.log(data);
         commit('deleteSuccess');
       })
       .catch(error => {

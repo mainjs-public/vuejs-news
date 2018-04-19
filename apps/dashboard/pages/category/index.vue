@@ -7,7 +7,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li><nuxt-link to="/"><i class="fa fa-dashboard"></i> Home</nuxt-link></li>
-                <li class="active">Categories</li>
+                <li class="active">Category</li>
             </ol>
         </section>
         <section class="content">
@@ -27,33 +27,7 @@
                         <!-- /.box-header -->
                         <div v-if="$apollo.loading">Loading...</div>
                         <div v-else class="box-body">
-                            <table id="example1" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Image</th>
-                                        <th>Name</th>
-                                        <th>Slug</th>
-                                        <th>Created</th>
-                                        <th>Updated</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                <tr v-for="category of categories" v-bind:key="category.id">
-                                    <td><img class="img-circle img-sm" :src="category.image"/></td>
-                                    <td>{{category.name}}</td>
-                                    <td>{{category.slug}}</td>
-                                    <td>{{category.created}}</td>
-                                    <td>{{category.updated}}</td>
-                                    <td>{{category.status}}</td>
-                                    <td>
-                                        <nuxt-link :to="`/category/edit?id=${category.id}`" class="btn btn-primary btn-xs" style="margin-right: 10px">Edit</nuxt-link>
-                                        <button class="btn btn-danger btn-xs" @click="deleteClick($event, category.id)">Delete</button>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
+                            <table-category :categories="categories" :deleteClick="deleteClick"/>
                         </div>
                         <!-- /.box-body -->
                     </div>
@@ -66,6 +40,7 @@
 <script>
   import { mapActions } from 'vuex';
   import { query } from '~/apollo/queries/category.js';
+  import TableCategory from '~/components/TableCategory.vue';
   export default {
     data () {
       return {
@@ -75,6 +50,7 @@
     apollo: {
       categories: {
         query: query,
+        fetchPolicy: 'cache-and-network',
       }
     },
     methods: {
@@ -86,6 +62,10 @@
         e.preventDefault();
       },
     },
+    components: {
+      TableCategory
+    },
+    middleware: 'auth'
   }
 </script>
 

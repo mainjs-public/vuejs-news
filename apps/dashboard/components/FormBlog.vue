@@ -1,7 +1,6 @@
 <template>
     <div>
-        <section class="content-header" style="display: flex; align-items: center; flex-direction: row">
-            <nuxt-link class="btn btn-default" style="margin-right: 10px" to="/blog">Back</nuxt-link>
+        <section class="content-header">
             <h1>
                 {{ data.id ? "Edit" : "Add"}}
             </h1>
@@ -18,6 +17,13 @@
                         <div>
                             <div class="box-header with-border">
                                 <h3 class="box-title">{{data.id ? "Edit blog" : "Add blog"}}</h3>
+                                <div class="pull-right">
+                                    <nuxt-link class="btn btn-default" style="margin-right: 10px" to="/blog">Back</nuxt-link>
+                                    <button type="submit" class="btn btn-info" @click="onClick($event)">
+                                        <i class="fa fa-circle-o-notch fa-spin" v-if="loading"></i>
+                                        Save
+                                    </button>
+                                </div>
                             </div>
                             <!-- /.box-header -->
                             <div class="alert alert-danger alert-dismissible" style="margin: 0px 10px" v-if="error.message">
@@ -71,6 +77,7 @@
                                             <quill-editor ref="myTextEditor"
                                                           v-model="data.content"
                                                           :options="editorOption"
+                                                          style="display: inline-block; height: 20rem"
                                             >
                                             </quill-editor>
                                             <!--<label class="help-block" v-if="error.content">{{error.content}}</label>-->
@@ -94,15 +101,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- /.box-body -->
-                                <div class="box-footer">
-                                    <button type="submit" class="btn btn-default" @click="onCancel($event)">Cancel</button>
-                                    <button type="submit" class="btn btn-info pull-right" @click="onClick($event)">
-                                        <i class="fa fa-circle-o-notch fa-spin" v-if="loading"></i>
-                                        Save
-                                    </button>
-                                </div>
-                                <!-- /.box-footer -->
                             </form>
                         </div>
                     </div>
@@ -115,7 +113,7 @@
 <script>
   import SelectCategory from './SelectCategory.vue';
   export default {
-    props: ['data', 'onClick', 'loading', 'error'],
+    props: ['data', 'onClick'],
     data() {
       return {
         editorOption: {
@@ -147,6 +145,8 @@
       editor() {
         return this.$refs.myTextEditor.quill
       },
+      loading () { return this.$store.state.blog.loading },
+      error () { return this.$store.state.blog.error }
     },
     components: {
       SelectCategory

@@ -8,7 +8,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div class="single-footer footer-one">
                 <h3>About</h3>
-                <div class="footer-logo"><img src="images/footer-logo.png" alt="footer-logo"></div>
+                <div class="footer-logo"><img src="/images/footer-logo.png" alt="footer-logo"></div>
                 <p>Your source for the lifestyle news. This demo is crafted specifically to exhibit the use of the theme
                   as a lifestyle site. Visit our main page for more </p>
                 <p>We're social, connect with us:</p>
@@ -40,7 +40,7 @@
                   <ul>
                     <li>
                       <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4">
-                        <a href="blog-single.html"><img src="images/post-images/post-1.jpg" alt="post photo"></a>
+                        <a href="blog-single.html"><img src="/images/post-images/post-1.jpg" alt="post photo"></a>
                       </div>
                       <div class="col-lg-7 col-md-7 col-sm-7 col-xs-8">
                         <p><a href="blog-single.html">US should prepare for Russian election</a></p>
@@ -49,7 +49,7 @@
                     </li>
                     <li>
                       <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4">
-                        <a href="blog-single.html"><img src="images/post-images/post-2.jpg" alt="post photo"></a>
+                        <a href="blog-single.html"><img src="/images/post-images/post-2.jpg" alt="post photo"></a>
                       </div>
                       <div class="col-lg-7 col-md-7 col-sm-7 col-xs-8">
                         <p><a href="blog-single.html">US should prepare for Russian election</a></p>
@@ -58,7 +58,7 @@
                     </li>
                     <li>
                       <div class="col-lg-5 col-md-5 col-sm-5 col-xs-4">
-                        <a href="blog-single.html"><img src="images/post-images/post-3.jpg" alt="post photo"></a>
+                        <a href="blog-single.html"><img src="/images/post-images/post-3.jpg" alt="post photo"></a>
                       </div>
                       <div class="col-lg-7 col-md-7 col-sm-7 col-xs-8">
                         <p><a href="blog-single.html">US should prepare for Russian election</a></p>
@@ -77,40 +77,40 @@
                 <h3>From Flickr</h3>
                 <ul>
                   <li>
-                    <a href="#"><img src="images/flicker/1.png" alt="flicker photo"></a>
+                    <a href="#"><img src="/images/flicker/1.png" alt="flicker photo"></a>
                   </li>
                   <li>
-                    <a href="#"><img src="images/flicker/2.png" alt="flicker photo"></a>
+                    <a href="#"><img src="/images/flicker/2.png" alt="flicker photo"></a>
                   </li>
                   <li>
-                    <a href="#"><img src="images/flicker/3.png" alt="flicker photo"></a>
+                    <a href="#"><img src="/images/flicker/3.png" alt="flicker photo"></a>
                   </li>
                   <li>
-                    <a href="#"><img src="images/flicker/4.png" alt="flicker photo"></a>
+                    <a href="#"><img src="/images/flicker/4.png" alt="flicker photo"></a>
                   </li>
                   <li>
-                    <a href="#"><img src="images/flicker/5.png" alt="flicker photo"></a>
+                    <a href="#"><img src="/images/flicker/5.png" alt="flicker photo"></a>
                   </li>
                   <li>
-                    <a href="#"><img src="images/flicker/6.png" alt="flicker photo"></a>
+                    <a href="#"><img src="/images/flicker/6.png" alt="flicker photo"></a>
                   </li>
                   <li>
-                    <a href="#"><img src="images/flicker/7.png" alt="flicker photo"></a>
+                    <a href="#"><img src="/images/flicker/7.png" alt="flicker photo"></a>
                   </li>
                   <li>
-                    <a href="#"><img src="images/flicker/8.png" alt="flicker photo"></a>
+                    <a href="#"><img src="/images/flicker/8.png" alt="flicker photo"></a>
                   </li>
                   <li>
-                    <a href="#"><img src="images/flicker/9.png" alt="flicker photo"></a>
+                    <a href="#"><img src="/images/flicker/9.png" alt="flicker photo"></a>
                   </li>
                   <li>
-                    <a href="#"><img src="images/flicker/10.png" alt="flicker photo"></a>
+                    <a href="#"><img src="/images/flicker/10.png" alt="flicker photo"></a>
                   </li>
                   <li>
-                    <a href="#"><img src="images/flicker/11.png" alt="flicker photo"></a>
+                    <a href="#"><img src="/images/flicker/11.png" alt="flicker photo"></a>
                   </li>
                   <li>
-                    <a href="#"><img src="images/flicker/12.png" alt="flicker photo"></a>
+                    <a href="#"><img src="/images/flicker/12.png" alt="flicker photo"></a>
                   </li>
                 </ul>
               </div>
@@ -138,32 +138,32 @@
     <div id="return-to-top">
       <span>Top</span>
     </div>
-    <script src="js/jquery.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
     <!-- jquery latest version -->
-    <script src="js/jquery.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
     <!-- jquery-ui js -->
-    <script src="js/jquery-ui.min.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
     <!-- bootstrap js -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <!-- meanmenu js -->
-    <script src="js/jquery.meanmenu.js"></script>
+    <script src="/js/jquery.meanmenu.js"></script>
     <!-- wow js -->
-    <script src="js/wow.min.js"></script>
+    <script src="/js/wow.min.js"></script>
     <!-- owl.carousel js -->
-    <script src="js/owl.carousel.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
     <!-- magnific-popup js -->
-    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="/js/jquery.magnific-popup.js"></script>
 
     <!-- jquery.counterup js -->
-    <script src="js/jquery.counterup.min.js"></script>
-    <script src="js/waypoints.min.js"></script>
+    <script src="/js/jquery.counterup.min.js"></script>
+    <script src="/js/waypoints.min.js"></script>
     <!-- jquery light box -->
     <!--<script src="js/lightbox.min.js"></script>-->
     <!-- Nivo slider js -->
-    <script src="inc/custom-slider/js/jquery.nivo.slider.js" type="text/javascript"></script>
-    <script src="inc/custom-slider/home.js" type="text/javascript"></script>
+    <script src="/inc/custom-slider/js/jquery.nivo.slider.js" type="text/javascript"></script>
+    <script src="/inc/custom-slider/home.js" type="text/javascript"></script>
     <!-- main js -->
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
   </div>
 </template>
 
