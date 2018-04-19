@@ -178,6 +178,7 @@
           id: 'null',
         },
         imagesByFolderId: [],
+        uploadKey: 0,
       }
     },
 
@@ -189,7 +190,8 @@
         query: queryImage,
         variables() {
           return {
-            folder_id: this.folder.id
+            folder_id: this.folder.id,
+            key: this.uploadKey
           }
         },
         update(data) {
@@ -222,7 +224,7 @@
         //
         // });
 
-        var li = {
+        const li = {
           name: "Images",
           path: "image",
           id: 'null',
@@ -325,7 +327,7 @@
 
           request.post('upload', formData)
             .then(res => {
-              this.folder = { ...this.folder, id: this.folder.id }
+              this.uploadKey++;
           }).catch(e => console.log(e));
         }
       },
