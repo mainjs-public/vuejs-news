@@ -10,3 +10,12 @@ export const query = gql`
     }
   }
 `;
+
+
+export const deleteImage = gql`
+  mutation deleteImage($input: DeleteImageInput!) {
+    deleteImage(input: $input) {
+      count
+    }
+  }
+`;

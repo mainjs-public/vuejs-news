@@ -109,7 +109,7 @@
                                                        class="btn btn-success btn-xs" role="button">
                                                         <i class="fa fa-check" aria-hidden="true"></i>
                                                     </a>
-                                                    <a @click.privent="deleteImage(img)" href="#"
+                                                    <a @click.privent="deleteImage(img.id)" href="#"
                                                        class="btn btn-danger btn-xs" role="button">
                                                         <i class="fa fa-times" aria-hidden="true"></i>
                                                     </a>
@@ -160,7 +160,7 @@
   import request from '~/config/axios';
   import {API_URL} from '~/config/api';
   import {query, deleteFolder, createFolder} from '~/apollo/queries/folder';
-  import {query as queryImage} from '~/apollo/queries/image';
+  import {query as queryImage, deleteImage} from '~/apollo/queries/image';
 
   export default {
 
@@ -238,18 +238,25 @@
         return "not-active list-group-item";
       },
       previewImage: function () {
-        return `${API_URL}${this.value}`;
+        return this.value ? `${API_URL}${this.value}` : require('~/assets/no-image.svg');
       }
     },
 
     methods: {
 
       clearImage: function () {
-
+        this.onChange("");
       },
 
-      deleteImage: function (img) {
-
+      deleteImage: function (id) {
+        this.$apollo.mutate({
+          mutation: deleteImage,
+          variables: {
+            input: {
+              id
+            }
+          }
+        }).then(() => this.uploadKey++);
       },
 
       renameImage: function (old, ext, e) {
