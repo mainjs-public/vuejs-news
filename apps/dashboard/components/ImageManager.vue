@@ -206,32 +206,12 @@
 
     computed: {
       breadcrumbs: function () {
-
-        // var breadcrumbs = this.folder.path.split('/');
-        //
-        // var current = [];
-        //
-        // return breadcrumbs.map(function (breadcrumb, index) {
-        //
-        //   current.push(breadcrumb);
-        //
-        //   var li = {
-        //     name: breadcrumb,
-        //     path: current.join('/')
-        //   }
-        //
-        //   return li;
-        //
-        // });
-
         const li = {
           name: "Images",
           path: "image",
           id: 'null',
-
         };
         return [li];
-
       },
       setActive: function () {
         if (this.add_dir) return "list-group-item";
