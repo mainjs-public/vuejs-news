@@ -30,7 +30,7 @@
   export default {
     data() {
       return {
-        data: initData,
+        data: {},
         loading: true,
         error_data: {}
       }
@@ -44,6 +44,8 @@
           const blog = data.data.blog;
           const new_blog = { ...blog, category_id: blog.category.id || '', tags: ''};
           this.data = omit(new_blog, ['category', '__typename']);
+        } else {
+          this.data = {...initData};
         }
         this.loading = false;
       } catch (error) {

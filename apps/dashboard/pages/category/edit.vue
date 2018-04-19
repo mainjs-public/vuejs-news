@@ -28,7 +28,7 @@
   export default {
     data() {
       return {
-        data: initData,
+        data: {},
         loading: true,
         error_data: {}
       }
@@ -41,6 +41,8 @@
           const data =  await client.query({ query: getCategory , variables: {categoryId: categoryId}});
           const category = data.data.category;
           this.data = omit(category, ['__typename']);
+        } else {
+          this.data = {...initData};
         }
         this.loading = false;
       } catch (error) {
