@@ -33,7 +33,7 @@
                         <li>
                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                               <div class="blog-image">
-                                  <nuxt-link to="#">
+                                  <nuxt-link :to="`/blog/${blog.slug}`">
                                      <i class="fa fa-link" aria-hidden="true"></i>
                                      <img :src="blog.image" alt="Blog photo" />
                                   </nuxt-link>
@@ -41,10 +41,10 @@
                            </div>
                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                               <span class="date"> <i class="fa fa-calendar-check-o" aria-hidden="true"> </i>{{blog.created}}</span>
-                              <h3><nuxt-link to="#">{{blog.name}}</nuxt-link></h3>
+                              <h3><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h3>
                               <span class="admin"><nuxt-link to="#"><i class="fa fa-user-o" aria-hidden="true"></i> Admin</nuxt-link></span> <span class="like"><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>  {{blog.comments.length}} </a></span>
                               <p>{{blog.description}}</p>
-                              <nuxt-link to="#" class="more">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></nuxt-link>
+                              <nuxt-link :to="`/blog/${blog.slug}`" class="more">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></nuxt-link>
                            </div>
                         </li>
                     </ul>

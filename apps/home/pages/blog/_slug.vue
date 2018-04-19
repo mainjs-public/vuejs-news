@@ -54,7 +54,7 @@
                                     <i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}
                                 </span>
                                     <span class="cat">
-                                    <a href="#"><i class="fa fa-folder-o" aria-hidden="true"></i> {{blog.category && blog.category.name ? blog.category.name: 'Category'}} </a>
+                                    <nuxt-link to="/category"><i class="fa fa-folder-o" aria-hidden="true"></i> {{blog.category && blog.category.name ? blog.category.name: 'Category'}} </nuxt-link>
                                 </span>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -94,10 +94,10 @@
                             <div class="row">
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" v-for="(blogDetail, index) in blogs" v-bind:key="blogDetail.id" v-if="index<3">
                                     <div class="popular-post-img">
-                                        <nuxt-link to="#"><img :src="blogDetail.image" :alt="blogDetail.name"></nuxt-link>
+                                        <nuxt-link :to="`/blog/${blogDetail.slug}`"><img :src="blogDetail.image" :alt="blogDetail.name"></nuxt-link>
                                     </div>
                                     <h3>
-                                        <nuxt-link to="#">{{blogDetail.name}}</nuxt-link>
+                                        <nuxt-link :to="`/blog/${blogDetail.slug}`">{{blogDetail.name}}</nuxt-link>
                                     </h3>
                                     <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blogDetail.created}}</span>
                                 </div>
@@ -174,10 +174,10 @@
                                                 <div class="item-post">
                                                     <div class="row">
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 paddimg-right-none">
-                                                            <nuxt-link to="#"><img :src="blogDetail.image" alt="" :title="blogDetail.name" /></nuxt-link>
+                                                            <nuxt-link :to="`/blog/${blogDetail.slug}`"><img :src="blogDetail.image" alt="" :title="blogDetail.name" /></nuxt-link>
                                                         </div>
                                                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                                            <h4><nuxt-link to="#">{{blogDetail.name}}</nuxt-link></h4>
+                                                            <h4><nuxt-link :to="`/blog/${blogDetail.slug}`">{{blogDetail.name}}</nuxt-link></h4>
                                                             <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blogDetail.created}}</span>
                                                         </div>
                                                     </div>
