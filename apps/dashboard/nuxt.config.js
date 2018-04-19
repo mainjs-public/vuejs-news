@@ -25,7 +25,7 @@ module.exports = {
       // { src: '/js/modernizr-2.8.3.min.js' },
       // { src: 'https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js' },
       // { src: 'https://oss.maxcdn.com/respond/1.4.2/respond.min.js' },
-      // { src: '/bower_components/jquery/dist/jquery.min.js'},
+      { src: '/bower_components/jquery/dist/jquery.min.js'},
       // { src: '/bower_components/jquery-ui/jquery-ui.min.js'},
       // { src: '/bower_components/bootstrap/dist/js/bootstrap.min.js'},
       // { src: '/bower_components/raphael/raphael.min.js'},

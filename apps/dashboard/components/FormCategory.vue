@@ -42,6 +42,13 @@
                                         <label class="col-sm-1 control-label">Image</label>
 
                                         <div class="col-sm-11">
+                                            <image-manager id="image" inputName="image" :value="data.image" :onChange="image => this.data.image = image" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-1 control-label">Image</label>
+
+                                        <div class="col-sm-11">
                                             <input v-model="data.image" type="text" class="form-control" placeholder="Image"/>
                                         </div>
                                     </div>
@@ -88,12 +95,16 @@
 
 <script>
   // import { addCategory } from '~/query/category.js'
+  import ImageManager from './ImageManager';
   export default {
     props: ['data', 'onClick'],
     data() {
         return {
             error: {},
         }
+    },
+    components: {
+      ImageManager,
     }
   }
 </script>
