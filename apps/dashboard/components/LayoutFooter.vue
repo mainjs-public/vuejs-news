@@ -4,7 +4,7 @@
           <div class="pull-right hidden-xs">
               <b>Version</b> 2.4.0
           </div>
-          <strong>Copyright &copy; 2014-2016 <nuxt-link to="https://adminlte.io">Almsaeed Studio</nuxt-link>.</strong> All rights
+          <strong>Copyright &copy; 2018 <nuxt-link to="https://adminlte.io">mainjs.net</nuxt-link>.</strong> All rights
           reserved.
       </footer>
 
