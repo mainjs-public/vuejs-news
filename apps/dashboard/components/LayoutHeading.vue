@@ -229,7 +229,7 @@
                     <li class="dropdown user user-menu">
                         <nuxt-link to="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                            <span class="hidden-xs">{{authUser!== null && authUser.user && authUser.user!== null && authUser.user.name ? authUser.user.name : 'Admin'}}</span>
+                            <span class="hidden-xs">{{authUser!== null ? authUser.user.name : 'Admin'}}</span>
                         </nuxt-link>
                         <ul class="dropdown-menu">
                             <!-- User image -->
