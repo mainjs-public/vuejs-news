@@ -27,7 +27,7 @@
                         <!-- /.box-header -->
                         <div v-if="$apollo.loading">Loading...</div>
                         <div v-else class="box-body">
-                            <table-category :categories="categories" :deleteClick="deleteClick"/>
+                            <table-category :categories="categories" :deleteClick="deleteClick" :pagination="true"/>
                         </div>
                         <!-- /.box-body -->
                     </div>
