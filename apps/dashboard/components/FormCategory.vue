@@ -58,7 +58,12 @@
                                         <label class="col-sm-1 control-label">Description</label>
 
                                         <div class="col-sm-11">
-                                            <input v-model="data.description" type="text" class="form-control" placeholder="Description">
+                                            <quill-editor ref="myTextEditor"
+                                                          v-model="data.description"
+                                                          :options="editorOption"
+                                                          style="display: inline-block; height: 20rem"
+                                            >
+                                            </quill-editor>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -76,10 +81,7 @@
                                     <div class="form-group">
                                         <label class="col-sm-1 control-label">Status</label>
                                         <div class="col-sm-11">
-                                            <select class="form-control" v-model="data.status">
-                                                <option :value="true">True</option>
-                                                <option :value="false">False</option>
-                                            </select>
+                                            <switch-botton :value="data.status" :onChange="changeStatus"/>
                                         </div>
                                     </div>
                                 </div>
@@ -94,7 +96,8 @@
 
 <script>
   // import { addCategory } from '~/query/category.js'
-  import ImageManager from './ImageManager';
+  import ImageManager from './ImageManager.vue';
+  import SwitchBotton from './SwitchBotton.vue';
   export default {
     props: ['data', 'onClick'],
     data() {
@@ -133,6 +136,12 @@
     },
     components: {
       ImageManager,
+      SwitchBotton
+    },
+    methods: {
+      changeStatus(value){
+        this.data.status = value;
+      }
     }
   }
 </script>

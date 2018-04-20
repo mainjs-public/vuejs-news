@@ -4,6 +4,7 @@
             <nuxt-link to="/"><b>Admin</b></nuxt-link>
         </div>
         <!-- /.login-logo -->
+        {{authUser=== null ? 'null': 'value'}}
         <div class="login-box-body">
             <p class="login-box-msg">Sign in to start your session</p>
             <div class="alert alert-danger alert-dismissible" style="margin-bottom: 20px" v-if="error !== null && error.message">
@@ -23,7 +24,7 @@
                     <div class="col-xs-8">
                         <div class="checkbox icheck">
                             <label>
-                                <input type="checkbox"> Remember Me
+                                <input type="checkbox" v-model="remember_login"> Remember Me
                             </label>
                         </div>
                     </div>
@@ -40,15 +41,15 @@
 
         </div>
         <!-- /.login-box-body -->
-        <script>
-          $(function () {
-            $('input').iCheck({
-              checkboxClass: 'icheckbox_square-blue',
-              radioClass: 'iradio_square-blue',
-              increaseArea: '20%' /* optional */
-            });
-          });
-        </script>
+        <!--<script>-->
+          <!--$(function () {-->
+            <!--$('input').iCheck({-->
+              <!--checkboxClass: 'icheckbox_square-blue',-->
+              <!--radioClass: 'iradio_square-blue',-->
+              <!--increaseArea: '20%' /* optional */-->
+            <!--});-->
+          <!--});-->
+        <!--</script>-->
     </div>
 </template>
 <script>
@@ -71,12 +72,14 @@
       data() {
         return {
           email: '',
-          password: ''
+          password: '',
+          remember_login: false
         }
       },
       computed: {
         loading () { return this.$store.state.loading },
         error () { return this.$store.state.error },
+        authUser () { return this.$store.state.authUser },
       },
       methods: {
         ...mapActions([
