@@ -13,7 +13,7 @@
         </thead>
         <tbody>
         <tr v-for="category of categories" v-bind:key="category.id">
-            <td><img class="img-circle img-sm" :src="category.image"/></td>
+            <td><img class="img-circle img-sm" :src="`${api_url}${category.image}`"/></td>
             <td>{{category.name}}</td>
             <td>{{category.slug}}</td>
             <td>{{category.created}}</td>
@@ -29,8 +29,14 @@
 </template>
 
 <script>
+  import { API_URL } from '~/config/api';
   export default {
-    props: ['categories', 'deleteClick']
+    props: ['categories', 'deleteClick'],
+    data() {
+      return {
+        api_url: API_URL,
+      }
+    }
   }
 </script>
 

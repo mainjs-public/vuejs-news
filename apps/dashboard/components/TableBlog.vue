@@ -13,7 +13,7 @@
         </thead>
         <tbody v-if="blogs.length > 0">
         <tr v-for="blog of blogs" v-bind:key="blog.id">
-            <td><img class="img-circle img-sm" :src="blog.image"/></td>
+            <td><img class="img-circle img-sm" :src="`${api_url}${blog.image}`"/></td>
             <td>{{blog.name}}</td>
             <td>{{blog.slug}}</td>
             <td>{{blog.created}}</td>
@@ -31,8 +31,14 @@
 </template>
 
 <script>
+  import { API_URL } from '~/config/api';
   export default {
-    props: ['blogs', 'deleteClick']
+    props: ['blogs', 'deleteClick'],
+    data() {
+      return {
+        api_url: API_URL,
+      }
+    }
   }
 </script>
 
