@@ -77,19 +77,16 @@
                                             </select>
                                         </div>
 
-                                        <div class="form-group" v-if="menuCustom">
+                                        <div class="form-group" v-if="menuLink">
                                             <label for="link">Link</label>
                                             <input type="text" v-model="activeItem.data" class="form-control" id="link"
                                                    placeholder="Type">
                                         </div>
 
-                                        <div class="form-group" v-if="menuType">
-                                            <label for="title">Type</label>
-                                            <select v-model="activeItem.data" id="input" class="form-control">
-                                                <option v-for="option in optiontyle" :value="option.id">
-                                                    {{ option.text }}
-                                                </option>
-                                            </select>
+                                        <div class="form-group" v-if="menuRouter">
+                                            <label for="title">Router</label>
+                                            <input type="text" v-model="activeItem.data" class="form-control" id="title"
+                                                   placeholder="Type">
                                         </div>
 
                                         <div class="form-group">
@@ -114,8 +111,11 @@
 </template>
 
 <script>
+  import axios from 'axios';
+  import _ from 'lodash';
+  import { query, updateSetting } from '~/apollo/queries/setting';
 
-  module.exports = {
+  export default {
     data: function () {
       return {
         active: -1,
@@ -123,26 +123,21 @@
         megamenu: [],
         optiontyle: [],
         options: [
-          {text: 'Custom', value: 'custom'},
-          {text: 'About Us', value: 'about'},
-          {text: 'Contact Us', value: 'contact'},
-          {text: 'Gallery', value: 'gallery'},
-          {text: 'Tour', value: 'tours'},
-          {text: 'Cabin', value: 'cabins'},
-          {text: 'Blog', value: 'blogs'},
-          {text: 'Verified Reviews', value: 'reviews'},
+          {text: 'Link', value: 'link'},
+          {text: 'Router', value: 'router'},
         ]
       }
     },
 
     watch: {
       megamenu: function () {
-        this.postData();
+        // this.postData();
         // this.preMenu();
+        // console.log(this.megamenu);
       },
 
       activeItem: function () {
-        // this.preMenu();
+        this.preMenu();
       }
     },
 
@@ -150,22 +145,23 @@
 
     computed: {
 
-      menuType: function () {
-        return this.activeItem.type == "tours" || this.activeItem.type == "cabins" || this.activeItem.type == "blogs";
+      menuLink: function () {
+        return this.activeItem.type == "link"
       },
 
-      menuCustom: function () {
-        return this.activeItem.type == "custom";
+      menuRouter: function () {
+        return this.activeItem.type == "router";
       }
     },
 
     created: function () {
-      axios.get(this.action)
-        .then(function (response) {
-          this.megamenu = response.data;
-        }.bind(this))
-        .catch(function (error) {
-          console.log(error);
+      this.$apollo.query({
+        query,
+        variables: { key: 'megamenu' }
+      }).then(({ data }) => data.settingByKey)
+        .then(({ json, value }) => {
+          const megamenu = json ? JSON.parse(value) : value;
+          this.megamenu = megamenu;
         });
     },
 
@@ -195,7 +191,7 @@
               id: +new Date,
               title: title,
               data: '',
-              type: 'custom',
+              type: 'link',
             });
 
           }
@@ -217,7 +213,7 @@
           id: +new Date,
           title: title,
           data: '',
-          type: 'custom',
+          type: 'link',
           children: []
         })
 
@@ -251,43 +247,33 @@
 
           }.bind(this));
 
-
         }
 
         this.activeItem = '';
       },
 
       saveMenu: function () {
-        this.preMenu();
-        this.postData();
+        // this.preMenu();
+        // this.postData();
+        const input = {
+          key: "megamenu",
+          json: true,
+          value: JSON.stringify(this.megamenu)
+        };
+        this.$apollo.mutate({
+          mutation: updateSetting,
+          variables: { input: input  }
+        }).then(({ data }) => {
+          console.log(data);
+        })
       },
 
       postData: function () {
-        axios.post(this.action, {
-          megamenu: this.megamenu
-        })
-          .then(function (response) {
-            console.log(response.data);
-          }.bind(this))
-          .catch(function (error) {
-            console.log(error);
-          });
+
       },
 
       changType: function () {
 
-        if (this.menuType) {
-          axios.post('/dashboard/megamenu', {
-            type: this.activeItem.type
-          })
-            .then(function (response) {
-              this.optiontyle = response.data;
-            }.bind(this))
-            .catch(function (error) {
-              console.log(error);
-            });
-        }
-        ;
       },
 
       preMenu: function () {
@@ -315,7 +301,7 @@
   }
 </script>
 
-<style lang="sass">
+<style lang="stylus">
     .wap-megamenu
         margin: 30px
         .megamenu-row
