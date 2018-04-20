@@ -87,82 +87,26 @@
               <div class="main-menu navbar-collapse collapse">
                 <nav>
                   <ul>
-                    <li>
-                      <nuxt-link to="/" class="has dropdown-toggle">Home </nuxt-link>
-                    </li>
-                    <li><a href="#" class="has">Mega Menu <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-                      <ul class="sub-menu mega">
-                        <div class="row">
-                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                              <a href="#"><img src="/images/category/1.jpg" alt=""></a>
-                              <h3><a href="#">Holiday Money: The Ultimate Guide to Buying</a></h3>
-                              <p>Nulla ullamcorper orci metus, eu imperdiet quam is a dapibus ac...</p>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                              <a href="#"><img src="/images/category/2.jpg" alt=""></a>
-                              <h3><a href="#">The Exhibition Bankasy Doesn’t Want You to See </a></h3>
-                              <p>Nulla ullamcorper orci metus, eu imperdiet quam is a dapibus ac...</p>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                              <a href="#"><img src="/images/category/5.jpg" alt=""></a>
-                              <h3><a href="#">How to End Boom And Bust: Make Cash Illegal </a></h3>
-                              <p>Nulla ullamcorper orci metus, eu imperdiet quam is a dapibus ac...</p>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                              <a href="#"><img src="/images/category/4.jpg" alt=""></a>
-                              <h3><a href="#">Quiz: Turner Prize Nominee or Load of Old Rubbish? </a>
-                              </h3>
-                              <p>Nulla ullamcorper orci metus, eu imperdiet quam is a dapibus ac...</p>
-                            </div>
-                          </div>
-                        </div>
-                      </ul>
-                    </li>
-                    <li><a href="#" class="has">Pages <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-                      <ul class="sub-menu">
-                        <li><a href="/about">About</a></li>
-                        <li class="has"><a href="/blog">Blog <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-                          <ul>
-                            <li><a href="/blog">Blog</a></li>
-                            <li><a href="/blog/rejorjo">Blog Single</a></li>
-                          </ul>
-                        </li>
-                        <li><a href="#">Category <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-                          <ul>
-                            <li><a href="/category">Category Style 1</a></li>
-                            <li><a href="#">Category Style 2</a></li>
-                            <li><a href="#">Category Style 3</a></li>
-                            <li><a href="#">Category Style 4</a></li>
-                          </ul>
-                        </li>
-                        <li><a href="#">Gallery<i class="fa fa-angle-right" aria-hidden="true"></i></a>
-                          <ul>
-                            <li><a href="#">Gallery One</a></li>
-                            <li><a href="#">Gallery Two</a></li>
-                            <li><a href="#">Gallery Single</a></li>
-                          </ul>
-                        </li>
-                        <li><a href="#">Author <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-                          <ul>
-                            <li><a href="#">Author</a></li>
-                            <li><a href="#">Author Single</a></li>
-                          </ul>
-                        </li>
-                        <li><a href="#">Testimonial</a></li>
-                        <li><a href="/account">Account</a></li>
-                        <li><a href="/contact">Contact</a></li>
-                        <li><a href="#">Error-404</a></li>
-                      </ul>
-                    </li>
-                    <li><nuxt-link to="#">Business</nuxt-link></li>
-                    <li><nuxt-link to="#">World</nuxt-link></li>
-                    <li><nuxt-link to="#">Fashion</nuxt-link></li>
-                    <li><nuxt-link to="#">Politics</nuxt-link></li>
-                    <li><nuxt-link to="#">Sports</nuxt-link></li>
-                    <li><nuxt-link to="#">Health</nuxt-link></li>
-                    <li><nuxt-link to="#">Science</nuxt-link></li>
-                    <li><nuxt-link to="#">Videos</nuxt-link></li>
+                      <li v-for="megamenu of megamenuList" v-bind:key="megamenu.id">
+                          <a :href="megamenu.data" v-if="megamenu.type === 'link'">{{megamenu.title}}
+                              <i class="fa fa-chevron-down" aria-hidden="true" v-if="megamenu.children.length > 0"></i>
+                              <ul class="sub-menu" v-if="megamenu.children.length > 0">
+                                  <li v-for="submegamenu of orderBy(megamenu.children, ['order'],['asc'])" >
+                                      <a :href="submegamenu.data" v-if="submegamenu.type === 'link'">{{submegamenu.title}}</a>
+                                      <nuxt-link :to="submegamenu.data" v-else>{{submegamenu.title}}</nuxt-link>
+                                  </li>
+                              </ul>
+                          </a>
+                          <nuxt-link :to="megamenu.data" v-else class="has dropdown-toggle">{{megamenu.title}}
+                              <i class="fa fa-chevron-down" aria-hidden="true" v-if="megamenu.children.length > 0"></i>
+                              <ul class="sub-menu" v-if="megamenu.children.length > 0">
+                                  <li v-for="submegamenu of orderBy(megamenu.children, ['order'],['asc'])" >
+                                      <a :href="submegamenu.data" v-if="submegamenu.type === 'link'">{{submegamenu.title}}</a>
+                                      <nuxt-link :to="submegamenu.data" v-else>{{submegamenu.title}}</nuxt-link>
+                                  </li>
+                              </ul>
+                          </nuxt-link>
+                      </li>
                   </ul>
                 </nav>
               </div>
@@ -181,9 +125,12 @@
   </div>
 </template>
 <script>
+  import orderBy from 'lodash/orderBy';
   export default {
     computed: {
       categories () { return this.$store.state.categories},
+      megamenuList () { return this.$store.state.megamenu},
+      orderBy () { return orderBy},
     },
   }
 </script>
