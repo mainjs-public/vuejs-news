@@ -14,6 +14,7 @@ export const mutations = {
     state.authUser = null;
   },
   SET_USER(state, user) {
+    console.log('run')
     state.authUser = user;
     state.loading = false;
   },
@@ -32,6 +33,7 @@ export const actions = {
   },
   async login({ commit }, { email, password }) {
     let client = this.app.apolloProvider.defaultClient;
+    console.log('test localStorage',localStorage )
     commit('request_login');
     client.mutate({ mutation: signInMutate, variables: { email : email, password: password } })
       .then((res) => {
