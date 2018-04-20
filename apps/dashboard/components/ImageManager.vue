@@ -105,11 +105,11 @@
                                             <div class="image-manager-thumb img-thumbnail">
                                                 <img class="image-manager-thumb_image" :src="img.thumb">
                                                 <div class="image-manager-thumb_action">
-                                                    <a @click.prevent="onChange(img.path)" href="#"
+                                                    <a @click.prevent="selectImage(img.path)" href="#"
                                                        class="btn btn-success btn-xs" role="button">
                                                         <i class="fa fa-check" aria-hidden="true"></i>
                                                     </a>
-                                                    <a @click.privent="deleteImage(img)" href="#"
+                                                    <a @click.privent="deleteImage(img.id)" href="#"
                                                        class="btn btn-danger btn-xs" role="button">
                                                         <i class="fa fa-times" aria-hidden="true"></i>
                                                     </a>
@@ -160,7 +160,7 @@
   import request from '~/config/axios';
   import {API_URL} from '~/config/api';
   import {query, deleteFolder, createFolder} from '~/apollo/queries/folder';
-  import {query as queryImage} from '~/apollo/queries/image';
+  import {query as queryImage, deleteImage} from '~/apollo/queries/image';
 
   export default {
 
@@ -178,6 +178,7 @@
           id: 'null',
         },
         imagesByFolderId: [],
+        uploadKey: 0,
       }
     },
 
@@ -189,7 +190,8 @@
         query: queryImage,
         variables() {
           return {
-            folder_id: this.folder.id
+            folder_id: this.folder.id,
+            key: this.uploadKey
           }
         },
         update(data) {
@@ -204,50 +206,37 @@
 
     computed: {
       breadcrumbs: function () {
-
-        // var breadcrumbs = this.folder.path.split('/');
-        //
-        // var current = [];
-        //
-        // return breadcrumbs.map(function (breadcrumb, index) {
-        //
-        //   current.push(breadcrumb);
-        //
-        //   var li = {
-        //     name: breadcrumb,
-        //     path: current.join('/')
-        //   }
-        //
-        //   return li;
-        //
-        // });
-
-        var li = {
+        const li = {
           name: "Images",
           path: "image",
           id: 'null',
-
         };
         return [li];
-
       },
       setActive: function () {
         if (this.add_dir) return "list-group-item";
         return "not-active list-group-item";
       },
       previewImage: function () {
-        return `${API_URL}${this.value}`;
+        return this.value ? `${API_URL}${this.value}` : require('~/assets/no-image.svg');
       }
     },
 
     methods: {
 
       clearImage: function () {
-
+        this.onChange("");
       },
 
-      deleteImage: function (img) {
-
+      deleteImage: function (id) {
+        this.$apollo.mutate({
+          mutation: deleteImage,
+          variables: {
+            input: {
+              id
+            }
+          }
+        }).then(() => this.uploadKey++);
       },
 
       renameImage: function (old, ext, e) {
@@ -325,7 +314,7 @@
 
           request.post('upload', formData)
             .then(res => {
-              this.folder = { ...this.folder, id: this.folder.id }
+              this.uploadKey++;
           }).catch(e => console.log(e));
         }
       },
@@ -346,6 +335,11 @@
 
       clearCache: function () {
 
+      },
+
+      selectImage(path) {
+        this.onChange(path);
+        $(`#${this.id}`).modal('hide');
       }
     }
   }
