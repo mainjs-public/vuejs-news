@@ -42,8 +42,7 @@
           const client = this.$apollo.getClient();
           const data =  await client.query({ query: getBlog , variables: {blogId: blogId}});
           const blog = data.data.blog;
-          const new_blog = { ...blog, category_id: blog.category.id || ''};
-          this.data = omit(new_blog, ['category', '__typename']);
+          this.data = omit(blog, ['__typename']);
         } else {
           this.data = {...initData};
         }
