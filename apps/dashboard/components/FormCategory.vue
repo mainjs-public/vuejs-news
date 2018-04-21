@@ -58,24 +58,7 @@
                                         <label class="col-sm-1 control-label">Description</label>
 
                                         <div class="col-sm-11">
-                                            <quill-editor ref="myTextEditor"
-                                                          v-model="data.description"
-                                                          :options="editorOption"
-                                                          style="display: inline-block; height: 20rem"
-                                            >
-                                            </quill-editor>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-1 control-label">Content</label>
-
-                                        <div class="col-sm-11">
-                                            <quill-editor ref="myTextEditor"
-                                                          v-model="data.content"
-                                                          :options="editorOption"
-                                                          style="display: inline-block; height: 20rem"
-                                            >
-                                            </quill-editor>
+                                            <textarea v-model="data.description" class="form-control" placeholder="Description" style="min-height: 150px"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -100,33 +83,6 @@
   import SwitchBotton from './SwitchBotton.vue';
   export default {
     props: ['data', 'onClick'],
-    data() {
-      return {
-        editorOption: {
-          modules: {
-            toolbar: [
-              ['bold', 'italic', 'underline', 'strike'],
-              ['blockquote', 'code-block'],
-              [{ 'header': 1 }, { 'header': 2 }],
-              [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-              [{ 'script': 'sub' }, { 'script': 'super' }],
-              [{ 'indent': '-1' }, { 'indent': '+1' }],
-              [{ 'direction': 'rtl' }],
-              [{ 'size': ['small', false, 'large', 'huge'] }],
-              [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-              [{ 'font': [] }],
-              [{ 'color': [] }, { 'background': [] }],
-              [{ 'align': [] }],
-              ['clean'],
-              ['link', 'image', 'video']
-            ],
-            syntax: {
-              highlight: text => hljs.highlightAuto(text).value
-            }
-          }
-        }
-      }
-    },
     computed: {
       editor() {
         return this.$refs.myTextEditor.quill

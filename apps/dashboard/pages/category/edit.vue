@@ -22,7 +22,6 @@
     slug: '',
     image: '',
     description: '',
-    content: '',
     status: true,
   };
   export default {
