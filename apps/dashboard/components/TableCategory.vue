@@ -24,7 +24,7 @@
                 <td>{{category.updated}}</td>
                 <td>{{category.status}}</td>
                 <td>
-                    <nuxt-link :to="`/category/edit?id=${category.id}`" class="btn btn-primary btn-xs" style="margin-right: 10px">Edit</nuxt-link>
+                    <nuxt-link :to="`/catalog/category/edit?id=${category.id}`" class="btn btn-primary btn-xs" style="margin-right: 10px">Edit</nuxt-link>
                     <button class="btn btn-danger btn-xs" @click="deleteClick($event, category.id)">Delete</button>
                 </td>
             </tr>

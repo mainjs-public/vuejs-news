@@ -20,7 +20,7 @@
             <td>{{blog.updated}}</td>
             <td>{{blog.status}}</td>
             <td>
-                <nuxt-link :to="`/blog/edit?id=${blog.id}`" class="btn btn-primary btn-xs" style="margin-right: 10px">Edit</nuxt-link>
+                <nuxt-link :to="`/catalog/blog/edit?id=${blog.id}`" class="btn btn-primary btn-xs" style="margin-right: 10px">Edit</nuxt-link>
                 <button class="btn btn-danger btn-xs" @click="deleteClick($event, blog.id)">
                     Delete
                 </button>

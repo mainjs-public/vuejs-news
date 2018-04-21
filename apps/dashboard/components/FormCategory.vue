@@ -6,7 +6,8 @@
             </h1>
             <ol class="breadcrumb">
                 <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="/category">Category</a></li>
+                <li><a href="/catalog/category">Catalog</a></li>
+                <li><a href="/catalog/category">Category</a></li>
                 <li class="active">{{data.id ? "Edit" : "Add"}}</li>
             </ol>
         </section>
@@ -18,7 +19,7 @@
                             <div class="box-header with-border">
                                 <h3 class="box-title">{{data.id ? "Edit category" : "Add category"}}</h3>
                                 <div class="pull-right">
-                                    <nuxt-link class="btn btn-default" style="margin-right: 10px" to="/category">Back</nuxt-link>
+                                    <nuxt-link class="btn btn-default" style="margin-right: 10px" to="/catalog/category">Back</nuxt-link>
                                     <button type="submit" class="btn btn-info" @click="onClick($event)">
                                         <i class="fa fa-circle-o-notch fa-spin" v-if="loading"></i>
                                         Save

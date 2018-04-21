@@ -17,7 +17,7 @@
                 <li class="header">MAIN NAVIGATION</li>
                 <li><nuxt-link to="/"><i class="fa fa-dashboard"></i> <span>Dashboard</span></nuxt-link></li>
                 <li class="active treeview">
-                    <nuxt-link to="#">
+                    <nuxt-link to="/catalog/category">
                         <i class="fa fa-dashboard"></i>
                         <span>Catalog</span>
                         <span class="pull-right-container">
@@ -25,12 +25,23 @@
                         </span>
                     </nuxt-link>
                     <ul class="treeview-menu">
-                        <li><nuxt-link to="/category"><i class="fa fa-circle-o"></i> Category</nuxt-link></li>
-                        <li><nuxt-link to="/blog"><i class="fa fa-circle-o"></i> Blog</nuxt-link></li>
+                        <li><nuxt-link to="/catalog/category"><i class="fa fa-circle-o"></i> Category</nuxt-link></li>
+                        <li><nuxt-link to="/catalog/blog"><i class="fa fa-circle-o"></i> Blog</nuxt-link></li>
+                    </ul>
+                </li>
+                <li class="active treeview">
+                    <nuxt-link to="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Modules</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </nuxt-link>
+                    <ul class="treeview-menu">
+                        <li><nuxt-link to="/modules/megamenu"><i class="fa fa-circle-o"></i> Megamenu</nuxt-link></li>
                     </ul>
                 </li>
                 <li><nuxt-link to="/setting"><i class="fa fa-dashboard"></i> <span>Setting</span></nuxt-link></li>
-                <li><nuxt-link to="/megamenu"><i class="fa fa-dashboard"></i> <span>MegaMenu</span></nuxt-link></li>
                 <li><nuxt-link to="/login"><i class="fa fa-dashboard"></i> <span>Login</span></nuxt-link></li>
             </ul>
         </section>
