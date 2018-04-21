@@ -66,8 +66,7 @@
                                         <label class="col-sm-1 control-label">Description</label>
 
                                         <div class="col-sm-11">
-                                            <input v-model="data.description" type="text" class="form-control" placeholder="Description">
-                                            <!--<label class="help-block" v-if="error.description">{{error.description}}</label>-->
+                                            <textarea v-model="data.description" class="form-control" placeholder="Description" style="min-height: 150px"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -87,8 +86,7 @@
                                         <label class="col-sm-1 control-label">Tags</label>
 
                                         <div class="col-sm-11">
-                                            <input v-model="data.tags" type="text" class="form-control" placeholder="Tags">
-                                            <!--<label class="help-block" v-if="error.content">{{error.content}}</label>-->
+                                            <input-tag :tags.sync="data.tags" placeholder="Tags"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -108,6 +106,7 @@
 </template>
 
 <script>
+  import InputTag from 'vue-input-tag'
   import SelectCategory from './SelectCategory.vue';
   import ImageManager from './ImageManager.vue';
   import SwitchBotton from './SwitchBotton.vue';
@@ -151,6 +150,7 @@
       SelectCategory,
       ImageManager,
       SwitchBotton,
+      InputTag
     },
     methods: {
       onchangeCategory(value) {

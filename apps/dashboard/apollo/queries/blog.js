@@ -30,6 +30,7 @@ export const getBlog = gql`
       },
       description,
       content,
+      tags
     }
   }
 `;
