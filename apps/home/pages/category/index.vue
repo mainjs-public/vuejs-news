@@ -2,7 +2,7 @@
     <div>
         <div class="inner-page-header">
             <div class="banner">
-                <img :src="category.image" :alt="category.name" style="width: 100%; max-height: 401px">
+                <img :src="`${apiUrl}${category.image}`" :alt="category.name" style="width: 100%; max-height: 401px">
             </div>
             <div class="banner-text">
                 <div class="container">
@@ -25,8 +25,7 @@
             </div>
         </div>
         <!-- Inner Page Header serction end here -->
-
-        <!-- Category Page Start Here -->
+         Category Page Start Here
         <div class="blog-page-area gallery-page category-page">
             <div class="container">
                 <div class="row">
@@ -51,7 +50,7 @@
                                                     <div class="blog-image">
                                                         <nuxt-link :to="`/blog/${blog.slug}`">
                                                             <i class="fa fa-link" aria-hidden="true"></i>
-                                                            <img :src="blog.image" alt="category photo" style="width: 100%; max-height: 470px">
+                                                            <img :src="`${apiUrl}${blog.image}`" alt="category photo" style="width: 100%; max-height: 470px">
                                                         </nuxt-link>
                                                     </div>
                                                     <div class="dsc">
@@ -67,14 +66,14 @@
                             </ul>
                         </div>
                         <div class="row">
-                            <ul v-for="blog of blogs" v-bind:key="blog.id" v-if="blog.category && blog.category.id && blog.category.id === category.id">
+                            <ul v-for="blog of blogs" v-bind:key="blog.id">
                                 <li>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                         <div class="carousel-inner">
                                             <div class="blog-image">
                                                 <nuxt-link :to="`/blog/${blog.slug}`">
                                                     <i class="fa fa-link" aria-hidden="true"></i>
-                                                    <img :src="blog.image" alt="category photo" style="width: 100%; max-height: 270px">
+                                                    <img :src="`${apiUrl}${blog.image}`" alt="category photo" style="width: 100%; max-height: 270px">
                                                 </nuxt-link>
                                             </div>
                                         </div>
@@ -107,7 +106,7 @@
                                                 <div class="item-post">
                                                     <div class="row">
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 paddimg-right-none">
-                                                            <nuxt-link :to="`/blog/${blog.slug}`"><img :src="blog.image" alt="" title="News image" /></nuxt-link>
+                                                            <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`" alt="" title="News image" /></nuxt-link>
                                                         </div>
                                                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                                                             <h4><nuxt-link :to="`/blog/${blog.slug}`"> {{blog.name}}</nuxt-link></h4>
@@ -160,25 +159,23 @@
 <script>
   import { query, getCategory } from '~/apollo/queries/category';
   import { query as queryBlog } from '~/apollo/queries/blog';
+  import { API_URL } from '~/config/api';
   export default {
     data() {
       return {
         blogs: [],
         category: {},
+        apiUrl: API_URL
       }
     },
     apollo: {
-      categories: {
-        query: query,
-        fetchPolicy: 'cache-and-network',
-      },
       blogs: {
         query: queryBlog,
         fetchPolicy: 'cache-and-network',
       },
       category: {
         query: getCategory,
-        variables: {categoryId : '5ad553fbdfba3029c851a9ff'},
+        variables: {categoryId : '5ad81623dfba30202c0558a7'},
         fetchPolicy: 'cache-and-network',
       },
 

@@ -36,7 +36,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                         <div class="single-image">
-                            <img :src="blog.image" :alt="blog.name" style="width: 100%; max-height: 350px">
+                            <img :src="`${apiUrl}${blog.image}`" :alt="blog.name" style="width: 100%; max-height: 350px">
                         </div>
                         <h3><a href="#">{{blog.name}}</a></h3>
                         <div v-html="blog.content"/>
@@ -60,7 +60,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <ul class="share-link">
                                         <li class="hvr-bounce-to-right"><a href="#"> Tags:</a></li>
-                                        <li class="hvr-bounce-to-right" v-for="tag of blog.tag" v-bind:key="tag"><nuxt-link to="#"> {{tag}}</nuxt-link></li>
+                                        <li class="hvr-bounce-to-right" v-for="tag of blog.tags" v-bind:key="tag"><nuxt-link to="#"> {{tag}}</nuxt-link></li>
                                     </ul>
                                 </div>
                             </div>
@@ -94,7 +94,7 @@
                             <div class="row">
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" v-for="(blogDetail, index) in blogs" v-bind:key="blogDetail.id" v-if="index<3">
                                     <div class="popular-post-img">
-                                        <nuxt-link :to="`/blog/${blogDetail.slug}`"><img :src="blogDetail.image" :alt="blogDetail.name"></nuxt-link>
+                                        <nuxt-link :to="`/blog/${blogDetail.slug}`"><img :src="`${apiUrl}${blogDetail.image}`" :alt="blogDetail.name"></nuxt-link>
                                     </div>
                                     <h3>
                                         <nuxt-link :to="`/blog/${blogDetail.slug}`">{{blogDetail.name}}</nuxt-link>
@@ -174,7 +174,7 @@
                                                 <div class="item-post">
                                                     <div class="row">
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 paddimg-right-none">
-                                                            <nuxt-link :to="`/blog/${blogDetail.slug}`"><img :src="blogDetail.image" alt="" :title="blogDetail.name" /></nuxt-link>
+                                                            <nuxt-link :to="`/blog/${blogDetail.slug}`"><img :src="`${apiUrl}${blogDetail.image}`" alt="" :title="blogDetail.name" /></nuxt-link>
                                                         </div>
                                                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                                                             <h4><nuxt-link :to="`/blog/${blogDetail.slug}`">{{blogDetail.name}}</nuxt-link></h4>
@@ -225,14 +225,15 @@
     </div>
 </template>
 <script>
-    import { query, getBlogBySlug } from '~/apollo/queries/blog'
+    import { query, getBlogBySlug } from '~/apollo/queries/blog';
+    import { API_URL } from '~/config/api';
     export default {
       async asyncData ({params, app}, callback) {
         try {
           const slug = params.slug ? params.slug : '';
           const client = app.apolloProvider.defaultClient;
           const data = await client.query({query: getBlogBySlug, variables: {slug : slug}});
-          callback(null, {blog: {...data.data.blogSlug, tag: ['Content', 'Number']}, error: {}});
+          callback(null, {blog: data.data.blogSlug, error: {}});
         } catch(error) {
           callback(null, {blog: {}, error: error})
         }
@@ -240,6 +241,7 @@
       data() {
         return {
           blogs: [],
+          apiUrl: API_URL
         }
       },
       apollo: {

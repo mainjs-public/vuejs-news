@@ -19,7 +19,6 @@ export const getCategory = gql`
       image,
       description,
       slug,
-      content,
       status
     }
   }
