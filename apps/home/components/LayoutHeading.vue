@@ -35,11 +35,11 @@
               <div class="social-media-area">
                 <nav>
                   <ul>
-                    <li><a href="#" class="active"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                    <li><a :href="setting.link_facebook" class="active" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                    <li><a :href="setting.link_gmail" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                    <li><a :href="setting.link_twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#" _blank><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+                    <li><a href="#" _blank><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
                   </ul>
                 </nav>
               </div>
@@ -52,7 +52,7 @@
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div class="logo-area">
-                <nuxt-link to="/"><img src="/images/logo.png" alt="logo"></nuxt-link>
+                <nuxt-link to="/"><img :src="`${apiUrl}${setting.logo}`" alt="logo" style="max-height: 60px; width: 100%"></nuxt-link>
               </div>
             </div>
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
@@ -126,11 +126,14 @@
 </template>
 <script>
   import orderBy from 'lodash/orderBy';
+  import { API_URL } from '~/config/api';
   export default {
     computed: {
       categories () { return this.$store.state.categories},
       megamenuList () { return this.$store.state.megamenu},
+      setting () { return this.$store.state.setting},
       orderBy () { return orderBy},
+      apiUrl () { return API_URL},
     },
   }
 </script>

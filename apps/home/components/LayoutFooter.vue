@@ -8,23 +8,22 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div class="single-footer footer-one">
                 <h3>About</h3>
-                <div class="footer-logo"><img src="/images/footer-logo.png" alt="footer-logo"></div>
-                <p>Your source for the lifestyle news. This demo is crafted specifically to exhibit the use of the theme
-                  as a lifestyle site. Visit our main page for more </p>
+                <div class="footer-logo"><img :src="`${apiUrl}${setting.logo}`" alt="footer-logo" style="width: 100%; max-height: 60px"></div>
+                <p>{{setting.description}}</p>
                 <p>We're social, connect with us:</p>
                 <div class="footer-social-media-area">
                   <nav>
                     <ul>
                       <!-- Facebook Icon Here -->
-                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                      <li><a :href="setting.link_facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
                       <!-- Google Icon Here -->
-                      <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                      <li><a :href="setting.link_gmail" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
                       <!-- Twitter Icon Here -->
-                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                      <li><a :href="setting.link_twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
                       <!-- Vimeo Icon Here -->
-                      <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+                      <li><a href="#" target="_blank"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
                       <!-- Pinterest Icon Here -->
-                      <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                      <li><a href="#" target="_blank"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
                     </ul>
                   </nav>
                 </div>
@@ -125,7 +124,7 @@
           <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <div class="footer-bottom">
-                <p> &copy; Copyrights 2018. All rights reserved.</p>
+                <p>{{setting.footer}}</p>
               </div>
             </div>
           </div>
@@ -167,12 +166,12 @@
   </div>
 </template>
 
-<!--<script>-->
-  <!--export default {-->
-    <!--name: 'layout-footer'-->
-  <!--}-->
-<!--</script>-->
-
-<!--<style scoped>-->
-
-<!--</style>-->
+<script>
+  import { API_URL } from '~/config/api';
+  export default {
+    computed: {
+      setting () { return this.$store.state.setting},
+      apiUrl () { return API_URL},
+    },
+  }
+</script>

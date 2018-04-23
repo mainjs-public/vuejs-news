@@ -686,7 +686,7 @@
                                     </div>
                                     <div class="carousel-inner">
                                         <div class="item" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-bind:class="index===0? 'active': ''">
-                                            <nuxt-link to="#"><img :src="blog.image" alt="" title="#slider-direction-1" style="width: 100%;"/></nuxt-link>
+                                            <nuxt-link to="#"><img :src="`${apiUrl}${blog.image}`" alt="" title="#slider-direction-1" style="width: 100%;"/></nuxt-link>
                                             <div class="dsc">
                                                 <span class="date">
                                                     <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
@@ -756,7 +756,7 @@
                                                     </h4>
                                                     <span class="date">
                                                 <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                                                November 28, 2017
+                                                {{blog.created}}
                                                 </span>
                                                 </div>
                                             </div>
