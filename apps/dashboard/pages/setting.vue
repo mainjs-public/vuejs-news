@@ -9,52 +9,123 @@
                 <li class="active">Setting</li>
             </ol>
         </section>
-        {{site_name}}
-        {{side_description}}
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box">
-                        <div>
-                            <!-- /.box-header -->
-                            <div class="alert alert-danger alert-dismissible" style="margin: 0px 10px" v-if="error.message">
-                                <h4><i class="icon fa fa-ban"></i> Alert!</h4>
-                                {{error.message}}
-                            </div>
-                            <!-- form start -->
-                            <form class="form-horizontal">
-                                <div class="box-body">
-                                    <div class="form-group">
-                                        <label class="col-sm-1 control-label">Name</label>
-
-                                        <div class="col-sm-11">
-                                            <input v-model="site_name" type="text" class="form-control" placeholder="Name"/>
-                                            <!--<label class="help-block" v-if="error.name">{{error.name}}</label>-->
-                                        </div>
+                        <div class="box-header">
+                            <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+                                <h3 class="box-title">Setting Form</h3>
+                                <button class="btn btn-primary" @click="onClickSave($event)">
+                                    <div style="display: flex; flex-direction: row; align-items: center;">
+                                        <span>Save</span>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-1 control-label">Content</label>
-
-                                        <div class="col-sm-11">
-                                            <quill-editor ref="myTextEditor"
-                                                          v-model="side_description"
-                                                          :options="editorOption"
-                                                          style="display: inline-block; height: 20rem"
-                                            >
-                                            </quill-editor>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <div class="box-header with-border">
-                                <div class="pull-right">
-                                    <button type="submit" class="btn btn-info" @click="onClick($event)">
-                                        <i class="fa fa-circle-o-notch fa-spin" v-if="loading"></i>
-                                        Save
-                                    </button>
-                                </div>
+                                </button>
                             </div>
                         </div>
+                        <!-- /.box-header -->
+                        <ul class="navigation_setting">
+                           <li>
+                               <a @click="onChangeNavigation('general')" v-bind:class="navigation === 'general'? 'navigation_setting_active': ''">
+                                   General
+                               </a>
+                           </li>
+                           <li>
+                               <a @click="onChangeNavigation('info')" v-bind:class="navigation === 'info'? 'navigation_setting_active': ''">
+                                   Info
+                               </a>
+                           </li>
+                           <li>
+                               <a @click="onChangeNavigation('image')" v-bind:class="navigation === 'image'? 'navigation_setting_active': ''">
+                                   Image
+                               </a>
+                           </li>
+                        </ul>
+                        <div class="view_info">
+                            <div class="view_form" v-bind:class="navigation === 'general'? 'active':''">
+                                <form class="form-horizontal">
+                                    <div class="box-body">
+                                        <div class="form-group">
+                                            <label class="col-sm-1 control-label">Meta Title</label>
+                                            <div class="col-sm-11">
+                                                <input v-model="data.meta_title" type="text" class="form-control" placeholder="Meta Title"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-1 control-label">Meta Tag Description</label>
+
+                                            <div class="col-sm-11">
+                                                <textarea style="min-height: 150px" v-model="data.meta_tag_description" type="text" class="form-control" placeholder="Meta Tag Description"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div  class="view_form" v-bind:class="navigation === 'info'? 'active':''">
+                                <form class="form-horizontal">
+                                    <div class="box-body">
+                                        <div class="form-group">
+                                            <label class="col-sm-1 control-label">Name</label>
+                                            <div class="col-sm-11">
+                                                <input v-model="data.name" type="text" class="form-control" placeholder="Name"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-1 control-label">Description</label>
+
+                                            <div class="col-sm-11">
+                                                <textarea style="min-height: 150px" v-model="data.description" type="text" class="form-control" placeholder="Description"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-1 control-label">Footer</label>
+                                            <div class="col-sm-11">
+                                                <input v-model="data.footer" type="text" class="form-control" placeholder="Footer"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-1 control-label">Link Facebook</label>
+                                            <div class="col-sm-11">
+                                                <input v-model="data.link_facebook" type="url" class="form-control" placeholder="Link Facebook"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-1 control-label">Link Gmail</label>
+                                            <div class="col-sm-11">
+                                                <input v-model="data.link_gmail" type="url" class="form-control" placeholder="Link Gmail"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-1 control-label">Link Twitter</label>
+                                            <div class="col-sm-11">
+                                                <input v-model="data.link_twitter" type="url" class="form-control" placeholder="Link Twitter"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div  class="view_form" v-bind:class="navigation === 'image'? 'active':''">
+                                <form class="form-horizontal">
+                                    <div class="box-body">
+                                        <div class="form-group">
+                                            <label class="col-sm-1 control-label">Store logo</label>
+
+                                            <div class="col-sm-11">
+                                                <image-manager id="logo" inputName="logo" :value="data.logo" :onChange="logo => this.data.logo = logo" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-1 control-label">Icon</label>
+
+                                            <div class="col-sm-11">
+                                                <image-manager id="icon" inputName="icon" :value="data.icon" :onChange="icon => this.data.icon = icon" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -63,13 +134,26 @@
 </template>
 
 <script>
+  import ImageManager from '~/components/ImageManager.vue';
+  import { query, updateSetting } from '~/apollo/queries/setting';
+  const dataInit = {
+    meta_title: '',
+    meta_tag_description: '',
+    logo: '',
+    icon: '',
+    name: '',
+    description: '',
+    footer: '',
+    link_facebook: '',
+    link_gmail: '',
+    link_twitter: ''
+  };
+
   export default {
     data() {
       return {
-        error: {},
-        loading: false,
-        site_name: '',
-        side_description: '',
+        navigation: 'general',
+        data: {...dataInit},
         editorOption: {
           modules: {
             toolbar: [
@@ -100,15 +184,81 @@
         return this.$refs.myTextEditor.quill
       },
     },
+    created: function () {
+      this.$apollo.query({
+        query,
+        variables: { key: 'setting' }
+      }).then(({ data }) => data.settingByKey)
+        .then((data) => {
+          if (data === null) {
+            console.log('run null')
+            this.data = {...dataInit};
+          } else {
+            console.log('run not null')
+            const setting = data.json ? JSON.parse(data.value) : data.value;
+            this.data = {...dataInit, ...setting};
+          }
+        });
+    },
     methods: {
-      onClick(e) {
+      onClickSave(e) {
+        const input = {
+          key: "setting",
+          json: true,
+          value: JSON.stringify(this.data)
+        };
+        this.$apollo.mutate({
+          mutation: updateSetting,
+          variables: { input: input  }
+        }).then(({ data }) => {
+          console.log(data);
+        })
         e.preventDefault();
+      },
+      onChangeNavigation(nagigation) {
+        this.navigation = nagigation
       }
+    },
+    components: {
+      ImageManager
     },
     middleware: 'auth'
   }
 </script>
 
-<style scoped>
+<style>
+    .navigation_setting {
+        display: flex;
+        list-style-type: none;
+        padding: 0px;
+        margin: 0px 15px;
+    }
+    .navigation_setting li {
 
+    }
+    .navigation_setting li a {
+        padding: 10px 15px;
+        color: black;
+        border-bottom: 1px solid #ccc;
+        display: block;
+    }
+    .navigation_setting li a:hover {
+        background-color: #ccc;
+    }
+    .navigation_setting_active {
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+        border-bottom: none !important;
+        font-weight: bold;
+    }
+    .view_info {
+
+    }
+    .view_info .view_form {
+        display: none;
+    }
+    .active {
+        display: block !important;
+    }
 </style>
