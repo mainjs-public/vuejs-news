@@ -41,21 +41,17 @@
                             <div class="row">
                                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
                                     <h3>Location</h3>
-                                    <p>Lorem Ipsum is simply dummy text of the and typesetting industry. Lorem Ipsum is has been the
-                                        industry’s stasn ndard dummy text ever since the 1500s, when an unknown printer took a galley of it
-                                        to make. Lorem Ipsum is the simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                        has been the indus try’s standard they dummy text ever since.</p>
+                                    <p>{{setting.contact_location}}</p>
                                 </div>
                                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
                                     <ul>
-                                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> 2165 The Maids North East Ohio <span>Aurora Road, Bedford-6543</span>
-                                        </li>
-                                        <li><i class="fa fa-mobile" aria-hidden="true"></i> Phone: <a href="tel:+3301-341-0476">
-                                            +3301-341-0476</a></li>
-                                        <li><i class="fa fa-fax" aria-hidden="true"></i> Fax:<a href="fax:+3450-875-3313">
-                                            +3450-875-3313</a></li>
+                                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{setting.address}}</li>
+                                        <li><i class="fa fa-mobile" aria-hidden="true"></i> Phone: <a :href="`tel:${setting.phone}`">
+                                            {{setting.phone}}</a></li>
+                                        <li><i class="fa fa-fax" aria-hidden="true"></i> Fax:<a :href="`fax:${setting.fax}`">
+                                            {{setting.fax}}</a></li>
                                         <li><i class="fa fa-envelope" aria-hidden="true"></i> <a
-                                                href="mailto:info@gmail.com">info@gmail.com</a></li>
+                                                :href="`mailto:${setting.mail}`">{{setting.mail}}</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -63,18 +59,21 @@
                         <div class="leave-comments-area">
                             <h3>Contact Us</h3>
                             <div id="form-messages"></div>
-                            <form id="contact-form" method="post" action="#">
+                            {{data}}
+                            <!--<span v-if="error.message" style="color: red">{{error.message}}</span>-->
+                            <p v-if="error.message" style="color: red; margin-bottom: 22px">Error: {{error.message}}</p>
+                            <form id="contact-form">
                                 <fieldset>
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <input type="text" name="fname" id="fname" class="form-control" required
+                                                <input type="text" v-model="data.firstName" class="form-control" required
                                                        placeholder="First Name*">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <input type="text" name="lname" id="lname" class="form-control" required
+                                                <input type="text" v-model="data.lastName" class="form-control" required
                                                        placeholder="Last Name*">
                                             </div>
                                         </div>
@@ -82,25 +81,27 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <input type="email" name="email" id="email" class="form-control" required placeholder="Email*">
+                                                <input type="email" v-model="data.email" class="form-control" required placeholder="Email*">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <input type="text" name="phone" id="phone" class="form-control" required placeholder="Phone*">
+                                                <input type="text" v-model="data.phone" class="form-control" required placeholder="Phone*">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group">
-                        <textarea cols="40" id="message" name="message" rows="10" class="textarea form-control"
-                                  placeholder="Your Message"></textarea>
+                                                <textarea cols="40" v-model="data.message" rows="10" class="textarea form-control" placeholder="Your Message"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group">
-                                                <button class="btn-send" type="submit">Send Message</button>
+                                                <button class="btn-send" type="submit" @click="onSendContact($event)">
+                                                    <i class="fa fa-circle-o-notch fa-spin" v-if="$apollo.loading"></i>
+                                                    Send Message
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -206,8 +207,43 @@
 </template>
 
 <script>
+  import { addContact } from '~/apollo/queries/contact';
   export default {
-    name: 'contact'
+    data() {
+      return {
+        error: {},
+        data: {
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          message: '',
+          read: false
+        },
+        loading: false
+      }
+    },
+    computed: {
+      setting () { return this.$store.state.setting},
+    },
+    methods: {
+      async onSendContact(e) {
+        console.log('test', this.data);
+        await this.loading = true;
+        this.$apollo.mutate({
+          mutation: addContact,
+          variables: { input: this.data  }
+        }).then(({ data }) => {
+          console.log(data);
+          this.error = {};
+          this.loading = false;
+        }).catch((error) => {
+          this.error = error;
+          this.loading = false;
+        })
+        e.preventDefault();
+      }
+    }
   }
 </script>
 
