@@ -40,21 +40,26 @@
                                    Image
                                </a>
                            </li>
+                            <li>
+                                <a @click="onChangeNavigation('contact')" v-bind:class="navigation === 'contact'? 'navigation_setting_active': ''">
+                                    Contact
+                                </a>
+                            </li>
                         </ul>
                         <div class="view_info">
                             <div class="view_form" v-bind:class="navigation === 'general'? 'active':''">
                                 <form class="form-horizontal">
                                     <div class="box-body">
                                         <div class="form-group">
-                                            <label class="col-sm-1 control-label">Meta Title</label>
-                                            <div class="col-sm-11">
+                                            <label class="col-sm-2 control-label">Meta Title</label>
+                                            <div class="col-sm-10">
                                                 <input v-model="data.meta_title" type="text" class="form-control" placeholder="Meta Title"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-1 control-label">Meta Tag Description</label>
+                                            <label class="col-sm-2 control-label">Meta Tag Description</label>
 
-                                            <div class="col-sm-11">
+                                            <div class="col-sm-10">
                                                 <textarea style="min-height: 150px" v-model="data.meta_tag_description" type="text" class="form-control" placeholder="Meta Tag Description"/>
                                             </div>
                                         </div>
@@ -65,39 +70,39 @@
                                 <form class="form-horizontal">
                                     <div class="box-body">
                                         <div class="form-group">
-                                            <label class="col-sm-1 control-label">Name</label>
-                                            <div class="col-sm-11">
+                                            <label class="col-sm-2 control-label">Name</label>
+                                            <div class="col-sm-10">
                                                 <input v-model="data.name" type="text" class="form-control" placeholder="Name"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-1 control-label">Description</label>
+                                            <label class="col-sm-2 control-label">Description</label>
 
-                                            <div class="col-sm-11">
+                                            <div class="col-sm-10">
                                                 <textarea style="min-height: 150px" v-model="data.description" type="text" class="form-control" placeholder="Description"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-1 control-label">Footer</label>
-                                            <div class="col-sm-11">
+                                            <label class="col-sm-2 control-label">Footer</label>
+                                            <div class="col-sm-10">
                                                 <input v-model="data.footer" type="text" class="form-control" placeholder="Footer"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-1 control-label">Link Facebook</label>
-                                            <div class="col-sm-11">
+                                            <label class="col-sm-2 control-label">Link Facebook</label>
+                                            <div class="col-sm-10">
                                                 <input v-model="data.link_facebook" type="url" class="form-control" placeholder="Link Facebook"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-1 control-label">Link Gmail</label>
-                                            <div class="col-sm-11">
+                                            <label class="col-sm-2 control-label">Link Gmail</label>
+                                            <div class="col-sm-10">
                                                 <input v-model="data.link_gmail" type="url" class="form-control" placeholder="Link Gmail"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-1 control-label">Link Twitter</label>
-                                            <div class="col-sm-11">
+                                            <label class="col-sm-2 control-label">Link Twitter</label>
+                                            <div class="col-sm-10">
                                                 <input v-model="data.link_twitter" type="url" class="form-control" placeholder="Link Twitter"/>
                                             </div>
                                         </div>
@@ -108,17 +113,54 @@
                                 <form class="form-horizontal">
                                     <div class="box-body">
                                         <div class="form-group">
-                                            <label class="col-sm-1 control-label">Store logo</label>
+                                            <label class="col-sm-2 control-label">Store logo</label>
 
-                                            <div class="col-sm-11">
+                                            <div class="col-sm-10">
                                                 <image-manager id="logo" inputName="logo" :value="data.logo" :onChange="logo => this.data.logo = logo" />
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-1 control-label">Icon</label>
+                                            <label class="col-sm-2 control-label">Icon</label>
 
-                                            <div class="col-sm-11">
+                                            <div class="col-sm-10">
                                                 <image-manager id="icon" inputName="icon" :value="data.icon" :onChange="icon => this.data.icon = icon" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div  class="view_form" v-bind:class="navigation === 'contact'? 'active':''">
+                                <form class="form-horizontal">
+                                    <div class="box-body">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Address</label>
+                                            <div class="col-sm-10">
+                                                <input v-model="data.address" type="text" class="form-control" placeholder="Address"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Phone</label>
+
+                                            <div class="col-sm-10">
+                                                <input v-model="data.phone" type="text" class="form-control" placeholder="Phone"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Fax</label>
+                                            <div class="col-sm-10">
+                                                <input v-model="data.fax" type="text" class="form-control" placeholder="Fax"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Email</label>
+                                            <div class="col-sm-10">
+                                                <input v-model="data.mail" type="text" class="form-control" placeholder="Mail"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Contact Location</label>
+                                            <div class="col-sm-10">
+                                                <textarea v-model="data.contact_location" class="form-control" placeholder="Contact Location" style="min-height: 150px"/>
                                             </div>
                                         </div>
                                     </div>
@@ -146,7 +188,12 @@
     footer: '',
     link_facebook: '',
     link_gmail: '',
-    link_twitter: ''
+    link_twitter: '',
+    address: '',
+    phone: '',
+    fax: '',
+    mail: '',
+    contact_location: '',
   };
 
   export default {
