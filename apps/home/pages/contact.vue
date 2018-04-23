@@ -229,7 +229,7 @@
     methods: {
       async onSendContact(e) {
         console.log('test', this.data);
-        await this.loading = true;
+        this.loading = true;
         this.$apollo.mutate({
           mutation: addContact,
           variables: { input: this.data  }
