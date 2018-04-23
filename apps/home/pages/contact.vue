@@ -59,7 +59,6 @@
                         <div class="leave-comments-area">
                             <h3>Contact Us</h3>
                             <div id="form-messages"></div>
-                            {{data}}
                             <!--<span v-if="error.message" style="color: red">{{error.message}}</span>-->
                             <p v-if="error.message" style="color: red; margin-bottom: 22px">Error: {{error.message}}</p>
                             <form id="contact-form">
@@ -99,7 +98,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <button class="btn-send" type="submit" @click="onSendContact($event)">
-                                                    <i class="fa fa-circle-o-notch fa-spin" v-if="$apollo.loading"></i>
+                                                    <i class="fa fa-circle-o-notch fa-spin" v-if="loading"></i>
                                                     Send Message
                                                 </button>
                                             </div>
@@ -207,40 +206,34 @@
 </template>
 
 <script>
+    import { mapActions } from 'vuex'
   import { addContact } from '~/apollo/queries/contact';
+  const initData = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    message: '',
+    read: false
+  }
   export default {
     data() {
       return {
-        error: {},
-        data: {
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          message: '',
-          read: false
-        },
-        loading: false
+        data: {...initData},
       }
     },
     computed: {
       setting () { return this.$store.state.setting},
+      loading () { return this.$store.state.contact.loading},
+      error () { return this.$store.state.contact.error},
     },
     methods: {
+      ...mapActions({
+        addContact: 'contact/addContact',
+      }),
       async onSendContact(e) {
-        console.log('test', this.data);
-        this.loading = true;
-        this.$apollo.mutate({
-          mutation: addContact,
-          variables: { input: this.data  }
-        }).then(({ data }) => {
-          console.log(data);
-          this.error = {};
-          this.loading = false;
-        }).catch((error) => {
-          this.error = error;
-          this.loading = false;
-        })
+        this.addContact(this.data);
+        this.data = { ...initData}
         e.preventDefault();
       }
     }

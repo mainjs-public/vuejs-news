@@ -42,6 +42,7 @@
                     </ul>
                 </li>
                 <li><nuxt-link to="/setting"><i class="fa fa-dashboard"></i> <span>Setting</span></nuxt-link></li>
+                <li><nuxt-link to="/contact"><i class="fa fa-dashboard"></i> <span>Contact</span></nuxt-link></li>
                 <li><nuxt-link to="/login"><i class="fa fa-dashboard"></i> <span>Login</span></nuxt-link></li>
             </ul>
         </section>
