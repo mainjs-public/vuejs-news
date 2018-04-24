@@ -14,6 +14,10 @@ export const mutations = {
   editSuccess(state) {
     state.loading = false;
   },
+  fetchSuccess(state, blogs) {
+    state.list = blogs;
+    state.loading = false;
+  },
   deleteSuccess(state) {
     state.loading = false;
   },
@@ -29,14 +33,12 @@ export const actions =  {
     commit('fetchRequest');
     client.query({ query: query })
       .then((res) => {
-      console.log(res);
-    return res.data;
-  })
-  .then(data => {
-      console.log(data);
-    commit('fetchSuccess', data.categories);
-  })
-  .catch(error => commit('fetchError', error));
+      return res.data;
+    })
+    .then(data => {
+      commit('fetchSuccess', data.blogs);
+    })
+    .catch(error => commit('fetchError', error));
   },
   editBlog(context, data) {
     let client = this.app.apolloProvider.defaultClient;
@@ -53,7 +55,7 @@ export const actions =  {
   },
   deleteBlog({ commit }, id) {
     let client = this.app.apolloProvider.defaultClient;
-    commit('fetchRequest');
+    console.log('run check', this)
     client.mutate({
       mutation: deleteBlog,
       variables: {input : { blogId : id}} ,
@@ -66,6 +68,7 @@ export const actions =  {
       })
       .then(data => {
         commit('deleteSuccess');
+        // this._action
       })
       .catch(error => {
         commit('fetchError', error);

@@ -3,7 +3,6 @@
         <section class="content-header">
             <h1>
                 Categories
-                <!--<small>advanced tables</small>-->
             </h1>
             <ol class="breadcrumb">
                 <li><nuxt-link to="/"><i class="fa fa-dashboard"></i> Home</nuxt-link></li>
@@ -43,25 +42,25 @@
   import { query } from '~/apollo/queries/category.js';
   import TableCategory from '~/components/TableCategory.vue';
   export default {
-    data () {
-      return {
-        categories: [],
-      }
-    },
-    apollo: {
-      categories: {
-        query: query,
-        fetchPolicy: 'cache-and-network',
-      }
+    computed: {
+      categories () { return this.$store.state.category.list },
+      loading () { return this.$store.state.category.loading },
+      error () { return this.$store.state.category.error }
     },
     methods: {
       ...mapActions({
-        deleteCategory: 'category/deleteCategory'
+        deleteCategory: 'category/deleteCategory',
+        fetch: 'category/fetch',
       }),
       deleteClick(e, id) {
         this.deleteCategory(id);
         e.preventDefault();
       },
+    },
+    created() {
+      if (this.categories.length < 1) {
+        this.fetch();
+      }
     },
     components: {
       TableCategory

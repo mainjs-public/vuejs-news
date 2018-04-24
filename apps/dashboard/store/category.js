@@ -34,11 +34,9 @@ export const actions = {
     commit('fetchRequest');
     client.query({query: query})
       .then((res) => {
-        console.log(res);
         return res.data;
       })
       .then(data => {
-        console.log(data);
         commit('fetchSuccess', data.categories);
       })
       .catch(error => commit('fetchError', error));
@@ -58,7 +56,6 @@ export const actions = {
   },
   deleteCategory({commit}, id) {
     let client = this.app.apolloProvider.defaultClient;
-    commit('fetchRequest');
     client.mutate({
       mutation: deleteCategory,
       variables: {input: {categoryId: id}},
@@ -71,6 +68,7 @@ export const actions = {
       })
       .then(data => {
         commit('deleteSuccess');
+        this.fetch;
       })
       .catch(error => commit('fetchError', error));
   }
