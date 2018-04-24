@@ -22,10 +22,10 @@
                     <li class="dropdown messages-menu">
                         <nuxt-link to="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-envelope-o"></i>
-                            <span class="label label-success">4</span>
+                            <span class="label label-success">{{countUnReadContact}}</span>
                         </nuxt-link>
                         <ul class="dropdown-menu">
-                            <li class="header">You have 4 messages</li>
+                            <li class="header">You have {{countUnReadContact}} messages</li>
                             <li>
                                 <!-- inner menu: contains the actual data -->
                                 <ul class="menu">
@@ -229,7 +229,7 @@
                     <li class="dropdown user user-menu">
                         <nuxt-link to="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                            <span class="hidden-xs">{{authUser!== null && authUser.user && authUser.user!== null && authUser.user.name ? authUser.user.name : 'Admin'}}</span>
+                            <span class="hidden-xs">{{authUser!== null ? authUser.user.name : 'Admin'}}</span>
                         </nuxt-link>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -277,9 +277,21 @@
     </header>
 </template>
 <script>
+    import { countUnReadContactQuery } from '~/apollo/queries/contact';
     export default {
       computed: {
         authUser () { return this.$store.state.authUser },
+      },
+      data() {
+        return {
+          countUnReadContact: 0
+        };
+      },
+      apollo: {
+        countUnReadContact: {
+          query: countUnReadContactQuery,
+          fetchPolicy: 'cache-and-network',
+        }
       },
     }
 </script>

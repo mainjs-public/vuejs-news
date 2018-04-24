@@ -1,9 +1,9 @@
 <template>
     <div v-if="!loading">
-        <form-blog :data="data" :onClick="onclick" v-if="!error_data.message"/>
+        <form-category :data="data" :onClick="onclick" v-if="!error_data.message"/>
         <div v-else>
             <span>
-                Error get data of blog
+                Error get data of category
             </span>
         </div>
     </div>
@@ -14,18 +14,15 @@
 
 <script>
   import { mapActions } from 'vuex';
-  import { getBlog } from '~/apollo/queries/blog';
-  import FormBlog from '~/components/FormBlog.vue';
+  import { getCategory } from '~/apollo/queries/category';
+  import FormCategory from '~/components/FormCategory.vue';
   import omit from 'lodash/omit';
   const initData = {
     name: '',
     slug: '',
     image: '',
     description: '',
-    content: '',
-    tags: "",
     status: true,
-    category_id: ''
   };
   export default {
     data() {
@@ -38,12 +35,11 @@
     async mounted() {
       try {
         if(this.$router.app._route.query.id) {
-          const blogId = this.$router.app._route.query.id;
+          const categoryId = this.$router.app._route.query.id;
           const client = this.$apollo.getClient();
-          const data =  await client.query({ query: getBlog , variables: {blogId: blogId}});
-          const blog = data.data.blog;
-          const new_blog = { ...blog, category_id: blog.category.id || '', tags: ''};
-          this.data = omit(new_blog, ['category', '__typename']);
+          const data =  await client.query({ query: getCategory , variables: {categoryId: categoryId}});
+          const category = data.data.category;
+          this.data = omit(category, ['__typename']);
         } else {
           this.data = {...initData};
         }
@@ -55,15 +51,15 @@
     },
     methods: {
       ...mapActions({
-        editBlog: 'blog/editBlog'
+        editCategory: 'category/editCategory'
       }),
       onclick(e) {
-        this.editBlog(this.data);
+        this.editCategory(this.data);
         e.preventDefault();
       },
     },
     components: {
-      FormBlog
+      FormCategory
     },
     middleware: 'auth'
   }

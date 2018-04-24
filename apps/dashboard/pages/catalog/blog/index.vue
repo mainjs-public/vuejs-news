@@ -2,12 +2,12 @@
     <div>
         <section class="content-header">
             <h1>
-                Categories
-                <!--<small>advanced tables</small>-->
+                Blogs
             </h1>
             <ol class="breadcrumb">
                 <li><nuxt-link to="/"><i class="fa fa-dashboard"></i> Home</nuxt-link></li>
-                <li class="active">Category</li>
+                <li><nuxt-link to="/catalog/category">Catalog</nuxt-link></li>
+                <li class="active">Blogs</li>
             </ol>
         </section>
         <section class="content">
@@ -16,21 +16,22 @@
                     <div class="box">
                         <div class="box-header">
                             <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
-                                <h3 class="box-title">Category List</h3>
-                                <nuxt-link to="/category/edit" class="btn btn-primary">
+                                <h3 class="box-title">Blogs List</h3>
+                                <nuxt-link to="/catalog/blog/edit" class="btn btn-primary">
                                     <div style="display: flex; flex-direction: row; align-items: center;">
-                                        <span>New Category</span>
+                                        <span>New blogs</span>
                                     </div>
                                 </nuxt-link>
                             </div>
                         </div>
                         <!-- /.box-header -->
-                        <div v-if="$apollo.loading">Loading...</div>
-                        <div v-else class="box-body">
-                            <table-category :categories="categories" :deleteClick="deleteClick"/>
+                        <div v-if="$apollo.loading"> ...loading</div>
+                        <div class="box-body" v-else>
+                            <table-blog :blogs="blogs" :deleteClick="deleteClick"/>
                         </div>
                         <!-- /.box-body -->
                     </div>
+                    <!-- /.box -->
                 </div>
             </div>
         </section>
@@ -39,31 +40,31 @@
 
 <script>
   import { mapActions } from 'vuex';
-  import { query } from '~/apollo/queries/category.js';
-  import TableCategory from '~/components/TableCategory.vue';
+  import { query } from '~/apollo/queries/blog.js';
+  import TableBlog from '~/components/TableBlog.vue';
   export default {
     data () {
       return {
-        categories: [],
+        blogs: [],
       }
     },
     apollo: {
-      categories: {
+      blogs: {
         query: query,
         fetchPolicy: 'cache-and-network',
       }
     },
     methods: {
       ...mapActions({
-        deleteCategory: 'category/deleteCategory'
+        deleteBlog: 'blog/deleteBlog'
       }),
       deleteClick(e, id) {
-        this.deleteCategory(id);
+        this.deleteBlog(id);
         e.preventDefault();
       },
     },
     components: {
-      TableCategory
+      TableBlog
     },
     middleware: 'auth'
   }

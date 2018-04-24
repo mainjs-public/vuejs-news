@@ -40,7 +40,8 @@ export const getBlogBySlug = gql`
         created,
         title,
         status
-      }
+      },
+      tags
     }
   }
 `;

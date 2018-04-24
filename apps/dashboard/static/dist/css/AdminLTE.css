@@ -329,6 +329,7 @@ a:focus {
   top: 15px;
   right: 10px;
   border-radius: 2px;
+  display: flex;
 }
 .content-header > .breadcrumb > li > a {
   color: #444;

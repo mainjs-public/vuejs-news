@@ -1,9 +1,9 @@
 <template>
     <div v-if="!loading">
-        <form-category :data="data" :onClick="onclick" v-if="!error_data.message"/>
+        <form-blog :data="data" :onClick="onclick" v-if="!error_data.message"/>
         <div v-else>
             <span>
-                Error get data of category
+                Error get data of blog
             </span>
         </div>
     </div>
@@ -14,8 +14,8 @@
 
 <script>
   import { mapActions } from 'vuex';
-  import { getCategory } from '~/apollo/queries/category';
-  import FormCategory from '~/components/FormCategory.vue';
+  import { getBlog } from '~/apollo/queries/blog';
+  import FormBlog from '~/components/FormBlog.vue';
   import omit from 'lodash/omit';
   const initData = {
     name: '',
@@ -23,7 +23,9 @@
     image: '',
     description: '',
     content: '',
+    tags: [],
     status: true,
+    category_id: ''
   };
   export default {
     data() {
@@ -36,11 +38,11 @@
     async mounted() {
       try {
         if(this.$router.app._route.query.id) {
-          const categoryId = this.$router.app._route.query.id;
+          const blogId = this.$router.app._route.query.id;
           const client = this.$apollo.getClient();
-          const data =  await client.query({ query: getCategory , variables: {categoryId: categoryId}});
-          const category = data.data.category;
-          this.data = omit(category, ['__typename']);
+          const data =  await client.query({ query: getBlog , variables: {blogId: blogId}});
+          const blog = data.data.blog;
+          this.data = omit(blog, ['__typename']);
         } else {
           this.data = {...initData};
         }
@@ -52,15 +54,15 @@
     },
     methods: {
       ...mapActions({
-        editCategory: 'category/editCategory'
+        editBlog: 'blog/editBlog'
       }),
       onclick(e) {
-        this.editCategory(this.data);
+        this.editBlog(this.data);
         e.preventDefault();
       },
     },
     components: {
-      FormCategory
+      FormBlog
     },
     middleware: 'auth'
   }

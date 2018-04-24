@@ -35,7 +35,7 @@
                               <div class="blog-image">
                                   <nuxt-link :to="`/blog/${blog.slug}`">
                                      <i class="fa fa-link" aria-hidden="true"></i>
-                                     <img :src="blog.image" alt="Blog photo" />
+                                     <img :src="`${apiUrl}${blog.image}`" alt="Blog photo" />
                                   </nuxt-link>
                               </div>
                            </div>
@@ -72,11 +72,13 @@
 <script>
     import { query } from '~/apollo/queries/blog';
     import chunk from 'lodash/chunk';
+    import { API_URL } from '~/config/api';
     export default {
       data() {
         return {
           blogs: [],
           chunk: chunk,
+          apiUrl: API_URL
         }
       },
       apollo: {

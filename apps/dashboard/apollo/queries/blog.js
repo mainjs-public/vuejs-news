@@ -25,11 +25,10 @@ export const getBlog = gql`
       slug,
       status,
       image,
-      category {
-        id,
-      },
       description,
       content,
+      tags,
+      category_id
     }
   }
 `;

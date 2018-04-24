@@ -34,7 +34,6 @@
   import MegaMenu from '~/components/MegaMenu.vue';
 
   export default {
-    name: 'megamenu',
     middleware: 'auth',
     components: {
       MegaMenu
