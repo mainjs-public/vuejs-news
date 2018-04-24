@@ -31,6 +31,7 @@ export const getContact = gql`
 export const editContact = gql`
   mutation mutationContact($input: MutationContactInput!) {
     mutationContact(input: $input) {
+      id,
       email
     }
   }
@@ -42,3 +43,8 @@ export const deleteContact = gql`
     }
   }
 `;
+export const countUnReadContactQuery = gql`
+ query {
+    countUnReadContact
+  }
+`

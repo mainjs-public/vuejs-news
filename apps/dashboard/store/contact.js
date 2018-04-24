@@ -1,4 +1,4 @@
-import { query, editContact, deleteContact  } from '~/apollo/queries/contact.js';
+import { query, editContact, deleteContact, countUnReadContactQuery  } from '~/apollo/queries/contact.js';
 
 export const state = () => ({
   loading: false,
@@ -23,21 +23,21 @@ export const mutations = {
 };
 
 export const actions =  {
-  async readContact(context, data) {
-    if (data.read === true) {
-      this.app.context.redirect(`/contact/view?id=${data.id}`);
+  async readContact(context, value) {
+    if (value.read === true) {
+      this.app.context.redirect(`/contact/view?id=${value.id}`);
     } else {
       let client = this.app.apolloProvider.defaultClient;
       context.commit('fetchRequest');
-      await client.mutate({ mutation: editContact, variables: {input : {...data, read: true}}, refetchQueries: [{
+      await client.mutate({ mutation: editContact, variables: {input : {...value, read: true}}, refetchQueries: [{
           query: query,
-        }] })
+        },{query: countUnReadContactQuery}] })
         .then((res) => {
           return res.data;
         })
         .then(data => {
           context.commit('editSuccess');
-          console.log('test data readContact', data)
+          console.log('test data read contact', data);
           this.app.context.redirect(`/contact/view?id=${data.mutationContact.id}`);
         })
         .catch(error => context.commit('fetchError', error));
@@ -49,9 +49,14 @@ export const actions =  {
     client.mutate({
       mutation: deleteContact,
       variables: {input : { contactId: id}} ,
-      refetchQueries: [{
-        query: query,
-      }]
+      refetchQueries: [
+        {
+          query: query,
+        },
+        {
+          query: countUnReadContactQuery
+        }
+      ]
     })
       .then((res) => {
         return res.data;

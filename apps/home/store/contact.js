@@ -23,7 +23,7 @@ export const actions =  {
   async addContact(context, data) {
     let client = this.app.apolloProvider.defaultClient;
     context.commit('fetchRequest');
-    await client.mutate({ mutation: addContact, variables: {input : {...data, read: true}}, refetchQueries: [{
+    await client.mutate({ mutation: addContact, variables: {input : data}, refetchQueries: [{
         query: query,
       }] })
       .then((res) => {

@@ -19,7 +19,7 @@
                     <div class="box">
                         <div>
                             <div class="box-header with-border">
-                                <h3 class="box-title">View contant</h3>
+                                <h3 class="box-title">View contact</h3>
                             </div>
                             <!-- /.box-header -->
                             <!-- form start -->
