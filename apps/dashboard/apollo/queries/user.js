@@ -12,7 +12,9 @@ export const signInMutate = gql`
   mutation signIn($email: String!, $password: String!) {
     signIn(email: $email, password: $password) {
       user {
-        id
+        id,
+        name,
+        email,
       },
       token
     }

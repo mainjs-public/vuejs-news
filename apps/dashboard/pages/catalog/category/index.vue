@@ -3,7 +3,6 @@
         <section class="content-header">
             <h1>
                 Categories
-                <!--<small>advanced tables</small>-->
             </h1>
             <ol class="breadcrumb">
                 <li><nuxt-link to="/"><i class="fa fa-dashboard"></i> Home</nuxt-link></li>
@@ -26,7 +25,13 @@
                             </div>
                         </div>
                         <!-- /.box-header -->
-                        <div v-if="$apollo.loading">Loading...</div>
+                        <div class="alert alert-danger alert-dismissible" style="margin: 0px 10px" v-if="error.message">
+                            <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                            {{error.message}}
+                        </div>
+                        <div v-if="loading">
+                            <i class="fa fa-circle-o-notch fa-spin"/>loading...
+                        </div>
                         <div v-else class="box-body">
                             <table-category :categories="categories" :deleteClick="deleteClick" :pagination="true"/>
                         </div>
@@ -43,25 +48,25 @@
   import { query } from '~/apollo/queries/category.js';
   import TableCategory from '~/components/TableCategory.vue';
   export default {
-    data () {
-      return {
-        categories: [],
-      }
-    },
-    apollo: {
-      categories: {
-        query: query,
-        fetchPolicy: 'cache-and-network',
-      }
+    computed: {
+      categories () { return this.$store.state.category.list },
+      loading () { return this.$store.state.category.loading },
+      error () { return this.$store.state.category.error }
     },
     methods: {
       ...mapActions({
-        deleteCategory: 'category/deleteCategory'
+        deleteCategory: 'category/deleteCategory',
+        fetch: 'category/fetch',
       }),
       deleteClick(e, id) {
         this.deleteCategory(id);
         e.preventDefault();
       },
+    },
+    created() {
+      if (this.categories.length < 1) {
+        this.fetch();
+      }
     },
     components: {
       TableCategory

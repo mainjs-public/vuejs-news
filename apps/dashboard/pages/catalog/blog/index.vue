@@ -24,8 +24,12 @@
                                 </nuxt-link>
                             </div>
                         </div>
+                        <div class="alert alert-danger alert-dismissible" style="margin: 0px 10px" v-if="error.message">
+                            <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                            {{error.message}}
+                        </div>
                         <!-- /.box-header -->
-                        <div v-if="$apollo.loading"> ...loading</div>
+                        <div v-if="loading"> <i class="fa fa-circle-o-notch fa-spin"/>loading...</div>
                         <div class="box-body" v-else>
                             <table-blog :blogs="blogs" :deleteClick="deleteClick"/>
                         </div>
@@ -43,25 +47,25 @@
   import { query } from '~/apollo/queries/blog.js';
   import TableBlog from '~/components/TableBlog.vue';
   export default {
-    data () {
-      return {
-        blogs: [],
-      }
-    },
-    apollo: {
-      blogs: {
-        query: query,
-        fetchPolicy: 'cache-and-network',
-      }
+    computed: {
+      blogs () { return this.$store.state.blog.list },
+      loading () { return this.$store.state.blog.loading },
+      error () { return this.$store.state.blog.error }
     },
     methods: {
       ...mapActions({
-        deleteBlog: 'blog/deleteBlog'
+        deleteBlog: 'blog/deleteBlog',
+        fetch: 'blog/fetch',
       }),
       deleteClick(e, id) {
         this.deleteBlog(id);
         e.preventDefault();
       },
+    },
+    created() {
+      if (this.blogs.length < 1) {
+        this.fetch();
+      }
     },
     components: {
       TableBlog
