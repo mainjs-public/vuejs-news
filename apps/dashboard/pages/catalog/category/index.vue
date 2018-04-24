@@ -25,13 +25,7 @@
                             </div>
                         </div>
                         <!-- /.box-header -->
-                        <div class="alert alert-danger alert-dismissible" style="margin: 0px 10px" v-if="error.message">
-                            <h4><i class="icon fa fa-ban"></i> Alert!</h4>
-                            {{error.message}}
-                        </div>
-                        <div v-if="loading">
-                            <i class="fa fa-circle-o-notch fa-spin"/>loading...
-                        </div>
+                        <div v-if="$apollo.loading && !categories.length">Loading...</div>
                         <div v-else class="box-body">
                             <table-category :categories="categories" :deleteClick="deleteClick" :pagination="true"/>
                         </div>

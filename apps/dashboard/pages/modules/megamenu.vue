@@ -15,11 +15,6 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box">
-                        <div class="box-header">
-                            <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
-                                <h3 class="box-title">Category List</h3>
-                            </div>
-                        </div>
                         <div class="box-body">
                             <mega-menu/>
                         </div>

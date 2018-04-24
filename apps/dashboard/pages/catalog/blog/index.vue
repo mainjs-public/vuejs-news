@@ -29,7 +29,7 @@
                             {{error.message}}
                         </div>
                         <!-- /.box-header -->
-                        <div v-if="loading"> <i class="fa fa-circle-o-notch fa-spin"/>loading...</div>
+                        <div v-if="$apollo.loading && !blogs.length"> ...loading</div>
                         <div class="box-body" v-else>
                             <table-blog :blogs="blogs" :deleteClick="deleteClick"/>
                         </div>

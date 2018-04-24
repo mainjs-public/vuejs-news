@@ -2,9 +2,9 @@
   <div>
       <footer class="main-footer">
           <div class="pull-right hidden-xs">
-              <b>Version</b> 2.4.0
+              <b>Version</b> 1.0.0
           </div>
-          <strong>Copyright &copy; 2018 <nuxt-link to="https://adminlte.io">mainjs.net</nuxt-link>.</strong> All rights
+          <strong>Copyright &copy; 2018 <nuxt-link to="https://mainjs.net">mainjs.net</nuxt-link>.</strong> All rights
           reserved.
       </footer>
 
