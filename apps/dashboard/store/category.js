@@ -1,7 +1,6 @@
-import {query, editCategory, deleteCategory} from '~/apollo/queries/category.js';
+import { query, editCategory, deleteCategory } from '~/apollo/queries/category.js';
 
 export const state = () => ({
-  list: [],
   loading: false,
   error: {},
 });
@@ -9,11 +8,6 @@ export const state = () => ({
 export const mutations = {
   fetchRequest(state) {
     state.loading = true;
-    state.error = {};
-  },
-  fetchSuccess(state, lists) {
-    state.list = lists;
-    state.loading = false;
     state.error = {};
   },
   editSuccess(state) {
@@ -29,18 +23,6 @@ export const mutations = {
 };
 
 export const actions = {
-  fetch({commit}) {
-    let client = this.app.apolloProvider.defaultClient;
-    commit('fetchRequest');
-    client.query({query: query})
-      .then((res) => {
-        return res.data;
-      })
-      .then(data => {
-        commit('fetchSuccess', data.categories);
-      })
-      .catch(error => commit('fetchError', error));
-  },
   editCategory(context, data) {
     let client = this.app.apolloProvider.defaultClient;
     context.commit('fetchRequest');
@@ -50,7 +32,7 @@ export const actions = {
       })
       .then(data => {
         context.commit('editSuccess');
-        this.app.context.redirect('/category');
+        this.app.context.redirect('/catalog/category');
       })
       .catch(error => context.commit('fetchError', error));
   },
@@ -68,7 +50,6 @@ export const actions = {
       })
       .then(data => {
         commit('deleteSuccess');
-        this.fetch;
       })
       .catch(error => commit('fetchError', error));
   }

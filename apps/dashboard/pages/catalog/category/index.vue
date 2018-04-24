@@ -27,7 +27,7 @@
                         <!-- /.box-header -->
                         <div v-if="$apollo.loading && !categories.length">Loading...</div>
                         <div v-else class="box-body">
-                            <table-category :categories="categories" :deleteClick="deleteClick" :pagination="true"/>
+                            <table-category :categories="categories" :deleteClick="deleteClick"/>
                         </div>
                         <!-- /.box-body -->
                     </div>
@@ -42,25 +42,25 @@
   import { query } from '~/apollo/queries/category.js';
   import TableCategory from '~/components/TableCategory.vue';
   export default {
-    computed: {
-      categories () { return this.$store.state.category.list },
-      loading () { return this.$store.state.category.loading },
-      error () { return this.$store.state.category.error }
+    data() {
+      return {
+        categories: []
+      }
+    },
+    apollo: {
+      categories: {
+        query: query,
+        fetchPolicy: 'cache-and-network',
+      }
     },
     methods: {
       ...mapActions({
         deleteCategory: 'category/deleteCategory',
-        fetch: 'category/fetch',
       }),
       deleteClick(e, id) {
         this.deleteCategory(id);
         e.preventDefault();
       },
-    },
-    created() {
-      if (this.categories.length < 1) {
-        this.fetch();
-      }
     },
     components: {
       TableCategory
