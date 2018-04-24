@@ -1225,7 +1225,7 @@ a.cat-link:hover {
   color: #ffffff;
   left: 22px;
   position: absolute;
-  width: 100%;
+  /*width: 100%;*/
   z-index: 10;
 }
 .slider-right ul li .right-content h3 {
