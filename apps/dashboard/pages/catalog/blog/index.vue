@@ -25,7 +25,7 @@
                             </div>
                         </div>
                         <!-- /.box-header -->
-                        <div v-if="$apollo.loading"> ...loading</div>
+                        <div v-if="$apollo.loading && !blogs.length"> ...loading</div>
                         <div class="box-body" v-else>
                             <table-blog :blogs="blogs" :deleteClick="deleteClick"/>
                         </div>
