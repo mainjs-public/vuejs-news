@@ -1,7 +1,6 @@
 import { query, editBlog, deleteBlog  } from '~/apollo/queries/blog.js';
 
 export const state = () => ({
-  list: [],
   loading: false,
   error: {},
 });
@@ -14,10 +13,6 @@ export const mutations = {
   editSuccess(state) {
     state.loading = false;
   },
-  fetchSuccess(state, blogs) {
-    state.list = blogs;
-    state.loading = false;
-  },
   deleteSuccess(state) {
     state.loading = false;
   },
@@ -28,18 +23,6 @@ export const mutations = {
 };
 
 export const actions =  {
-  fetch({ commit }) {
-    let client = this.app.apolloProvider.defaultClient;
-    commit('fetchRequest');
-    client.query({ query: query })
-      .then((res) => {
-      return res.data;
-    })
-    .then(data => {
-      commit('fetchSuccess', data.blogs);
-    })
-    .catch(error => commit('fetchError', error));
-  },
   editBlog(context, data) {
     let client = this.app.apolloProvider.defaultClient;
     context.commit('fetchRequest');
@@ -49,7 +32,7 @@ export const actions =  {
       })
       .then(data => {
         context.commit('editSuccess');
-        this.app.context.redirect('/blog');
+        this.app.context.redirect('/catalog/blog');
       })
       .catch(error => context.commit('fetchError', error));
   },
@@ -68,7 +51,6 @@ export const actions =  {
       })
       .then(data => {
         commit('deleteSuccess');
-        // this._action
       })
       .catch(error => {
         commit('fetchError', error);

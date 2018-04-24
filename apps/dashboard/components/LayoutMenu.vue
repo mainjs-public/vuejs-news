@@ -18,7 +18,7 @@
                 <li><nuxt-link to="/"><i class="fa fa-dashboard"></i> <span>Dashboard</span></nuxt-link></li>
                 <li class="active treeview">
                     <nuxt-link to="/catalog/category">
-                        <i class="fa fa-dashboard"></i>
+                        <i class="fa fa-reorder"></i>
                         <span>Catalog</span>
                         <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
@@ -31,7 +31,7 @@
                 </li>
                 <li class="active treeview">
                     <nuxt-link to="#">
-                        <i class="fa fa-dashboard"></i>
+                        <i class="fa fa-cogs"></i>
                         <span>Modules</span>
                         <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
@@ -41,9 +41,8 @@
                         <li><nuxt-link to="/modules/megamenu"><i class="fa fa-circle-o"></i> Megamenu</nuxt-link></li>
                     </ul>
                 </li>
-                <li><nuxt-link to="/setting"><i class="fa fa-dashboard"></i> <span>Setting</span></nuxt-link></li>
-                <li><nuxt-link to="/contact"><i class="fa fa-dashboard"></i> <span>Contact</span></nuxt-link></li>
-                <li><nuxt-link to="/login"><i class="fa fa-dashboard"></i> <span>Login</span></nuxt-link></li>
+                <li><nuxt-link to="/setting"><i class="fa fa-gear"></i> <span>Setting</span></nuxt-link></li>
+                <li><nuxt-link to="/contact"><i class="fa fa-envelope-o"></i> <span>Contact</span></nuxt-link></li>
             </ul>
         </section>
         <!-- /.sidebar -->
