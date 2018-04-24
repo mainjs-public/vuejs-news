@@ -18,7 +18,9 @@
             <td>{{blog.slug}}</td>
             <td>{{blog.created}}</td>
             <td>{{blog.updated}}</td>
-            <td>{{blog.status}}</td>
+            <td>
+                <span v-if="blog.status" class="label label-success">Enable</span>
+                <span v-else class="label label-danger">Disable</span></td>
             <td>
                 <nuxt-link :to="`/catalog/blog/edit?id=${blog.id}`" class="btn btn-primary btn-xs" style="margin-right: 10px">Edit</nuxt-link>
                 <button class="btn btn-danger btn-xs" @click="deleteClick($event, blog.id)">
