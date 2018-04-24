@@ -786,7 +786,7 @@
                                         <div class="item-post">
                                             <div class="row">
                                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3 paddimg-right-none">
-                                                    <nuxt-link :to=`/blog/${blog.slug}`><img :src="`${apiUrl}${blog.image}`" alt="" title="News image"/></nuxt-link>
+                                                    <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`" alt="" title="News image"/></nuxt-link>
                                                 </div>
                                                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-9">
                                                     <h4><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
