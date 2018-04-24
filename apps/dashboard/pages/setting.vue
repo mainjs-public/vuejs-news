@@ -120,6 +120,13 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
+                                            <label class="col-sm-2 control-label">Logo Footer</label>
+
+                                            <div class="col-sm-10">
+                                                <image-manager id="logo_footer" inputName="logo_footer" :value="data.logo_footer" :onChange="logo_footer => this.data.logo_footer = logo_footer" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
                                             <label class="col-sm-2 control-label">Icon</label>
 
                                             <div class="col-sm-10">
@@ -192,6 +199,7 @@
     meta_title: '',
     meta_tag_description: '',
     logo: '',
+    logo_footer: '',
     icon: '',
     name: '',
     description: '',

@@ -8,7 +8,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div class="single-footer footer-one">
                 <h3>About</h3>
-                <div class="footer-logo"><img :src="`${apiUrl}${setting.logo}`" alt="footer-logo" style="width: 100%; max-height: 60px"></div>
+                <div class="footer-logo"><img :src="`${apiUrl}${setting.logo_footer}`" alt="footer-logo" /></div>
                 <p>{{setting.description}}</p>
                 <p>We're social, connect with us:</p>
                 <div class="footer-social-media-area">
