@@ -137,32 +137,32 @@
     <div id="return-to-top">
       <span>Top</span>
     </div>
-    <!--<script src="/js/jquery.min.js"></script>-->
-    <!-- jquery latest version -->
-    <!--<script src="/js/jquery.min.js"></script>-->
-    <!-- jquery-ui js -->
-    <!--<script src="/js/jquery-ui.min.js"></script>-->
-    <!-- bootstrap js -->
-    <!--<script src="/js/bootstrap.min.js"></script>-->
-    <!-- meanmenu js -->
-    <!--<script src="/js/jquery.meanmenu.js"></script>-->
-    <!-- wow js -->
-    <!--<script src="/js/wow.min.js"></script>-->
-    <!-- owl.carousel js -->
-    <!--<script src="/js/owl.carousel.min.js"></script>-->
-    <!-- magnific-popup js -->
-    <!--<script src="/js/jquery.magnific-popup.js"></script>-->
+    <script src="/js/jquery.min.js"></script>
+     <!--jquery latest version -->
+    <script src="/js/jquery.min.js"></script>
+     <!--jquery-ui js -->
+    <script src="/js/jquery-ui.min.js"></script>
+     <!--bootstrap js -->
+    <script src="/js/bootstrap.min.js"></script>
+     <!--meanmenu js -->
+    <script src="/js/jquery.meanmenu.js"></script>
+     <!--wow js -->
+    <script src="/js/wow.min.js"></script>
+     <!--owl.carousel js -->
+    <script src="/js/owl.carousel.min.js"></script>
+     <!--magnific-popup js -->
+    <script src="/js/jquery.magnific-popup.js"></script>
 
-    <!-- jquery.counterup js -->
-    <!--<script src="/js/jquery.counterup.min.js"></script>-->
-    <!--<script src="/js/waypoints.min.js"></script>-->
-    <!-- jquery light box -->
+     <!--jquery.counterup js -->
+    <script src="/js/jquery.counterup.min.js"></script>
+    <script src="/js/waypoints.min.js"></script>
+     <!--jquery light box -->
     <!--<script src="js/lightbox.min.js"></script>-->
-    <!-- Nivo slider js -->
-    <!--<script src="/inc/custom-slider/js/jquery.nivo.slider.js" type="text/javascript"></script>-->
-    <!--<script src="/inc/custom-slider/home.js" type="text/javascript"></script>-->
-    <!-- main js -->
-    <!--<script src="/js/main.js"></script>-->
+     <!--Nivo slider js -->
+    <script src="/inc/custom-slider/js/jquery.nivo.slider.js" type="text/javascript"></script>
+    <script src="/inc/custom-slider/home.js" type="text/javascript"></script>
+     <!--main js -->
+    <script src="/js/main.js"></script>
   </div>
 </template>
 

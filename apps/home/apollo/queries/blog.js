@@ -19,6 +19,25 @@ export const query = gql`
     }
   }
 `;
+export const getBlogLatest = gql`
+  query getBlogLatest($number: Int!) {
+    getBlogLatest(number: $number) {
+      id,
+      name,
+      slug,
+      description,
+      created,
+      image,
+      category {
+        id,
+        name
+      },
+      comments {
+        id
+      }
+    }
+  }
+`
 export const getBlogBySlug = gql`
   query blogSlugQuery($slug: String!) {
     blogSlug(slug: $slug) {
