@@ -19,13 +19,13 @@
                             </div>
                         </div>
                         <!-- /.box-header -->
-                        <div v-if="$apollo.loading"> ...loading</div>
-                        <div class="box-body" v-else>
-                            <table-contact :contacts="contacts" :deleteClick="deleteClick" :readContact="readContactClick"/>
+                        <div v-if="$apollo.loading && !contactPagination.data.length">Loading...</div>
+                        <div v-else class="box-body">
+                            <table-contact :contacts="contactPagination.data" :deleteClick="deleteClick" :readContact="readContactClick"/>
+                            <pagination :length="length" :count="contactPagination.count" :start="start" :changeLengthPanination="changeLengthPanination" :changeStartPagination="changeStartPagination"/>
                         </div>
                         <!-- /.box-body -->
                     </div>
-                    <!-- /.box -->
                 </div>
             </div>
         </section>
@@ -34,18 +34,29 @@
 
 <script>
   import { mapActions } from 'vuex';
-  import omit from 'lodash/omit';
-  import { query } from '~/apollo/queries/contact.js';
+  import { query, queryPagination } from '~/apollo/queries/contact.js';
   import TableContact from '~/components/TableContact.vue';
+  import Pagination from '~/components/Pagination.vue';
   export default {
-    data () {
+    data() {
       return {
-        contacts: [],
+        start: 0,
+        length: 10,
+        contactPagination: {
+          data: [],
+          count: 0,
+        }
       }
     },
     apollo: {
-      contacts: {
-        query: query,
+      contactPagination: {
+        query: queryPagination,
+        variables() {
+          return {
+            start: this.start * this.length,
+            length: this.length
+          }
+        },
         fetchPolicy: 'cache-and-network',
       }
     },
@@ -60,10 +71,17 @@
       },
       readContactClick(data) {
         this.readContact(omit(data, ['__typename']));
+      },
+      changeLengthPanination(value) {
+        this.length = value;
+      },
+      changeStartPagination(value) {
+        this.start = value;
       }
     },
     components: {
-      TableContact
+      TableContact,
+      Pagination
     },
     middleware: 'auth'
   }
