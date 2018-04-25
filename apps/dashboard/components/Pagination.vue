@@ -2,67 +2,51 @@
     <div class="row row_container">
         <div class="col-sm-12 col-md-5">
             <label class="label_input">Show
-                <select name="example1_length" aria-controls="example1" class="form-control input-sm select_margin">
-                    <option value="10">10</option>
-                    <option value="25">25</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
+                <select v-model="length" @change="changeLength($event)" class="form-control input-sm select_margin">
+                    <option :value="10">10</option>
+                    <option :value="25">25</option>
+                    <option :value="50">50</option>
+                    <option :value="100">100</option>
                 </select> entries
             </label>
         </div>
         <div class="col-sm-12 col-md-7 pagination_right">
-            <div class="dataTables_info info_datatable" role="status" aria-live="polite">Showing {{min}} to {{max}} of {{total}}
-                entries
-            </div>
-            <div class="dataTables_paginate paging_simple_numbers">
-                <ul class="pagination">
-                    <li class="paginate_button previous disabled">
-                        <a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a>
+            <div class="dataTables_paginate paging_simple_numbers pull-right">
+                <ul v-if="count" class="pagination">
+                    <li class="paginate_button previous" v-bind:class="start === 0 ? 'disabled': ''">
+                        <a @click.prevent="changeStart(start-1)" class="disabled">Previous</a>
                     </li>
-                    <li class="paginate_button active">
-                        <a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a>
+                    <li v-for="p in pagination" v-bind:key="p" :class="{paginate_button: true, active: start === p}">
+                        <a @click.prevent="changeStart(p)">{{ p + 1 }}</a>
                     </li>
-                    <li class="paginate_button ">
-                        <a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">2</a>
+                    <li class="paginate_button next" v-bind:class="pagination.length - 1 === start ? 'disabled': ''">
+                        <a @click.prevent="changeStart(start+1)">Next</a>
                     </li>
-                    <li class="paginate_button ">
-                        <a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0">3</a>
-                    </li>
-                    <li class="paginate_button ">
-                        <a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0">4</a>
-                    </li>
-                    <li class="paginate_button ">
-                        <a href="#" aria-controls="example1" data-dt-idx="5" tabindex="0">5</a>
-                    </li>
-                    <li class="paginate_button ">
-                        <a href="#" aria-controls="example1" data-dt-idx="6" tabindex="0">6</a>
-                    </li>
-                    <li class="paginate_button next" id="example1_next">
-                        <a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0">Next</a></li>
                 </ul>
             </div>
         </div>
     </div>
 </template>
 <script>
-    import ceil from 'lodash/ceil';
     export default {
-      props: ['count', 'onChange', 'total'],
-      data() {
-        return {
-          number: 1,
-          min: 1,
-        }
-      },
+      props: ['length', 'count', 'start', 'changeLengthPanination', 'changeStartPagination'],
       computed: {
-        rowTotal() {
-          return ceil(this.total/this.count);
+        pagination: function() {
+          let p = [];
+          for (let i = 0; i < this.count / this.length; i++) {
+            p.push(i);
+          }
+          return p;
         },
-        select() {
-          return this.count;
+      },
+      methods: {
+        changeLength(e) {
+          this.changeLengthPanination(Number(e.target.value));
         },
-        max() {
-          return this.count > this.total ? this.total :this.count;
+        changeStart(value) {
+          if (value >= 0 && value < this.pagination.length) {
+            this.changeStartPagination(value)
+          }
         }
       }
     }
@@ -75,15 +59,6 @@
     }
     .select_margin {
         margin: 0px 10px;
-    }
-    .pagination_right {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-end;
-    }
-    .info_datatable {
-        margin-right: 10px;
     }
     .row_container {
         display: flex;

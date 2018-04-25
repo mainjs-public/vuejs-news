@@ -1,5 +1,5 @@
 <template>
-    <div v-if="$apollo.loading">loading</div>
+    <div v-if="blogs.length === 0"> none</div>
     <div v-else>
         <div class="container">
             <div class="row">
@@ -13,23 +13,11 @@
                                         class="fa fa-angle-double-right" aria-hidden="true"></i></div>
                                 <div class="tickers col-md-10">
                                     <div id="top-news-slider" class="owl-carousel ">
-                                        <div class="item">
-                                            <div>
-                                                <img src="/images/sidebar-images/1.jpg"/>
-                                                <span>host</span>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <a>
-                                                <img src="/images/sidebar-images/1.jpg"/>
-                                                <span>host</span>
-                                            </a>
-                                        </div>
-                                        <div class="item">
-                                            <a>
-                                                <img src="/images/sidebar-images/1.jpg"/>
-                                                <span>host</span>
-                                            </a>
+                                        <div class="item" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<6">
+                                            <nuxt-link :to="`/blog/${blog.slug}`">
+                                                <img :src="`${apiUrl}${blog.image}`"/>
+                                                <span>{{blog.name}}</span>
+                                            </nuxt-link>
                                         </div>
                                     </div>
                                 </div>
@@ -42,12 +30,11 @@
                     <div class="slider-area">
                         <div class="bend niceties preview-2">
                             <div id="ensign-nivoslider" class="slides">
-                                <img src="images/slider/slide_1.jpg" alt="" title="#slider-direction-1"/>
-                                <img src="images/slider/slide_3.jpg" alt="" title="#slider-direction-2"/>
+                                <img v-for="(blog, index) in blogs" v-if="index<2" v-bind:key="blog.id" :src="`${apiUrl}${blog.image}`" alt="" :title="`#slider-direction-${index+1}`"/>
                             </div>
                             <!-- direction 2 -->
-                            <div id="slider-direction-1" class="slider-direction">
-                                <div class="slider-content t-cn s-tb slider-1">
+                            <div v-for="(blog, index) in blogs" v-if="index<2" v-bind:key="blog.id" :id="`#slider-direction-${index+1}`" class="slider-direction">
+                                <div :class="`slider-content t-cn s-tb slider-${index+1}`">
                                     <div class="title-container s-tb-c">
                                         <div class="slider-botton">
                                             <ul>
@@ -63,37 +50,13 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <h1 class="title1"><a href="blog.html"><span>Record</span> proportion of women<br/>on
-                                            degrees</a></h1>
+                                        <h1 class="title1"><a href="blog.html">{{blog.name}}</a></h1>
                                         <div class="title2">The exhibition Banksy doesn’t want to see whle travelling hear.
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- direction 2 -->
-                            <div id="slider-direction-2" class="slider-direction">
-                                <div class="slider-content t-cn s-tb slider-2">
-                                    <div class="title-container s-tb-c">
-                                        <div class="slider-botton">
-                                            <ul>
-                                                <li>
-                                                    <a class="cat-link" href="category-world.html">World</a>
-                                                    <span class="date">
-                                                    <i class="fa fa-calendar-check-o" aria-hidden="true"></i>November 28, 2017
-                                                </span>
-                                                    <span class="comment">
-                                                    <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 50
-                                                    </a>
-                                                </span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <h1 class="title1"><a href="blog.html"><span>John</span> to retire as director</a></h1>
-                                        <div class="title2">The exhibition Banksy doesn’t want to see whle travelling hear.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -860,21 +823,28 @@
     </div>
 </template>
 <script>
-    import { query } from '~/apollo/queries/blog.js';
+    import { query, getBlogLatest } from '~/apollo/queries/blog.js';
     import { API_URL } from '~/config/api';
     import chunk from 'lodash/chunk';
     export default {
+      async asyncData(context, callback) {
+          const client = context.app.apolloProvider.defaultClient;
+          await client.query({query: getBlogLatest, variables: { number: 10 }})
+            .then((res) => {
+              return res.data;
+            })
+            .then(data => {
+              callback(null, { blogs: data.getBlogLatest })
+            })
+            .catch(error => {
+              callback(null, { blogs: [] })
+            });
+          ;
+      },
       data() {
         return {
-          blogs: [],
           chunk: chunk,
           apiUrl: API_URL
-        }
-      },
-      apollo: {
-        blogs: {
-          query: query,
-          fetchPolicy: 'cache-and-network',
         }
       },
     }

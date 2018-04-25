@@ -17,6 +17,29 @@ export const query = gql`
   }
 `;
 
+export const queryPagination = gql`
+  query QueryPagination($start: Int!, $length: Int!){
+    blogPagination(start: $start, length: $length) {
+      count,
+      data {
+        id,
+        name,
+        slug,
+        created,
+        updated,
+        status,
+        category {
+          id,
+          name
+        },
+        image
+      },
+      length,
+      start
+    }
+  }
+`;
+
 export const getBlog = gql`
   query blogQuery($blogId: ID!) {
     blog(blogId: $blogId) {

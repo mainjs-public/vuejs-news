@@ -1,4 +1,4 @@
-import { query, editContact, deleteContact, countUnReadContactQuery  } from '~/apollo/queries/contact.js';
+import { query, editContact, queryPagination, deleteContact, countUnReadContactQuery  } from '~/apollo/queries/contact.js';
 
 export const state = () => ({
   loading: false,
@@ -43,15 +43,16 @@ export const actions =  {
         .catch(error => context.commit('fetchError', error));
     }
   },
-  deleteContact({ commit }, id) {
+  deleteContact({ commit }, value) {
     let client = this.app.apolloProvider.defaultClient;
     commit('fetchRequest');
     client.mutate({
       mutation: deleteContact,
-      variables: {input : { contactId: id}} ,
+      variables: {input : { contactId: value.id}} ,
       refetchQueries: [
         {
-          query: query,
+          query: queryPagination,
+          variables: {start : value.start, length: value.length} ,
         },
         {
           query: countUnReadContactQuery

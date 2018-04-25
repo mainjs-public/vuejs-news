@@ -25,13 +25,13 @@
                             </div>
                         </div>
                         <!-- /.box-header -->
-                        <div v-if="$apollo.loading && !blogs.length"> ...loading</div>
-                        <div class="box-body" v-else>
-                            <table-blog :blogs="blogs" :deleteClick="deleteClick"/>
+                        <div v-if="$apollo.loading && !blogPagination.data.length">Loading...</div>
+                        <div v-else class="box-body">
+                            <table-blog :blogs="blogPagination.data" :deleteClick="deleteClick"/>
+                            <pagination :length="length" :count="blogPagination.count" :start="start" :changeLengthPanination="changeLengthPanination" :changeStartPagination="changeStartPagination"/>
                         </div>
                         <!-- /.box-body -->
                     </div>
-                    <!-- /.box -->
                 </div>
             </div>
         </section>
@@ -40,17 +40,29 @@
 
 <script>
   import { mapActions } from 'vuex';
-  import { query } from '~/apollo/queries/blog.js';
+  import { query, queryPagination } from '~/apollo/queries/blog.js';
   import TableBlog from '~/components/TableBlog.vue';
+  import Pagination from '~/components/Pagination.vue';
   export default {
     data() {
       return {
-        blogs: []
+        start: 0,
+        length: 10,
+        blogPagination: {
+          data: [],
+          count: 0,
+        }
       }
     },
     apollo: {
-      blogs: {
-        query: query,
+      blogPagination: {
+        query: queryPagination,
+        variables() {
+          return {
+            start: this.start * this.length,
+            length: this.length
+          }
+        },
         fetchPolicy: 'cache-and-network',
       }
     },
@@ -59,17 +71,20 @@
         deleteBlog: 'blog/deleteBlog',
       }),
       deleteClick(e, id) {
-        this.deleteBlog(id);
+        this.deleteBlog({id: id, start: this.start * this.length, length: this.length});
         e.preventDefault();
       },
+      changeLengthPanination(value) {
+        this.length = value;
+      },
+      changeStartPagination(value) {
+        this.start = value;
+      }
     },
     components: {
-      TableBlog
+      TableBlog,
+      Pagination
     },
     middleware: 'auth'
   }
 </script>
-
-<style scoped>
-
-</style>

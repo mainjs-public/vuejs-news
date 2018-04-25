@@ -25,7 +25,7 @@
                             <!-- form start -->
                             <div class="box-body">
                                 <div class="row">
-                                    <label class="col-sm-1 control-label">Email:</label>
+                                    <label class="col-sm-1 control-label">Name:</label>
                                     <div class="col-sm-11">
                                          {{data.firstName}} {{data.lastName}}
                                     </div>

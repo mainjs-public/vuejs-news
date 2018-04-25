@@ -13,7 +13,24 @@ export const query = gql`
     }
   }
 `;
-
+export const queryPagination = gql`
+  query QueryPagination($start: Int!, $length: Int!){
+    contactPagination(start: $start, length: $length) {
+      count,
+      data {
+        id,
+        firstName,
+        lastName,
+        phone,
+        email,
+        message,
+        read
+      },
+      length,
+      start
+    }
+  }
+`;
 export const getContact = gql`
   query contactQuery($contactId: ID!) {
     contact(contactId: $contactId) {
