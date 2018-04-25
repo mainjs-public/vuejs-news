@@ -1,4 +1,4 @@
-import { query, editBlog, deleteBlog  } from '~/apollo/queries/blog.js';
+import { query, editBlog, deleteBlog, queryPagination } from '~/apollo/queries/blog.js';
 
 export const state = () => ({
   loading: false,
@@ -36,13 +36,14 @@ export const actions =  {
       })
       .catch(error => context.commit('fetchError', error));
   },
-  deleteBlog({ commit }, id) {
+  deleteBlog({ commit }, value) {
     let client = this.app.apolloProvider.defaultClient;
     client.mutate({
       mutation: deleteBlog,
-      variables: {input : { blogId : id}} ,
+      variables: {input : { blogId : value.id}} ,
       refetchQueries: [{
-        query: query,
+        query: queryPagination,
+        variables: {start : value.start, length: value.length} ,
       }]
     })
       .then((res) => {

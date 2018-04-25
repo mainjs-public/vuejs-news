@@ -1,6 +1,5 @@
 <template>
     <select class="form-control" v-model="value" @change="onchange(value)">
-        <option :value="''">None</option>
         <option v-for="category of categories" v-bind:key="category.id" :value="category.id">{{category.name}}</option>
     </select>
 </template>
@@ -13,6 +12,7 @@
     data () {
       return {
         categories: [],
+        value: this.category
       }
     },
     apollo: {
@@ -21,12 +21,12 @@
         fetchPolicy: 'cache-and-network',
       }
     },
-    computed: {
-      value: function() {
-        const existCategory = find(this.categories, o => { return o.id === this.category});
-        return existCategory ? existCategory.id :''
-      },
-    },
+    // computed: {
+    //   value: function() {
+    //     const existCategory = find(this.categories, o => { return o.id === this.category});
+    //     return existCategory ? existCategory.id :''
+    //   },
+    // },
     mounted() {
         // this.onchange(this.value);
     }

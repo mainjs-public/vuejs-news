@@ -66,7 +66,7 @@
         deleteContact: 'contact/deleteContact'
       }),
       deleteClick(e, id) {
-        this.deleteContact(id);
+        this.deleteContact({id: id, start: this.start * this.length , length: this.length});
         e.preventDefault();
       },
       readContactClick(data) {

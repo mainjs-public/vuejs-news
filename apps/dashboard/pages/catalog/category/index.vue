@@ -71,7 +71,7 @@
         deleteCategory: 'category/deleteCategory',
       }),
       deleteClick(e, id) {
-        this.deleteCategory(id);
+        this.deleteCategory({id: id, start: this.start * this.length, length: this.length});
         e.preventDefault();
       },
       changeLengthPanination(value) {

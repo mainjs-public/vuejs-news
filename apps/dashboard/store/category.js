@@ -1,4 +1,4 @@
-import { query, editCategory, deleteCategory } from '~/apollo/queries/category.js';
+import { query, editCategory, deleteCategory, queryPagination } from '~/apollo/queries/category.js';
 
 export const state = () => ({
   loading: false,
@@ -36,13 +36,14 @@ export const actions = {
       })
       .catch(error => context.commit('fetchError', error));
   },
-  deleteCategory({commit}, id) {
+  deleteCategory({commit}, value) {
     let client = this.app.apolloProvider.defaultClient;
     client.mutate({
       mutation: deleteCategory,
-      variables: {input: {categoryId: id}},
+      variables: {input: {categoryId: value.id}},
       refetchQueries: [{
-        query: query,
+        query: queryPagination,
+        variables: {start : value.start, length: value.length} ,
       }]
     })
       .then((res) => {
