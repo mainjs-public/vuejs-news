@@ -8,7 +8,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div class="single-footer footer-one">
                 <h3>About</h3>
-                <div class="footer-logo"><img :src="`${apiUrl}${setting.logo}`" alt="footer-logo" style="width: 100%; max-height: 60px"></div>
+                <div class="footer-logo"><img :src="`${apiUrl}${setting.logo_footer}`" alt="footer-logo" /></div>
                 <p>{{setting.description}}</p>
                 <p>We're social, connect with us:</p>
                 <div class="footer-social-media-area">
@@ -137,32 +137,32 @@
     <div id="return-to-top">
       <span>Top</span>
     </div>
-    <script src="/js/jquery.min.js"></script>
+    <!--<script src="/js/jquery.min.js"></script>-->
     <!-- jquery latest version -->
-    <script src="/js/jquery.min.js"></script>
+    <!--<script src="/js/jquery.min.js"></script>-->
     <!-- jquery-ui js -->
-    <script src="/js/jquery-ui.min.js"></script>
+    <!--<script src="/js/jquery-ui.min.js"></script>-->
     <!-- bootstrap js -->
-    <script src="/js/bootstrap.min.js"></script>
+    <!--<script src="/js/bootstrap.min.js"></script>-->
     <!-- meanmenu js -->
-    <script src="/js/jquery.meanmenu.js"></script>
+    <!--<script src="/js/jquery.meanmenu.js"></script>-->
     <!-- wow js -->
-    <script src="/js/wow.min.js"></script>
+    <!--<script src="/js/wow.min.js"></script>-->
     <!-- owl.carousel js -->
-    <script src="/js/owl.carousel.min.js"></script>
+    <!--<script src="/js/owl.carousel.min.js"></script>-->
     <!-- magnific-popup js -->
-    <script src="/js/jquery.magnific-popup.js"></script>
+    <!--<script src="/js/jquery.magnific-popup.js"></script>-->
 
     <!-- jquery.counterup js -->
-    <script src="/js/jquery.counterup.min.js"></script>
-    <script src="/js/waypoints.min.js"></script>
+    <!--<script src="/js/jquery.counterup.min.js"></script>-->
+    <!--<script src="/js/waypoints.min.js"></script>-->
     <!-- jquery light box -->
     <!--<script src="js/lightbox.min.js"></script>-->
     <!-- Nivo slider js -->
-    <script src="/inc/custom-slider/js/jquery.nivo.slider.js" type="text/javascript"></script>
-    <script src="/inc/custom-slider/home.js" type="text/javascript"></script>
+    <!--<script src="/inc/custom-slider/js/jquery.nivo.slider.js" type="text/javascript"></script>-->
+    <!--<script src="/inc/custom-slider/home.js" type="text/javascript"></script>-->
     <!-- main js -->
-    <script src="/js/main.js"></script>
+    <!--<script src="/js/main.js"></script>-->
   </div>
 </template>
 

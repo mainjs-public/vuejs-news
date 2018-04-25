@@ -25,23 +25,23 @@
                         </div>
                         <!-- /.box-header -->
                         <ul class="navigation_setting">
-                           <li>
-                               <a @click="onChangeNavigation('general')" v-bind:class="navigation === 'general'? 'navigation_setting_active': ''">
+                           <li v-bind:class="navigation === 'general'? 'navigation_setting_active': ''">
+                               <a @click="onChangeNavigation('general')">
                                    General
                                </a>
                            </li>
-                           <li>
-                               <a @click="onChangeNavigation('info')" v-bind:class="navigation === 'info'? 'navigation_setting_active': ''">
+                           <li v-bind:class="navigation === 'info'? 'navigation_setting_active': ''">
+                               <a @click="onChangeNavigation('info')">
                                    Info
                                </a>
                            </li>
-                           <li>
-                               <a @click="onChangeNavigation('image')" v-bind:class="navigation === 'image'? 'navigation_setting_active': ''">
+                           <li v-bind:class="navigation === 'image'? 'navigation_setting_active': ''">
+                               <a @click="onChangeNavigation('image')">
                                    Image
                                </a>
                            </li>
-                            <li>
-                                <a @click="onChangeNavigation('contact')" v-bind:class="navigation === 'contact'? 'navigation_setting_active': ''">
+                            <li v-bind:class="navigation === 'contact'? 'navigation_setting_active': ''">
+                                <a @click="onChangeNavigation('contact')">
                                     Contact
                                 </a>
                             </li>
@@ -120,6 +120,13 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
+                                            <label class="col-sm-2 control-label">Logo Footer</label>
+
+                                            <div class="col-sm-10">
+                                                <image-manager id="logo_footer" inputName="logo_footer" :value="data.logo_footer" :onChange="logo_footer => this.data.logo_footer = logo_footer" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
                                             <label class="col-sm-2 control-label">Icon</label>
 
                                             <div class="col-sm-10">
@@ -132,6 +139,16 @@
                             <div  class="view_form" v-bind:class="navigation === 'contact'? 'active':''">
                                 <form class="form-horizontal">
                                     <div class="box-body">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Map</label>
+                                            <div class="col-sm-10">
+                                                <quill-editor ref="myTextEditor"
+                                                              v-model="data.map"
+                                                              :options="editorOption"
+                                                >
+                                                </quill-editor>
+                                            </div>
+                                        </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Address</label>
                                             <div class="col-sm-10">
@@ -182,6 +199,7 @@
     meta_title: '',
     meta_tag_description: '',
     logo: '',
+    logo_footer: '',
     icon: '',
     name: '',
     description: '',
@@ -194,6 +212,7 @@
     fax: '',
     mail: '',
     contact_location: '',
+    map: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9364273.363926433!2d-12.392661146939734!3d55.03971934808962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x25a3b1142c791a9%3A0xc4f8a0433288257a!2sUnited+Kingdom!5e0!3m2!1sen!2sbd!4v1500619264549" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>'
   };
 
   export default {
@@ -279,14 +298,15 @@
         list-style-type: none;
         padding: 0px;
         margin: 0px 15px;
+        border-bottom: 1px solid #ccc;
+        position: relative;
+        z-index: 1;
     }
     .navigation_setting li {
-
     }
     .navigation_setting li a {
         padding: 10px 15px;
         color: black;
-        border-bottom: 1px solid #ccc;
         display: block;
     }
     .navigation_setting li a:hover {
@@ -296,8 +316,11 @@
         border-left: 1px solid #ccc;
         border-right: 1px solid #ccc;
         border-top: 1px solid #ccc;
-        border-bottom: none !important;
         font-weight: bold;
+        top: 1px;
+        position: relative;
+        z-index: 2;
+        background-color: white;
     }
     .view_info {
 

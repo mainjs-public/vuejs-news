@@ -18,6 +18,19 @@ module.exports = {
     ],
     script: [
       { src: '/js/modernizr-2.8.3.min.js' },
+      { src: '/js/jquery.min.js' },
+      { src: '/js/jquery.min.js' },
+      { src: '/js/jquery-ui.min.js' },
+      { src: '/js/bootstrap.min.js' },
+      { src: '/js/jquery.meanmenu.js' },
+      { src: '/js/wow.min.js' },
+      { src: '/js/owl.carousel.min.js' },
+      { src: '/js/jquery.magnific-popup.js' },
+      { src: '/js/jquery.counterup.min.js' },
+      { src: '/js/waypoints.min.js' },
+      { src: '/inc/custom-slider/js/jquery.nivo.slider.js' },
+      { src: '/inc/custom-slider/home.js' },
+      { src: '/js/main.js' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/images/fav.png' }
