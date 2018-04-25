@@ -5,7 +5,7 @@
     <div v-else>
         <div class="inner-page-header">
             <div class="banner">
-                <img src="/images/banner/3.jpg" alt="Banner">
+                <img :src="`${apiUrl}${blog.image}`" :alt="blog.name" style="max-height: 401px; width: 100%">
             </div>
             <div class="banner-text">
                 <div class="container">
@@ -13,15 +13,14 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="header-page-locator">
                                 <ul>
-                                    <li><nuxt-link to="/">Home <i class="fa fa-compress" aria-hidden="true"></i> </nuxt-link> Single Post</li>
+                                    <li><nuxt-link to="/">Home <i class="fa fa-compress" aria-hidden="true"></i> </nuxt-link> <nuxt-link to="/blog">Blog <i class="fa fa-compress" aria-hidden="true"></i> </nuxt-link> {{blog.name}}</li>
                                 </ul>
                             </div>
                             <div class="header-page-title">
-                                <h1>Blog Single</h1>
+                                <h1>{{blog.name}}</h1>
                             </div>
                             <div class="header-page-subtitle">
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                                    <br>alteration in some form, by injected humou</p>
+                                <p>{{blog.description}}</p>
                             </div>
                         </div>
                     </div>
@@ -38,7 +37,7 @@
                         <div class="single-image">
                             <img :src="`${apiUrl}${blog.image}`" :alt="blog.name" style="width: 100%; max-height: 350px">
                         </div>
-                        <h3><a href="#">{{blog.name}}</a></h3>
+                        <!--<h3><a href="#">{{blog.name}}</a></h3>-->
                         <div v-html="blog.content"/>
                         <div class="share-section">
                             <div class="row">
