@@ -25,6 +25,7 @@ export const mutations = {
 export const actions =  {
   editBlog(context, data) {
     let client = this.app.apolloProvider.defaultClient;
+    console.log('test data edit', data);
     context.commit('fetchRequest');
     client.mutate({ mutation: editBlog, variables: {input : data} })
       .then((res) => {

@@ -13,20 +13,22 @@
     data () {
       return {
         categories: [],
-        value: this.category
       }
     },
     apollo: {
       categories: {
         query: query,
+        fetchPolicy: 'cache-and-network',
       }
     },
+    computed: {
+      value: function() {
+        const existCategory = find(this.categories, o => { return o.id === this.category});
+        return existCategory ? existCategory.id :''
+      },
+    },
     mounted() {
-      const existCategory = find(this.categories, o => { return o.id === this.category})
-      if (!existCategory) {
-        this.onchange('');
-        this.value = ''
-      }
+        // this.onchange(this.value);
     }
   }
 </script>
