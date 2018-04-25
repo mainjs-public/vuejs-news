@@ -14,10 +14,10 @@
                                 <div class="tickers col-md-10">
                                     <div id="top-news-slider" class="owl-carousel ">
                                         <div class="item">
-                                            <div>
+                                            <a>
                                                 <img src="/images/sidebar-images/1.jpg"/>
                                                 <span>host</span>
-                                            </div>
+                                            </a>
                                         </div>
                                         <div class="item">
                                             <a>

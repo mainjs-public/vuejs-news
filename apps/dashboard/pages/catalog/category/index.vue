@@ -28,26 +28,9 @@
                         <div v-if="$apollo.loading && !categoryPagination.data.length">Loading...</div>
                         <div v-else class="box-body">
                             <table-category :categories="categoryPagination.data" :deleteClick="deleteClick"/>
+                            <pagination :length="length" :count="categoryPagination.count" :start="start" :changeLengthPanination="changeLengthPanination" :changeStartPagination="changeStartPagination"/>
                         </div>
                         <!-- /.box-body -->
-
-                        <select v-model.number="length">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
-
-                        <ul v-if="categoryPagination.count" class="pagination">
-                            <li class="paginate_button previous disabled">
-                                <a @click.prevent="start--">Previous</a>
-                            </li>
-                            <li v-for="p in pagination" :class="{paginate_button: true, active: start === p}">
-                                <a @click.prevent="start = p">{{ p + 1 }}</a>
-                            </li>
-                            <li class="paginate_button next" id="example1_next">
-                                <a @click.prevent="start++">Next</a></li>
-                        </ul>
-
                     </div>
                 </div>
             </div>
@@ -59,24 +42,16 @@
   import { mapActions } from 'vuex';
   import { query, queryPagination } from '~/apollo/queries/category.js';
   import TableCategory from '~/components/TableCategory.vue';
+  import Pagination from '~/components/Pagination.vue';
   export default {
     data() {
       return {
         start: 0,
-        length: 2,
+        length: 10,
         categoryPagination: {
           data: [],
           count: 0,
         }
-      }
-    },
-    computed: {
-      pagination: function() {
-        let p = [];
-        for (let i = 0; i < this.categoryPagination.count / this.length; i++) {
-          p.push(i);
-        }
-        return p;
       }
     },
     apollo: {
@@ -99,9 +74,16 @@
         this.deleteCategory(id);
         e.preventDefault();
       },
+      changeLengthPanination(value) {
+        this.length = value;
+      },
+      changeStartPagination(value) {
+        this.start = value;
+      }
     },
     components: {
-      TableCategory
+      TableCategory,
+      Pagination
     },
     middleware: 'auth'
   }
