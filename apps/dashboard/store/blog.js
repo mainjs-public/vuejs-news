@@ -38,7 +38,6 @@ export const actions =  {
   },
   deleteBlog({ commit }, id) {
     let client = this.app.apolloProvider.defaultClient;
-    console.log('run check', this)
     client.mutate({
       mutation: deleteBlog,
       variables: {input : { blogId : id}} ,
