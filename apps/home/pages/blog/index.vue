@@ -27,7 +27,7 @@
       </div>
       <div class="blog-page-area">
          <div class="container">
-            <div class="row" v-for="(rowBlog, index) in chunk(blogs,2)" v-bind:key="index">
+            <div class="row" v-for="(rowBlog, index) in chunk(blogPagination.data, 2)" v-bind:key="index">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" v-for="blog of rowBlog" v-bind:key="blog.id">
                     <ul>
                         <li>
@@ -51,41 +51,51 @@
                 </div>
             </div>
          </div>
-         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-               <div class="pagination-area">
-                  <ul>
-                     <li><a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
-                     <li class="active"><a href="#">1</a></li>
-                     <li><a href="#">2</a></li>
-                     <li><a href="#">. . .</a></li>
-                     <li><a href="#">3</a></li>
-                     <li><a href="#">4</a></li>
-                     <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-                  </ul>
-               </div>
-            </div>
-         </div>
+         <pagination :length="length" :hasNextPage="blogPagination.hasNextPage" :count="blogPagination.count" :start="start" :changeStartPagination="changeStartPagination"/>
       </div>
    </div>
 </template>
 <script>
-    import { query } from '~/apollo/queries/blog';
+    import { queryPagination } from '~/apollo/queries/blog';
     import chunk from 'lodash/chunk';
     import { API_URL } from '~/config/api';
+    import Pagination from '~/components/Pagination.vue'
     export default {
       data() {
         return {
-          blogs: [],
+          start: 0,
+          length: 1,
+          blogPagination: {
+            data: [],
+            count: 0,
+            hasNextPage: false,
+          },
           chunk: chunk,
           apiUrl: API_URL
         }
       },
       apollo: {
-        blogs: {
-          query: query,
+        blogPagination: {
+          query: queryPagination,
+          variables() {
+            return {
+              start: this.start * this.length,
+              length: this.length
+            }
+          },
           fetchPolicy: 'cache-and-network',
         }
       },
+      methods: {
+        changeLengthPanination(value) {
+          this.length = value;
+        },
+        changeStartPagination(value) {
+          this.start = value;
+        }
+      },
+      components: {
+        Pagination
+      }
     }
 </script>
