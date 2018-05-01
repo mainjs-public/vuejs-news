@@ -19,6 +19,34 @@ export const query = gql`
     }
   }
 `;
+
+export const queryPagination = gql`
+  query QueryPagination($start: Int!, $length: Int!){
+    blogPagination(start: $start, length: $length) {
+      count,
+      data {
+        id,
+        name,
+        slug,
+        created,
+        updated,
+        status,
+        category {
+          id,
+          name
+        },
+        image,
+        comments {
+          id
+        }
+      },
+      length,
+      start,
+      hasNextPage,
+    }
+  }
+`;
+
 export const getBlogLatest = gql`
   query getBlogLatest($number: Int!) {
     getBlogLatest(number: $number) {
@@ -37,7 +65,8 @@ export const getBlogLatest = gql`
       }
     }
   }
-`
+`;
+
 export const getBlogBySlug = gql`
   query blogSlugQuery($slug: String!) {
     blogSlug(slug: $slug) {
