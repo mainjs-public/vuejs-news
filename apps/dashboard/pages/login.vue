@@ -55,6 +55,7 @@
 <script>
     import { mapActions} from 'vuex';
     export default {
+      middleware: 'notAuthenticated',
       layout: 'login',
       head () {
         return {
@@ -85,13 +86,13 @@
         ...mapActions([
           'login'
         ]),
-        async loginClick( event) {
+        loginClick( event) {
           this.login({email: this.email, password: this.password});
           event.preventDefault();
         },
       },
       asyncData({ redirect, store }) {
-        if(store.state.authUser){
+        if(store.state.auth){
           redirect('/')
         }
       }

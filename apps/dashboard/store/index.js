@@ -1,57 +1,66 @@
 import axios from 'axios'
 import { signInMutate } from '~/apollo/queries/user';
-import { addCookie} from '~/utils/auth'
+import { addCookie } from '~/utils/auth'
+
+import Cookie from 'js-cookie'
+import cookieparser from 'cookieparser'
 
 export const state = () => ({
-  authUser: null,
-  error: null,
-  loading: false,
+    auth: null,
+    error: null,
+    loading: false,
 })
 
 export const mutations = {
-  request_login(state) {
-    state.loading = true;
-    state.error = null;
-    state.authUser = null;
-  },
-  SET_USER(state, user) {
-    console.log('run')
-    state.authUser = user;
-    state.loading = false;
-  },
-  error_login(state, error) {
-    state.loading = false;
-    state.error = error;
-  },
+    LOGIN_REQUEST(state) {
+        state.loading = true;
+        state.error = null;
+        state.auth = null;
+    },
+    LOGIN_SUCCESS(state, auth) {
+        state.auth = auth;
+        state.loading = false;
+        state.error = null;
+    },
+    LOGIN_ERROR(state, error) {
+        state.loading = false;
+        state.auth = null;
+        state.error = error;
+    },
 }
 
 export const actions = {
-  // nuxtServerInit is called by Nuxt.js before server-rendering every page
-  // nuxtServerInit({ commit }, { req }) {
-  //   if (req.session && req.session.authUser) {
-  //     commit('SET_USER', req.session.authUser)
-  //   }
-  // },
-  async login({ commit }, { email, password }) {
-    let client = this.app.apolloProvider.defaultClient;
-    // console.log('test localStorage',localStorage )
-    commit('request_login');
-    client.mutate({ mutation: signInMutate, variables: { email : email, password: password } })
-      .then((res) => {
-        return res.data;
-      })
-      .then(data => {
-        const user = data.signIn;
-        commit('SET_USER', user);
-        addCookie(user)
-        this.app.context.redirect('/');
-      })
-      .catch(error => commit('error_login', error));
-  },
-
-  async logout({ commit }) {
-    await axios.post('/api/logout')
-    commit('SET_USER', null)
-  }
+    nuxtServerInit({ commit }, { req }) {
+        let auth = null;
+        if (req.headers.cookie) {
+            var parsed = cookieparser.parse(req.headers.cookie);
+            auth = JSON.parse(parsed.auth);
+        }
+        commit('LOGIN_SUCCESS', auth);
+    },
+    login({ commit }, { email, password }) {
+        let client = this.app.apolloProvider.defaultClient;
+        commit('LOGIN_REQUEST');
+        client.mutate({
+                mutation: signInMutate,
+                variables: {
+                    email: email,
+                    password: password
+                }
+            })
+            .then((res) => {
+                return res.data;
+            })
+            .then(data => {
+                const auth = data.signIn;
+                commit('LOGIN_SUCCESS', auth); // mutating to store for client rendering
+                Cookie.set('auth', auth); // saving token in cookie for server rendering
+                this.app.context.redirect('/');
+            })
+            .catch(error => commit('LOGIN_ERROR', error));
+    },
+    async logout({ commit }) {
+        commit('SET_USER', null)
+    }
 
 }
