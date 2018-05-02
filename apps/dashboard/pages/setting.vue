@@ -142,11 +142,12 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Map</label>
                                             <div class="col-sm-10">
-                                                <quill-editor ref="myTextEditor"
-                                                              v-model="data.map"
-                                                              :options="editorOption"
-                                                >
-                                                </quill-editor>
+                                                <!--<quill-editor ref="myTextEditor"-->
+                                                              <!--v-model="data.map"-->
+                                                              <!--:options="editorOption"-->
+                                                <!--&gt;-->
+                                                <!--</quill-editor>-->
+                                                <textarea v-model="data.map" class="form-control" placeholder="Map" style="min-height: 150px"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -212,7 +213,7 @@
     fax: '',
     mail: '',
     contact_location: '',
-    map: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9364273.363926433!2d-12.392661146939734!3d55.03971934808962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x25a3b1142c791a9%3A0xc4f8a0433288257a!2sUnited+Kingdom!5e0!3m2!1sen!2sbd!4v1500619264549" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>'
+    map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9364273.363926433!2d-12.392661146939734!3d55.03971934808962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x25a3b1142c791a9%3A0xc4f8a0433288257a!2sUnited+Kingdom!5e0!3m2!1sen!2sbd!4v1500619264549'
   };
 
   export default {

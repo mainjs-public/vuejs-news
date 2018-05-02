@@ -30,28 +30,28 @@
                     <div class="slider-area">
                         <div class="bend niceties preview-2">
                             <div id="ensign-nivoslider" class="slides">
-                                <img v-for="(blog, index) in blogs" v-if="index<2" v-bind:key="blog.id" :src="`${apiUrl}${blog.image}`" alt="" :title="`#slider-direction-${index+1}`"/>
+                                <img v-for="(blog, index) in blogs" v-if="index<2" v-bind:key="blog.id" :src="`${apiUrl}${blog.image}`" alt="" style="height: 552px" :title="`#slider-direction-${index+1}`"/>
                             </div>
                             <!-- direction 2 -->
-                            <div v-for="(blog, index) in blogs" v-if="index<2" v-bind:key="blog.id" :id="`#slider-direction-${index+1}`" class="slider-direction">
+                            <div v-for="(blog, index) in blogs" v-bind:key="blog.id" :id="`slider-direction-${index+1}`" v-if="index<2" class="slider-direction">
                                 <div :class="`slider-content t-cn s-tb slider-${index+1}`">
                                     <div class="title-container s-tb-c">
                                         <div class="slider-botton">
                                             <ul>
                                                 <li>
-                                                    <a class="cat-link" href="category.html">Business</a>
+                                                    <nuxt-link class="cat-link" to="/category">{{blog.category !== null ? blog.category.name: 'Category'}}</nuxt-link>
                                                     <span class="date">
-                                                    <i class="fa fa-calendar-check-o" aria-hidden="true"></i>November 28, 2017
+                                                    <i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}
                                                 </span>
                                                     <span class="comment">
-                                                    <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 50
+                                                    <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}
                                                     </a>
                                                 </span>
                                                 </li>
                                             </ul>
                                         </div>
-                                        <h1 class="title1"><a href="blog.html">{{blog.name}}</a></h1>
-                                        <div class="title2">The exhibition Banksy doesn’t want to see whle travelling hear.
+                                        <h1 class="title1"><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h1>
+                                        <div class="title2">{{blog.description}}
                                         </div>
                                     </div>
                                 </div>
