@@ -26,7 +26,7 @@
                         <div v-if="$apollo.loading && !contactPagination.data.length">Loading...</div>
                         <div v-else class="box-body">
                             <table-contact :contacts="contactPagination.data" :deleteClick="deleteClick" :readContact="readContactClick"/>
-                            <pagination :length="length" :count="contactPagination.count" :start="start" :changeLengthPanination="changeLengthPanination" :changeStartPagination="changeStartPagination"/>
+                            <pagination :length="length" :hasNextPage="contactPagination.hasNextPage"  :count="contactPagination.count" :start="start" :changeLengthPanination="changeLengthPanination" :changeStartPagination="changeStartPagination"/>
                         </div>
                         <!-- /.box-body -->
                     </div>
@@ -50,6 +50,7 @@
         contactPagination: {
           data: [],
           count: 0,
+          hasNextPage: false
         }
       }
     },

@@ -35,7 +35,8 @@ export const queryPagination = gql`
         image
       },
       length,
-      start
+      start,
+      hasNextPage
     }
   }
 `;

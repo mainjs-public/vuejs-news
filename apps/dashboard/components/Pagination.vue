@@ -19,7 +19,7 @@
                     <li v-for="p in pagination" v-bind:key="p" :class="{paginate_button: true, active: start === p}">
                         <a @click.prevent="changeStart(p)">{{ p + 1 }}</a>
                     </li>
-                    <li class="paginate_button next" v-bind:class="pagination.length - 1 === start ? 'disabled': ''">
+                    <li class="paginate_button next" v-bind:class="!hasNextPage ? 'disabled': ''">
                         <a @click.prevent="changeStart(start+1)">Next</a>
                     </li>
                 </ul>
@@ -29,7 +29,7 @@
 </template>
 <script>
     export default {
-      props: ['length', 'count', 'start', 'changeLengthPanination', 'changeStartPagination'],
+      props: ['length', 'count', 'start', 'hasNextPage', 'changeLengthPanination', 'changeStartPagination'],
       computed: {
         pagination: function() {
           let p = [];
@@ -46,6 +46,11 @@
         changeStart(value) {
           if (value >= 0 && value < this.pagination.length) {
             this.changeStartPagination(value)
+          }
+        },
+        changeNextPage(value) {
+          if (this.hasNextPage) {
+             this.changeStart(value);
           }
         }
       }

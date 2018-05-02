@@ -28,7 +28,7 @@
                         <div v-if="$apollo.loading && !categoryPagination.data.length">Loading...</div>
                         <div v-else class="box-body">
                             <table-category :categories="categoryPagination.data" :deleteClick="deleteClick"/>
-                            <pagination :length="length" :count="categoryPagination.count" :start="start" :changeLengthPanination="changeLengthPanination" :changeStartPagination="changeStartPagination"/>
+                            <pagination :length="length" :hasNextPage="categoryPagination.hasNextPage" :count="categoryPagination.count" :start="start" :changeLengthPanination="changeLengthPanination" :changeStartPagination="changeStartPagination"/>
                         </div>
                         <!-- /.box-body -->
                     </div>
@@ -51,6 +51,7 @@
         categoryPagination: {
           data: [],
           count: 0,
+          hasNextPage: false
         }
       }
     },
