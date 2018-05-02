@@ -1,16 +1,12 @@
 import orderBy from 'lodash/orderBy';
-import { query } from '~/apollo/queries/setting.js';
+import { query } from '~/apollo/queries/setting';
 
 export const state = () => ({
-  categories: [],
   megamenu: [],
   setting: {},
 });
 
 export const mutations = {
-  fetchCategorySuccess(state, categories) {
-    state.categories = categories;
-  },
   fetchMegamenuSuccess(state, megamenu) {
     state.megamenu = megamenu;
   },

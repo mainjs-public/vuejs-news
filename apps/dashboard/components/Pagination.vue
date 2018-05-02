@@ -2,7 +2,7 @@
     <div class="row row_container">
         <div class="col-sm-12 col-md-5">
             <label class="label_input">Show
-                <select v-model="length" @change="changeLength($event)" class="form-control input-sm select_margin">
+                <select v-model="value_select" @change="changeLength($event)" class="form-control input-sm select_margin">
                     <option :value="10">10</option>
                     <option :value="25">25</option>
                     <option :value="50">50</option>
@@ -30,6 +30,11 @@
 <script>
     export default {
       props: ['length', 'count', 'start', 'hasNextPage', 'changeLengthPanination', 'changeStartPagination'],
+      data() {
+        return {
+          value_select: this.length
+        }
+      },
       computed: {
         pagination: function() {
           let p = [];
@@ -41,7 +46,8 @@
       },
       methods: {
         changeLength(e) {
-          this.changeLengthPanination(Number(e.target.value));
+          const value = Number(e.target.value);
+          this.changeLengthPanination(value);
         },
         changeStart(value) {
           if (value >= 0 && value < this.pagination.length) {
