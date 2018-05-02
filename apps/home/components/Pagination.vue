@@ -1,12 +1,10 @@
 <template>
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-            <div class="pagination-area" style="display: flex; flex-direction: row; justify-content: center">
+            <div class="pagination-area">
                 <ul>
                     <li><a @click.prevent="changeStart(start-1)"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
-                    <li v-for="p in pagination" v-bind:key="p" :class="{paginate_button: true, active: start === p}">
-                        <a @click.prevent="changeStart(p)">{{ p + 1 }}</a>
-                    </li>
+                    <li v-for="p in pagination" v-bind:key="p" :class="{active: start === p}"><a @click.prevent="changeStart(p)">{{p+1}}</a></li>
                     <li><a @click.prevent="changeNext(start+1)"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
                 </ul>
             </div>

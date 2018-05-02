@@ -26,7 +26,8 @@
          </div>
       </div>
       <div class="blog-page-area">
-         <div class="container">
+         <div class="container" v-if="$apollo.loading">loading...</div>
+         <div class="container" v-else>
             <div class="row" v-for="(rowBlog, index) in chunk(blogPagination.data, 2)" v-bind:key="index">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" v-for="blog of rowBlog" v-bind:key="blog.id">
                     <ul>
@@ -50,8 +51,8 @@
                     </ul>
                 </div>
             </div>
+            <pagination :length="length" :hasNextPage="blogPagination.hasNextPage" :count="blogPagination.count" :start="start" :changeStartPagination="changeStartPagination"/>
          </div>
-         <pagination :length="length" :hasNextPage="blogPagination.hasNextPage" :count="blogPagination.count" :start="start" :changeStartPagination="changeStartPagination"/>
       </div>
    </div>
 </template>
@@ -64,7 +65,7 @@
       data() {
         return {
           start: 0,
-          length: 1,
+          length: 10,
           blogPagination: {
             data: [],
             count: 0,
