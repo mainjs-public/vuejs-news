@@ -1,5 +1,7 @@
 <template>
-    <div v-if="$apollo.loading">loading...</div>
+    <div v-if="error.message">
+        {{error.message}}
+    </div>
     <div v-else>
         <div class="inner-page-header">
             <div class="banner">
@@ -30,8 +32,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                        <div class="row">
-                            <ul>
+                        <div v-if="$apollo.loading">loading...</div>
+                        <div class="row" v-else>
+                            <ul v-if="blogPagination.data.length > 0">
                                 <li>
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <div id="news-Carousel1" class="carousel carousel-top-category slide" data-ride="carousel">
@@ -46,7 +49,7 @@
                                                 </a>
                                             </div>
                                             <div class="carousel-inner">
-                                                <div class="item" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-bind:class="index=== 0? 'active': ''" v-if="index<4">
+                                                <div class="item" v-for="(blog, index) in blogPagination.data" v-bind:key="blog.id" v-bind:class="index=== 0? 'active': ''" v-if="index<4">
                                                     <div class="blog-image">
                                                         <nuxt-link :to="`/blog/${blog.slug}`">
                                                             <i class="fa fa-link" aria-hidden="true"></i>
@@ -66,7 +69,8 @@
                             </ul>
                         </div>
                         <div class="row">
-                            <ul v-for="blog of blogs" v-bind:key="blog.id">
+                            <div v-if="$apollo.loading">loading...</div>
+                            <ul v-for="blog of blogPagination.data" v-bind:key="blog.id" v-else>
                                 <li>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                         <div class="carousel-inner">
@@ -85,6 +89,9 @@
                                     </div>
                                 </li>
                             </ul>
+                            <div class="row" style="display: inline-block">
+                                <pagination :length="length" :hasNextPage="blogPagination.hasNextPage" :count="blogPagination.count" :start="start" :changeStartPagination="changeStartPagination"/>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -100,7 +107,7 @@
                             <div class="recent-post-area hot-news">
                                 <h3 class="title-bg">Recent Post</h3>
                                 <ul class="news-post">
-                                    <li v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<4">
+                                    <li v-for="(blog, index) in blogPagination.data" v-bind:key="blog.id" v-if="index<4">
                                         <div class="row">
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
                                                 <div class="item-post">
@@ -157,28 +164,61 @@
     </div>
 </template>
 <script>
-  import { query, getCategory } from '~/apollo/queries/category';
-  import { query as queryBlog } from '~/apollo/queries/blog';
+  import chunk from 'lodash/chunk';
+  import { getCategory } from '~/apollo/queries/category';
+  import { queryPagination } from '~/apollo/queries/blog';
   import { API_URL } from '~/config/api';
+  import Pagination from '~/components/Pagination.vue';
   export default {
+    async asyncData ({params, app}, callback) {
+      try {
+        const slug = params.slug ? params.slug : '';
+        const client = app.apolloProvider.defaultClient;
+        const dataCategory = await client.query({query: getCategory, variables: {slug : slug}});
+        if (dataCategory.data.categorySlug === null) {
+          callback(null, {category: {}, error: {message: 'Not exist categoty'}});
+        } else {
+          callback(null, {category: dataCategory.data.categorySlug, error: {}});
+        }
+      } catch(error) {
+        callback(null, {category: {}, error: error})
+      }
+    },
     data() {
       return {
-        blogs: [],
-        category: {},
+        start: 0,
+        length: 3,
+        blogPagination: {
+          data: [],
+          count: 0,
+          hasNextPage: false,
+        },
+        chunk: chunk,
         apiUrl: API_URL
       }
     },
     apollo: {
-      blogs: {
-        query: queryBlog,
+      blogPagination: {
+        query: queryPagination,
+        variables() {
+          return {
+            start: this.start * this.length,
+            length: this.length
+          }
+        },
         fetchPolicy: 'cache-and-network',
-      },
-      category: {
-        query: getCategory,
-        variables: {categoryId : '5ad81623dfba30202c0558a7'},
-        fetchPolicy: 'cache-and-network',
-      },
-
+      }
     },
+    methods: {
+      changeLengthPanination(value) {
+        this.length = value;
+      },
+      changeStartPagination(value) {
+        this.start = value;
+      }
+    },
+    components: {
+      Pagination
+    }
   }
 </script>
