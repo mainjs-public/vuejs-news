@@ -151,7 +151,7 @@
     import { countUnReadContactQuery } from '~/apollo/queries/contact';
     export default {
       computed: {
-        authUser () { return this.$store.state.authUser },
+        authUser () { return this.$store.state.auth },
       },
       data() {
         return {

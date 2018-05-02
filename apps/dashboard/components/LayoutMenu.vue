@@ -51,7 +51,7 @@
 <script>
   export default {
     computed: {
-      authUser () { return this.$store.state.authUser },
+      authUser () { return this.$store.state.auth },
     },
   }
 </script>
