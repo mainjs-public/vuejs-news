@@ -32,7 +32,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                        <div class="google-map" v-html="setting.map">
+                        <div class="google-map">
+                            <iframe :src="setting.map" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
                         </div>
                         <div class="location-area">
                             <div class="row">
@@ -95,7 +96,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <button class="btn-send" type="submit" @click="onSendContact($event)">
-                                                    <i class="fa fa-circle-o-notch fa-spin" v-if="loading"></i>
+                                                    <i class="fa fa-circle-o-notch fa-spin" v-if="loading===true"></i>
                                                     Send Message
                                                 </button>
                                             </div>
@@ -121,68 +122,17 @@
                             <div class="recent-post-area hot-news">
                                 <h3 class="title-bg">Recent Post</h3>
                                 <ul class="news-post">
-                                    <li>
+                                    <li v-for="blog of blogs" v-bind:key="blog.id">
                                         <div class="row">
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
                                                 <div class="item-post">
                                                     <div class="row">
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 paddimg-right-none">
-                                                            <a href="blog-single.html"><img src="/images/popular/1.jpg" alt="" title="News image"/></a>
+                                                            <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`" alt="" :title="blog.name"/></nuxt-link>
                                                         </div>
                                                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                                            <h4><a href="blog-single.html"> US should prepare for<br/> Russian election</a></h4>
-                                                            <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> June 28, 2017</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
-                                                <div class="item-post">
-                                                    <div class="row">
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 paddimg-right-none">
-                                                            <a href="blog-single.html"><img src="/images/popular/2.jpg" alt="" title="News image"/></a>
-                                                        </div>
-                                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                                            <h4><a href="blog-single.html">Pellentesque Odio Nisi <br/>Euismod In Pharet</a></h4>
-                                                            <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>June 28, 2017</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
-                                                <div class="item-post">
-                                                    <div class="row">
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 paddimg-right-none">
-                                                            <a href="blog-single.html"><img src="/images/popular/3.jpg" alt="" title="News image"/></a>
-                                                        </div>
-                                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                                            <h4><a href="blog-single.html"> Erant Aeque Neius No <br/>Numes Electram</a></h4>
-                                                            <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> June 28, 2017</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
-                                                <div class="item-post">
-                                                    <div class="row">
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 paddimg-right-none">
-                                                            <a href="blog-single.html"><img src="/images/popular/4.jpg" alt="" title="News image"/></a>
-                                                        </div>
-                                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                                            <h4><a href="blog-single.html">Erant Aeque Neius No <br/>Numes Electram</a></h4>
-                                                            <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>June 28, 2017</span>
+                                                            <h4><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h4>
+                                                            <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -203,8 +153,10 @@
 </template>
 
 <script>
-    import { mapActions } from 'vuex'
+  import { mapActions } from 'vuex'
   import { addContact } from '~/apollo/queries/contact';
+  import { getBlogLatest } from '~/apollo/queries/blog.js';
+  import { API_URL } from '~/config/api';
   const initData = {
     firstName: '',
     lastName: '',
@@ -214,9 +166,24 @@
     read: false
   }
   export default {
+    async asyncData(context, callback) {
+      const client = context.app.apolloProvider.defaultClient;
+      await client.query({query: getBlogLatest, variables: { number: 4 }})
+        .then((res) => {
+          return res.data;
+        })
+        .then(data => {
+          callback(null, { blogs: data.getBlogLatest })
+        })
+        .catch(error => {
+          callback(null, { blogs: [] })
+        });
+      ;
+    },
     data() {
       return {
         data: {...initData},
+        apiUrl: API_URL
       }
     },
     computed: {
@@ -236,7 +203,3 @@
     }
   }
 </script>
-
-<style scoped>
-
-</style>
