@@ -1,7 +1,9 @@
 import orderBy from 'lodash/orderBy';
 import { query } from '~/apollo/queries/setting';
+import { getBlogLatest } from '~/apollo/queries/blog';
 
 export const state = () => ({
+  recentPost: [],
   megamenu: [],
   setting: {},
 });

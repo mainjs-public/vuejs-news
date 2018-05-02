@@ -37,3 +37,8 @@
     }
   }
 </script>
+<style>
+    .pagination-area ul li {
+        margin-left: 0px !important;
+    }
+</style>

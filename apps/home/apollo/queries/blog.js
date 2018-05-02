@@ -84,10 +84,10 @@ export const getBlogBySlug = gql`
       content,
       comments {
         id,
-        content,
+        name,
+        email,
         created,
-        title,
-        status
+        comment
       },
       tags
     }
