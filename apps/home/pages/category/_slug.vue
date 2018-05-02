@@ -184,7 +184,7 @@
           callback(null, {category: dataCategory.data.categorySlug, error: {}});
         }
       } catch(error) {
-        callback(null, {category: {}, error: error})
+        callback(null, {category: {}, error: error});f
       }
     },
     data() {
