@@ -12,8 +12,8 @@ export const query = gql`
 `;
 
 export const getCategory = gql`
-  query categoryQuery($categoryId: ID!) {
-    category(categoryId: $categoryId) {
+  query categoryQuery($slug: String!) {
+    categorySlug(slug: $slug) {
       id,
       name,
       image,
