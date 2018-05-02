@@ -32,8 +32,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                        <div class="google-map">
-                            <iframe :src="setting.map" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        <div class="google-map" v-html="setting.map">
                         </div>
                         <div class="location-area">
                             <div class="row">
@@ -57,7 +56,6 @@
                         <div class="leave-comments-area">
                             <h3>Contact Us</h3>
                             <div id="form-messages"></div>
-                            <!--<span v-if="error.message" style="color: red">{{error.message}}</span>-->
                             <p v-if="error.message" style="color: red; margin-bottom: 22px">Error: {{error.message}}</p>
                             <form id="contact-form">
                                 <fieldset>
