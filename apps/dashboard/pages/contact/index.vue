@@ -19,6 +19,10 @@
                             </div>
                         </div>
                         <!-- /.box-header -->
+                        <div class="alert alert-danger alert-dismissible" style="margin-bottom: 20px" v-if="error.message">
+                            <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                            {{error.message}}
+                        </div>
                         <div v-if="$apollo.loading && !contactPagination.data.length">Loading...</div>
                         <div v-else class="box-body">
                             <table-contact :contacts="contactPagination.data" :deleteClick="deleteClick" :readContact="readContactClick"/>
@@ -34,6 +38,7 @@
 
 <script>
   import { mapActions } from 'vuex';
+  import omit from 'lodash/omit';
   import { query, queryPagination } from '~/apollo/queries/contact.js';
   import TableContact from '~/components/TableContact.vue';
   import Pagination from '~/components/Pagination.vue';
@@ -78,6 +83,9 @@
       changeStartPagination(value) {
         this.start = value;
       }
+    },
+    computed: {
+      error () { return this.$store.state.contact.error },
     },
     components: {
       TableContact,
