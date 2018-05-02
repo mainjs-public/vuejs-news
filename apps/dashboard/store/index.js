@@ -59,8 +59,10 @@ export const actions = {
             })
             .catch(error => commit('LOGIN_ERROR', error));
     },
-    async logout({ commit }) {
-        commit('SET_USER', null)
+    logout({ commit }) {
+        commit('LOGIN_SUCCESS', null);
+        Cookie.set('auth', {});
+        this.app.context.redirect('/login');
     }
 
 }
