@@ -1,12 +1,12 @@
 module.exports = {
     apps: [{
         name: 'storefront',
-        script: 'npm',
-        args: "storefront:start"
+        script: 'nuxt',
+        args: "start --config-file apps/home/nuxt.config.js -p=4000"
     }, {
         name: 'dashboard',
-        script: 'npm',
-        args: "dashboard:start"
+        script: 'nuxt',
+        args: "start --config-file apps/dashboard/nuxt.config.js -p=2000"
     }],
     deploy: {
         production: {
