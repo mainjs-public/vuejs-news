@@ -179,7 +179,7 @@
         const client = app.apolloProvider.defaultClient;
         const dataCategory = await client.query({query: getCategory, variables: {slug : slug}});
         if (dataCategory.data.categorySlug === null) {
-          callback(null, {category: {}, error: {message: 'Not exist categoty'}});
+          callback(null, {category: {}, error: {message: 'Not exist category'}});
         } else {
           callback(null, {category: dataCategory.data.categorySlug, error: {}});
         }

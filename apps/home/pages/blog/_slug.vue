@@ -1,15 +1,12 @@
 <template>
-    <div v-if="$apollo.loading">
-        loading
+    <div v-if="error.message">
+        {{error.message}}
     </div>
     <div v-else>
-        <div v-if="blogSlug===null">
-            Not get blog
-        </div>
-        <div v-else>
+        <div>
             <div class="inner-page-header">
                 <div class="banner">
-                    <img :src="`${apiUrl}${blogSlug.image}`" :alt="blogSlug.name" style="max-height: 401px; width: 100%">
+                    <img :src="`${apiUrl}${blog.image}`" :alt="blog.name" style="max-height: 401px; width: 100%">
                 </div>
                 <div class="banner-text">
                     <div class="container">
@@ -22,15 +19,15 @@
                                             </nuxt-link>
                                             <nuxt-link to="/blog">Blog <i class="fa fa-compress" aria-hidden="true"></i>
                                             </nuxt-link>
-                                            {{blogSlug.name}}
+                                            {{blog.name}}
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="header-page-title">
-                                    <h1>{{blogSlug.name}}</h1>
+                                    <h1>{{blog.name}}</h1>
                                 </div>
                                 <div class="header-page-subtitle">
-                                    <p>{{blogSlug.description}}</p>
+                                    <p>{{blog.description}}</p>
                                 </div>
                             </div>
                         </div>
@@ -45,11 +42,11 @@
                     <div class="row">
                         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                             <div class="single-image">
-                                <img :src="`${apiUrl}${blogSlug.image}`" :alt="blogSlug.name"
+                                <img :src="`${apiUrl}${blog.image}`" :alt="blog.name"
                                      style="width: 100%; max-height: 350px">
                             </div>
                             <!--<h3><a href="#">{{blog.name}}</a></h3>-->
-                            <div v-html="blogSlug.content"/>
+                            <div v-html="blog.content"/>
                             <div class="share-section">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 life-style">
@@ -58,19 +55,19 @@
                                         </span>
                                         <span class="comment">
                                             <a href="#">
-                                            <i class="fa fa-comment-o" aria-hidden="true"></i> {{blogSlug.comments.length}}</a>
+                                            <i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}</a>
                                             </span>
                                         <span class="date">
-                                            <i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blogSlug.created}}
+                                            <i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}
                                             </span>
                                         <span class="cat">
-                                            <nuxt-link to="/category"><i class="fa fa-folder-o" aria-hidden="true"></i> {{blogSlug.category && blogSlug.category.name ? blogSlug.category.name: 'Category'}} </nuxt-link>
+                                            <nuxt-link to="/category"><i class="fa fa-folder-o" aria-hidden="true"></i> {{blog.category && blog.category.name ? blog.category.name: 'Category'}} </nuxt-link>
                                         </span>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                         <ul class="share-link">
                                             <li class="hvr-bounce-to-right"><a href="#"> Tags:</a></li>
-                                            <li class="hvr-bounce-to-right" v-for="tag of blogSlug.tags" v-bind:key="tag">
+                                            <li class="hvr-bounce-to-right" v-for="tag of blog.tags" v-bind:key="tag">
                                                 <nuxt-link to="#"> {{tag}}</nuxt-link>
                                             </li>
                                         </ul>
@@ -130,8 +127,8 @@
                             </div>
                             <div class="author-comment">
                                 <h3 class="title-bg">Recent Comments</h3>
-                                <ul v-if="blogSlug.comments.length>0">
-                                    <li v-for="comment of blogSlug.comments" v-bind:key="comment.id">
+                                <ul v-if="blog.comments.length>0">
+                                    <li v-for="comment of blog.comments" v-bind:key="comment.id">
                                         <div class="row">
                                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                                                 <div class="image-comments"><img src="/images/single/3.jpg"
@@ -296,12 +293,21 @@
   import { API_URL } from '~/config/api'
 
   export default {
+    async asyncData({ params, app }, callback) {
+      try {
+        const slug = params.slug ? params.slug : '';
+        const client = app.apolloProvider.defaultClient;
+        const dataBlog= await client.query({query: getBlogBySlug, variables: {slug : slug}});
+        callback(null, {blog: dataBlog.data.blogSlug, error: dataBlog.data.blogSlug === null ? {message: 'Not exist blog'}: {}});
+      } catch(error) {
+        callback(null, {blog: {}, error: error});f
+      }
+    },
     data () {
       return {
         blogs: [],
         apiUrl: API_URL,
         comment: {},
-        blogSlug: null
       }
     },
     apollo: {
@@ -309,15 +315,6 @@
         query: query,
         fetchPolicy: 'cache-and-network',
       },
-      blogSlug: {
-        query: getBlogBySlug,
-        variables: function () {
-          return {
-            slug: this.$route.params.slug ? this.$route.params.slug : '',
-          }
-        },
-        fetchPolicy: 'cache-and-network',
-      }
     },
     methods: {
       ...mapActions({
@@ -325,7 +322,7 @@
       }),
       async clickAddComment (e) {
         const data = {
-          input: {...this.comment, blog_id: this.blogSlug.id},
+          input: {...this.comment, blog_id: this.blog.id},
           slug: this.$route.params.slug
         }
         await this.addComment(data)
