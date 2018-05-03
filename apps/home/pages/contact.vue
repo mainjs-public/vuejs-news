@@ -165,18 +165,13 @@
   }
   export default {
     async asyncData(context, callback) {
-      const client = context.app.apolloProvider.defaultClient;
-      await client.query({query: getBlogLatest, variables: { number: 4 }})
-        .then((res) => {
-          return res.data;
-        })
-        .then(data => {
-          callback(null, { blogs: data.getBlogLatest })
-        })
-        .catch(error => {
-          callback(null, { blogs: [] })
-        });
-      ;
+      try {
+        const client = context.app.apolloProvider.defaultClient;
+        const data = await client.query({query: getBlogLatest, variables: { number: 4 }});
+        callback(null, { blogs: data.data.getBlogLatest })
+      } catch(error) {
+        callback(null, { blogs: [] })
+      }
     },
     data() {
       return {

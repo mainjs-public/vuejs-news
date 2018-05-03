@@ -21,14 +21,5 @@
         fetchPolicy: 'cache-and-network',
       }
     },
-    // computed: {
-    //   value: function() {
-    //     const existCategory = find(this.categories, o => { return o.id === this.category});
-    //     return existCategory ? existCategory.id :''
-    //   },
-    // },
-    mounted() {
-        // this.onchange(this.value);
-    }
   }
 </script>

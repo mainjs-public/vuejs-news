@@ -828,18 +828,13 @@
     import chunk from 'lodash/chunk';
     export default {
       async asyncData(context, callback) {
+        try {
           const client = context.app.apolloProvider.defaultClient;
-          await client.query({query: getBlogLatest, variables: { number: 10 }})
-            .then((res) => {
-              return res.data;
-            })
-            .then(data => {
-              callback(null, { blogs: data.getBlogLatest })
-            })
-            .catch(error => {
-              callback(null, { blogs: [] })
-            });
-          ;
+          const data = await client.query({query: getBlogLatest, variables: { number: 10 }});
+          callback(null, { blogs: data.data.getBlogLatest })
+        } catch(error) {
+          callback(null, { blogs: [] })
+        }
       },
       data() {
         return {
