@@ -58,7 +58,8 @@ export const getBlogLatest = gql`
       image,
       category {
         id,
-        name
+        name,
+        slug
       },
       comments {
         id
