@@ -29,6 +29,7 @@ export const queryPagination = gql`
         id,
         name,
         slug,
+        description,
         created,
         updated,
         status,

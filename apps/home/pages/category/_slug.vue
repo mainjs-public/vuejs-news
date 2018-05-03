@@ -53,10 +53,10 @@
                                             <div class="carousel-inner">
                                                 <div v-for="(blog, index) in blogPagination.data" :class="{item: true, active: index === 0}">
                                                     <div class="blog-image">
-                                                        <a href="blog-single.html">
+                                                        <nuxt-link :to="`/blog/${blog.slug}`">
                                                             <i class="fa fa-link" aria-hidden="true"></i>
                                                             <img :src="`${apiUrl}${blog.image}`" :alt="blog.name" style="height: 470px">
-                                                        </a>
+                                                        </nuxt-link>
                                                     </div>
                                                     <div class="dsc">
                                                         <h3><nuxt-link to="/">{{blog.name}}</nuxt-link></h3>
@@ -80,10 +80,10 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                         <div class="carousel-inner">
                                             <div class="blog-image">
-                                                <a href="blog-single.html">
+                                                <nuxt-link :to="`/blog/${blog.slug}`">
                                                     <i class="fa fa-link" aria-hidden="true"></i>
                                                     <img :src="`${apiUrl}${blog.image}`" :alt="blog.name" style="height: 270px">
-                                                </a>
+                                                </nuxt-link>
                                             </div>
                                         </div>
                                     </div>
