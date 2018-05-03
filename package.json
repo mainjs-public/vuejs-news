@@ -38,7 +38,12 @@
   "scripts": {
     "home:dev": "nuxt --config-file apps/home/nuxt.config.js -p=4000",
     "dashboard:dev": "nuxt --config-file apps/dashboard/nuxt.config.js -p=2000",
-    "dev": "concurrently \"npm run home:dev\" \"npm run dashboard:dev\""
+    "dev": "concurrently \"npm run home:dev\" \"npm run dashboard:dev\"",
+
+    "storefront:build": "nuxt build --config-file apps/home/nuxt.config.js",
+    "dashboard:build": "nuxt build --config-file apps/dashboard/nuxt.config.js",
+    "storefront:start": "nuxt start --config-file apps/home/nuxt.config.js -p=4000",
+    "dashboard:start": "nuxt start --config-file apps/dashboard/nuxt.config.js -p=2000"
   },
   "devDependencies": {
     "stylus": "^0.54.5",
