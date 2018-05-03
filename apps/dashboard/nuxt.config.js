@@ -16,6 +16,9 @@ module.exports = {
     // ssr: false to only include it on client-side
     { src: '~/plugins/quill.js', ssr: false }
   ],
+  router: {
+    base: '/dashboard/'
+  },
   head: {
     title: 'Dasboard: new24-fontend',
     meta: [
