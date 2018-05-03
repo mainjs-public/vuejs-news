@@ -15,7 +15,6 @@
             <nuxt-link to="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                 <span class="sr-only">Toggle navigation</span>
             </nuxt-link>
-
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <!-- Messages: style can be found in dropdown.less-->
@@ -104,7 +103,7 @@
                     <li class="dropdown user user-menu">
                         <nuxt-link to="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                            <span class="hidden-xs">{{authUser!== null ? authUser.user.name : 'Admin'}}</span>
+                            <span class="hidden-xs">{{authUser && authUser.user && authUser.user.name ? authUser.user.name : 'Admin'}}</span>
                         </nuxt-link>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -112,32 +111,16 @@
                                 <img src="/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                 <p>
-                                    Alexander Pierce - Web Developer
-                                    <small>Member since Nov. 2012</small>
+                                    {{authUser && authUser.user && authUser.user.name? authUser.user.name : 'Admin'}}
+                                    <small>{{authUser && authUser.user && authUser.user.email ? authUser.user.email : 'email'}}</small>
                                 </p>
                             </li>
-                            <!-- Menu Body -->
-                            <li class="user-body">
-                                <div class="row">
-                                    <div class="col-xs-4 text-center">
-                                        <nuxt-link to="#">Followers</nuxt-link>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <nuxt-link to="#">Sales</nuxt-link>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <nuxt-link to="#">Friends</nuxt-link>
-                                    </div>
-                                </div>
-                                <!-- /.row -->
-                            </li>
-                            <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
                                     <nuxt-link to="#" class="btn btn-default btn-flat">Profile</nuxt-link>
                                 </div>
                                 <div class="pull-right">
-                                    <nuxt-link to="#" class="btn btn-default btn-flat">Sign out</nuxt-link>
+                                    <a @click="logoutClick($event)" class="btn btn-default btn-flat">Sign out</a>
                                 </div>
                             </li>
                         </ul>
@@ -148,10 +131,12 @@
     </header>
 </template>
 <script>
+    import { mapActions} from 'vuex';
     import { countUnReadContactQuery } from '~/apollo/queries/contact';
+
     export default {
       computed: {
-        authUser () { return this.$store.state.auth },
+        authUser () {return this.$store.state.auth},
       },
       data() {
         return {
@@ -164,5 +149,14 @@
           fetchPolicy: 'cache-and-network',
         }
       },
+      methods: {
+        ...mapActions([
+          'logout'
+        ]),
+        logoutClick(event) {
+          this.logout();
+          event.preventDefault();
+        },
+      }
     }
 </script>

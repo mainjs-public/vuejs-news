@@ -4,7 +4,6 @@
             <nuxt-link to="/"><b>Admin</b></nuxt-link>
         </div>
         <!-- /.login-logo -->
-        {{authUser=== null ? 'null': 'value'}}
         <div class="login-box-body">
             <p class="login-box-msg">Sign in to start your session</p>
             <div class="alert alert-danger alert-dismissible" style="margin-bottom: 20px" v-if="error !== null && error.message">
@@ -21,15 +20,8 @@
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="row">
-                    <div class="col-xs-8">
-                        <div class="checkbox icheck">
-                            <label>
-                                <input type="checkbox" v-model="remember_login"> Remember Me
-                            </label>
-                        </div>
-                    </div>
                     <!-- /.col -->
-                    <div class="col-xs-4">
+                    <div class="col-xs-4 pull-right">
                         <button @click="loginClick($event)" class="btn btn-primary btn-block btn-flat">
                             <i class="fa fa-circle-o-notch fa-spin" v-if="loading"></i>
                             Sign In
@@ -40,16 +32,6 @@
             </form>
 
         </div>
-        <!-- /.login-box-body -->
-        <!--<script>-->
-          <!--$(function () {-->
-            <!--$('input').iCheck({-->
-              <!--checkboxClass: 'icheckbox_square-blue',-->
-              <!--radioClass: 'iradio_square-blue',-->
-              <!--increaseArea: '20%' /* optional */-->
-            <!--});-->
-          <!--});-->
-        <!--</script>-->
     </div>
 </template>
 <script>

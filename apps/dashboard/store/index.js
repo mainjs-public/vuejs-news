@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { signInMutate } from '~/apollo/queries/user';
 import { addCookie } from '~/utils/auth'
 
@@ -34,7 +33,7 @@ export const actions = {
         let auth = null;
         if (req.headers.cookie) {
             var parsed = cookieparser.parse(req.headers.cookie);
-            auth = JSON.parse(parsed.auth);
+            auth = parsed.auth ? JSON.parse(parsed.auth) : null;
         }
         commit('LOGIN_SUCCESS', auth);
     },
@@ -61,7 +60,7 @@ export const actions = {
     },
     logout({ commit }) {
         commit('LOGIN_SUCCESS', null);
-        Cookie.set('auth', {});
+        Cookie.remove('auth');
         this.app.context.redirect('/login');
     }
 
