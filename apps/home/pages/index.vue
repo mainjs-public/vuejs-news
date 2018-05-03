@@ -1,5 +1,5 @@
 <template>
-    <div v-if="blogs.length === 0"> none</div>
+    <div v-if="blogs.length === 0"> error get data</div>
     <div v-else>
         <div class="container">
             <div class="row">
@@ -790,18 +790,12 @@
                             <div class="categories-home separator-large3">
                                 <h3 class="title-bg">Categories</h3>
                                 <ul>
-                                    <li><a href="category.html"> <i class="fa fa-angle-right" aria-hidden="true"></i> Business
-                                        <span>45</span></a></li>
-                                    <li><a href="category-world.html"><i class="fa fa-angle-right" aria-hidden="true"></i> World
-                                        <span>70</span></a></li>
-                                    <li><a href="category-fashion.html"><i class="fa fa-angle-right" aria-hidden="true"></i>
-                                        Fashion <span>45</span></a></li>
-                                    <li><a href="category-politics.html"><i class="fa fa-angle-right" aria-hidden="true"></i>
-                                        Politics <span>55</span></a></li>
-                                    <li><a href="category-sports.html"><i class="fa fa-angle-right" aria-hidden="true"></i>
-                                        Sports <span>50</span></a></li>
-                                    <li><a href="category-health.html"><i class="fa fa-angle-right" aria-hidden="true"></i>
-                                        Health <span>65</span></a></li>
+                                    <li v-for="category of categories" v-bind:key="category.id">
+                                        <nuxt-link :to="`/category/${category.slug}`">
+                                            <i class="fa fa-angle-right" aria-hidden="true"></i> {{category.name}}
+                                            <span>{{category.blogs.length}}</span>
+                                        </nuxt-link>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -823,17 +817,19 @@
     </div>
 </template>
 <script>
-    import { query, getBlogLatest } from '~/apollo/queries/blog.js';
+    import { getBlogLatest } from '~/apollo/queries/blog';
+    import { query } from '~/apollo/queries/category';
     import { API_URL } from '~/config/api';
     import chunk from 'lodash/chunk';
     export default {
       async asyncData(context, callback) {
         try {
           const client = context.app.apolloProvider.defaultClient;
-          const data = await client.query({query: getBlogLatest, variables: { number: 10 }});
-          callback(null, { blogs: data.data.getBlogLatest })
+          const dataBlogs = await client.query({query: getBlogLatest, variables: { number: 10 }});
+          const dataCategory = await client.query({query: query});
+          callback(null, { blogs: dataBlogs.data.getBlogLatest, categories: dataCategory.data.categories})
         } catch(error) {
-          callback(null, { blogs: [] })
+          callback(null, { blogs: [], categories: [] })
         }
       },
       data() {

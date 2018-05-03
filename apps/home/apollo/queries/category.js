@@ -1,12 +1,14 @@
 import gql from 'graphql-tag';
+
 export const query = gql`
   query {
     categories {
       id,
       name,
-      image,
       slug,
-      created
+      blogs {
+        id
+      }
     }
   }
 `;
