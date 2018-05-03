@@ -52,9 +52,13 @@ export const actions = {
             })
             .then(data => {
                 const auth = data.signIn;
-                commit('LOGIN_SUCCESS', auth); // mutating to store for client rendering
-                Cookie.set('auth', auth); // saving token in cookie for server rendering
-                this.app.context.redirect('/');
+                if (auth === null) {
+                  commit('LOGIN_ERROR', {message: 'Account not true, please login again'})
+                } else {
+                  commit('LOGIN_SUCCESS', auth); // mutating to store for client rendering
+                  Cookie.set('auth', auth); // saving token in cookie for server rendering
+                  this.app.context.redirect('/');
+                }
             })
             .catch(error => commit('LOGIN_ERROR', error));
     },
