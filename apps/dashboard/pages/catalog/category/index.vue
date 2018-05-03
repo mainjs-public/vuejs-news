@@ -86,6 +86,6 @@
       TableCategory,
       Pagination
     },
-    middleware: 'auth'
+    middleware: 'authenticated'
   }
 </script>

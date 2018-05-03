@@ -289,7 +289,7 @@
     components: {
       ImageManager
     },
-    middleware: 'auth'
+    middleware: 'authenticated'
   }
 </script>
 

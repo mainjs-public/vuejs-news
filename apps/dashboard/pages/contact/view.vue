@@ -91,5 +91,6 @@
           this.error = true
         }
       },
+      middleware: 'authenticated'
     }
 </script>

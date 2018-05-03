@@ -86,6 +86,6 @@
       TableBlog,
       Pagination
     },
-    middleware: 'auth'
+    middleware: 'authenticated'
   }
 </script>

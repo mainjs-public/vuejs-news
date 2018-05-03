@@ -61,6 +61,6 @@
     components: {
       FormCategory
     },
-    middleware: 'auth'
+    middleware: 'authenticated'
   }
 </script>

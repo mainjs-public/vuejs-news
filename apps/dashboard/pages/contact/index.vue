@@ -92,6 +92,6 @@
       TableContact,
       Pagination
     },
-    middleware: 'auth'
+    middleware: 'authenticated'
   }
 </script>
