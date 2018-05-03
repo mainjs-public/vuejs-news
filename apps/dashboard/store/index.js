@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { signInMutate } from '~/apollo/queries/user';
 import { addCookie } from '~/utils/auth'
 
@@ -34,7 +33,7 @@ export const actions = {
         let auth = null;
         if (req.headers.cookie) {
             var parsed = cookieparser.parse(req.headers.cookie);
-            auth = JSON.parse(parsed.auth);
+            auth = parsed.auth ? JSON.parse(parsed.auth) : null;
         }
         commit('LOGIN_SUCCESS', auth);
     },
@@ -53,15 +52,19 @@ export const actions = {
             })
             .then(data => {
                 const auth = data.signIn;
-                commit('LOGIN_SUCCESS', auth); // mutating to store for client rendering
-                Cookie.set('auth', auth); // saving token in cookie for server rendering
-                this.app.context.redirect('/');
+                if (auth === null) {
+                  commit('LOGIN_ERROR', {message: 'Account not true, please login again'})
+                } else {
+                  commit('LOGIN_SUCCESS', auth); // mutating to store for client rendering
+                  Cookie.set('auth', auth); // saving token in cookie for server rendering
+                  this.app.context.redirect('/');
+                }
             })
             .catch(error => commit('LOGIN_ERROR', error));
     },
     logout({ commit }) {
         commit('LOGIN_SUCCESS', null);
-        Cookie.set('auth', {});
+        Cookie.remove('auth');
         this.app.context.redirect('/login');
     }
 

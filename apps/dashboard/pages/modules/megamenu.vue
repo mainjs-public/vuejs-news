@@ -29,7 +29,7 @@
   import MegaMenu from '~/components/MegaMenu.vue';
 
   export default {
-    middleware: 'auth',
+    middleware: 'authenticated',
     components: {
       MegaMenu
     }

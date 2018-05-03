@@ -11,7 +11,8 @@ export const query = gql`
       image,
       category {
         id,
-        name
+        name,
+        slug
       },
       comments {
         id
@@ -28,12 +29,14 @@ export const queryPagination = gql`
         id,
         name,
         slug,
+        description,
         created,
         updated,
         status,
         category {
           id,
-          name
+          name,
+          slug
         },
         image,
         comments {
@@ -58,7 +61,8 @@ export const getBlogLatest = gql`
       image,
       category {
         id,
-        name
+        name,
+        slug
       },
       comments {
         id
@@ -77,7 +81,8 @@ export const getBlogBySlug = gql`
       image,
       category {
         id,
-        name
+        name,
+        slug
       },
       created,
       description,
@@ -90,38 +95,6 @@ export const getBlogBySlug = gql`
         comment
       },
       tags
-    }
-  }
-`;
-export const getBlog = gql`
-  query blogQuery($blogId: ID!) {
-    blog(blogId: $blogId) {
-      id,
-      name,
-      slug,
-      status,
-      image,
-      category {
-        id,
-      },
-      description,
-      content,
-    }
-  }
-`;
-
-export const editBlog = gql`
-  mutation mutationBlog($input: MutationBlogInput!) {
-    mutationBlog(input: $input) {
-      id
-    }
-  }
-`;
-
-export const deleteBlog = gql`
-  mutation deleteBlog($input: DeleteBlogInput!) {
-    deleteBlog(input: $input) {
-      count
     }
   }
 `;

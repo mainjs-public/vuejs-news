@@ -5,7 +5,7 @@
     <div v-else>
         <div class="inner-page-header">
             <div class="banner">
-                <img :src="`${apiUrl}${category.image}`" alt="Banner" style="max-height: 401px">
+                <img :src="`${apiUrl}${category.image}`" alt="Banner" style="width: 100%; max-height: 401px">
             </div>
             <div class="banner-text">
                 <div class="container">
@@ -53,10 +53,10 @@
                                             <div class="carousel-inner">
                                                 <div v-for="(blog, index) in blogPagination.data" :class="{item: true, active: index === 0}">
                                                     <div class="blog-image">
-                                                        <a href="blog-single.html">
+                                                        <nuxt-link :to="`/blog/${blog.slug}`">
                                                             <i class="fa fa-link" aria-hidden="true"></i>
                                                             <img :src="`${apiUrl}${blog.image}`" :alt="blog.name" style="height: 470px">
-                                                        </a>
+                                                        </nuxt-link>
                                                     </div>
                                                     <div class="dsc">
                                                         <h3><nuxt-link to="/">{{blog.name}}</nuxt-link></h3>
@@ -80,10 +80,10 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                         <div class="carousel-inner">
                                             <div class="blog-image">
-                                                <a href="blog-single.html">
+                                                <nuxt-link :to="`/blog/${blog.slug}`">
                                                     <i class="fa fa-link" aria-hidden="true"></i>
                                                     <img :src="`${apiUrl}${blog.image}`" :alt="blog.name" style="height: 270px">
-                                                </a>
+                                                </nuxt-link>
                                             </div>
                                         </div>
                                     </div>
@@ -97,70 +97,7 @@
                         </div>
                         <pagination :length="length" :hasNextPage="blogPagination.hasNextPage" :count="blogPagination.count" :start="start" :changeStartPagination="changeStartPagination"/>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div class="sidebar-area">
-                            <div class="like-box-area">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i> <span class="like-page">like our facebook page <br/>210,956 likes</span> <span class="like"><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> <span class="like-page">Follow us on twitter<br/>2109 followers</span> <span class="like">
-                                        <i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
-                                    <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i> <span class="like-page">Subscribe to our rss <br/>210,956 likes</span> <span class="like"><i class="fa fa-plus" aria-hidden="true"></i></span></a></li>
-                                </ul>
-                            </div>
-                            <div class="recent-post-area hot-news">
-                                <h3 class="title-bg">Recent Post</h3>
-                                <ul class="news-post">
-                                    <li v-for="(blog, index) in blogPagination.data" v-bind:key="blog.id" v-if="index<4">
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
-                                                <div class="item-post">
-                                                    <div class="row">
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 paddimg-right-none">
-                                                            <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`" alt="" title="News image" style="max-height: 103px"/></nuxt-link>
-                                                        </div>
-                                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                                            <h4><nuxt-link :to="`/blog/${blog.slug}`"> {{blog.name}}</nuxt-link></h4>
-                                                            <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="trending-post-area">
-                                <h3 class="title-bg">Trending Post</h3>
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <ul>
-                                            <li>
-                                                <a href="blog-single.html" class="hvr-bounce-to-right team-btn">The team</a><br/>
-                                                <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> June 28, 2017</span>
-                                                <h4><a href="blog-single.html"> Jake Dribbler Announced The <br />Reting Next Month </a></h4>
-                                                <p>Lorem ipsum dolor sit amet, consectet dipis cing elit. Vivamus tincidunt quam eget trisp  nunc sed mattis phasellus.</p>
-                                            </li>
-                                            <li>
-                                                <a href="blog-single.html" class="hvr-bounce-to-right team-btn">The team</a><br/>
-                                                <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> June 28, 2017</span>
-                                                <h4><a href="blog-single.html"> Jake Dribbler Announced The <br />Reting Next Month </a></h4>
-                                                <p>Lorem ipsum dolor sit amet, consectet dipis cing elit. Vivamus tincidunt quam eget trisp  nunc sed mattis phasellus.</p>
-                                            </li>
-                                            <li>
-                                                <a href="blog-single.html" class="hvr-bounce-to-right team-btn">The team</a><br/>
-                                                <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> June 28, 2017</span>
-                                                <h4><a href="blog-single.html"> Jake Dribbler Announced The <br />Reting Next Month </a></h4>
-                                                <p>Lorem ipsum dolor sit amet, consectet dipis cing elit. Vivamus tincidunt quam eget trisp  nunc sed mattis phasellus.</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="add">
-                                <img src="/images/add/2.jpg" alt="Add">
-                            </div>
-                        </div>
-                    </div>
+                    <content-right/>
                 </div>
             </div>
         </div>
@@ -172,6 +109,7 @@
   import { queryPagination } from '~/apollo/queries/blog';
   import { API_URL } from '~/config/api';
   import Pagination from '~/components/Pagination.vue';
+  import ContentRight from '~/components/ContentRight.vue';
   export default {
     async asyncData ({params, app}, callback) {
       try {
@@ -179,7 +117,7 @@
         const client = app.apolloProvider.defaultClient;
         const dataCategory = await client.query({query: getCategory, variables: {slug : slug}});
         if (dataCategory.data.categorySlug === null) {
-          callback(null, {category: {}, error: {message: 'Not exist categoty'}});
+          callback(null, {category: {}, error: {message: 'Not exist category'}});
         } else {
           callback(null, {category: dataCategory.data.categorySlug, error: {}});
         }
@@ -221,7 +159,8 @@
       }
     },
     components: {
-      Pagination
+      Pagination,
+      ContentRight
     }
   }
 </script>

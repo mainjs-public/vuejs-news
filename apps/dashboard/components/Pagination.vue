@@ -1,5 +1,5 @@
 <template>
-    <div class="row row_container">
+    <div class="row">
         <div class="col-sm-12 col-md-5">
             <label class="label_input">Show
                 <select v-model="value_select" @change="changeLength($event)" class="form-control input-sm select_margin">
@@ -12,7 +12,7 @@
         </div>
         <div class="col-sm-12 col-md-7 pagination_right">
             <div class="dataTables_paginate paging_simple_numbers pull-right">
-                <ul v-if="count" class="pagination">
+                <ul v-if="count" class="pagination" style="margin: 0px">
                     <li class="paginate_button previous" v-bind:class="start === 0 ? 'disabled': ''">
                         <a @click.prevent="changeStart(start-1)" class="disabled">Previous</a>
                     </li>
@@ -70,10 +70,5 @@
     }
     .select_margin {
         margin: 0px 10px;
-    }
-    .row_container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
     }
 </style>
