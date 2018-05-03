@@ -5,7 +5,7 @@
     <div v-else>
         <div class="inner-page-header">
             <div class="banner">
-                <img :src="`${apiUrl}${category.image}`" alt="Banner" style="max-height: 401px">
+                <img :src="`${apiUrl}${category.image}`" alt="Banner" style="width: 100%; max-height: 401px">
             </div>
             <div class="banner-text">
                 <div class="container">
