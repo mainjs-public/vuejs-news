@@ -61,7 +61,7 @@
                                             <i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}
                                             </span>
                                         <span class="cat">
-                                            <nuxt-link to="/category"><i class="fa fa-folder-o" aria-hidden="true"></i> {{blog.category && blog.category.name ? blog.category.name: 'Category'}} </nuxt-link>
+                                            <nuxt-link :to="`/category/${blog.category && blog.category.slug ? blog.category.slug : ''}`"><i class="fa fa-folder-o" aria-hidden="true"></i> {{blog.category && blog.category.name ? blog.category.name: 'Category'}} </nuxt-link>
                                         </span>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
