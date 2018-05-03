@@ -30,9 +30,9 @@ module.exports = {
       // { src: '/js/modernizr-2.8.3.min.js' },
       // { src: 'https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js' },
       // { src: 'https://oss.maxcdn.com/respond/1.4.2/respond.min.js' },
-      { src: '/bower_components/jquery/dist/jquery.min.js'},
+      { src: '/dashboard/bower_components/jquery/dist/jquery.min.js'},
       // { src: '/bower_components/jquery-ui/jquery-ui.min.js'},
-      { src: '/bower_components/bootstrap/dist/js/bootstrap.min.js'},
+      { src: '/dashboard/bower_components/bootstrap/dist/js/bootstrap.min.js'},
       // { src: '/bower_components/raphael/raphael.min.js'},
       // { src: '/bower_components/morris.js/morris.min.js'},
       // { src: '/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js'},
@@ -55,7 +55,7 @@ module.exports = {
       // { src: '/dist/js/demo.js'},
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/dashboard/favicon.ico' }
     ],
     bodyAttrs: {
       class: 'skin-blue'

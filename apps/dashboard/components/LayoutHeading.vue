@@ -31,7 +31,7 @@
                                     <li><!-- start message -->
                                         <nuxt-link to="#">
                                             <div class="pull-left">
-                                                <img src="/dist/img/user2-160x160.jpg" class="img-circle"
+                                                <img src="/dashboard/dist/img/user2-160x160.jpg" class="img-circle"
                                                      alt="User Image">
                                             </div>
                                             <h4>
@@ -45,7 +45,7 @@
                                     <li>
                                         <nuxt-link to="#">
                                             <div class="pull-left">
-                                                <img src="/dist/img/user3-128x128.jpg" class="img-circle"
+                                                <img src="/dashboard/dist/img/user3-128x128.jpg" class="img-circle"
                                                      alt="User Image">
                                             </div>
                                             <h4>
@@ -102,13 +102,13 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <nuxt-link to="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                            <img src="/dashboard/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
                             <span class="hidden-xs">{{authUser && authUser.user && authUser.user.name ? authUser.user.name : 'Admin'}}</span>
                         </nuxt-link>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                <img src="/dashboard/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                 <p>
                                     {{authUser && authUser.user && authUser.user.name? authUser.user.name : 'Admin'}}
