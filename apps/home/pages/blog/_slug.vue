@@ -55,7 +55,7 @@
                                         </span>
                                         <span class="comment">
                                             <a href="#">
-                                            <i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}</a>
+                                            <i class="fa fa-comment-o" aria-hidden="true"></i> {{commentPaginationByIdBlog.data.length}}</a>
                                             </span>
                                         <span class="date">
                                             <i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}
@@ -127,8 +127,8 @@
                             </div>
                             <div class="author-comment">
                                 <h3 class="title-bg">Recent Comments</h3>
-                                <ul v-if="blog.comments.length>0">
-                                    <li v-for="comment of blog.comments" v-bind:key="comment.id">
+                                <ul v-if="commentPaginationByIdBlog.data.length>0">
+                                    <li v-for="comment of commentPaginationByIdBlog.data" v-bind:key="comment.id">
                                         <div class="row">
                                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                                                 <div class="image-comments"><img src="/images/single/3.jpg"
@@ -150,9 +150,9 @@
                                     Empty comments
                                 </div>
                             </div>
-                            <!--<div>-->
-                            <!--<pagination :length="length" :hasNextPage="comments.hasNextPage" :count="comments.count" :start="comments.start" :changeStartPagination="changeStartPagination"/>-->
-                            <!--</div>-->
+                            <div>
+                                <pagination :length="length" :hasNextPage="commentPaginationByIdBlog.hasNextPage" :count="commentPaginationByIdBlog.count" :start="start" :changeStartPagination="changeStartPagination"/>
+                            </div>
                             <div class="leave-comments-area">
                                 <h4 class="title-bg">Leave Comments</h4>
                                 <form>
@@ -199,6 +199,7 @@
   import Pagination from '~/components/Pagination.vue'
   import ContentRight from '~/components/ContentRight.vue'
   import { query, getBlogBySlug } from '~/apollo/queries/blog'
+  import { queryPaginationByIdBlog } from '~/apollo/queries/comment'
   import { API_URL } from '~/config/api'
 
   export default {
@@ -209,7 +210,7 @@
         const dataBlog= await client.query({query: getBlogBySlug, variables: {slug : slug}});
         callback(null, {blog: dataBlog.data.blogSlug, error: dataBlog.data.blogSlug === null ? {message: 'Not exist blog'}: {}});
       } catch(error) {
-        callback(null, {blog: {}, error: error});f
+        callback(null, {blog: {}, error: error});
       }
     },
     data () {
@@ -217,6 +218,13 @@
         blogs: [],
         apiUrl: API_URL,
         comment: {},
+        start: 0,
+        length: 1,
+        commentPaginationByIdBlog: {
+          data: [],
+          count: 0,
+          hasNextPage: false
+        }
       }
     },
     apollo: {
@@ -224,6 +232,17 @@
         query: query,
         fetchPolicy: 'cache-and-network',
       },
+      commentPaginationByIdBlog: {
+        query: queryPaginationByIdBlog,
+        variables() {
+          return {
+            blog_id: this.blog.id,
+            start: this.start * this.length,
+            length: this.length
+          }
+        },
+        fetchPolicy: 'cache-and-network',
+      }
     },
     methods: {
       ...mapActions({
@@ -232,13 +251,17 @@
       async clickAddComment (e) {
         const data = {
           input: {...this.comment, blog_id: this.blog.id},
-          slug: this.$route.params.slug
+          length: this.length,
+          start: this.start,
         }
         await this.addComment(data)
         if (!this.errorComment.message) {
           this.comment = {}
         }
         e.preventDefault()
+      },
+      changeStartPagination(value) {
+        this.start = value
       }
     }
     ,

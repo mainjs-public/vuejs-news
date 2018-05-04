@@ -1,5 +1,4 @@
-import { addComment } from '~/apollo/queries/comment';
-import { getBlogBySlug } from '~/apollo/queries/blog';
+import { addComment, queryPaginationByIdBlog } from '~/apollo/queries/comment';
 
 export const state = () => ({
   loading: false,
@@ -25,8 +24,8 @@ export const actions =  {
     let client = this.app.apolloProvider.defaultClient;
     context.commit('fetchRequest');
     await client.mutate({ mutation: addComment, variables: {input : data.input}, refetchQueries: [{
-        query: getBlogBySlug,
-        variables: {slug : data.slug}
+        query: queryPaginationByIdBlog,
+        variables: {blog_id : data.input.blog_id, start: data.start, length: data.length}
       }]})
       .then((res) => {
         return res.data;
