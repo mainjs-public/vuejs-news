@@ -27,7 +27,7 @@
                             <li class="header">You have {{countUnReadContact}} messages</li>
                             <li>
                                 <!-- inner menu: contains the actual data -->
-                                <ul class="menu">
+                                <ul class="menu" v-if="contactPagination.data.length > 0">
                                     <li v-for="contact of contactPagination.data" v-bind:key="contact.id"><!-- start message -->
                                         <a @click="readContactClick(contact)">
                                             <div class="pull-left">
@@ -43,6 +43,7 @@
                                     </li>
                                     <!-- end message -->
                                 </ul>
+                                <div v-else>Empty</div>
                             </li>
                             <li class="footer"><nuxt-link to="/contact">See All Messages</nuxt-link></li>
                         </ul>
