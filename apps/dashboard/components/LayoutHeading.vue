@@ -28,75 +28,23 @@
                             <li>
                                 <!-- inner menu: contains the actual data -->
                                 <ul class="menu">
-                                    <li><!-- start message -->
-                                        <nuxt-link to="#">
+                                    <li v-for="contact of contactPagination.data" v-bind:key="contact.id"><!-- start message -->
+                                        <a @click="readContactClick(contact)">
                                             <div class="pull-left">
                                                 <img src="/dashboard/dist/img/user2-160x160.jpg" class="img-circle"
                                                      alt="User Image">
                                             </div>
                                             <h4>
-                                                Support Team
-                                                <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                                {{contact.firstName}} {{contact.lastName}}
+                                                <small><i class="fa fa-clock-o"></i> {{contact.created}}</small>
                                             </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </nuxt-link>
+                                            <p style="margin-right: 10px; overflow: hidden;">{{contact.message}}</p>
+                                        </a>
                                     </li>
                                     <!-- end message -->
-                                    <li>
-                                        <nuxt-link to="#">
-                                            <div class="pull-left">
-                                                <img src="/dashboard/dist/img/user3-128x128.jpg" class="img-circle"
-                                                     alt="User Image">
-                                            </div>
-                                            <h4>
-                                                AdminLTE Design Team
-                                                <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </nuxt-link>
-                                    </li>
-                                    <li>
-                                        <nuxt-link to="#">
-                                            <div class="pull-left">
-                                                <img src="/dist/img/user4-128x128.jpg" class="img-circle"
-                                                     alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Developers
-                                                <small><i class="fa fa-clock-o"></i> Today</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </nuxt-link>
-                                    </li>
-                                    <li>
-                                        <nuxt-link to="#">
-                                            <div class="pull-left">
-                                                <img src="/dist/img/user3-128x128.jpg" class="img-circle"
-                                                     alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Sales Department
-                                                <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </nuxt-link>
-                                    </li>
-                                    <li>
-                                        <nuxt-link to="#">
-                                            <div class="pull-left">
-                                                <img src="/dist/img/user4-128x128.jpg" class="img-circle"
-                                                     alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Reviewers
-                                                <small><i class="fa fa-clock-o"></i> 2 days</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </nuxt-link>
-                                    </li>
                                 </ul>
                             </li>
-                            <li class="footer"><nuxt-link to="#">See All Messages</nuxt-link></li>
+                            <li class="footer"><nuxt-link to="/contact">See All Messages</nuxt-link></li>
                         </ul>
                     </li>
                     <!-- User Account: style can be found in dropdown.less -->
@@ -132,7 +80,8 @@
 </template>
 <script>
     import { mapActions} from 'vuex';
-    import { countUnReadContactQuery } from '~/apollo/queries/contact';
+    import omit from 'lodash/omit';
+    import { countUnReadContactQuery, queryPagination } from '~/apollo/queries/contact';
     import { FRONT_PAGE } from '~/config/api';
 
     export default {
@@ -142,6 +91,9 @@
       data() {
         return {
           countUnReadContact: 0,
+          contactPagination: {
+            data: []
+          },
           frontPage: FRONT_PAGE,
         };
       },
@@ -149,15 +101,27 @@
         countUnReadContact: {
           query: countUnReadContactQuery,
           fetchPolicy: 'cache-and-network',
+        },
+        contactPagination: {
+          query: queryPagination,
+          variables: {
+            start: 0,
+            length: 5
+          },
+          fetchPolicy: 'cache-and-network',
         }
       },
       methods: {
-        ...mapActions([
-          'logout'
-        ]),
+        ...mapActions({
+          logout: 'logout',
+          readContact: 'contact/readContact',
+        }),
         logoutClick(event) {
           this.logout();
           event.preventDefault();
+        },
+        readContactClick(data) {
+          this.readContact(omit(data, ['__typename']));
         },
       }
     }
