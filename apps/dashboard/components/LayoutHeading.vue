@@ -117,7 +117,7 @@
                             </li>
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <nuxt-link to="#" class="btn btn-default btn-flat">Profile</nuxt-link>
+                                    <a :href="frontPage" target="_blank" class="btn btn-default btn-flat">Front Page</a>
                                 </div>
                                 <div class="pull-right">
                                     <a @click="logoutClick($event)" class="btn btn-default btn-flat">Sign out</a>
@@ -133,6 +133,7 @@
 <script>
     import { mapActions} from 'vuex';
     import { countUnReadContactQuery } from '~/apollo/queries/contact';
+    import { FRONT_PAGE } from '~/config/api';
 
     export default {
       computed: {
@@ -140,7 +141,8 @@
       },
       data() {
         return {
-          countUnReadContact: 0
+          countUnReadContact: 0,
+          frontPage: FRONT_PAGE,
         };
       },
       apollo: {
