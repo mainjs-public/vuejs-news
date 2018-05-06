@@ -87,7 +87,10 @@ export const getBlogBySlug = gql`
       created,
       description,
       content,
-      tags
+      tags,
+      comments {
+        id
+      }
     }
   }
 `;
