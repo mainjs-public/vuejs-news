@@ -14,14 +14,30 @@ export const query = gql`
 `;
 
 export const getCategory = gql`
-  query categoryQuery($slug: String!) {
-    categorySlug(slug: $slug) {
-      id,
-      name,
-      image,
-      description,
-      slug,
-      status
+  query categorySlugQuery($slug: String!, $start: Int!, $length: Int!) {
+    categorySlug(slug: $slug, start: $start, length: $length) {
+      category {
+        id,
+        name,
+        image,
+        description
+      },
+      data {
+        id,
+        name,
+        slug,
+        status,
+        image,
+        created,
+        description,
+        comments {
+          id
+        }
+      },
+      count,
+      hasNextPage,
+      length,
+      start,
     }
   }
 `;

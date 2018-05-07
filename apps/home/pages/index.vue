@@ -13,7 +13,8 @@
                                         class="fa fa-angle-double-right" aria-hidden="true"></i></div>
                                 <div class="tickers col-md-10">
                                     <div id="top-news-slider" class="owl-carousel ">
-                                        <div class="item" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<6">
+                                        <div class="item" v-for="(blog, index) in blogs" v-bind:key="blog.id"
+                                             v-if="index<6">
                                             <nuxt-link :to="`/blog/${blog.slug}`">
                                                 <img :src="`${apiUrl}${blog.image}`"/>
                                                 <span>{{blog.name}}</span>
@@ -27,37 +28,50 @@
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 padding-0">
-                    <div class="slider-area">
-                        <div class="bend niceties preview-2">
-                            <div id="ensign-nivoslider" class="slides">
-                                <img v-for="(blog, index) in blogs" v-if="index<2" v-bind:key="blog.id" :src="`${apiUrl}${blog.image}`" alt="" style="height: 552px" :title="`#slider-direction-${index+1}`"/>
-                            </div>
-                            <!-- direction 2 -->
-                            <div v-for="(blog, index) in blogs" v-bind:key="blog.id" :id="`slider-direction-${index+1}`" v-if="index<2" class="slider-direction">
-                                <div :class="`slider-content t-cn s-tb slider-${index+1}`">
-                                    <div class="title-container s-tb-c">
-                                        <div class="slider-botton">
-                                            <ul>
-                                                <li>
-                                                    <nuxt-link class="cat-link" :to="`/category/${blog.category ? blog.category.slug : ''}`">{{blog.category !== null ? blog.category.name: 'Category'}}</nuxt-link>
-                                                    <span class="date">
-                                                    <i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}
-                                                </span>
-                                                    <span class="comment">
-                                                    <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}
-                                                    </a>
-                                                </span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <h1 class="title1"><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h1>
-                                        <div class="title2">{{blog.description}}
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+
+                            <div v-for="(blog, index) in blogs" v-if="index<2" v-bind:key="blog.id" :class="{item:true, active: index === 0}">
+                                <div class="slider-area">
+                                    <div class="bend niceties preview-2">
+                                        <div id="ensign-nivoslider" class="slides nivoSlider">
+                                            <img class="nivo-main-image" :src="`${apiUrl}${blog.image}`" style="display: inline; overflow: hidden;">
+                                            <div class="nivo-caption" style="display: block;">
+                                                <div class="slider-content t-cn s-tb slider-1">
+                                                    <div class="title-container s-tb-c">
+                                                        <div class="slider-botton">
+                                                            <ul>
+                                                                <li>
+                                                                    <nuxt-link class="cat-link"  :to="`/category/${blog.category ? blog.category.slug : ''}`">{{blog.category !== null ? blog.category.name: 'Category'}}</nuxt-link>
+                                                                    <span class="date">
+                                                                        <i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}
+                                                                    </span>
+                                                                    <span class="comment">
+                                                                        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}
+                                                                        </a>
+                                                                    </span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <h1 class="title1"><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h1>
+                                                        <div class="title2">{{blog.description}}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="nivo-directionNav">
+                                                <a class="nivo-prevNav" href="#myCarousel" role="button" data-slide="prev">Prev</a>
+                                                <a class="nivo-nextNav" href="#myCarousel" role="button" data-slide="next">Next</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
+
+                        <!-- Left and right controls -->
                     </div>
                 </div>
                 <!-- Slider Area End Here-->
@@ -68,11 +82,14 @@
                                 <div class="right-content">
                                     <span class="category"><nuxt-link class="cat-link" :to="`/category/${blog.category ? blog.category.slug : ''}`">{{blog.category !== null ? blog.category.name: 'Category'}}</nuxt-link></span>
                                     <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"> </i> {{blog.created}}</span>
-                                    <h3><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h3>
+                                    <h3>
+                                        <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
+                                    </h3>
                                 </div>
                                 <div class="right-image">
                                     <nuxt-link :to="`/blog/${blog.slug}`">
-                                        <img :src="`${apiUrl}${blog.image}`" alt="sidebar image" style="max-height: 178px">
+                                        <img :src="`${apiUrl}${blog.image}`" alt="sidebar image"
+                                             style="width: 100%; max-height: 172px">
                                     </nuxt-link>
                                 </div>
                             </li>
@@ -98,28 +115,43 @@
                         <div class="tab-content">
                             <div id="tab1" class="tab-pane fade in active">
                                 <div class="tab-top-content">
-                                    <div class="row" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index === 0">
+                                    <div class="row" v-for="(blog, index) in blogs" v-bind:key="blog.id"
+                                         v-if="index === 0">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 paddimg-right-none">
-                                            <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`" alt="sidebar image" style="width: 100%"/></nuxt-link>
+                                            <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`"
+                                                                                       alt="sidebar image"
+                                                                                       style="width: 100%"/></nuxt-link>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 last-col">
-                                            <span class="date"><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> james Bond </a></span>
-                                            <span class="comment"><nuxt-link :to="`/category/${blog.category ? blog.category.slug : ''}`"><i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}</nuxt-link></span>
-                                            <h3><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h3>
+                                            <span class="date"><a href="#"><i class="fa fa-user-o"
+                                                                              aria-hidden="true"></i> james Bond </a></span>
+                                            <span class="comment"><nuxt-link
+                                                    :to="`/category/${blog.category ? blog.category.slug : ''}`"><i
+                                                    class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}</nuxt-link></span>
+                                            <h3>
+                                                <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
+                                            </h3>
                                             <p>{{blog.description}}</p>
-                                            <nuxt-link :to="`/blog/${blog.slug}`" class="read-more hvr-bounce-to-right">Read More</nuxt-link>
+                                            <nuxt-link :to="`/blog/${blog.slug}`" class="read-more hvr-bounce-to-right">
+                                                Read More
+                                            </nuxt-link>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="tab-bottom-content">
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<4">
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area"
+                                             v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<4">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`" alt="News image"></nuxt-link>
+                                                <nuxt-link :to="`/blog/${blog.slug}`"><img
+                                                        :src="`${apiUrl}${blog.image}`" alt="News image"></nuxt-link>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
-                                                <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"> </i>{{blog.created}}</span>
-                                                <h4><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h4>
+                                                <span class="date"><i class="fa fa-calendar-check-o"
+                                                                      aria-hidden="true"> </i>{{blog.created}}</span>
+                                                <h4>
+                                                    <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
+                                                </h4>
                                             </div>
                                         </div>
                                     </div>
@@ -127,28 +159,42 @@
                             </div>
                             <div id="tab2" class="tab-pane fade">
                                 <div class="tab-top-content">
-                                    <div class="row" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index === 0">
+                                    <div class="row" v-for="(blog, index) in blogs" v-bind:key="blog.id"
+                                         v-if="index === 0">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 paddimg-right-none">
-                                            <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`" alt="sidebar image" style="width: 100%"></nuxt-link>
+                                            <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`"
+                                                                                       alt="sidebar image"
+                                                                                       style="width: 100%"></nuxt-link>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 last-col">
-                                            <span class="date"><nuxt-link to="#"><i class="fa fa-user-o" aria-hidden="true"></i> james Bond </nuxt-link></span>
-                                            <span class="comment"><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}</a></span>
-                                            <h3><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h3>
+                                            <span class="date"><nuxt-link to="#"><i class="fa fa-user-o"
+                                                                                    aria-hidden="true"></i> james Bond </nuxt-link></span>
+                                            <span class="comment"><a href="#"><i class="fa fa-comment-o"
+                                                                                 aria-hidden="true"></i> {{blog.comments.length}}</a></span>
+                                            <h3>
+                                                <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
+                                            </h3>
                                             <p>{{blog.description}}</p>
-                                            <nuxt-link :to="`/blog/${blog.slug}`" class="read-more hvr-bounce-to-right">Read More</nuxt-link>
+                                            <nuxt-link :to="`/blog/${blog.slug}`" class="read-more hvr-bounce-to-right">
+                                                Read More
+                                            </nuxt-link>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="tab-bottom-content">
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<4">
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area"
+                                             v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<4">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`" :alt="blog.name"></nuxt-link>
+                                                <nuxt-link :to="`/blog/${blog.slug}`"><img
+                                                        :src="`${apiUrl}${blog.image}`" :alt="blog.name"></nuxt-link>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
-                                                <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"> </i>{{blog.created}}</span>
-                                                <h4><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h4>
+                                                <span class="date"><i class="fa fa-calendar-check-o"
+                                                                      aria-hidden="true"> </i>{{blog.created}}</span>
+                                                <h4>
+                                                    <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
+                                                </h4>
                                             </div>
                                         </div>
                                     </div>
@@ -156,28 +202,42 @@
                             </div>
                             <div id="tab3" class="tab-pane fade">
                                 <div class="tab-top-content">
-                                    <div class="row" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index === 0">
+                                    <div class="row" v-for="(blog, index) in blogs" v-bind:key="blog.id"
+                                         v-if="index === 0">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 paddimg-right-none">
-                                            <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`" alt="sidebar image" style="width: 100%"></nuxt-link>
+                                            <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`"
+                                                                                       alt="sidebar image"
+                                                                                       style="width: 100%"></nuxt-link>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 last-col">
-                                            <span class="date"><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> james Bond </a></span>
-                                            <span class="comment"><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}</a></span>
-                                            <h3><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h3>
+                                            <span class="date"><a href="#"><i class="fa fa-user-o"
+                                                                              aria-hidden="true"></i> james Bond </a></span>
+                                            <span class="comment"><a href="#"><i class="fa fa-comment-o"
+                                                                                 aria-hidden="true"></i> {{blog.comments.length}}</a></span>
+                                            <h3>
+                                                <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
+                                            </h3>
                                             <p>{{blog.description}}</p>
-                                            <nuxt-link :to="`/blog/${blog.slug}`" class="read-more hvr-bounce-to-right">Read More</nuxt-link>
+                                            <nuxt-link :to="`/blog/${blog.slug}`" class="read-more hvr-bounce-to-right">
+                                                Read More
+                                            </nuxt-link>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="tab-bottom-content">
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<4">
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area"
+                                             v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<4">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`" alt="News image"></nuxt-link>
+                                                <nuxt-link :to="`/blog/${blog.slug}`"><img
+                                                        :src="`${apiUrl}${blog.image}`" alt="News image"></nuxt-link>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
-                                                <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"> </i>{{blog.created}}</span>
-                                                <h4><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h4>
+                                                <span class="date"><i class="fa fa-calendar-check-o"
+                                                                      aria-hidden="true"> </i>{{blog.created}}</span>
+                                                <h4>
+                                                    <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
+                                                </h4>
                                             </div>
                                         </div>
                                     </div>
@@ -185,28 +245,42 @@
                             </div>
                             <div id="tab4" class="tab-pane fade">
                                 <div class="tab-top-content">
-                                    <div class="row" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index === 0">
+                                    <div class="row" v-for="(blog, index) in blogs" v-bind:key="blog.id"
+                                         v-if="index === 0">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 paddimg-right-none">
-                                            <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`" alt="sidebar image" style="width: 100%"></nuxt-link>
+                                            <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`"
+                                                                                       alt="sidebar image"
+                                                                                       style="width: 100%"></nuxt-link>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 last-col">
-                                            <span class="date"><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> james Bond </a></span>
-                                            <span class="comment"><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}</a></span>
-                                            <h3><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h3>
+                                            <span class="date"><a href="#"><i class="fa fa-user-o"
+                                                                              aria-hidden="true"></i> james Bond </a></span>
+                                            <span class="comment"><a href="#"><i class="fa fa-comment-o"
+                                                                                 aria-hidden="true"></i> {{blog.comments.length}}</a></span>
+                                            <h3>
+                                                <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
+                                            </h3>
                                             <p>{{blog.description}}</p>
-                                            <nuxt-link :to="`/blog/${blog.slug}`" class="read-more hvr-bounce-to-right">Read More</nuxt-link>
+                                            <nuxt-link :to="`/blog/${blog.slug}`" class="read-more hvr-bounce-to-right">
+                                                Read More
+                                            </nuxt-link>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="tab-bottom-content">
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<4">
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area"
+                                             v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<4">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`" alt="News image"></nuxt-link>
+                                                <nuxt-link :to="`/blog/${blog.slug}`"><img
+                                                        :src="`${apiUrl}${blog.image}`" alt="News image"></nuxt-link>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
-                                                <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"> </i>{{blog.created}}</span>
-                                                <h4><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h4>
+                                                <span class="date"><i class="fa fa-calendar-check-o"
+                                                                      aria-hidden="true"> </i>{{blog.created}}</span>
+                                                <h4>
+                                                    <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
+                                                </h4>
                                             </div>
                                         </div>
                                     </div>
@@ -214,28 +288,41 @@
                             </div>
                             <div id="tab5" class="tab-pane fade">
                                 <div class="tab-top-content">
-                                    <div class="row" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index === 0">
+                                    <div class="row" v-for="(blog, index) in blogs" v-bind:key="blog.id"
+                                         v-if="index === 0">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 paddimg-right-none">
-                                            <a :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`" alt="sidebar image" style="width: 100%"></a>
+                                            <a :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`"
+                                                                               alt="sidebar image" style="width: 100%"></a>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 last-col">
-                                            <span class="date"><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> james Bond </a></span>
-                                            <span class="comment"><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}</a></span>
-                                            <h3><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h3>
+                                            <span class="date"><a href="#"><i class="fa fa-user-o"
+                                                                              aria-hidden="true"></i> james Bond </a></span>
+                                            <span class="comment"><a href="#"><i class="fa fa-comment-o"
+                                                                                 aria-hidden="true"></i> {{blog.comments.length}}</a></span>
+                                            <h3>
+                                                <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
+                                            </h3>
                                             <p>{{blog.description}}</p>
-                                            <nuxt-link :to="`/blog/${blog.slug}`" class="read-more hvr-bounce-to-right">Read More</nuxt-link>
+                                            <nuxt-link :to="`/blog/${blog.slug}`" class="read-more hvr-bounce-to-right">
+                                                Read More
+                                            </nuxt-link>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="tab-bottom-content">
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<4">
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 tab-area"
+                                             v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<4">
                                             <div class="col-sm-12 col-xs-3 img-tab">
-                                                <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`" alt="News image"></nuxt-link>
+                                                <nuxt-link :to="`/blog/${blog.slug}`"><img
+                                                        :src="`${apiUrl}${blog.image}`" alt="News image"></nuxt-link>
                                             </div>
                                             <div class="col-sm-12 col-xs-9 img-content">
-                                                <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"> </i>{{blog.created}}</span>
-                                                <h4><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h4>
+                                                <span class="date"><i class="fa fa-calendar-check-o"
+                                                                      aria-hidden="true"> </i>{{blog.created}}</span>
+                                                <h4>
+                                                    <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
+                                                </h4>
                                             </div>
                                         </div>
                                     </div>
@@ -250,17 +337,25 @@
                                         <h3 class="title-bg">Trending News</h3>
                                     </div>
                                     <div class="col-sm-4 text-right">
-                                        <nuxt-link to="/blog">View More <i class="fa fa-angle-double-right" aria-hidden="true"></i></nuxt-link>
+                                        <nuxt-link to="/blog">View More <i class="fa fa-angle-double-right"
+                                                                           aria-hidden="true"></i></nuxt-link>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                    <div class="list-col" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index===0">
-                                        <nuxt-link :to="`/blog/${blog.slug}`"> <img :src="`${apiUrl}${blog.image}`" alt="" title="Trending image" style="width: 100%;"/></nuxt-link>
+                                    <div class="list-col" v-for="(blog, index) in blogs" v-bind:key="blog.id"
+                                         v-if="index===0">
+                                        <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`"
+                                                                                   alt="" title="Trending image"
+                                                                                   style="width: 100%;"/></nuxt-link>
                                         <div class="dsc">
-                                            <span class="date"> <i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}} </span>
-                                            <span class="comment"><nuxt-link :to="`/blog/${blog.slug}`"><i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}</nuxt-link></span>
-                                            <h3><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h3>
+                                            <span class="date"> <i class="fa fa-calendar-check-o"
+                                                                   aria-hidden="true"></i> {{blog.created}} </span>
+                                            <span class="comment"><nuxt-link :to="`/blog/${blog.slug}`"><i
+                                                    class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}</nuxt-link></span>
+                                            <h3>
+                                                <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
+                                            </h3>
                                             <p>{{blog.description}}</p>
                                         </div>
                                     </div>
@@ -273,11 +368,18 @@
                                                     <div class="item-post">
                                                         <div class="row">
                                                             <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 paddimg-right-none">
-                                                                <nuxt-link :to="`/blog/${blog.slug}`"> <img :src="`${apiUrl}${blog.image}`" alt="" title="Trending image"></nuxt-link>
+                                                                <nuxt-link :to="`/blog/${blog.slug}`"><img
+                                                                        :src="`${apiUrl}${blog.image}`" alt=""
+                                                                        title="Trending image"></nuxt-link>
                                                             </div>
                                                             <div class="col-lg-8 col-md-8 col-sm-9 col-xs-9">
-                                                                <h4><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h4>
-                                                                <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}</span>
+                                                                <h4>
+                                                                    <nuxt-link :to="`/blog/${blog.slug}`">
+                                                                        {{blog.name}}
+                                                                    </nuxt-link>
+                                                                </h4>
+                                                                <span class="date"><i class="fa fa-calendar-check-o"
+                                                                                      aria-hidden="true"></i> {{blog.created}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -298,31 +400,49 @@
                                                 <h3 class="title-bg">What’s hot now</h3>
                                             </div>
                                             <div class="col-sm-4 text-right">
-                                                <nuxt-link to="/blog">View More <i class="fa fa-angle-double-right" aria-hidden="true"></i></nuxt-link>
+                                                <nuxt-link to="/blog">View More <i class="fa fa-angle-double-right"
+                                                                                   aria-hidden="true"></i></nuxt-link>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="featured" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index===0">
+                                    <div class="featured" v-for="(blog, index) in blogs" v-bind:key="blog.id"
+                                         v-if="index===0">
                                         <div class="blog-img">
-                                            <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`" alt="" title="News image" style="width: 100%; max-height: 400px"/></nuxt-link>
+                                            <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`"
+                                                                                       alt="" title="News image"
+                                                                                       style="width: 100%; max-height: 400px"/>
+                                            </nuxt-link>
                                         </div>
                                         <div class="blog-content">
-                                            <nuxt-link :to="`/category/${blog.category ? blog.category.slug : ''}`" class="cat-link">{{blog.category!== null ? blog.category.name: 'Category'}}</nuxt-link><span class="date"><i
-                                                class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}</span>
-                                            <h4><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h4>
+                                            <nuxt-link :to="`/category/${blog.category ? blog.category.slug : ''}`"
+                                                       class="cat-link">{{blog.category!== null ? blog.category.name:
+                                                'Category'}}
+                                            </nuxt-link>
+                                            <span class="date"><i
+                                                    class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}</span>
+                                            <h4>
+                                                <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
+                                            </h4>
                                         </div>
                                     </div>
                                     <ul class="news-post news-feature-mb">
                                         <li v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<4">
                                             <div class="row">
                                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-4">
-                                                    <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`" alt="News image"/></nuxt-link>
+                                                    <nuxt-link :to="`/blog/${blog.slug}`"><img
+                                                            :src="`${apiUrl}${blog.image}`" alt="News image"/>
+                                                    </nuxt-link>
                                                 </div>
                                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-8 content">
-                                                    <h4><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h4>
-                                                    <span class="author"><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> yeamin</a></span>
-                                                    <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}</span>
-                                                    <span class="comment"><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}</a></span>
+                                                    <h4>
+                                                        <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
+                                                    </h4>
+                                                    <span class="author"><a href="#"><i class="fa fa-user-o"
+                                                                                        aria-hidden="true"></i> yeamin</a></span>
+                                                    <span class="date"><i class="fa fa-calendar-check-o"
+                                                                          aria-hidden="true"></i> {{blog.created}}</span>
+                                                    <span class="comment"><a href="#"><i class="fa fa-comment-o"
+                                                                                         aria-hidden="true"></i> {{blog.comments.length}}</a></span>
                                                     <p>{{blog.description}}</p>
                                                 </div>
                                             </div>
@@ -381,7 +501,10 @@
                             <h3 class="title-bg">Popular Now</h3>
                             <ul>
                                 <li v-for="(blog, index) in blogs" v-if="index===0" v-bind:key="blog.id">
-                                    <nuxt-link :to="`/category/${blog.category ? blog.category.slug : ''}`" class="category-btn hvr-bounce-to-right">{{blog.category !== null? blog.category.name:'Category'}}</nuxt-link>
+                                    <nuxt-link :to="`/category/${blog.category ? blog.category.slug : ''}`"
+                                               class="category-btn hvr-bounce-to-right">{{blog.category !== null?
+                                        blog.category.name:'Category'}}
+                                    </nuxt-link>
                                     <div class="post-image"><img :src="`${apiUrl}${blog.image}`" alt="News image"></div>
                                     <div class="content">
                                         <h4>
@@ -412,8 +535,12 @@
                                                         <img :src="`${apiUrl}${blog.image}`" alt="" title="News image">
                                                     </div>
                                                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-9">
-                                                        <h4><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h4>
-                                                        <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}</span>
+                                                        <h4>
+                                                            <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}
+                                                            </nuxt-link>
+                                                        </h4>
+                                                        <span class="date"><i class="fa fa-calendar-check-o"
+                                                                              aria-hidden="true"></i> {{blog.created}}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -451,14 +578,16 @@
                                 <div class="carousel-inner">
                                     <div class="item active">
                                         <div class="dsc">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipe isicing elit, sed do they eiusmod
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipe isicing elit, sed do they
+                                                eiusmod
                                                 tempor incidin dunt ut labore et dolore</p>
                                             <span>- Thesera Minton</span>
                                         </div>
                                     </div>
                                     <div class="item">
                                         <div class="dsc">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipe isicing elit, sed do they eiusmod
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipe isicing elit, sed do they
+                                                eiusmod
                                                 tempor incidin dunt ut labore et dolore</p>
                                             <span>- Jon Min</span>
                                         </div>
@@ -642,18 +771,25 @@
                                         </div>
                                     </div>
                                     <div class="carousel-inner">
-                                        <div class="item" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-bind:class="index===0? 'active': ''">
-                                            <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`" alt="" title="#slider-direction-1" style="width: 100%"/></nuxt-link>
+                                        <div class="item" v-for="(blog, index) in blogs" v-bind:key="blog.id"
+                                             v-bind:class="index===0? 'active': ''">
+                                            <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`"
+                                                                                       alt=""
+                                                                                       title="#slider-direction-1"
+                                                                                       style="width: 100%"/></nuxt-link>
                                             <div class="dsc">
                                                 <span class="date">
                                                     <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
                                                     {{blog.created}}
                                                 </span>
                                                 <span class="comment">
-                                                    <nuxt-link to="#"> <i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}
+                                                    <nuxt-link to="#"> <i class="fa fa-comment-o"
+                                                                          aria-hidden="true"></i> {{blog.comments.length}}
                                                     </nuxt-link>
                                                 </span>
-                                                <h4><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h4>
+                                                <h4>
+                                                    <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
+                                                </h4>
                                                 <p>{{blog.description}}</p>
                                             </div>
                                         </div>
@@ -685,18 +821,26 @@
                                         </div>
                                     </div>
                                     <div class="carousel-inner">
-                                        <div class="item" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-bind:class="index===0? 'active': ''">
-                                            <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`" alt="" title="#slider-direction-1" style="width: 100%;"/></nuxt-link>
+                                        <div class="item" v-for="(blog, index) in blogs" v-bind:key="blog.id"
+                                             v-bind:class="index===0? 'active': ''">
+                                            <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`"
+                                                                                       alt=""
+                                                                                       title="#slider-direction-1"
+                                                                                       style="width: 100%;"/>
+                                            </nuxt-link>
                                             <div class="dsc">
                                                 <span class="date">
                                                     <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
                                                     {{blog.created}}
                                                 </span>
                                                 <span class="comment">
-                                                    <nuxt-link to="#"> <i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}
+                                                    <nuxt-link to="#"> <i class="fa fa-comment-o"
+                                                                          aria-hidden="true"></i> {{blog.comments.length}}
                                                     </nuxt-link>
                                                 </span>
-                                                <h4><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h4>
+                                                <h4>
+                                                    <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
+                                                </h4>
                                                 <p>{{blog.description}}</p>
                                             </div>
                                         </div>
@@ -712,18 +856,22 @@
                                     <h3 class="title-bg">Around the world</h3>
                                 </div>
                                 <div class="col-sm-4 text-right">
-                                    <nuxt-link to="/blog">View More <i class="fa fa-angle-double-right" aria-hidden="true"></i></nuxt-link>
+                                    <nuxt-link to="/blog">View More <i class="fa fa-angle-double-right"
+                                                                       aria-hidden="true"></i></nuxt-link>
                                 </div>
                             </div>
                         </div>
                         <ul class="news-post news-post2 around-news">
                             <li>
                                 <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 content" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<2">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 content"
+                                         v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<2">
                                         <div class="item-post">
 
                                             <div class="blog-image">
-                                                <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`" alt="" title="News image" style="width: 100%"/></nuxt-link>
+                                                <nuxt-link :to="`/blog/${blog.slug}`"><img
+                                                        :src="`${apiUrl}${blog.image}`" alt="" title="News image"
+                                                        style="width: 100%"/></nuxt-link>
                                             </div>
                                             <div class="content">
                                            <span class="date">
@@ -734,7 +882,9 @@
                                                 <nuxt-link to="#"> <i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}
                                                 </nuxt-link>
                                             </span>
-                                                <h4><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h4>
+                                                <h4>
+                                                    <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
+                                                </h4>
                                                 <p>{{blog.description}}</p>
                                             </div>
                                         </div>
@@ -745,14 +895,18 @@
                         <ul class="news-post news-post2 related">
                             <li v-for="(rowBlog, index) in chunk(blogs, 2)" v-bind:key="index" v-if="index < 2">
                                 <div class="row">
-                                    <div v-for="blog of rowBlog" v-bind:key="blog.id" class="col-lg-6 col-md-6 col-sm-12 col-xs-12 content">
+                                    <div v-for="blog of rowBlog" v-bind:key="blog.id"
+                                         class="col-lg-6 col-md-6 col-sm-12 col-xs-12 content">
                                         <div class="item-post">
                                             <div class="row">
                                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3 paddimg-right-none">
-                                                    <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`" alt="" title="News image"/></nuxt-link>
+                                                    <nuxt-link :to="`/blog/${blog.slug}`"><img
+                                                            :src="`${apiUrl}${blog.image}`" alt="" title="News image"/>
+                                                    </nuxt-link>
                                                 </div>
                                                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-9">
-                                                    <h4><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
+                                                    <h4>
+                                                        <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
                                                     </h4>
                                                     <span class="date">
                                                 <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
@@ -771,10 +925,18 @@
                         <div class="sidebar">
                             <ul>
                                 <li v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<3">
-                                    <nuxt-link :to="`/category/${blog.category ? blog.category.slug : ''}`" class="category-btn hvr-bounce-to-right">{{blog.category !== null ? blog.category.name: 'Category'}}</nuxt-link>
-                                    <div class="post-image"><nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`" alt="News image"/></nuxt-link></div>
+                                    <nuxt-link :to="`/category/${blog.category ? blog.category.slug : ''}`"
+                                               class="category-btn hvr-bounce-to-right">{{blog.category !== null ?
+                                        blog.category.name: 'Category'}}
+                                    </nuxt-link>
+                                    <div class="post-image">
+                                        <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`"
+                                                                                   alt="News image"/></nuxt-link>
+                                    </div>
                                     <div class="content">
-                                        <h4><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h4>
+                                        <h4>
+                                            <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
+                                        </h4>
                                         <span class="date">
                                         <i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}
                                     </span>
@@ -817,26 +979,27 @@
     </div>
 </template>
 <script>
-    import { getBlogLatest } from '~/apollo/queries/blog';
-    import { query } from '~/apollo/queries/category';
-    import { API_URL } from '~/config/api';
-    import chunk from 'lodash/chunk';
-    export default {
-      async asyncData(context, callback) {
-        try {
-          const client = context.app.apolloProvider.defaultClient;
-          const dataBlogs = await client.query({query: getBlogLatest, variables: { number: 10 }});
-          const dataCategory = await client.query({query: query});
-          callback(null, { blogs: dataBlogs.data.getBlogLatest, categories: dataCategory.data.categories})
-        } catch(error) {
-          callback(null, { blogs: [], categories: [] })
-        }
-      },
-      data() {
-        return {
-          chunk: chunk,
-          apiUrl: API_URL
-        }
-      },
-    }
+  import { getBlogLatest } from '~/apollo/queries/blog'
+  import { query } from '~/apollo/queries/category'
+  import { API_URL } from '~/config/api'
+  import chunk from 'lodash/chunk'
+
+  export default {
+    async asyncData (context, callback) {
+      try {
+        const client = context.app.apolloProvider.defaultClient
+        const dataBlogs = await client.query({query: getBlogLatest, variables: {number: 10}})
+        const dataCategory = await client.query({query: query})
+        callback(null, {blogs: dataBlogs.data.getBlogLatest, categories: dataCategory.data.categories})
+      } catch (error) {
+        callback(null, {blogs: [], categories: []})
+      }
+    },
+    data () {
+      return {
+        chunk: chunk,
+        apiUrl: API_URL
+      }
+    },
+  }
 </script>

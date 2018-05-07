@@ -59,7 +59,7 @@
                                             </span>
                                         <span class="date">
                                             <i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}
-                                            </span>
+                                        </span>
                                         <span class="cat">
                                             <nuxt-link :to="`/category/${blog.category && blog.category.slug ? blog.category.slug : ''}`"><i class="fa fa-folder-o" aria-hidden="true"></i> {{blog.category && blog.category.name ? blog.category.name: 'Category'}} </nuxt-link>
                                         </span>
@@ -125,34 +125,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="author-comment">
-                                <h3 class="title-bg">Recent Comments</h3>
-                                <ul v-if="blog.comments.length>0">
-                                    <li v-for="comment of blog.comments" v-bind:key="comment.id">
-                                        <div class="row">
-                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                                                <div class="image-comments"><img src="/images/single/3.jpg"
-                                                                                 alt="Blog single photo"></div>
-                                            </div>
-                                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                                                <span class="reply"> <span class="date"><i
-                                                        class="fa fa-calendar-check-o" aria-hidden="true"></i> {{comment.created}}</span></span>
-                                                <div class="dsc-comments">
-                                                    <h4>{{comment.name}}</h4>
-                                                    <p>{{comment.comment}}</p>
-                                                    <a href="#"> Reply</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div v-else>
-                                    Empty comments
-                                </div>
-                            </div>
-                            <!--<div>-->
-                            <!--<pagination :length="length" :hasNextPage="comments.hasNextPage" :count="comments.count" :start="comments.start" :changeStartPagination="changeStartPagination"/>-->
-                            <!--</div>-->
+                            <comment-blog :blogId="blog.id" v-if="blog.id"/>
                             <div class="leave-comments-area">
                                 <h4 class="title-bg">Leave Comments</h4>
                                 <form>
@@ -196,8 +169,8 @@
 </template>
 <script>
   import { mapActions } from 'vuex'
-  import Pagination from '~/components/Pagination.vue'
   import ContentRight from '~/components/ContentRight.vue'
+  import CommentBlog from '~/components/CommentBlog.vue'
   import { query, getBlogBySlug } from '~/apollo/queries/blog'
   import { API_URL } from '~/config/api'
 
@@ -209,7 +182,7 @@
         const dataBlog= await client.query({query: getBlogBySlug, variables: {slug : slug}});
         callback(null, {blog: dataBlog.data.blogSlug, error: dataBlog.data.blogSlug === null ? {message: 'Not exist blog'}: {}});
       } catch(error) {
-        callback(null, {blog: {}, error: error});f
+        callback(null, {blog: {}, error: error});
       }
     },
     data () {
@@ -232,14 +205,15 @@
       async clickAddComment (e) {
         const data = {
           input: {...this.comment, blog_id: this.blog.id},
-          slug: this.$route.params.slug
+          length: this.length,
+          start: this.start,
         }
         await this.addComment(data)
         if (!this.errorComment.message) {
           this.comment = {}
         }
         e.preventDefault()
-      }
+      },
     }
     ,
     computed: {
@@ -247,8 +221,8 @@
       errorComment () { return this.$store.state.comment.error},
     },
     components: {
-      Pagination,
-      ContentRight
+      ContentRight,
+      CommentBlog
     }
   }
 </script>
