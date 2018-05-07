@@ -115,7 +115,7 @@
   import { mapActions } from 'vuex'
   import { addContact } from '~/apollo/queries/contact';
   import { getBlogLatest } from '~/apollo/queries/blog.js';
-  import { API_URL } from '~/config/api';
+  import { API_URL } from 'shared/api';
   import ContentRight from '~/components/ContentRight.vue';
 
   const initData = {

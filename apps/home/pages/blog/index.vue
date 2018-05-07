@@ -59,7 +59,7 @@
 <script>
     import { queryPagination } from '~/apollo/queries/blog';
     import chunk from 'lodash/chunk';
-    import { API_URL } from '~/config/api';
+    import { API_URL } from 'shared/api';
     import Pagination from '~/components/Pagination.vue'
     export default {
       data() {

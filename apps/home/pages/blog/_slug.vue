@@ -172,7 +172,7 @@
   import ContentRight from '~/components/ContentRight.vue'
   import CommentBlog from '~/components/CommentBlog.vue'
   import { query, getBlogBySlug } from '~/apollo/queries/blog'
-  import { API_URL } from '~/config/api'
+  import { API_URL } from 'shared/api'
 
   export default {
     async asyncData({ params, app }, callback) {

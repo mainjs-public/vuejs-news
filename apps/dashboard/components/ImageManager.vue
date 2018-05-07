@@ -157,8 +157,8 @@
 
 <script>
   import kebabCase from 'lodash/kebabCase';
-  import request from '~/config/axios';
-  import {API_URL} from '~/config/api';
+  import request from 'shared/axios';
+  import {API_URL} from 'shared/api';
   import {query, deleteFolder, createFolder} from '~/apollo/queries/folder';
   import {query as queryImage, deleteImage} from '~/apollo/queries/image';
 

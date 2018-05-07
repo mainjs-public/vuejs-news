@@ -1,3 +1,4 @@
+const path = require('path');
 module.exports = {
   srcDir: __dirname,
   buildDir: '.nuxt/home',
@@ -6,7 +7,7 @@ module.exports = {
   // Give apollo module options
   apollo: {
     clientConfigs: {
-      default: '~/apollo/client-configs/default.js'
+      default: 'shared/client-configs/default.js'
     }
   },
   head: {
@@ -38,5 +39,11 @@ module.exports = {
     '~static/css/meanmenu.min.css',
     '~static/css/style.css',
     '~static/css/responsive.css'
-  ]
-}
+  ],
+  build: {
+    extend(config, ctx) {
+      const alias = config.resolve.alias = config.resolve.alias || {}
+      alias['shared'] = path.join(__dirname, '../shared')
+    }
+  }
+};

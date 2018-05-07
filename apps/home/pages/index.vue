@@ -981,7 +981,7 @@
 <script>
   import { getBlogLatest } from '~/apollo/queries/blog'
   import { query } from '~/apollo/queries/category'
-  import { API_URL } from '~/config/api'
+  import { API_URL } from 'shared/api'
   import chunk from 'lodash/chunk'
 
   export default {
