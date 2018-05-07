@@ -125,7 +125,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <comment-blog :blogId="blog.id" v-if="blog.id"/>
+                            <comment-blog :blogId="blog.id" :length="length" :start="start" :changeStartPagination="changeStartPagination" v-if="blog.id"/>
                             <div class="leave-comments-area">
                                 <h4 class="title-bg">Leave Comments</h4>
                                 <form>
@@ -187,6 +187,8 @@
     },
     data () {
       return {
+        length: 10,
+        start: 0,
         blogs: [],
         apiUrl: API_URL,
         comment: {},
@@ -206,7 +208,7 @@
         const data = {
           input: {...this.comment, blog_id: this.blog.id},
           length: this.length,
-          start: this.start,
+          start: this.start
         }
         await this.addComment(data)
         if (!this.errorComment.message) {
@@ -214,6 +216,9 @@
         }
         e.preventDefault()
       },
+      changeStartPagination(value) {
+        this.start = value
+      }
     }
     ,
     computed: {

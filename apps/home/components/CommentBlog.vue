@@ -45,12 +45,10 @@
   import { API_URL } from '~/config/api'
 
   export default {
-    props: ['blogId'],
+    props: ['blogId', 'start', 'length', 'changeStartPagination'],
     data () {
       return {
         apiUrl: API_URL,
-        start: 0,
-        length: 10,
         commentPaginationByIdBlog: {
           data: [],
           count: 0,
@@ -72,9 +70,6 @@
       }
     },
     methods: {
-      changeStartPagination(value) {
-        this.start = value
-      }
     }
     ,
     components: {
