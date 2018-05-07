@@ -83,7 +83,7 @@
     import { mapActions} from 'vuex';
     import omit from 'lodash/omit';
     import { countUnReadContactQuery, queryPagination } from '~/apollo/queries/contact';
-    import { FRONT_PAGE } from '~/config/api';
+    import { FRONT_PAGE } from 'shared/api';
 
     export default {
       computed: {

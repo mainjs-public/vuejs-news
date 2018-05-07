@@ -42,7 +42,7 @@
   import { mapActions } from 'vuex'
   import Pagination from './Pagination.vue'
   import { queryPaginationByIdBlog } from '~/apollo/queries/comment'
-  import { API_URL } from '~/config/api'
+  import { API_URL } from 'shared/api'
 
   export default {
     props: ['blogId', 'start', 'length', 'changeStartPagination'],

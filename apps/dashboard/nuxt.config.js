@@ -1,5 +1,6 @@
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const path = require('path');
 module.exports = {
   srcDir: __dirname,
   buildDir: '.nuxt/dashboard',
@@ -9,7 +10,7 @@ module.exports = {
   // Give apollo module options
   apollo: {
     clientConfigs: {
-      default: '~/apollo/client-configs/default.js'
+      default: 'shared/client-configs/default.js'
     }
   },
   plugins: [
@@ -83,5 +84,11 @@ module.exports = {
       saveUninitialized: false,
       cookie: { maxAge: 60000 }
     }),
-  ]
-}
+  ],
+  build: {
+    extend(config, ctx) {
+      const alias = config.resolve.alias = config.resolve.alias || {}
+      alias['shared'] = path.join(__dirname, '../shared')
+    }
+  }
+};

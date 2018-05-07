@@ -126,7 +126,7 @@
 </template>
 <script>
   import orderBy from 'lodash/orderBy';
-  import { API_URL } from '~/config/api';
+  import { API_URL } from 'shared/api';
   export default {
     computed: {
       categories () { return this.$store.state.categories},

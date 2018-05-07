@@ -37,7 +37,7 @@
 </template>
 
 <script>
-  import { API_URL } from '~/config/api';
+  import { API_URL } from 'shared/api';
   export default {
     props: ['categories', 'deleteClick', 'pagination'],
     data() {
