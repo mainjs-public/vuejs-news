@@ -39,7 +39,7 @@
 <script>
   import { API_URL } from 'shared/api';
   export default {
-    props: ['categories', 'deleteClick', 'pagination'],
+    props: ['categories', 'deleteClick'],
     data() {
       return {
         apiUrl: API_URL

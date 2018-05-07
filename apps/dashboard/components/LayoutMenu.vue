@@ -29,6 +29,7 @@
                         <li><nuxt-link to="/catalog/blog"><i class="fa fa-circle-o"></i> Blog</nuxt-link></li>
                     </ul>
                 </li>
+                <li><nuxt-link to="/user"><i class="fa fa-user"></i> <span>Users</span></nuxt-link></li>
                 <li class="active treeview">
                     <nuxt-link to="#">
                         <i class="fa fa-cogs"></i>
