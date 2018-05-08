@@ -5,8 +5,7 @@
             <tr>
                 <th>Username</th>
                 <th>Email</th>
-                <th>Type</th>
-                <th>Created</th>
+                <th>Role</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -17,10 +16,9 @@
             <tr v-else v-for="user of users" v-bind:key="users.id">
                 <td>{{user.name}}</td>
                 <td>{{user.email}}</td>
-                <td>{{user.type}}</td>
-                <td>{{user.created}}</td>
+                <td>{{user.role}}</td>
                 <td>
-                    <nuxt-link :to="`/catalog/category/edit?id=${user.id}`" class="btn btn-primary btn-xs" style="margin-right: 10px">Edit</nuxt-link>
+                    <nuxt-link :to="`/user/edit?id=${user.id}`" class="btn btn-primary btn-xs" style="margin-right: 10px">Edit</nuxt-link>
                     <button class="btn btn-danger btn-xs" @click="deleteClick($event, user.id)">Delete</button>
                 </td>
             </tr>

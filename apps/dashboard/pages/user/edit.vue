@@ -1,58 +1,64 @@
 <template>
-    <div v-if="!loading">
-        <form-category :data="data" :onClick="onclick" v-if="!error_data.message"/>
+    <div>
+        <form-user :data="data" :onClick="onclick" v-if="!error_data.message"/>
         <div v-else>
             <span>
-                Error get data of category
+                Error get data of user
             </span>
         </div>
-    </div>
-    <div v-else>
-        ...loading
     </div>
 </template>
 
 <script>
   import { mapActions } from 'vuex';
-  import { getCategory } from '~/apollo/queries/category';
-  import FormCategory from '~/components/FormCategory.vue';
+  import FormUser from '~/components/FormUser.vue';
   import omit from 'lodash/omit';
   export default {
     data() {
       return {
-        data: {},
+        data: {
+          role: "Admin"
+        },
         loading: true,
         error_data: {}
       }
     },
     async mounted() {
-      // try {
-      //   if(this.$router.app._route.query.id) {
-      //     const categoryId = this.$router.app._route.query.id;
-      //     const client = this.$apollo.getClient();
-      //     const data =  await client.query({ query: getCategory , variables: {categoryId: categoryId}});
-      //     const category = data.data.category;
-      //     this.data = omit(category, ['__typename']);
-      //   } else {
-      //     this.data = {...initData};
-      //   }
-      //   this.loading = false;
-      // } catch (error) {
-      //   this.loading = false;
-      //   this.error_data = error;
-      // }
+      try {
+        if(this.$router.app._route.query.id) {
+          const userId = this.$router.app._route.query.id;
+          // const client = this.$apollo.getClient();
+          // const data =  await client.query({ query: getCategory , variables: {categoryId: categoryId}});
+          // const category = data.data.category;
+          this.data = {
+            ...this.data,
+            id: userId
+          };
+        }
+        this.loading = false;
+      } catch (error) {
+        this.loading = false;
+        this.error_data = error;
+      }
     },
     methods: {
       ...mapActions({
-        editCategory: 'category/editCategory'
+        addUser: 'user/addUser',
+        editUser: 'user/editUser',
       }),
+      checkPassword() {
+        if (data.password && data.confirm_password && data.password === data.confirm_password) {
+          return true;
+        }
+        return false
+      },
       onclick(e) {
-        this.editCategory(this.data);
+        this.editUser(this.data);
         e.preventDefault();
       },
     },
     components: {
-      FormCategory
+      FormUser
     },
     middleware: 'authenticated'
   }
