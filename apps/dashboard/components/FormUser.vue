@@ -34,17 +34,17 @@
                             <form class="form-horizontal">
                                 <div class="box-body">
                                     <div class="form-group">
+                                        <label class="col-sm-2 control-label">Email</label>
+
+                                        <div class="col-sm-10">
+                                            <input v-model="data.email" type="text" class="form-control" placeholder="Email" :disabled="data.id ? true: false"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-sm-2 control-label">Name</label>
 
                                         <div class="col-sm-10">
                                             <input v-model="data.name" type="text" class="form-control" placeholder="Name"/>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label">Email</label>
-
-                                        <div class="col-sm-10">
-                                            <input v-model="data.email" type="text" class="form-control" placeholder="Email"/>
                                         </div>
                                     </div>
                                     <div class="form-group">

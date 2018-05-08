@@ -43,15 +43,8 @@
     },
     methods: {
       ...mapActions({
-        addUser: 'user/addUser',
         editUser: 'user/editUser',
       }),
-      checkPassword() {
-        if (data.password && data.confirm_password && data.password === data.confirm_password) {
-          return true;
-        }
-        return false
-      },
       onclick(e) {
         this.editUser(this.data);
         e.preventDefault();
