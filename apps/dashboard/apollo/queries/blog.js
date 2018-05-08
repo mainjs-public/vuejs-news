@@ -32,7 +32,8 @@ export const queryPagination = gql`
           id,
           name
         },
-        image
+        image,
+        state,
       },
       length,
       start,
@@ -52,7 +53,8 @@ export const getBlog = gql`
       description,
       content,
       tags,
-      category_id
+      category_id,
+      state
     }
   }
 `;

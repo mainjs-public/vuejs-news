@@ -19,7 +19,11 @@
                             <div class="box-header with-border">
                                 <h3 class="box-title">{{data.id ? "Edit blog" : "Add blog"}}</h3>
                                 <div class="pull-right">
-                                    <nuxt-link class="btn btn-default" style="margin-right: 10px" to="/catalog/blog">Back</nuxt-link>
+                                    <button type="submit" class="btn btn-default" @click="onClick($event)" v-if="data.id && data.state === 'Waiting for Approval'">
+                                        <i class="fa fa-circle-o-notch fa-spin" v-if="loading"></i>
+                                        Save Draft
+                                    </button>
+                                    <nuxt-link class="btn btn-default" style="margin-left: 10px; margin-right: 10px" to="/catalog/blog">Back</nuxt-link>
                                     <button type="submit" class="btn btn-info" @click="onClick($event)">
                                         <i class="fa fa-circle-o-notch fa-spin" v-if="loading"></i>
                                         Save

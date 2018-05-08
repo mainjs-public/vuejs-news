@@ -34,6 +34,7 @@ export const signInMutate = gql`
         id,
         name,
         email,
+        role,
       },
       token
     }

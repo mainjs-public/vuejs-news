@@ -25,7 +25,7 @@
     content: '',
     tags: [],
     status: true,
-    category_id: ''
+    category_id: '',
   };
   export default {
     data() {
@@ -42,14 +42,23 @@
           const client = this.$apollo.getClient();
           const data =  await client.query({ query: getBlog , variables: {blogId: blogId}});
           const blog = data.data.blog;
-          this.data = omit(blog, ['__typename']);
+          const blogInfo = omit(blog, ['__typename']);
+          this.data = {
+            ...blogInfo,
+          };
         } else {
-          this.data = {...initData};
+          this.data = {...initData, state: this.state};
         }
         this.loading = false;
       } catch (error) {
         this.loading = false;
         this.error_data = error;
+      }
+    },
+    computed: {
+      state () {
+        const auth = this.$store.state.auth;
+        return auth !== null && auth.user && auth.user.role && (auth.user.role === 'Admin' || auth.user.role === 'Editer') ? "Draft" : "Waiting for Approval";
       }
     },
     methods: {
