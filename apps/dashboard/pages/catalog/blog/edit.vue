@@ -1,6 +1,6 @@
 <template>
     <div v-if="!loading">
-        <form-blog :data="data" :onClick="onclick" v-if="!error_data.message"/>
+        <form-blog :data="data" :draftClick="draftclick" :onClick="onclick" v-if="!error_data.message"/>
         <div v-else>
             <span>
                 Error get data of blog
@@ -30,6 +30,7 @@
   export default {
     data() {
       return {
+        tgData: {},
         data: {},
         loading: true,
         error_data: {}
@@ -46,6 +47,9 @@
           this.data = {
             ...blogInfo,
           };
+          this.tgData = {
+            ...blogInfo
+          }
         } else {
           this.data = {...initData, state: this.state};
         }
@@ -67,6 +71,10 @@
       }),
       onclick(e) {
         this.editBlog(this.data);
+        e.preventDefault();
+      },
+      draftclick(e) {
+        this.editBlog({...this.tgData, state: 'Draft'});
         e.preventDefault();
       },
     },

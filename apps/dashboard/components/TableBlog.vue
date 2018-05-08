@@ -19,7 +19,9 @@
             <td>{{blog.slug}}</td>
             <td>{{blog.created}}</td>
             <td>{{blog.updated}}</td>
-            <td>{{blog.state}}</td>
+            <td>
+                <span :class="{label: true, 'label-success': blog.state === 'Published','label-danger': blog.state === 'Waiting for Approval', 'label-warning': blog.state ==='Draft'}">{{blog.state}}</span>
+            </td>
             <td>
                 <span v-if="blog.status" class="label label-success">Enable</span>
                 <span v-else class="label label-danger">Disable</span></td>

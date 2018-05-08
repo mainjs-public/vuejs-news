@@ -19,13 +19,13 @@
                             <div class="box-header with-border">
                                 <h3 class="box-title">{{data.id ? "Edit blog" : "Add blog"}}</h3>
                                 <div class="pull-right">
-                                    <button type="submit" class="btn btn-default" @click="onClick($event)" v-if="data.id && data.state === 'Waiting for Approval'">
-                                        <i class="fa fa-circle-o-notch fa-spin" v-if="loading"></i>
+                                    <button type="submit" class="btn btn-default" @click="clickButton($event, 1)" v-if="data.id && data.state === 'Waiting for Approval'">
+                                        <i class="fa fa-circle-o-notch fa-spin" v-if="loading&&valueButton===1"></i>
                                         Save Draft
                                     </button>
                                     <nuxt-link class="btn btn-default" style="margin-left: 10px; margin-right: 10px" to="/catalog/blog">Back</nuxt-link>
-                                    <button type="submit" class="btn btn-info" @click="onClick($event)">
-                                        <i class="fa fa-circle-o-notch fa-spin" v-if="loading"></i>
+                                    <button type="submit" class="btn btn-info" @click="clickButton($event,2)">
+                                        <i class="fa fa-circle-o-notch fa-spin" v-if="loading&&valueButton===2"></i>
                                         Save
                                     </button>
                                 </div>
@@ -116,9 +116,10 @@
   import ImageManager from './ImageManager.vue';
   import SwitchBotton from './SwitchBotton.vue';
   export default {
-    props: ['data', 'onClick'],
+    props: ['data', 'onClick', 'draftClick'],
     data() {
       return {
+        valueButton: 1,
         editorOption: {
           modules: {
             toolbar: [
@@ -163,6 +164,14 @@
       },
       changeStatus(value){
         this.data.status = value;
+      },
+      clickButton(event, value) {
+        this.valueButton === value;
+        if (value === 2) {
+          this.onClick(event);
+        } else {
+          this.draftClick(event);
+        }
       }
     }
   }
