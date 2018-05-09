@@ -15,44 +15,153 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">MAIN NAVIGATION</li>
-                <li><nuxt-link to="/"><i class="fa fa-dashboard"></i> <span>Dashboard</span></nuxt-link></li>
-                <li class="active treeview">
-                    <nuxt-link to="/catalog/category">
-                        <i class="fa fa-reorder"></i>
-                        <span>Catalog</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </nuxt-link>
-                    <ul class="treeview-menu">
-                        <li><nuxt-link to="/catalog/category"><i class="fa fa-circle-o"></i> Category</nuxt-link></li>
-                        <li><nuxt-link to="/catalog/blog"><i class="fa fa-circle-o"></i> Blog</nuxt-link></li>
+                <li :class="{ active: listmenu.submenu, treeview: listmenu.submenu}" v-for="listmenu of menu" v-bind:key="listmenu.id">
+                   <nuxt-link :to="listmenu.link">
+                       <i :class="`fa ${listmenu.icon}`"/>
+                       <span>{{listmenu.name}}</span>
+                       <span class="pull-right-container" v-if="listmenu.submenu">
+                           <i class="fa fa-angle-left pull-right"></i>
+                       </span>
+                   </nuxt-link>
+                    <ul class="treeview-menu" v-if="listmenu.submenu">
+                        <li v-for="submenu of listmenu.submenu" v-bind:key="submenu.id">
+                            <nuxt-link :to="submenu.link"><i class="fa fa-circle-o"></i> {{submenu.name}}</nuxt-link>
+                        </li>
                     </ul>
                 </li>
-                <li><nuxt-link to="/user"><i class="fa fa-user"></i> <span>Users</span></nuxt-link></li>
-                <li class="active treeview">
-                    <nuxt-link to="#">
-                        <i class="fa fa-cogs"></i>
-                        <span>Modules</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </nuxt-link>
-                    <ul class="treeview-menu">
-                        <li><nuxt-link to="/modules/megamenu"><i class="fa fa-circle-o"></i> Megamenu</nuxt-link></li>
-                    </ul>
-                </li>
-                <li><nuxt-link to="/setting"><i class="fa fa-gear"></i> <span>Setting</span></nuxt-link></li>
-                <li><nuxt-link to="/contact"><i class="fa fa-envelope-o"></i> <span>Contact</span></nuxt-link></li>
             </ul>
         </section>
         <!-- /.sidebar -->
     </aside>
 </template>
 <script>
+  const arrayMenu = {
+    admin: [
+      {
+        id: '1',
+        name: 'Dashboard',
+        icon: 'fa-dashboard',
+        link: '/'
+      },
+      {
+        id: '2',
+        name: 'Catalog',
+        icon: 'fa-reorder',
+        link: '/catalog/category',
+        submenu: [
+          {
+            id: '1',
+            name: 'Category',
+            link: '/catalog/category',
+          },
+          {
+            id: '2',
+            name: 'Blog',
+            link: '/catalog/blog',
+          },
+        ]
+      },
+      {
+        id: '4',
+        name: 'User',
+        icon: 'fa-user',
+        link: '/user'
+      },
+      {
+        id: '3',
+        name: 'Modules',
+        icon: 'fa-cogs',
+        link: '/modules/megamenu',
+        submenu: [
+          {
+            id: '1',
+            name: 'Megamenu',
+            link: '/modules/megamenu',
+          },
+        ]
+      },
+      {
+        id: '4',
+        name: 'Setting',
+        icon: 'fa-gear',
+        link: '/setting'
+      },
+      {
+        id: '5',
+        name: 'Contact',
+        icon: 'fa-envelope-o',
+        link: '/contact'
+      },
+    ],
+    editor: [
+      {
+        id: '1',
+        name: 'Dashboard',
+        icon: 'fa-dashboard',
+        link: '/'
+      },
+      {
+        id: '2',
+        name: 'Catalog',
+        icon: 'fa-reorder',
+        link: '/catalog/category',
+        submenu: [
+          {
+            id: '1',
+            name: 'Category',
+            link: '/catalog/category',
+          },
+          {
+            id: '2',
+            name: 'Blog',
+            link: '/catalog/blog',
+          },
+        ]
+      },
+    ],
+    contributor: [
+      {
+        id: '1',
+        name: 'Dashboard',
+        icon: 'fa-dashboard',
+        link: '/'
+      },
+      {
+        id: '2',
+        name: 'Catalog',
+        icon: 'fa-reorder',
+        link: '/catalog/category',
+        submenu: [
+          {
+            id: '1',
+            name: 'Category',
+            link: '/catalog/category',
+          },
+          {
+            id: '2',
+            name: 'Blog',
+            link: '/catalog/blog',
+          },
+        ]
+      },
+    ]
+  };
   export default {
     computed: {
       authUser () { return this.$store.state.auth },
+      menu () {
+        const auth = this.$store.state.auth;
+        if (auth !== null && auth.user && auth.user.role ) {
+          switch(auth.user.role) {
+            case 'Admin': return arrayMenu.admin;
+            case 'Editor': return arrayMenu.editor;
+            case 'Contributor': return arrayMenu.contributor;
+          }
+        } else {
+          return arrayMenu.contributor
+        }
+
+      }
     },
   }
 </script>
