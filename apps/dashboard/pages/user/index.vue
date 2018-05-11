@@ -59,6 +59,7 @@
     },
     components: {
       TableUser
-    }
+    },
+    middleware: 'authenticated'
   }
 </script>
