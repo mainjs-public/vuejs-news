@@ -62,13 +62,13 @@
         ]
       },
       {
-        id: '4',
+        id: '3',
         name: 'User',
         icon: 'fa-user',
         link: '/user'
       },
       {
-        id: '3',
+        id: '4',
         name: 'Modules',
         icon: 'fa-cogs',
         link: '/modules/megamenu',
@@ -81,13 +81,13 @@
         ]
       },
       {
-        id: '4',
+        id: '5',
         name: 'Setting',
         icon: 'fa-gear',
         link: '/setting'
       },
       {
-        id: '5',
+        id: '6',
         name: 'Contact',
         icon: 'fa-envelope-o',
         link: '/contact'

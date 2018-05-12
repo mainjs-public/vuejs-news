@@ -5,8 +5,8 @@
                 {{ data.id ? "Edit" : "Add"}}
             </h1>
             <ol class="breadcrumb">
-                <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="/user">User</a></li>
+                <li><nuxt-link to="/"><i class="fa fa-dashboard"></i> Home</nuxt-link></li>
+                <li><nuxt-link to="/user">User</nuxt-link></li>
                 <li class="active">{{data.id ? "Edit" : "Add"}}</li>
             </ol>
         </section>

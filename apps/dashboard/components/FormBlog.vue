@@ -2,12 +2,12 @@
     <div>
         <section class="content-header">
             <h1>
-                {{ data.id ? "Edit" : "Add"}}
+                {{ data.id ? "Edit" : "Add"}} {{valueButton}}
             </h1>
             <ol class="breadcrumb">
-                <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="/catalog/category">Catalog</a></li>
-                <li><a href="/catalog/blog">Blog</a></li>
+                <li><nuxt-link to="/"><i class="fa fa-dashboard"></i> Home</nuxt-link></li>
+                <li><nuxt-link to="/catalog/category">Catalog</nuxt-link></li>
+                <li><nuxt-link to="/catalog/blog">Blog</nuxt-link></li>
                 <li class="active">{{data.id ? "Edit" : "Add"}}</li>
             </ol>
         </section>
@@ -19,7 +19,7 @@
                             <div class="box-header with-border">
                                 <h3 class="box-title">{{data.id ? "Edit blog" : "Add blog"}}</h3>
                                 <div class="pull-right">
-                                    <button type="submit" class="btn btn-default" @click="clickButton($event, 1)" v-if="data.id && data.state === 'Waiting for Approval'">
+                                    <button type="submit" class="btn btn-default" @click="clickButton($event, 1)" v-if="data.state !== 'Draft' && data.state !== 'Published'">
                                         <i class="fa fa-circle-o-notch fa-spin" v-if="loading&&valueButton===1"></i>
                                         Save Draft
                                     </button>
@@ -166,7 +166,7 @@
         this.data.status = value;
       },
       clickButton(event, value) {
-        this.valueButton === value;
+        this.valueButton = value;
         if (value === 2) {
           this.onClick(event);
         } else {
