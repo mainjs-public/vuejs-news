@@ -62,7 +62,7 @@
     computed: {
       state () {
         const auth = this.$store.state.auth;
-        return auth !== null && auth.user && auth.user.role && (auth.user.role === 'Admin' || auth.user.role === 'Editer') ? "Draft" : "Waiting for Approval";
+        return auth !== null && auth.user && auth.user.role && (auth.user.role === 'Admin' || auth.user.role === 'Editer') ? "Approval" : "Waiting for Approval";
       }
     },
     methods: {
