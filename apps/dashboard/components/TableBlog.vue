@@ -7,6 +7,7 @@
             <th>Slug</th>
             <th>Created</th>
             <th>Updated</th>
+            <th>State</th>
             <th>Status</th>
             <th>Actions</th>
         </tr>
@@ -19,6 +20,9 @@
             <td>{{blog.created}}</td>
             <td>{{blog.updated}}</td>
             <td>
+                <span :class="{label: true, 'label-success': blog.state === 'Published','label-danger': blog.state === 'Waiting for Approval', 'label-warning': blog.state ==='Draft'}">{{blog.state}}</span>
+            </td>
+            <td>
                 <span v-if="blog.status" class="label label-success">Enable</span>
                 <span v-else class="label label-danger">Disable</span></td>
             <td>
@@ -28,6 +32,11 @@
                 </button>
             </td>
         </tr>
+        </tbody>
+        <tbody v-else>
+            <tr>
+                <td colspan="8" style="text-align: center">Empty blogs</td>
+            </tr>
         </tbody>
     </table>
 </template>

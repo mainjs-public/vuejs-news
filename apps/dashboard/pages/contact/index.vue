@@ -76,7 +76,7 @@
         e.preventDefault();
       },
       readContactClick(data) {
-        this.readContact(omit(data, ['__typename']));
+        this.readContact(omit(data, ['__typename', 'created']));
       },
       changeLengthPanination(value) {
         this.length = value;

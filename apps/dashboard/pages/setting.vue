@@ -258,10 +258,8 @@
       }).then(({ data }) => data.settingByKey)
         .then((data) => {
           if (data === null) {
-            console.log('run null')
             this.data = {...dataInit};
           } else {
-            console.log('run not null')
             const setting = data.json ? JSON.parse(data.value) : data.value;
             this.data = {...dataInit, ...setting};
           }

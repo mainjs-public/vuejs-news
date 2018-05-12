@@ -748,177 +748,15 @@
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div id="news-Carousel" class="carousel carousel-news slide" data-ride="carousel">
-                                    <!-- Wrapper for slides -->
-                                    <!-- Left and right controls -->
-                                    <div class="next-prev-top">
-                                        <div class="row">
-                                            <div class="col-sm-9 col-xs-9">
-                                                <div class="view-area">
-                                                    <h3 class="title-bg">Health & LIFESTYLE</h3>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3 next-prev col-xs-3">
-                                                <a class="left news-control" href="#news-Carousel" data-slide="prev">
-                                            <span class="news-arrow-left"><i class="fa fa-angle-left"
-                                                                             aria-hidden="true"></i></span>
-                                                </a>
-                                                <a class="right news-control" href="#news-Carousel" data-slide="next">
-                                            <span class="news-arrow-right"><i class="fa fa-angle-right"
-                                                                              aria-hidden="true"></i></span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-inner">
-                                        <div class="item" v-for="(blog, index) in blogs" v-bind:key="blog.id"
-                                             v-bind:class="index===0? 'active': ''">
-                                            <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`"
-                                                                                       alt=""
-                                                                                       title="#slider-direction-1"
-                                                                                       style="width: 100%"/></nuxt-link>
-                                            <div class="dsc">
-                                                <span class="date">
-                                                    <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                                                    {{blog.created}}
-                                                </span>
-                                                <span class="comment">
-                                                    <nuxt-link to="#"> <i class="fa fa-comment-o"
-                                                                          aria-hidden="true"></i> {{blog.comments.length}}
-                                                    </nuxt-link>
-                                                </span>
-                                                <h4>
-                                                    <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
-                                                </h4>
-                                                <p>{{blog.description}}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <slug-blog-home title="Health & Lifestyle" :blogs="dataHealth"/>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div id="news-Carousel2" class="carousel carousel-news slide" data-ride="carousel">
-                                    <!-- Wrapper for slides -->
-                                    <!-- Left and right controls -->
-                                    <div class="next-prev-top">
-                                        <div class="row">
-                                            <div class="col-sm-9 col-xs-9">
-                                                <div class="view-area">
-                                                    <h3 class="title-bg">Politics</h3>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-sm-3 col-xs-3 next-prev">
-                                                <a class="left news-control" href="#news-Carousel2" data-slide="prev">
-                                            <span class="news-arrow-left"><i class="fa fa-angle-left"
-                                                                             aria-hidden="true"></i></span>
-                                                </a>
-                                                <a class="right news-control" href="#news-Carousel2" data-slide="next">
-                                            <span class="news-arrow-right"><i class="fa fa-angle-right"
-                                                                              aria-hidden="true"></i></span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-inner">
-                                        <div class="item" v-for="(blog, index) in blogs" v-bind:key="blog.id"
-                                             v-bind:class="index===0? 'active': ''">
-                                            <nuxt-link :to="`/blog/${blog.slug}`"><img :src="`${apiUrl}${blog.image}`"
-                                                                                       alt=""
-                                                                                       title="#slider-direction-1"
-                                                                                       style="width: 100%;"/>
-                                            </nuxt-link>
-                                            <div class="dsc">
-                                                <span class="date">
-                                                    <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                                                    {{blog.created}}
-                                                </span>
-                                                <span class="comment">
-                                                    <nuxt-link to="#"> <i class="fa fa-comment-o"
-                                                                          aria-hidden="true"></i> {{blog.comments.length}}
-                                                    </nuxt-link>
-                                                </span>
-                                                <h4>
-                                                    <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
-                                                </h4>
-                                                <p>{{blog.description}}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <slug-blog-home title="Politics" :blogs="dataPilitic"/>
                             </div>
                         </div>
                         <!--End Two Slider -->
                         <!--Around Area Start Here -->
-                        <div class="view-area separator-large3">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <h3 class="title-bg">Around the world</h3>
-                                </div>
-                                <div class="col-sm-4 text-right">
-                                    <nuxt-link to="/blog">View More <i class="fa fa-angle-double-right"
-                                                                       aria-hidden="true"></i></nuxt-link>
-                                </div>
-                            </div>
-                        </div>
-                        <ul class="news-post news-post2 around-news">
-                            <li>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 content"
-                                         v-for="(blog, index) in blogs" v-bind:key="blog.id" v-if="index<2">
-                                        <div class="item-post">
-
-                                            <div class="blog-image">
-                                                <nuxt-link :to="`/blog/${blog.slug}`"><img
-                                                        :src="`${apiUrl}${blog.image}`" alt="" title="News image"
-                                                        style="width: 100%"/></nuxt-link>
-                                            </div>
-                                            <div class="content">
-                                           <span class="date">
-                                                <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                                                {{blog.created}}
-                                            </span>
-                                                <span class="comment">
-                                                <nuxt-link to="#"> <i class="fa fa-comment-o" aria-hidden="true"></i> {{blog.comments.length}}
-                                                </nuxt-link>
-                                            </span>
-                                                <h4>
-                                                    <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
-                                                </h4>
-                                                <p>{{blog.description}}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul class="news-post news-post2 related">
-                            <li v-for="(rowBlog, index) in chunk(blogs, 2)" v-bind:key="index" v-if="index < 2">
-                                <div class="row">
-                                    <div v-for="blog of rowBlog" v-bind:key="blog.id"
-                                         class="col-lg-6 col-md-6 col-sm-12 col-xs-12 content">
-                                        <div class="item-post">
-                                            <div class="row">
-                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3 paddimg-right-none">
-                                                    <nuxt-link :to="`/blog/${blog.slug}`"><img
-                                                            :src="`${apiUrl}${blog.image}`" alt="" title="News image"/>
-                                                    </nuxt-link>
-                                                </div>
-                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-9">
-                                                    <h4>
-                                                        <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
-                                                    </h4>
-                                                    <span class="date">
-                                                <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                                                {{blog.created}}
-                                                </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                        <slug-blog-home-2 :blogs="dataWorld"/>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 paddimg-left-none">
                         <h3 class="title-bg featured-title">Featured News</h3>
@@ -979,8 +817,10 @@
     </div>
 </template>
 <script>
+  import SlugBlogHome from '~/components/SlugBlogHome.vue'
+  import SlugBlogHome2 from '~/components/SlugBlogHome2.vue'
   import { getBlogLatest } from '~/apollo/queries/blog'
-  import { query } from '~/apollo/queries/category'
+  import { query, getCategory } from '~/apollo/queries/category'
   import { API_URL } from 'shared/api'
   import chunk from 'lodash/chunk'
 
@@ -990,9 +830,18 @@
         const client = context.app.apolloProvider.defaultClient
         const dataBlogs = await client.query({query: getBlogLatest, variables: {number: 10}})
         const dataCategory = await client.query({query: query})
-        callback(null, {blogs: dataBlogs.data.getBlogLatest, categories: dataCategory.data.categories})
+        const dataHealth = await client.query({query: getCategory, variables: {slug : 'health-lifestyle', start: 0, length: 4}});
+        const dataPilitic = await client.query({query: getCategory, variables: {slug : 'politics', start: 0, length: 4}});
+        const dataWorld = await client.query({query: getCategory, variables: {slug : 'around-the-world', start: 0, length: 6}});
+        callback(null, {
+          blogs: dataBlogs.data.getBlogLatest,
+          categories: dataCategory.data.categories,
+          dataHealth: dataHealth.data.categorySlug.data,
+          dataPilitic: dataPilitic.data.categorySlug.data,
+          dataWorld: dataWorld.data.categorySlug.data,
+        })
       } catch (error) {
-        callback(null, {blogs: [], categories: []})
+        callback(null, {blogs: [], categories: [], dataHealth: [], dataPilitic: [], dataWorld: []})
       }
     },
     data () {
@@ -1001,5 +850,9 @@
         apiUrl: API_URL
       }
     },
+    components: {
+      SlugBlogHome,
+      SlugBlogHome2
+    }
   }
 </script>
