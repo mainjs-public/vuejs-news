@@ -68,7 +68,7 @@
                                         <ul class="share-link">
                                             <li class="hvr-bounce-to-right"><a href="#"> Tags:</a></li>
                                             <li class="hvr-bounce-to-right" v-for="tag of blog.tags" v-bind:key="tag">
-                                                <nuxt-link to="#"> {{tag}}</nuxt-link>
+                                                <nuxt-link :to="`/tags/${kebabCase(tag)}`"> {{tag}}</nuxt-link>
                                             </li>
                                         </ul>
                                     </div>
@@ -169,6 +169,7 @@
 </template>
 <script>
   import { mapActions } from 'vuex'
+  import kebabCase from 'lodash/kebabCase'
   import ContentRight from '~/components/ContentRight.vue'
   import CommentBlog from '~/components/CommentBlog.vue'
   import { query, getBlogBySlug } from '~/apollo/queries/blog'
@@ -192,6 +193,7 @@
         blogs: [],
         apiUrl: API_URL,
         comment: {},
+        kebabCase: kebabCase,
       }
     },
     apollo: {

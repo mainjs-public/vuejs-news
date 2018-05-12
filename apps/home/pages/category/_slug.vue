@@ -110,7 +110,7 @@
     data() {
       return {
         start: 0,
-        length: 3,
+        length: 10,
         categorySlug: {
           category: {},
           data: [],
