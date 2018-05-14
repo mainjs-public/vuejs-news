@@ -18,7 +18,7 @@
                                 <div v-for="(blogsShow, index) in data" v-bind:key="index" :class="{item:true, active: index === 0}">
                                     <div id="top-news-slider" class="owl-carousel owl-loaded owl-drag">
                                         <div class="owl-stage">
-                                            <div class="owl-item col-sm-4" v-for="blog of blogsShow" v-bind:key="blog.id">
+                                            <div class="owl-item col-sm-4" style="margin: 0px; padding: 0px" v-for="blog of blogsShow" v-bind:key="blog.id">
                                                 <div class="item">
                                                     <nuxt-link :to="`/blog/${blog.slug}`">
                                                         <img :src="`${apiUrl}${blog.image}`"/>
