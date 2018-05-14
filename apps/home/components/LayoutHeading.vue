@@ -80,7 +80,7 @@
                   <a href="#search-mobile" data-toggle="collapse" class="search-icon"><i class="fa fa-search"
                                                                                          aria-hidden="true"></i></a>
                   <div id="search-mobile" class="collapse search-box">
-                    <input type="text" class="form-control" placeholder="Search...">
+                    <input type="text" v-model="search" class="form-control" placeholder="Search...">
                   </div>
                 </div>
               </div>
@@ -112,10 +112,9 @@
               </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-hidden col-xs-hidden text-right search hidden-mobile">
-              <a href="#search" data-toggle="collapse" class="search-icon"><i class="fa fa-search"
-                                                                              aria-hidden="true"></i></a>
+              <a href="#search" @click="clickSearch()" data-toggle="collapse" class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></a>
               <div id="search" class="collapse search-box">
-                <input type="text" class="form-control" placeholder="Search...">
+                <input type="text" v-model="search" class="form-control" placeholder="Search...">
               </div>
             </div>
           </div>
@@ -128,6 +127,11 @@
   import orderBy from 'lodash/orderBy';
   import { API_URL } from 'shared/api';
   export default {
+    data() {
+      return {
+        search: ''
+      }
+    },
     computed: {
       categories () { return this.$store.state.categories},
       megamenuList () { return this.$store.state.megamenu},
@@ -135,5 +139,14 @@
       orderBy () { return orderBy},
       apiUrl () { return API_URL},
     },
+    methods: {
+      clickSearch(e) {
+        if (this.search !== '') {
+          const key = this.search;
+          this.search = '';
+          this.$router.push(`/search?word=${key}`);
+        }
+      }
+    }
   }
 </script>
