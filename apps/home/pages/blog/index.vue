@@ -65,7 +65,7 @@
       data() {
         return {
           start: 0,
-          length: 1,
+          length: 10,
           blogPagination: {
             data: [],
             count: 0,
