@@ -154,7 +154,7 @@
         if (auth !== null && auth.user && auth.user.role ) {
           switch(auth.user.role) {
             case 'Admin': return arrayMenu.admin;
-            case 'Editor': return arrayMenu.editor;
+            case 'Editer': return arrayMenu.editor;
             case 'Contributor': return arrayMenu.contributor;
           }
         } else {

@@ -29,9 +29,9 @@
                 <div class="item" v-for="(blog, index) in blogs" v-bind:key="blog.id" v-bind:class="index===0? 'active': ''" v-if="blogs">
                     <nuxt-link :to="`/blog/${blog.slug}`">
                         <img :src="`${apiUrl}${blog.image}`"
-                           alt=""
-                           title="#slider-direction-1"
-                           style="width: 100%;"
+                             alt=""
+                             title="#slider-direction-1"
+                             style="width: 100%;"
                         />
                     </nuxt-link>
                     <div class="dsc">
@@ -58,15 +58,15 @@
     </div>
 </template>
 <script>
-    import { API_URL } from 'shared/api'
-    import { getCategory } from '~/apollo/queries/category'
-    export default {
-      props: ['title', 'blogs'],
-      data() {
-        return {
-          apiUrl: API_URL,
-          value: this.title === 'Health & Lifestyle'? 1 : 2,
-        }
+  import { API_URL } from 'shared/api'
+  import { getCategory } from '~/apollo/queries/category'
+  export default {
+    props: ['title', 'blogs'],
+    data() {
+      return {
+        apiUrl: API_URL,
+        value: this.title === 'Health & Lifestyle'? 1 : 2,
       }
     }
+  }
 </script>

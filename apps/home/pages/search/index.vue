@@ -1,11 +1,11 @@
 <template>
-    <div v-if="categorySlug === null">
-        Fail slug
+    <div v-if="error !== ''">
+        {{error}}
     </div>
     <div v-else>
         <div class="inner-page-header">
             <div class="banner">
-                <img :src="`${apiUrl}${categorySlug.category.image}`" alt="Banner" style="width: 100%; max-height: 401px">
+                <img src="/images/banner/3.jpg" alt="Banner" style="width: 100%; max-height: 401px">
             </div>
             <div class="banner-text">
                 <div class="container">
@@ -13,14 +13,16 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="header-page-locator">
                                 <ul>
-                                    <li><nuxt-link to="/">Home <i class="fa fa-compress" aria-hidden="true"></i> </nuxt-link> Category</li>
+                                    <li>
+                                        <nuxt-link to="/">Home <i class="fa fa-compress" aria-hidden="true"></i></nuxt-link> Search
+                                    </li>
                                 </ul>
                             </div>
                             <div class="header-page-title">
-                                <h1>{{categorySlug.category.name}}</h1>
+                                <h1>Search</h1>
                             </div>
                             <div class="header-page-subtitle">
-                                <p>{{categorySlug.category.description}}</p>
+                                <p>{{valueSearch}}</p>
                             </div>
                         </div>
                     </div>
@@ -34,9 +36,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" v-if="$apollo.loading">loading...</div>
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" v-else-if="!$apollo.loading && search.data.length > 0">Search empty</div>
                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" v-else>
                         <div class="row">
-                            <ul v-if="categorySlug.data.length > 0">
+                            <ul>
                                 <li>
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <div id="news-Carousel1" class="carousel carousel-top-category slide" data-ride="carousel">
@@ -51,7 +54,7 @@
                                                 </a>
                                             </div>
                                             <div class="carousel-inner">
-                                                <div v-for="(blog, index) in categorySlug.data" :class="{item: true, active: index === 0}">
+                                                <div v-for="(blog, index) in search.data" :class="{item: true, active: index === 0}">
                                                     <div class="blog-image">
                                                         <nuxt-link :to="`/blog/${blog.slug}`">
                                                             <i class="fa fa-link" aria-hidden="true"></i>
@@ -59,7 +62,9 @@
                                                         </nuxt-link>
                                                     </div>
                                                     <div class="dsc">
-                                                        <h3><nuxt-link to="/">{{blog.name}}</nuxt-link></h3>
+                                                        <h3>
+                                                            <nuxt-link to="/">{{blog.name}}</nuxt-link>
+                                                        </h3>
                                                         <span class="date"> <i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}</span>
                                                         <span class="like"><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>  {{blog.comments.length}} </a></span>
                                                     </div>
@@ -72,7 +77,7 @@
                         </div>
                         <div class="row">
                             <ul>
-                                <li v-for="blog of categorySlug.data" v-bind:key="blog.id">
+                                <li v-for="blog of search.data" v-bind:key="blog.id">
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                         <div class="carousel-inner">
                                             <div class="blog-image">
@@ -84,14 +89,17 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <h3><nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link></h3>
-                                        <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}</span>              <span class="like"><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>  12 </a></span>
+                                        <h3>
+                                            <nuxt-link :to="`/blog/${blog.slug}`">{{blog.name}}</nuxt-link>
+                                        </h3>
+                                        <span class="date"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}</span>
+                                        <span class="like"><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>  {{blog.comments.length}} </a></span>
                                         <p>{{blog.description}}</p>
                                     </div>
                                 </li>
                             </ul>
                         </div>
-                        <pagination :length="length" :hasNextPage="categorySlug.hasNextPage" :count="categorySlug.count" :start="start" :changeStartPagination="changeStartPagination"/>
+                        <pagination :length="length" :hasNextPage="search.hasNextPage" :count="search.count" :start="start" :changeStartPagination="changeStartPagination"/>
                     </div>
                     <content-right/>
                 </div>
@@ -100,18 +108,25 @@
     </div>
 </template>
 <script>
-  import { getCategory } from '~/apollo/queries/category';
-  import { queryPagination } from '~/apollo/queries/blog';
-  import { API_URL } from 'shared/api';
-  import Pagination from '~/components/Pagination.vue';
-  import ContentRight from '~/components/ContentRight.vue';
+  import { searchPaginationQuery } from '~/apollo/queries/search'
+  import { API_URL } from 'shared/api'
+  import Pagination from '~/components/Pagination.vue'
+  import ContentRight from '~/components/ContentRight.vue'
+
   export default {
-    data() {
+    asyncData ({route}, callback) {
+      if (route.query.word && route.query.word !== '') {
+        const word = route.query.word
+        callback(null, {valueSearch: word, error: ''})
+      } else {
+        callback(null, {valueSearch: '', error: 'Not word to seach'})
+      }
+    },
+    data () {
       return {
         start: 0,
         length: 10,
-        categorySlug: {
-          category: {},
+        search: {
           data: [],
           count: 0,
           hasNextPage: false,
@@ -120,11 +135,11 @@
       }
     },
     apollo: {
-      categorySlug: {
-        query: getCategory,
-        variables() {
+      search: {
+        query: searchPaginationQuery,
+        variables () {
           return {
-            slug: this.$route.params.slug ? this.$route.params.slug : '',
+            query: this.$route.query.word ? this.$route.query.word : '',
             start: this.start * this.length,
             length: this.length
           }
@@ -133,11 +148,11 @@
       }
     },
     methods: {
-      changeLengthPanination(value) {
-        this.length = value;
+      changeLengthPanination (value) {
+        this.length = value
       },
-      changeStartPagination(value) {
-        this.start = value;
+      changeStartPagination (value) {
+        this.start = value
       }
     },
     components: {

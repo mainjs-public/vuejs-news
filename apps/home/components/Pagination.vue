@@ -12,12 +12,24 @@
     </div>
 </template>
 <script>
+  import ceil from 'lodash/ceil'
   export default {
     props: ['length', 'count', 'start', 'hasNextPage', 'changeStartPagination'],
     computed: {
       pagination: function() {
+        const countPagination = ceil(this.count / this.length);
+        let s = this.start - 2;
+        let e = this.start + 2;
+        if ( s < 0 ) {
+          e = (e - s) < countPagination ? e - s : countPagination-1;
+          s = 0;
+        }
+        if (e >= countPagination) {
+          e = countPagination-1;
+          s = (e - s) >= 0 ? e - s : 0;
+        }
         let p = [];
-        for (let i = 0; i < this.count / this.length; i++) {
+        for (let i = s; i <= e; i++) {
           p.push(i);
         }
         return p;
