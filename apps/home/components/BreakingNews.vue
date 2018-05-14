@@ -31,16 +31,10 @@
                                 </div>
                                 <div class="owl-nav">
                                     <div class="owl-prev">
-                                        <!--<i class="fa fa-angle-left"></i>-->
-                                        <a href="#myCarousel1" role="button" data-slide="prev">
-                                            <i class="fa fa-angle-left"></i>
-                                        </a>
+                                        <i href="#myCarousel1" class="fa fa-angle-left" role="button" data-slide="prev"></i>
                                     </div>
                                     <div class="owl-next">
-                                        <!--<i class="fa fa-angle-right"></i>-->
-                                        <a href="#myCarousel1" role="button" data-slide="next">
-                                            <i class="fa fa-angle-right"></i>
-                                        </a>
+                                        <i href="#myCarousel1" class="fa fa-angle-right" role="button" data-slide="next"></i>
                                     </div>
                                 </div>
                             </div>
