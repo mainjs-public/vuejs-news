@@ -3,30 +3,7 @@
     <div v-else>
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
-                    <div class="wrapper">
-                        <!-- News Slider -->
-                        <div class="ticker marg-botm">
-                            <div class="ticker-wrap">
-                                <!-- News Slider Title -->
-                                <div class="ticker-head up-case backg-colr col-md-2">Breaking News <i
-                                        class="fa fa-angle-double-right" aria-hidden="true"></i></div>
-                                <div class="tickers col-md-10">
-                                    <div id="top-news-slider" class="owl-carousel ">
-                                        <div class="item" v-for="(blog, index) in blogs" v-bind:key="blog.id"
-                                             v-if="index<6">
-                                            <nuxt-link :to="`/blog/${blog.slug}`">
-                                                <img :src="`${apiUrl}${blog.image}`"/>
-                                                <span>{{blog.name}}</span>
-                                            </nuxt-link>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End News Slider -->
-                    </div>
-                </div>
+                <breaking-news :blogs="blogs"/>
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 padding-0">
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
                         <!-- Indicators -->
@@ -817,6 +794,7 @@
     </div>
 </template>
 <script>
+  import BreakingNews from '~/components/BreakingNews.vue'
   import SlugBlogHome from '~/components/SlugBlogHome.vue'
   import SlugBlogHome2 from '~/components/SlugBlogHome2.vue'
   import { getBlogLatest } from '~/apollo/queries/blog'
@@ -852,7 +830,8 @@
     },
     components: {
       SlugBlogHome,
-      SlugBlogHome2
+      SlugBlogHome2,
+      BreakingNews
     }
   }
 </script>
