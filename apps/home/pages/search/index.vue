@@ -29,14 +29,11 @@
                 </div>
             </div>
         </div>
-        <!-- Inner Page Header serction end here -->
-
-        <!-- Category Page Start Here -->
         <div class="blog-page-area gallery-page category-page">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" v-if="$apollo.loading">loading...</div>
-                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" v-else-if="!$apollo.loading && search.data.length > 0">Search empty</div>
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" v-else-if="!$apollo.loading && search.data.length < 1">Search empty</div>
                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" v-else>
                         <div class="row">
                             <ul>
