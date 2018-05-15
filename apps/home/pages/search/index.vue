@@ -111,14 +111,6 @@
   import ContentRight from '~/components/ContentRight.vue'
 
   export default {
-    asyncData ({route}, callback) {
-      if (route.query.word && route.query.word !== '') {
-        const word = route.query.word
-        callback(null, {valueSearch: word, error: ''})
-      } else {
-        callback(null, {valueSearch: '', error: 'Not word to seach'})
-      }
-    },
     data () {
       return {
         start: 0,
@@ -128,8 +120,18 @@
           count: 0,
           hasNextPage: false,
         },
-        apiUrl: API_URL
+        apiUrl: API_URL,
       }
+    },
+    computed: {
+      valueSearch () {
+        const value = this.$route.query.word && this.$route.query.word !== undefined? this.$route.query.word : '';
+        return value;
+      },
+      error () {
+        const error = this.$route.query.word && this.$route.query.word !== undefined? '' : 'Not word to seach';
+        return error;
+      },
     },
     apollo: {
       search: {
@@ -151,9 +153,6 @@
       changeStartPagination (value) {
         this.start = value
       }
-    },
-    mounted () {
-      // this.$router.go(1)
     },
     components: {
       Pagination,
