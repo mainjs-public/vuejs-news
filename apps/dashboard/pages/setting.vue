@@ -17,11 +17,14 @@
                             <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
                                 <h3 class="box-title">Setting Form</h3>
                                 <button class="btn btn-primary" @click="onClickSave($event)">
-                                    <div style="display: flex; flex-direction: row; align-items: center;">
-                                        <span>Save</span>
-                                    </div>
+                                    <i class="fa fa-circle-o-notch fa-spin" v-if="loading"></i>
+                                    Save
                                 </button>
                             </div>
+                        </div>
+                        <div class="alert alert-danger alert-dismissible" style="margin: 0px 10px" v-if="error.message">
+                            <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                            {{error.message}}
                         </div>
                         <!-- /.box-header -->
                         <ul class="navigation_setting">
@@ -208,6 +211,7 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
   import ImageManager from '~/components/ImageManager.vue';
   import { query, updateSetting } from '~/apollo/queries/setting';
   const dataInit = {
@@ -266,6 +270,8 @@
       editor() {
         return this.$refs.myTextEditor.quill
       },
+      loading () { return this.$store.state.setting.loading },
+      error () { return this.$store.state.setting.error },
     },
     created: function () {
       this.$apollo.query({
@@ -282,18 +288,16 @@
         });
     },
     methods: {
+      ...mapActions({
+        editSetting: 'setting/editSetting',
+      }),
       onClickSave(e) {
         const input = {
           key: "setting",
           json: true,
           value: JSON.stringify(this.data)
         };
-        this.$apollo.mutate({
-          mutation: updateSetting,
-          variables: { input: input  }
-        }).then(({ data }) => {
-          console.log(data);
-        })
+         this.editSetting(input);
         e.preventDefault();
       },
       onChangeNavigation(nagigation) {
