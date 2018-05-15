@@ -653,7 +653,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <img src="/images/footer-top.png" alt="footer">
+                        <img :src="`${apiUrl}${setting.banner_2}`" alt="footer">
                     </div>
                 </div>
             </div>
@@ -754,6 +754,9 @@
         chunk: chunk,
         apiUrl: API_URL
       }
+    },
+    computed: {
+      setting () { return this.$store.state.setting},
     },
     components: {
       SlugBlogHome,

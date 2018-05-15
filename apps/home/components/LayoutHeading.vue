@@ -57,7 +57,7 @@
             </div>
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
               <div class="right-banner">
-                <img src="/images/add/1.png" alt="add image">
+                <img :src="`${apiUrl}${setting.banner_1}`" alt="add image">
               </div>
             </div>
           </div>
