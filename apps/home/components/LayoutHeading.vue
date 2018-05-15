@@ -112,7 +112,7 @@
               </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-hidden col-xs-hidden text-right search hidden-mobile">
-              <form @click.prevent="clickSearch()">
+              <form @submit.prevent="clickSearch">
                 <a href="#search" @click="clickSearch()" data-toggle="collapse" class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></a>
                 <div id="search" class="collapse search-box">
                   <input type="text" v-model="search" class="form-control" placeholder="Search...">
@@ -142,7 +142,7 @@
       apiUrl () { return API_URL},
     },
     methods: {
-      clickSearch(e) {
+      clickSearch() {
         if (this.search !== '') {
           const key = this.search;
           this.search = '';

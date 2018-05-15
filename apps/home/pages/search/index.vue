@@ -136,7 +136,7 @@
         query: searchPaginationQuery,
         variables () {
           return {
-            query: this.$route.query.word ? this.$route.query.word : '',
+            query: this.$route.query.word && this.$route.query.word !== undefined? this.$route.query.word : '',
             start: this.start * this.length,
             length: this.length
           }
@@ -151,6 +151,9 @@
       changeStartPagination (value) {
         this.start = value
       }
+    },
+    mounted () {
+      // this.$router.go(1)
     },
     components: {
       Pagination,
