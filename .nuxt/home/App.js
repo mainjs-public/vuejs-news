@@ -1,36 +1,36 @@
 import Vue from 'vue'
 import NuxtLoading from './components/nuxt-loading.vue'
 
-import '../../apps/home/static/css/bootstrap.min.css'
+import '..\\..\\apps\\home\\static\\css\\bootstrap.min.css'
 
-import '../../apps/home/static/css/font-awesome.min.css'
+import '..\\..\\apps\\home\\static\\css\\font-awesome.min.css'
 
-import '../../apps/home/static/css/animate.css'
+import '..\\..\\apps\\home\\static\\css\\animate.css'
 
-import '../../apps/home/static/css/hover-min.css'
+import '..\\..\\apps\\home\\static\\css\\hover-min.css'
 
-import '../../apps/home/static/css/magnific-popup.css'
+import '..\\..\\apps\\home\\static\\css\\magnific-popup.css'
 
-import '../../apps/home/static/css/meanmenu.min.css'
+import '..\\..\\apps\\home\\static\\css\\meanmenu.min.css'
 
-import '../../apps/home/static/css/owl.carousel.css'
+import '..\\..\\apps\\home\\static\\css\\owl.carousel.css'
 
-import '../../apps/home/static/css/lightbox.min.css'
+import '..\\..\\apps\\home\\static\\css\\lightbox.min.css'
 
-import '../../apps/home/static/inc/custom-slider/css/nivo-slider.css'
+import '..\\..\\apps\\home\\static\\inc\\custom-slider\\css\\nivo-slider.css'
 
-import '../../apps/home/static/inc/custom-slider/css/preview.css'
+import '..\\..\\apps\\home\\static\\inc\\custom-slider\\css\\preview.css'
 
-import '../../apps/home/static/css/meanmenu.min.css'
+import '..\\..\\apps\\home\\static\\css\\meanmenu.min.css'
 
-import '../../apps/home/static/css/style.css'
+import '..\\..\\apps\\home\\static\\css\\style.css'
 
-import '../../apps/home/static/css/responsive.css'
+import '..\\..\\apps\\home\\static\\css\\responsive.css'
 
 
 let layouts = {
 
-  "_default": () => import('../../apps/home/layouts/default.vue'  /* webpackChunkName: "layouts/default" */).then(m => m.default || m)
+  "_default": () => import('..\\..\\apps\\home\\layouts\\default.vue'  /* webpackChunkName: "layouts_default" */).then(m => m.default || m)
 
 }
 

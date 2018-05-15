@@ -3,18 +3,18 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-const _70fc63c5 = () => import('../../apps/dashboard/pages/user/index.vue' /* webpackChunkName: "pages/user/index" */).then(m => m.default || m)
-const _1c30cb82 = () => import('../../apps/dashboard/pages/login.vue' /* webpackChunkName: "pages/login" */).then(m => m.default || m)
-const _b6d84f88 = () => import('../../apps/dashboard/pages/contact/index.vue' /* webpackChunkName: "pages/contact/index" */).then(m => m.default || m)
-const _870ebaae = () => import('../../apps/dashboard/pages/setting.vue' /* webpackChunkName: "pages/setting" */).then(m => m.default || m)
-const _3a8f4aaa = () => import('../../apps/dashboard/pages/contact/view.vue' /* webpackChunkName: "pages/contact/view" */).then(m => m.default || m)
-const _42971c6e = () => import('../../apps/dashboard/pages/catalog/category/index.vue' /* webpackChunkName: "pages/catalog/category/index" */).then(m => m.default || m)
-const _ea5bc060 = () => import('../../apps/dashboard/pages/modules/megamenu.vue' /* webpackChunkName: "pages/modules/megamenu" */).then(m => m.default || m)
-const _a21c9a32 = () => import('../../apps/dashboard/pages/user/edit.vue' /* webpackChunkName: "pages/user/edit" */).then(m => m.default || m)
-const _90ce76dc = () => import('../../apps/dashboard/pages/catalog/blog/index.vue' /* webpackChunkName: "pages/catalog/blog/index" */).then(m => m.default || m)
-const _0c0f847a = () => import('../../apps/dashboard/pages/catalog/blog/edit.vue' /* webpackChunkName: "pages/catalog/blog/edit" */).then(m => m.default || m)
-const _738e7dc4 = () => import('../../apps/dashboard/pages/catalog/category/edit.vue' /* webpackChunkName: "pages/catalog/category/edit" */).then(m => m.default || m)
-const _5289286b = () => import('../../apps/dashboard/pages/index.vue' /* webpackChunkName: "pages/index" */).then(m => m.default || m)
+const _6b6a62ec = () => import('..\\..\\apps\\dashboard\\pages\\user\\index.vue' /* webpackChunkName: "pages_user_index" */).then(m => m.default || m)
+const _6e1f0fee = () => import('..\\..\\apps\\dashboard\\pages\\login.vue' /* webpackChunkName: "pages_login" */).then(m => m.default || m)
+const _154f2efd = () => import('..\\..\\apps\\dashboard\\pages\\contact\\index.vue' /* webpackChunkName: "pages_contact_index" */).then(m => m.default || m)
+const _4be77c15 = () => import('..\\..\\apps\\dashboard\\pages\\setting.vue' /* webpackChunkName: "pages_setting" */).then(m => m.default || m)
+const _d872b06c = () => import('..\\..\\apps\\dashboard\\pages\\contact\\view.vue' /* webpackChunkName: "pages_contact_view" */).then(m => m.default || m)
+const _3136b9a6 = () => import('..\\..\\apps\\dashboard\\pages\\catalog\\category\\index.vue' /* webpackChunkName: "pages_catalog_category_index" */).then(m => m.default || m)
+const _2bb84c9d = () => import('..\\..\\apps\\dashboard\\pages\\modules\\megamenu.vue' /* webpackChunkName: "pages_modules_megamenu" */).then(m => m.default || m)
+const _a2789a40 = () => import('..\\..\\apps\\dashboard\\pages\\user\\edit.vue' /* webpackChunkName: "pages_user_edit" */).then(m => m.default || m)
+const _485b74fc = () => import('..\\..\\apps\\dashboard\\pages\\catalog\\blog\\index.vue' /* webpackChunkName: "pages_catalog_blog_index" */).then(m => m.default || m)
+const _69abb4ec = () => import('..\\..\\apps\\dashboard\\pages\\catalog\\blog\\edit.vue' /* webpackChunkName: "pages_catalog_blog_edit" */).then(m => m.default || m)
+const _73149ce6 = () => import('..\\..\\apps\\dashboard\\pages\\catalog\\category\\edit.vue' /* webpackChunkName: "pages_catalog_category_edit" */).then(m => m.default || m)
+const _b7112652 = () => import('..\\..\\apps\\dashboard\\pages\\index.vue' /* webpackChunkName: "pages_index" */).then(m => m.default || m)
 
 
 
@@ -76,62 +76,62 @@ export function createRouter () {
     routes: [
 		{
 			path: "/user",
-			component: _70fc63c5,
+			component: _6b6a62ec,
 			name: "user"
 		},
 		{
 			path: "/login",
-			component: _1c30cb82,
+			component: _6e1f0fee,
 			name: "login"
 		},
 		{
 			path: "/contact",
-			component: _b6d84f88,
+			component: _154f2efd,
 			name: "contact"
 		},
 		{
 			path: "/setting",
-			component: _870ebaae,
+			component: _4be77c15,
 			name: "setting"
 		},
 		{
 			path: "/contact/view",
-			component: _3a8f4aaa,
+			component: _d872b06c,
 			name: "contact-view"
 		},
 		{
 			path: "/catalog/category",
-			component: _42971c6e,
+			component: _3136b9a6,
 			name: "catalog-category"
 		},
 		{
 			path: "/modules/megamenu",
-			component: _ea5bc060,
+			component: _2bb84c9d,
 			name: "modules-megamenu"
 		},
 		{
 			path: "/user/edit",
-			component: _a21c9a32,
+			component: _a2789a40,
 			name: "user-edit"
 		},
 		{
 			path: "/catalog/blog",
-			component: _90ce76dc,
+			component: _485b74fc,
 			name: "catalog-blog"
 		},
 		{
 			path: "/catalog/blog/edit",
-			component: _0c0f847a,
+			component: _69abb4ec,
 			name: "catalog-blog-edit"
 		},
 		{
 			path: "/catalog/category/edit",
-			component: _738e7dc4,
+			component: _73149ce6,
 			name: "catalog-category-edit"
 		},
 		{
 			path: "/",
-			component: _5289286b,
+			component: _b7112652,
 			name: "index"
 		}
     ],

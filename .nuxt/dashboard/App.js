@@ -1,36 +1,36 @@
 import Vue from 'vue'
 import NuxtLoading from './components/nuxt-loading.vue'
 
-import '../../apps/dashboard/static/bower_components/bootstrap/dist/css/bootstrap.min.css'
+import '..\\..\\apps\\dashboard\\static\\bower_components\\bootstrap\\dist\\css\\bootstrap.min.css'
 
-import '../../apps/dashboard/static/bower_components/font-awesome/css/font-awesome.min.css'
+import '..\\..\\apps\\dashboard\\static\\bower_components\\font-awesome\\css\\font-awesome.min.css'
 
-import '../../apps/dashboard/static/bower_components/Ionicons/css/ionicons.min.css'
+import '..\\..\\apps\\dashboard\\static\\bower_components\\Ionicons\\css\\ionicons.min.css'
 
-import '../../apps/dashboard/static/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css'
+import '..\\..\\apps\\dashboard\\static\\bower_components\\datatables.net-bs\\css\\dataTables.bootstrap.min.css'
 
-import '../../apps/dashboard/static/dist/css/AdminLTE.min.css'
+import '..\\..\\apps\\dashboard\\static\\dist\\css\\AdminLTE.min.css'
 
-import '../../apps/dashboard/static/dist/css/skins/skin-blue.css'
+import '..\\..\\apps\\dashboard\\static\\dist\\css\\skins\\skin-blue.css'
 
-import '../../apps/dashboard/static/bower_components/morris.js/morris.css'
+import '..\\..\\apps\\dashboard\\static\\bower_components\\morris.js\\morris.css'
 
-import '../../apps/dashboard/static/bower_components/jvectormap/jquery-jvectormap.css'
+import '..\\..\\apps\\dashboard\\static\\bower_components\\jvectormap\\jquery-jvectormap.css'
 
-import '../../apps/dashboard/static/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css'
+import '..\\..\\apps\\dashboard\\static\\bower_components\\bootstrap-datepicker\\dist\\css\\bootstrap-datepicker.min.css'
 
-import '../../apps/dashboard/static/bower_components/bootstrap-daterangepicker/daterangepicker.css'
+import '..\\..\\apps\\dashboard\\static\\bower_components\\bootstrap-daterangepicker\\daterangepicker.css'
 
-import '../../apps/dashboard/static/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css'
+import '..\\..\\apps\\dashboard\\static\\plugins\\bootstrap-wysihtml5\\bootstrap3-wysihtml5.min.css'
 
-import '../../apps/dashboard/static/plugins/iCheck/square/blue.css'
+import '..\\..\\apps\\dashboard\\static\\plugins\\iCheck\\square\\blue.css'
 
 
 let layouts = {
 
-  "_default": () => import('../../apps/dashboard/layouts/default.vue'  /* webpackChunkName: "layouts/default" */).then(m => m.default || m),
+  "_default": () => import('..\\..\\apps\\dashboard\\layouts\\default.vue'  /* webpackChunkName: "layouts_default" */).then(m => m.default || m),
 
-  "_login": () => import('../../apps/dashboard/layouts/login.vue'  /* webpackChunkName: "layouts/login" */).then(m => m.default || m)
+  "_login": () => import('..\\..\\apps\\dashboard\\layouts\\login.vue'  /* webpackChunkName: "layouts_login" */).then(m => m.default || m)
 
 }
 

@@ -12,7 +12,7 @@ import { setContext, getLocation, getRouteData } from './utils'
 import { createStore } from './store.js'
 
 /* Plugins */
-import nuxt_plugin_apolloplugin799c82c8_fdd7005c from 'nuxt_plugin_apolloplugin799c82c8_fdd7005c' // Source: ./apollo.plugin.799c82c8.js
+import nuxt_plugin_apollopluginba78ae20_a47c1ba0 from 'nuxt_plugin_apollopluginba78ae20_a47c1ba0' // Source: ./apollo.plugin.ba78ae20.js
 
 
 // Component: <no-ssr>
@@ -151,7 +151,7 @@ async function createApp (ssrContext) {
 
   // Plugin execution
   
-  if (typeof nuxt_plugin_apolloplugin799c82c8_fdd7005c === 'function') await nuxt_plugin_apolloplugin799c82c8_fdd7005c(app.context, inject)
+  if (typeof nuxt_plugin_apollopluginba78ae20_a47c1ba0 === 'function') await nuxt_plugin_apollopluginba78ae20_a47c1ba0(app.context, inject)
   
 
   // If server-side, wait for async component to be resolved first

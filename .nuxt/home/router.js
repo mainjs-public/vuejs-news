@@ -3,15 +3,15 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-const _b39c6cfa = () => import('../../apps/home/pages/about.vue' /* webpackChunkName: "pages/about" */).then(m => m.default || m)
-const _1492e0a3 = () => import('../../apps/home/pages/account.vue' /* webpackChunkName: "pages/account" */).then(m => m.default || m)
-const _14e16d1f = () => import('../../apps/home/pages/blog/index.vue' /* webpackChunkName: "pages/blog/index" */).then(m => m.default || m)
-const _393b6dd4 = () => import('../../apps/home/pages/contact.vue' /* webpackChunkName: "pages/contact" */).then(m => m.default || m)
-const _72a3a325 = () => import('../../apps/home/pages/search/index.vue' /* webpackChunkName: "pages/search/index" */).then(m => m.default || m)
-const _724ce78e = () => import('../../apps/home/pages/tags/_slug.vue' /* webpackChunkName: "pages/tags/_slug" */).then(m => m.default || m)
-const _01581533 = () => import('../../apps/home/pages/category/_slug.vue' /* webpackChunkName: "pages/category/_slug" */).then(m => m.default || m)
-const _132acbd7 = () => import('../../apps/home/pages/blog/_slug.vue' /* webpackChunkName: "pages/blog/_slug" */).then(m => m.default || m)
-const _742cb770 = () => import('../../apps/home/pages/index.vue' /* webpackChunkName: "pages/index" */).then(m => m.default || m)
+const _6cd7c343 = () => import('..\\..\\apps\\home\\pages\\about.vue' /* webpackChunkName: "pages_about" */).then(m => m.default || m)
+const _6cbd2b3a = () => import('..\\..\\apps\\home\\pages\\account.vue' /* webpackChunkName: "pages_account" */).then(m => m.default || m)
+const _370deb26 = () => import('..\\..\\apps\\home\\pages\\blog\\index.vue' /* webpackChunkName: "pages_blog_index" */).then(m => m.default || m)
+const _cf1e5a54 = () => import('..\\..\\apps\\home\\pages\\contact.vue' /* webpackChunkName: "pages_contact" */).then(m => m.default || m)
+const _d961f440 = () => import('..\\..\\apps\\home\\pages\\search\\index.vue' /* webpackChunkName: "pages_search_index" */).then(m => m.default || m)
+const _8b0eb5f2 = () => import('..\\..\\apps\\home\\pages\\tags\\_slug.vue' /* webpackChunkName: "pages_tags__slug" */).then(m => m.default || m)
+const _d92f67fc = () => import('..\\..\\apps\\home\\pages\\category\\_slug.vue' /* webpackChunkName: "pages_category__slug" */).then(m => m.default || m)
+const _355749de = () => import('..\\..\\apps\\home\\pages\\blog\\_slug.vue' /* webpackChunkName: "pages_blog__slug" */).then(m => m.default || m)
+const _e6e0c3f0 = () => import('..\\..\\apps\\home\\pages\\index.vue' /* webpackChunkName: "pages_index" */).then(m => m.default || m)
 
 
 
@@ -73,47 +73,47 @@ export function createRouter () {
     routes: [
 		{
 			path: "/about",
-			component: _b39c6cfa,
+			component: _6cd7c343,
 			name: "about"
 		},
 		{
 			path: "/account",
-			component: _1492e0a3,
+			component: _6cbd2b3a,
 			name: "account"
 		},
 		{
 			path: "/blog",
-			component: _14e16d1f,
+			component: _370deb26,
 			name: "blog"
 		},
 		{
 			path: "/contact",
-			component: _393b6dd4,
+			component: _cf1e5a54,
 			name: "contact"
 		},
 		{
 			path: "/search",
-			component: _72a3a325,
+			component: _d961f440,
 			name: "search"
 		},
 		{
 			path: "/tags/:slug?",
-			component: _724ce78e,
+			component: _8b0eb5f2,
 			name: "tags-slug"
 		},
 		{
 			path: "/category/:slug?",
-			component: _01581533,
+			component: _d92f67fc,
 			name: "category-slug"
 		},
 		{
 			path: "/blog/:slug",
-			component: _132acbd7,
+			component: _355749de,
 			name: "blog-slug"
 		},
 		{
 			path: "/",
-			component: _742cb770,
+			component: _e6e0c3f0,
 			name: "index"
 		}
     ],

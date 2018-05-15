@@ -12,8 +12,8 @@ import { setContext, getLocation, getRouteData } from './utils'
 import { createStore } from './store.js'
 
 /* Plugins */
-import nuxt_plugin_apolloplugin799c82c8_4b428e83 from 'nuxt_plugin_apolloplugin799c82c8_4b428e83' // Source: ./apollo.plugin.799c82c8.js
-import nuxt_plugin_quill_97f48370 from 'nuxt_plugin_quill_97f48370' // Source: ../../apps/dashboard/plugins/quill.js (ssr: false)
+import nuxt_plugin_apollopluginba78ae20_d28e1e86 from 'nuxt_plugin_apollopluginba78ae20_d28e1e86' // Source: ./apollo.plugin.ba78ae20.js
+import nuxt_plugin_quill_97f48370 from 'nuxt_plugin_quill_97f48370' // Source: ..\\..\\apps\\dashboard\\plugins\\quill.js (ssr: false)
 
 
 // Component: <no-ssr>
@@ -152,7 +152,7 @@ async function createApp (ssrContext) {
 
   // Plugin execution
   
-  if (typeof nuxt_plugin_apolloplugin799c82c8_4b428e83 === 'function') await nuxt_plugin_apolloplugin799c82c8_4b428e83(app.context, inject)
+  if (typeof nuxt_plugin_apollopluginba78ae20_d28e1e86 === 'function') await nuxt_plugin_apollopluginba78ae20_d28e1e86(app.context, inject)
   
   if (process.browser) { 
     if (typeof nuxt_plugin_quill_97f48370 === 'function') await nuxt_plugin_quill_97f48370(app.context, inject)
