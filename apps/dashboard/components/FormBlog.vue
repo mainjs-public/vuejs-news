@@ -2,7 +2,7 @@
     <div>
         <section class="content-header">
             <h1>
-                {{ data.id ? "Edit" : "Add"}} {{valueButton}}
+                {{ data.id ? "Edit" : "Add"}}
             </h1>
             <ol class="breadcrumb">
                 <li><nuxt-link to="/"><i class="fa fa-dashboard"></i> Home</nuxt-link></li>

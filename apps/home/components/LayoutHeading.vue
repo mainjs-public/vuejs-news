@@ -91,7 +91,7 @@
                           <a :href="megamenu.data" v-if="megamenu.type === 'link'">{{megamenu.title}}
                               <i class="fa fa-chevron-down" aria-hidden="true" v-if="megamenu.children.length > 0"></i>
                               <ul class="sub-menu" v-if="megamenu.children.length > 0">
-                                  <li v-for="submegamenu of orderBy(megamenu.children, ['order'],['asc'])" >
+                                  <li v-for="submegamenu of orderBy(megamenu.children, ['order'],['asc'])" v-bind:key="submegamenu.id">
                                       <a :href="submegamenu.data" v-if="submegamenu.type === 'link'">{{submegamenu.title}}</a>
                                       <nuxt-link :to="submegamenu.data" v-else>{{submegamenu.title}}</nuxt-link>
                                   </li>
@@ -100,7 +100,7 @@
                           <nuxt-link :to="megamenu.data" v-else class="has dropdown-toggle">{{megamenu.title}}
                               <i class="fa fa-chevron-down" aria-hidden="true" v-if="megamenu.children.length > 0"></i>
                               <ul class="sub-menu" v-if="megamenu.children.length > 0">
-                                  <li v-for="submegamenu of orderBy(megamenu.children, ['order'],['asc'])" >
+                                  <li v-for="submegamenu of orderBy(megamenu.children, ['order'],['asc'])" v-bind:key="submegamenu.id">
                                       <a :href="submegamenu.data" v-if="submegamenu.type === 'link'">{{submegamenu.title}}</a>
                                       <nuxt-link :to="submegamenu.data" v-else>{{submegamenu.title}}</nuxt-link>
                                   </li>
