@@ -19,6 +19,10 @@
                             <div class="box-header with-border">
                                 <h3 class="box-title">{{data.id ? "Edit blog" : "Add blog"}}</h3>
                                 <div class="pull-right">
+                                    <button type="submit" class="btn btn-primary" @click="clickButton($event, 3)" v-if=" data.id && role !== 'Contributor' && data.state === 'Waiting for Approval'" style="margin-right: 10px">
+                                        <i class="fa fa-circle-o-notch fa-spin" v-if="loading&&valueButton===3"></i>
+                                        Approval
+                                    </button>
                                     <button type="submit" class="btn btn-default" @click="clickButton($event, 1)" v-if="data.state !== 'Draft' && data.state !== 'Published'">
                                         <i class="fa fa-circle-o-notch fa-spin" v-if="loading&&valueButton===1"></i>
                                         Save Draft
@@ -116,7 +120,7 @@
   import ImageManager from './ImageManager.vue';
   import SwitchBotton from './SwitchBotton.vue';
   export default {
-    props: ['data', 'onClick', 'draftClick'],
+    props: ['data', 'onClick', 'role'],
     data() {
       return {
         valueButton: 1,
@@ -168,9 +172,11 @@
       clickButton(event, value) {
         this.valueButton = value;
         if (value === 2) {
-          this.onClick(event);
+          this.onClick(event, {...this.data});
+        } else if (value === 3) {
+          this.onClick(event, {...this.data, state: 'Approval'});
         } else {
-          this.draftClick(event);
+          this.onClick(event, {...this.data, state: 'Draft'});
         }
       }
     }
