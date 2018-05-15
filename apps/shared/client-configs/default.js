@@ -5,7 +5,7 @@ import {InMemoryCache} from 'apollo-cache-inmemory'
 import {API_URL} from '../api'
 
 export default (ctx) => {
-  const httpLink = new HttpLink({uri: `${API_URL}/graphql`});
+  const httpLink = new HttpLink({uri: `${API_URL}graphql`});
 
   const authLink = setContext((req, {headers}) => {
     const auth = ctx.store.state.auth;
