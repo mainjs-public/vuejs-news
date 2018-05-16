@@ -51,7 +51,7 @@
                                                 </a>
                                             </div>
                                             <div class="carousel-inner">
-                                                <div v-for="(blog, index) in search.data" :class="{item: true, active: index === 0}">
+                                                <div v-for="(blog, index) in search.data" :class="{item: true, active: index === 0}" v-bind:key="blog.id">
                                                     <div class="blog-image">
                                                         <nuxt-link :to="`/blog/${blog.slug}`">
                                                             <i class="fa fa-link" aria-hidden="true"></i>

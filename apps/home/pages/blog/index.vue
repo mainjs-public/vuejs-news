@@ -64,7 +64,6 @@
     export default {
       data() {
         return {
-          start: 0,
           length: 10,
           blogPagination: {
             data: [],
@@ -73,6 +72,11 @@
           },
           chunk: chunk,
           apiUrl: API_URL
+        }
+      },
+      computed: {
+        start () {
+          return this.$route.query.page ? Number(this.$route.query.page)-1: 0;
         }
       },
       apollo: {
@@ -92,7 +96,7 @@
           this.length = value;
         },
         changeStartPagination(value) {
-          this.start = value;
+          this.$router.push(`${this.$route.path}?page=${value+1}`);
         }
       },
       components: {

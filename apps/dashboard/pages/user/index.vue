@@ -51,9 +51,8 @@
       ...mapActions({
         deleteUser: 'user/deleteUser',
       }),
-      deleteClick (e, id) {
+      deleteClick (id) {
         this.deleteUser(id);
-        e.preventDefault();
       }
     },
     apollo: {

@@ -6,7 +6,7 @@
         <div>
             <div class="inner-page-header">
                 <div class="banner">
-                    <img :src="`${apiUrl}${blog.image}`" :alt="blog.name" style="max-height: 401px; width: 100%">
+                    <img :src="`${apiUrl}${blog.image}`||`/images/banner/3.jpg`" :alt="blog.name" style="max-height: 401px; width: 100%">
                 </div>
                 <div class="banner-text">
                     <div class="container">
@@ -17,7 +17,7 @@
                                         <li>
                                             <nuxt-link to="/">Home <i class="fa fa-compress" aria-hidden="true"></i>
                                             </nuxt-link>
-                                            <nuxt-link to="/blog">Blog <i class="fa fa-compress" aria-hidden="true"></i>
+                                            <nuxt-link to="/blog?page=1">Blog <i class="fa fa-compress" aria-hidden="true"></i>
                                             </nuxt-link>
                                             {{blog.name}}
                                         </li>
@@ -129,8 +129,8 @@
                             <div class="leave-comments-area">
                                 <h4 class="title-bg">Leave Comments</h4>
                                 <form>
-                                    <p v-if="errorComment.message" style="color: red; margin-bottom: 22px">Error:
-                                        {{errorComment.message}}</p>
+                                    <p v-if="!successComment && errorComment.message" style="color: red; margin-bottom: 22px">Error: {{errorComment.message}}</p>
+                                    <p v-if="successComment" style="color: green; margin-bottom: 22px">Success: You wrote success in this blog</p>
                                     <fieldset>
                                         <div class="form-group">
                                             <label>Name*</label>
@@ -225,6 +225,7 @@
     ,
     computed: {
       loading () { return this.$store.state.comment.loading},
+      successComment () { return this.$store.state.comment.success},
       errorComment () { return this.$store.state.comment.error},
     },
     components: {

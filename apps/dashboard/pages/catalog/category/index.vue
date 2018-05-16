@@ -71,9 +71,8 @@
       ...mapActions({
         deleteCategory: 'category/deleteCategory',
       }),
-      deleteClick(e, id) {
+      deleteClick(id) {
         this.deleteCategory({id: id, start: this.start * this.length, length: this.length});
-        e.preventDefault();
       },
       changeLengthPanination(value) {
         this.length = value;

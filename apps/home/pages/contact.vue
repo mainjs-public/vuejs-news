@@ -56,7 +56,8 @@
                         <div class="leave-comments-area">
                             <h3>Contact Us</h3>
                             <div id="form-messages"></div>
-                            <p v-if="error.message" style="color: red; margin-bottom: 22px">Error: {{error.message}}</p>
+                            <p v-if="!success && error.message" style="color: red; margin-bottom: 22px">Error: {{error.message}}</p>
+                            <p v-if="success" style="color: green; margin-bottom: 22px">Send contact success</p>
                             <form id="contact-form">
                                 <fieldset>
                                     <div class="row">
@@ -146,6 +147,7 @@
       setting () { return this.$store.state.setting},
       loading () { return this.$store.state.contact.loading},
       error () { return this.$store.state.contact.error},
+      success () { return this.$store.state.contact.success},
     },
     methods: {
       ...mapActions({

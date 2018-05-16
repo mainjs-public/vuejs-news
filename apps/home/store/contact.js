@@ -3,15 +3,18 @@ import { query, addContact } from '~/apollo/queries/contact.js';
 export const state = () => ({
   loading: false,
   error: {},
+  success: false,
 });
 
 export const mutations = {
   fetchRequest(state) {
     state.loading = true;
     state.error = {};
+    state.success = false;
   },
   editSuccess(state) {
     state.loading = false;
+    state.success = true;
   },
   fetchError(state, error) {
     state.loading = false;
