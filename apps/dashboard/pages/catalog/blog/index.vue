@@ -71,9 +71,8 @@
       ...mapActions({
         deleteBlog: 'blog/deleteBlog',
       }),
-      deleteClick(e, id) {
+      deleteClick(id) {
         this.deleteBlog({id: id, start: this.start * this.length, length: this.length});
-        e.preventDefault();
       },
       changeLengthPanination(value) {
         this.length = value;
