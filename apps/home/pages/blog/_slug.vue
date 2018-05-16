@@ -129,8 +129,8 @@
                             <div class="leave-comments-area">
                                 <h4 class="title-bg">Leave Comments</h4>
                                 <form>
-                                    <p v-if="errorComment.message" style="color: red; margin-bottom: 22px">Error:
-                                        {{errorComment.message}}</p>
+                                    <p v-if="!successComment && errorComment.message" style="color: red; margin-bottom: 22px">Error: {{errorComment.message}}</p>
+                                    <p v-if="successComment" style="color: green; margin-bottom: 22px">Success: You wrote success in this blog</p>
                                     <fieldset>
                                         <div class="form-group">
                                             <label>Name*</label>
@@ -225,6 +225,7 @@
     ,
     computed: {
       loading () { return this.$store.state.comment.loading},
+      successComment () { return this.$store.state.comment.success},
       errorComment () { return this.$store.state.comment.error},
     },
     components: {
