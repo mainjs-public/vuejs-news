@@ -15,7 +15,7 @@ module.exports = {
             ref: 'origin/master',
             repo: 'git@github.com:dangtienngoc/new24-frontend.git',
             path: '/var/www/html/new24',
-            'post-deploy': 'npm install && npm run storefront:build && npm run dashboard:build && pm2 startOrRestart ecosystem.config.js'
+            'post-deploy': 'npm run storefront:build && npm run dashboard:build && pm2 startOrRestart ecosystem.config.js'
         }
     }
 }

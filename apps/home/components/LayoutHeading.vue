@@ -57,7 +57,7 @@
             </div>
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
               <div class="right-banner">
-                <img src="/images/add/1.png" alt="add image">
+                <img :src="`${apiUrl}${setting.banner_1}`" alt="add image">
               </div>
             </div>
           </div>
@@ -91,7 +91,7 @@
                           <a :href="megamenu.data" v-if="megamenu.type === 'link'">{{megamenu.title}}
                               <i class="fa fa-chevron-down" aria-hidden="true" v-if="megamenu.children.length > 0"></i>
                               <ul class="sub-menu" v-if="megamenu.children.length > 0">
-                                  <li v-for="submegamenu of orderBy(megamenu.children, ['order'],['asc'])" >
+                                  <li v-for="submegamenu of orderBy(megamenu.children, ['order'],['asc'])" v-bind:key="submegamenu.id">
                                       <a :href="submegamenu.data" v-if="submegamenu.type === 'link'">{{submegamenu.title}}</a>
                                       <nuxt-link :to="submegamenu.data" v-else>{{submegamenu.title}}</nuxt-link>
                                   </li>
@@ -100,7 +100,7 @@
                           <nuxt-link :to="megamenu.data" v-else class="has dropdown-toggle">{{megamenu.title}}
                               <i class="fa fa-chevron-down" aria-hidden="true" v-if="megamenu.children.length > 0"></i>
                               <ul class="sub-menu" v-if="megamenu.children.length > 0">
-                                  <li v-for="submegamenu of orderBy(megamenu.children, ['order'],['asc'])" >
+                                  <li v-for="submegamenu of orderBy(megamenu.children, ['order'],['asc'])" v-bind:key="submegamenu.id">
                                       <a :href="submegamenu.data" v-if="submegamenu.type === 'link'">{{submegamenu.title}}</a>
                                       <nuxt-link :to="submegamenu.data" v-else>{{submegamenu.title}}</nuxt-link>
                                   </li>
@@ -112,7 +112,7 @@
               </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-hidden col-xs-hidden text-right search hidden-mobile">
-              <form @click.prevent="clickSearch()">
+              <form @submit.prevent="clickSearch">
                 <a href="#search" @click="clickSearch()" data-toggle="collapse" class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></a>
                 <div id="search" class="collapse search-box">
                   <input type="text" v-model="search" class="form-control" placeholder="Search...">
@@ -142,7 +142,7 @@
       apiUrl () { return API_URL},
     },
     methods: {
-      clickSearch(e) {
+      clickSearch() {
         if (this.search !== '') {
           const key = this.search;
           this.search = '';

@@ -1,5 +1,7 @@
 <template>
-    <div v-if="blogs.length === 0"> error get data</div>
+    <div v-if="error!==null">
+        {{error}}
+    </div>
     <div v-else>
         <div class="container">
             <div class="row">
@@ -651,7 +653,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <img src="/images/footer-top.png" alt="footer">
+                        <img :src="`${apiUrl}${setting.banner_2}`" alt="footer">
                     </div>
                 </div>
             </div>
@@ -735,14 +737,15 @@
         const dataPilitic = await client.query({query: getCategory, variables: {slug : 'politics', start: 0, length: 4}});
         const dataWorld = await client.query({query: getCategory, variables: {slug : 'around-the-world', start: 0, length: 6}});
         callback(null, {
-          blogs: dataBlogs.data.getBlogLatest,
-          categories: dataCategory.data.categories,
-          dataHealth: dataHealth.data.categorySlug.data,
-          dataPilitic: dataPilitic.data.categorySlug.data,
-          dataWorld: dataWorld.data.categorySlug.data,
+          blogs: dataBlogs.data.getBlogLatest !== null ? dataBlogs.data.getBlogLatest : [],
+          categories: dataCategory.data.categories !== null ? dataCategory.data.categories: [],
+          dataHealth:  dataHealth.data.categorySlug !== null? dataHealth.data.categorySlug.data: [],
+          dataPilitic: dataPilitic.data.categorySlug !== null? dataPilitic.data.categorySlug.data:[],
+          dataWorld: dataWorld.data.categorySlug !== null? dataWorld.data.categorySlug.data: [],
+          error: null
         })
       } catch (error) {
-        callback(null, {blogs: [], categories: [], dataHealth: [], dataPilitic: [], dataWorld: []})
+        callback(null, {blogs: [], categories: [], dataHealth: [], error: error})
       }
     },
     data () {
@@ -751,6 +754,9 @@
         chunk: chunk,
         apiUrl: API_URL
       }
+    },
+    computed: {
+      setting () { return this.$store.state.setting},
     },
     components: {
       SlugBlogHome,

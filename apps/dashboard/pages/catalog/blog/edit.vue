@@ -1,6 +1,6 @@
 <template>
     <div v-if="!loading">
-        <form-blog :data="data" :draftClick="draftclick" :onClick="onclick" v-if="!error_data.message"/>
+        <form-blog :data="data" :onClick="onclick" v-if="!error_data.message" :role="role"/>
         <div v-else>
             <span>
                 Error get data of blog
@@ -30,7 +30,6 @@
   export default {
     data() {
       return {
-        tgData: {},
         data: {},
         loading: true,
         error_data: {}
@@ -47,9 +46,6 @@
           this.data = {
             ...blogInfo,
           };
-          this.tgData = {
-            ...blogInfo
-          }
         } else {
           this.data = {...initData, state: this.state};
         }
@@ -63,18 +59,18 @@
       state () {
         const auth = this.$store.state.auth;
         return auth !== null && auth.user && auth.user.role && (auth.user.role === 'Admin' || auth.user.role === 'Editer') ? "Approval" : "Waiting for Approval";
+      },
+      role () {
+        const auth = this.$store.state.auth;
+        return auth !== null ? auth.user.role : 'Contributor';
       }
     },
     methods: {
       ...mapActions({
         editBlog: 'blog/editBlog'
       }),
-      onclick(e) {
-        this.editBlog(this.data);
-        e.preventDefault();
-      },
-      draftclick(e) {
-        this.editBlog({...this.tgData, state: 'Draft'});
+      onclick(e, data) {
+        this.editBlog(data);
         e.preventDefault();
       },
     },

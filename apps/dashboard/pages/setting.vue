@@ -17,11 +17,14 @@
                             <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
                                 <h3 class="box-title">Setting Form</h3>
                                 <button class="btn btn-primary" @click="onClickSave($event)">
-                                    <div style="display: flex; flex-direction: row; align-items: center;">
-                                        <span>Save</span>
-                                    </div>
+                                    <i class="fa fa-circle-o-notch fa-spin" v-if="loading"></i>
+                                    Save
                                 </button>
                             </div>
+                        </div>
+                        <div class="alert alert-danger alert-dismissible" style="margin: 0px 10px" v-if="error.message">
+                            <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                            {{error.message}}
                         </div>
                         <!-- /.box-header -->
                         <ul class="navigation_setting">
@@ -133,6 +136,20 @@
                                                 <image-manager id="icon" inputName="icon" :value="data.icon" :onChange="icon => this.data.icon = icon" />
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Banner 1</label>
+
+                                            <div class="col-sm-10">
+                                                <image-manager id="banner_1" inputName="banner_1" :value="data.banner_1" :onChange="banner_1 => this.data.banner_1 = banner_1" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Banner 2</label>
+
+                                            <div class="col-sm-10">
+                                                <image-manager id="banner_2" inputName="banner_2" :value="data.banner_2" :onChange="banner_2 => this.data.banner_2 = banner_2" />
+                                            </div>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -194,6 +211,7 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
   import ImageManager from '~/components/ImageManager.vue';
   import { query, updateSetting } from '~/apollo/queries/setting';
   const dataInit = {
@@ -213,7 +231,9 @@
     fax: '',
     mail: '',
     contact_location: '',
-    map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9364273.363926433!2d-12.392661146939734!3d55.03971934808962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x25a3b1142c791a9%3A0xc4f8a0433288257a!2sUnited+Kingdom!5e0!3m2!1sen!2sbd!4v1500619264549'
+    map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9364273.363926433!2d-12.392661146939734!3d55.03971934808962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x25a3b1142c791a9%3A0xc4f8a0433288257a!2sUnited+Kingdom!5e0!3m2!1sen!2sbd!4v1500619264549',
+    banner_1: '',
+    banner_2: '',
   };
 
   export default {
@@ -250,6 +270,8 @@
       editor() {
         return this.$refs.myTextEditor.quill
       },
+      loading () { return this.$store.state.setting.loading },
+      error () { return this.$store.state.setting.error },
     },
     created: function () {
       this.$apollo.query({
@@ -266,18 +288,16 @@
         });
     },
     methods: {
+      ...mapActions({
+        editSetting: 'setting/editSetting',
+      }),
       onClickSave(e) {
         const input = {
           key: "setting",
           json: true,
           value: JSON.stringify(this.data)
         };
-        this.$apollo.mutate({
-          mutation: updateSetting,
-          variables: { input: input  }
-        }).then(({ data }) => {
-          console.log(data);
-        })
+         this.editSetting(input);
         e.preventDefault();
       },
       onChangeNavigation(nagigation) {

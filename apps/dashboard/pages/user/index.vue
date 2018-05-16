@@ -38,6 +38,7 @@
     </div>
 </template>
 <script>
+  import { mapActions } from 'vuex'
   import TableUser from '~/components/TableUser.vue'
   import { query } from '~/apollo/queries/user'
   export default {
@@ -47,8 +48,12 @@
       }
     },
     methods: {
-      deleteClick () {
-        console.log('delete')
+      ...mapActions({
+        deleteUser: 'user/deleteUser',
+      }),
+      deleteClick (e, id) {
+        this.deleteUser(id);
+        e.preventDefault();
       }
     },
     apollo: {

@@ -27,6 +27,14 @@ export const updateUserMutate = gql`
   }
 `;
 
+export const deleteUserMutate = gql`
+  mutation deleteUser($input: DeleteUserInput!) {
+    deleteUser(input: $input) {
+      count
+    }
+  }
+`;
+
 export const signInMutate = gql`
   mutation signIn($email: String!, $password: String!) {
     signIn(email: $email, password: $password) {
