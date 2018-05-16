@@ -6,7 +6,7 @@
         <div>
             <div class="inner-page-header">
                 <div class="banner">
-                    <img :src="`${apiUrl}${blog.image}`" :alt="blog.name" style="max-height: 401px; width: 100%">
+                    <img :src="`${apiUrl}${blog.image}`||`/images/banner/3.jpg`" :alt="blog.name" style="max-height: 401px; width: 100%">
                 </div>
                 <div class="banner-text">
                     <div class="container">
