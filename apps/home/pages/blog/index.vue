@@ -96,9 +96,7 @@
           this.length = value;
         },
         changeStartPagination(value) {
-          // this.start = value;
-          this.$router.push(`/blog?page=${value+1}`);
-          // this.$route.query.page = value
+          this.$router.push(`${this.$route.path}?page=${value+1}`);
         }
       },
       components: {
