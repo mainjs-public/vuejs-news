@@ -59,6 +59,11 @@
             name: 'Blog',
             link: '/catalog/blog',
           },
+          {
+            id: '3',
+            name: 'Page',
+            link: '/catalog/page',
+          },
         ]
       },
       {
