@@ -15,7 +15,7 @@
             </thead>
             <tbody v-if="blogs.length > 0">
             <tr v-for="blog of blogs" v-bind:key="blog.id">
-                <td><img class="img-circle img-sm" :src="`${api_url}${blog.image}`"/></td>
+                <td><img class="img-circle img-sm" :src="`${apiUrl}${blog.image}`"/></td>
                 <td>{{blog.name}}</td>
                 <td>{{blog.slug}}</td>
                 <td>{{blog.created}}</td>
@@ -31,9 +31,6 @@
                     <button class="btn btn-danger btn-xs" @click="getDataDelete(blog.id, blog.name)" data-toggle="modal" data-target="#modal-default">
                         Delete
                     </button>
-                    <!--<button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">-->
-                        <!--Launch Default Modal-->
-                    <!--</button>-->
                 </td>
             </tr>
             </tbody>
@@ -56,7 +53,7 @@
       return {
         id: '',
         name: '',
-        api_url: API_URL,
+        apiUrl: API_URL,
       }
     },
     methods: {
@@ -66,7 +63,6 @@
       },
       okClick() {
         this.deleteClick(this.id);
-        console.log('ok', this.name)
       }
     },
     components: {
@@ -74,7 +70,3 @@
     }
   }
 </script>
-
-<style scoped>
-
-</style>
