@@ -21,16 +21,38 @@
                 <td>{{contact.read === true ? 'Read': 'Not read'}}</td>
                 <td>
                     <button class="btn btn-primary btn-xs" @click="readContact(contact)" style="margin-right: 10px">Read</button>
-                    <button class="btn btn-danger btn-xs" @click="deleteClick($event, contact.id)">Delete</button>
+                    <button class="btn btn-danger btn-xs" @click="getDataDelete(contact.id, contact.email)" data-toggle="modal" data-target="#modal-default">
+                        Delete
+                    </button>
                 </td>
             </tr>
             </tbody>
         </table>
+        <modal :title="`Are you sure to delete contact of email: ${name}?`" buttonOk="OK" :okClick="okClick"/>
     </div>
 </template>
 
 <script>
+  import Modal from './Modal.vue';
   export default {
     props: ['contacts', 'deleteClick', 'readContact'],
+    data() {
+      return {
+        id: '',
+        name: '',
+      }
+    },
+    methods: {
+      getDataDelete(id, name) {
+        this.id = id;
+        this.name = name;
+      },
+      okClick() {
+        this.deleteClick(this.id);
+      }
+    },
+    components: {
+      Modal
+    }
   }
 </script>

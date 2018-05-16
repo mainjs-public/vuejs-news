@@ -71,9 +71,8 @@
         readContact: 'contact/readContact',
         deleteContact: 'contact/deleteContact'
       }),
-      deleteClick(e, id) {
+      deleteClick(id) {
         this.deleteContact({id: id, start: this.start * this.length , length: this.length});
-        e.preventDefault();
       },
       readContactClick(data) {
         this.readContact(omit(data, ['__typename', 'created']));
