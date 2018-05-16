@@ -17,7 +17,7 @@
                                         <li>
                                             <nuxt-link to="/">Home <i class="fa fa-compress" aria-hidden="true"></i>
                                             </nuxt-link>
-                                            <nuxt-link to="/blog">Blog <i class="fa fa-compress" aria-hidden="true"></i>
+                                            <nuxt-link to="/blog?page=1">Blog <i class="fa fa-compress" aria-hidden="true"></i>
                                             </nuxt-link>
                                             {{blog.name}}
                                         </li>

@@ -26,7 +26,7 @@
         }
         if (e >= countPagination) {
           e = countPagination-1;
-          s = (e - s) >= 0 ? e - s : 0;
+          s = (e - 4) >= 0 ? e - 4 : 0;
         }
         let p = [];
         for (let i = s; i <= e; i++) {

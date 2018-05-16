@@ -316,8 +316,7 @@
                                         <h3 class="title-bg">Trending News</h3>
                                     </div>
                                     <div class="col-sm-4 text-right">
-                                        <nuxt-link to="/blog">View More <i class="fa fa-angle-double-right"
-                                                                           aria-hidden="true"></i></nuxt-link>
+                                        <nuxt-link to="/blog?page=1">View More <i class="fa fa-angle-double-right" aria-hidden="true"></i></nuxt-link>
                                     </div>
                                 </div>
 
@@ -379,8 +378,7 @@
                                                 <h3 class="title-bg">What’s hot now</h3>
                                             </div>
                                             <div class="col-sm-4 text-right">
-                                                <nuxt-link to="/blog">View More <i class="fa fa-angle-double-right"
-                                                                                   aria-hidden="true"></i></nuxt-link>
+                                                <nuxt-link to="/blog?page=1">View More <i class="fa fa-angle-double-right" aria-hidden="true"></i></nuxt-link>
                                             </div>
                                         </div>
                                     </div>
@@ -393,9 +391,7 @@
                                             </nuxt-link>
                                         </div>
                                         <div class="blog-content">
-                                            <nuxt-link :to="`/category/${blog.category ? blog.category.slug : ''}`"
-                                                       class="cat-link">{{blog.category!== null ? blog.category.name:
-                                                'Category'}}
+                                            <nuxt-link :to="`/category/${blog.category ? blog.category.slug : ''}`" class="cat-link">{{blog.category!== null ? blog.category.name: 'Category'}}
                                             </nuxt-link>
                                             <span class="date"><i
                                                     class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}</span>

@@ -6,8 +6,7 @@
                <h3 class="title-bg">Around the world</h3>
             </div>
             <div class="col-sm-4 text-right">
-               <nuxt-link to="/blog">View More <i class="fa fa-angle-double-right"
-                                                  aria-hidden="true"></i></nuxt-link>
+               <nuxt-link to="/category/around-the-world">View More <i class="fa fa-angle-double-right" aria-hidden="true"></i></nuxt-link>
             </div>
          </div>
       </div>
