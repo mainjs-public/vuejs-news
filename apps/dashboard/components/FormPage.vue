@@ -7,7 +7,7 @@
             <ol class="breadcrumb">
                 <li><nuxt-link to="/"><i class="fa fa-dashboard"></i> Home</nuxt-link></li>
                 <li><nuxt-link to="/catalog/category">Catalog</nuxt-link></li>
-                <li><nuxt-link to="/catalog/blog">Blog</nuxt-link></li>
+                <li><nuxt-link to="/catalog/page">Page</nuxt-link></li>
                 <li class="active">{{data.id ? "Edit" : "Add"}}</li>
             </ol>
         </section>
@@ -17,19 +17,11 @@
                     <div class="box">
                         <div>
                             <div class="box-header with-border">
-                                <h3 class="box-title">{{data.id ? "Edit blog" : "Add blog"}}</h3>
+                                <h3 class="box-title">{{data.id ? "Edit page" : "Add page"}}</h3>
                                 <div class="pull-right">
-                                    <button type="submit" class="btn btn-primary" @click="clickButton($event, 3)" v-if=" data.id && role !== 'Contributor' && data.state === 'Waiting for Approval'" style="margin-right: 10px">
-                                        <i class="fa fa-circle-o-notch fa-spin" v-if="loading&&valueButton===3"></i>
-                                        Approval
-                                    </button>
-                                    <button type="submit" class="btn btn-default" @click="clickButton($event, 1)" v-if="data.state !== 'Draft' && data.state !== 'Published'">
-                                        <i class="fa fa-circle-o-notch fa-spin" v-if="loading&&valueButton===1"></i>
-                                        Save Draft
-                                    </button>
-                                    <nuxt-link class="btn btn-default" style="margin-left: 10px; margin-right: 10px" to="/catalog/blog">Back</nuxt-link>
-                                    <button type="submit" class="btn btn-info" @click="clickButton($event,2)">
-                                        <i class="fa fa-circle-o-notch fa-spin" v-if="loading&&valueButton===2"></i>
+                                    <nuxt-link class="btn btn-default" style="margin-left: 10px; margin-right: 10px" to="/catalog/page">Back</nuxt-link>
+                                    <button type="submit" class="btn btn-info" @click="clickButton($event)">
+                                        <i class="fa fa-circle-o-notch fa-spin" v-if="loading"></i>
                                         Save
                                     </button>
                                 </div>
@@ -42,12 +34,6 @@
                             <!-- form start -->
                             <form class="form-horizontal">
                                 <div class="box-body">
-                                    <div class="form-group">
-                                        <label class="col-sm-1 control-label">Category</label>
-                                        <div class="col-sm-11">
-                                            <select-category :category="data.category_id" :onchange="onchangeCategory"/>
-                                        </div>
-                                    </div>
                                     <div class="form-group">
                                         <label class="col-sm-1 control-label">Name</label>
 
@@ -92,13 +78,6 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-1 control-label">Tags</label>
-
-                                        <div class="col-sm-11">
-                                            <input-tag :tags.sync="data.tags" placeholder="Tags"/>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
                                         <label class="col-sm-1 control-label">Status</label>
                                         <div class="col-sm-11">
                                             <switch-botton :value="data.status" :onChange="changeStatus"/>
@@ -115,15 +94,12 @@
 </template>
 
 <script>
-  import InputTag from 'vue-input-tag'
-  import SelectCategory from './SelectCategory.vue';
   import ImageManager from './ImageManager.vue';
   import SwitchBotton from './SwitchBotton.vue';
   export default {
-    props: ['data', 'onClick', 'role'],
+    props: ['data', 'onClick'],
     data() {
       return {
-        valueButton: 1,
         editorOption: {
           modules: {
             toolbar: [
@@ -144,40 +120,28 @@
             ],
             syntax: {
               highlight: text => hljs.highlightAuto(text).value
+            }
           }
         }
-      }
       }
     },
     computed: {
       editor() {
         return this.$refs.myTextEditor.quill
       },
-      loading () { return this.$store.state.blog.loading },
-      error () { return this.$store.state.blog.error }
+      loading () { return this.$store.state.page.loading },
+      error () { return this.$store.state.page.error }
     },
     components: {
-      SelectCategory,
       ImageManager,
       SwitchBotton,
-      InputTag
     },
     methods: {
-      onchangeCategory(value) {
-        this.data.category_id = value;
-      },
       changeStatus(value){
         this.data.status = value;
       },
-      clickButton(event, value) {
-        this.valueButton = value;
-        if (value === 2) {
-          this.onClick(event, {...this.data});
-        } else if (value === 3) {
-          this.onClick(event, {...this.data, state: 'Approval'});
-        } else {
-          this.onClick(event, {...this.data, state: 'Draft'});
-        }
+      clickButton(event) {
+        this.onClick(event);
       }
     }
   }

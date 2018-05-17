@@ -1,5 +1,5 @@
 import omit from 'lodash/omit';
-import { query, addUserMutate, updateUserMutate} from '~/apollo/queries/user';
+import { query, addUserMutate, updateUserMutate, deleteUserMutate} from '~/apollo/queries/user';
 
 const checkPassword = function(data) {
   if (!data) return false;
@@ -72,27 +72,26 @@ export const actions =  {
       context.commit('fetchError', {message: 'Fail of Password and Confirm Password'})
     }
   },
-  deleteUser({ commit }, value) {
-    console.log('delete user')
-    // let client = this.app.apolloProvider.defaultClient;
-    // client.mutate({
-    //   mutation: deleteBlog,
-    //   variables: {input : { blogId : value.id}} ,
-    //   refetchQueries: [{
-    //     query: queryPagination,
-    //     variables: {start : value.start, length: value.length} ,
-    //   }]
-    // })
-    //   .then((res) => {
-    //     return res.data;
-    //   })
-    //   .then(data => {
-    //     commit('deleteSuccess');
-    //   })
-    //   .catch(error => {
-    //     commit('fetchError', error);
-    //     alert(error.message);
-    //   });
+  deleteUser({ commit }, id) {
+    let client = this.app.apolloProvider.defaultClient;
+    commit('fetchRequest');
+    client.mutate({
+      mutation: deleteUserMutate,
+      variables: {input : { userId : id}} ,
+      refetchQueries: [{
+        query: query,
+      }]
+    })
+      .then((res) => {
+        return res.data;
+      })
+      .then(data => {
+        commit('deleteSuccess');
+      })
+      .catch(error => {
+        commit('fetchError', error);
+        alert(error.message);
+      });
   }
 };
 

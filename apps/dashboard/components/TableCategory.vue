@@ -28,22 +28,40 @@
                 </td>
                 <td>
                     <nuxt-link :to="`/catalog/category/edit?id=${category.id}`" class="btn btn-primary btn-xs" style="margin-right: 10px">Edit</nuxt-link>
-                    <button class="btn btn-danger btn-xs" @click="deleteClick($event, category.id)">Delete</button>
+                    <button class="btn btn-danger btn-xs" @click="getDataDelete(category.id, category.name)" data-toggle="modal" data-target="#modal-default">
+                        Delete
+                    </button>
                 </td>
             </tr>
             </tbody>
         </table>
+        <modal :title="`Are you sure to delete category: ${name}?`" buttonOk="OK" :okClick="okClick"/>
     </div>
 </template>
 
 <script>
   import { API_URL } from 'shared/api';
+  import Modal from './Modal.vue';
   export default {
     props: ['categories', 'deleteClick'],
-    data() {
+    data () {
       return {
-        apiUrl: API_URL
+        id: '',
+        name: '',
+        apiUrl: API_URL,
       }
+    },
+    methods: {
+      getDataDelete (id, name) {
+        this.id = id;
+        this.name = name;
+      },
+      okClick () {
+        this.deleteClick(this.id);
+      }
+    },
+    components: {
+      Modal
     }
   }
 </script>

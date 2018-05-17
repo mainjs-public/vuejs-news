@@ -1,20 +1,17 @@
-import { query, addContact } from '~/apollo/queries/contact.js';
+import { updateSetting } from '~/apollo/queries/setting.js';
 
 export const state = () => ({
   loading: false,
   error: {},
-  success: false,
 });
 
 export const mutations = {
   fetchRequest(state) {
     state.loading = true;
     state.error = {};
-    state.success = false;
   },
   editSuccess(state) {
     state.loading = false;
-    state.success = true;
   },
   fetchError(state, error) {
     state.loading = false;
@@ -23,17 +20,16 @@ export const mutations = {
 };
 
 export const actions =  {
-  async addContact(context, data) {
+  editSetting(context, input) {
     let client = this.app.apolloProvider.defaultClient;
     context.commit('fetchRequest');
-    await client.mutate({ mutation: addContact, variables: {input : data}, refetchQueries: [{
-        query: query,
-      }] })
+    client.mutate({ mutation: updateSetting, variables: {input : input} })
       .then((res) => {
         return res.data;
       })
       .then(data => {
         context.commit('editSuccess');
+        alert("Update success setting");
       })
       .catch(error => context.commit('fetchError', error));
   },

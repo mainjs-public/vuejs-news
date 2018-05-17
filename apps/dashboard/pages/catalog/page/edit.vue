@@ -1,9 +1,9 @@
 <template>
     <div v-if="!loading">
-        <form-blog :data="data" :onClick="onclick" v-if="!error_data.message" :role="role"/>
+        <form-page :data="data" :onClick="onclick" v-if="!error_data.message"/>
         <div v-else>
             <span>
-                Error get data of blog
+                Error get data of page
             </span>
         </div>
     </div>
@@ -14,8 +14,8 @@
 
 <script>
   import { mapActions } from 'vuex';
-  import { getBlog } from '~/apollo/queries/blog';
-  import FormBlog from '~/components/FormBlog.vue';
+  import { getPage } from '~/apollo/queries/page';
+  import FormPage from '~/components/FormPage.vue';
   import omit from 'lodash/omit';
   const initData = {
     name: '',
@@ -23,9 +23,8 @@
     image: '',
     description: '',
     content: '',
-    tags: [],
+    state: '',
     status: true,
-    category_id: '',
   };
   export default {
     data() {
@@ -38,16 +37,16 @@
     async mounted() {
       try {
         if(this.$router.app._route.query.id) {
-          const blogId = this.$router.app._route.query.id;
+          const pageId = this.$router.app._route.query.id;
           const client = this.$apollo.getClient();
-          const data =  await client.query({ query: getBlog , variables: {blogId: blogId}});
-          const blog = data.data.blog;
-          const blogInfo = omit(blog, ['__typename']);
+          const data =  await client.query({ query: getPage , variables: {pageId: pageId}});
+          const page = data.data.page;
+          const pageInfo = omit(page, ['__typename']);
           this.data = {
-            ...blogInfo,
+            ...pageInfo,
           };
         } else {
-          this.data = {...initData, state: this.state};
+          this.data = {...initData};
         }
         this.loading = false;
       } catch (error) {
@@ -60,22 +59,18 @@
         const auth = this.$store.state.auth;
         return auth !== null && auth.user && auth.user.role && (auth.user.role === 'Admin' || auth.user.role === 'Editer') ? "Approval" : "Waiting for Approval";
       },
-      role () {
-        const auth = this.$store.state.auth;
-        return auth !== null ? auth.user.role : 'Contributor';
-      }
     },
     methods: {
       ...mapActions({
-        editBlog: 'blog/editBlog'
+        editPage: 'page/editPage'
       }),
-      onclick(e, data) {
-        this.editBlog(data);
+      onclick(e) {
+        this.editPage(this.data);
         e.preventDefault();
       },
     },
     components: {
-      FormBlog
+      FormPage
     },
     middleware: 'authenticated'
   }

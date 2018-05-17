@@ -5,7 +5,7 @@
     <div v-else>
         <div class="inner-page-header">
             <div class="banner">
-                <img :src="`${apiUrl}${categorySlug.category.image}`" alt="Banner" style="width: 100%; max-height: 401px">
+                <img :src="categorySlug.category.image?`${apiUrl}${categorySlug.category.image}`:`/images/banner/3.jpg`" alt="Banner" style="width: 100%; max-height: 401px">
             </div>
             <div class="banner-text">
                 <div class="container">
@@ -51,7 +51,7 @@
                                                 </a>
                                             </div>
                                             <div class="carousel-inner">
-                                                <div v-for="(blog, index) in categorySlug.data" :class="{item: true, active: index === 0}">
+                                                <div v-for="(blog, index) in categorySlug.data" :class="{item: true, active: index === 0}" v-bind:key="blog.id">
                                                     <div class="blog-image">
                                                         <nuxt-link :to="`/blog/${blog.slug}`">
                                                             <i class="fa fa-link" aria-hidden="true"></i>
@@ -108,15 +108,20 @@
   export default {
     data() {
       return {
-        start: 0,
         length: 10,
         categorySlug: {
-          category: {},
+          category: {
+          },
           data: [],
           count: 0,
           hasNextPage: false,
         },
         apiUrl: API_URL
+      }
+    },
+    computed: {
+      start () {
+        return this.$route.query.page ? Number(this.$route.query.page)-1: 0;
       }
     },
     apollo: {
@@ -137,7 +142,7 @@
         this.length = value;
       },
       changeStartPagination(value) {
-        this.start = value;
+        this.$router.push(`${this.$route.path}?page=${value+1}`);
       }
     },
     components: {

@@ -1,5 +1,7 @@
 <template>
-    <div v-if="blogs.length === 0"> error get data</div>
+    <div v-if="error!==null">
+        {{error}}
+    </div>
     <div v-else>
         <div class="container">
             <div class="row">
@@ -314,8 +316,7 @@
                                         <h3 class="title-bg">Trending News</h3>
                                     </div>
                                     <div class="col-sm-4 text-right">
-                                        <nuxt-link to="/blog">View More <i class="fa fa-angle-double-right"
-                                                                           aria-hidden="true"></i></nuxt-link>
+                                        <nuxt-link to="/blog?page=1">View More <i class="fa fa-angle-double-right" aria-hidden="true"></i></nuxt-link>
                                     </div>
                                 </div>
 
@@ -377,8 +378,7 @@
                                                 <h3 class="title-bg">What’s hot now</h3>
                                             </div>
                                             <div class="col-sm-4 text-right">
-                                                <nuxt-link to="/blog">View More <i class="fa fa-angle-double-right"
-                                                                                   aria-hidden="true"></i></nuxt-link>
+                                                <nuxt-link to="/blog?page=1">View More <i class="fa fa-angle-double-right" aria-hidden="true"></i></nuxt-link>
                                             </div>
                                         </div>
                                     </div>
@@ -391,9 +391,7 @@
                                             </nuxt-link>
                                         </div>
                                         <div class="blog-content">
-                                            <nuxt-link :to="`/category/${blog.category ? blog.category.slug : ''}`"
-                                                       class="cat-link">{{blog.category!== null ? blog.category.name:
-                                                'Category'}}
+                                            <nuxt-link :to="`/category/${blog.category ? blog.category.slug : ''}`" class="cat-link">{{blog.category!== null ? blog.category.name: 'Category'}}
                                             </nuxt-link>
                                             <span class="date"><i
                                                     class="fa fa-calendar-check-o" aria-hidden="true"></i> {{blog.created}}</span>
@@ -651,7 +649,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <img src="/images/footer-top.png" alt="footer">
+                        <img :src="`${apiUrl}${setting.banner_2}`" alt="footer">
                     </div>
                 </div>
             </div>
@@ -735,14 +733,15 @@
         const dataPilitic = await client.query({query: getCategory, variables: {slug : 'politics', start: 0, length: 4}});
         const dataWorld = await client.query({query: getCategory, variables: {slug : 'around-the-world', start: 0, length: 6}});
         callback(null, {
-          blogs: dataBlogs.data.getBlogLatest,
-          categories: dataCategory.data.categories,
-          dataHealth: dataHealth.data.categorySlug.data,
-          dataPilitic: dataPilitic.data.categorySlug.data,
-          dataWorld: dataWorld.data.categorySlug.data,
+          blogs: dataBlogs.data.getBlogLatest !== null ? dataBlogs.data.getBlogLatest : [],
+          categories: dataCategory.data.categories !== null ? dataCategory.data.categories: [],
+          dataHealth:  dataHealth.data.categorySlug !== null? dataHealth.data.categorySlug.data: [],
+          dataPilitic: dataPilitic.data.categorySlug !== null? dataPilitic.data.categorySlug.data:[],
+          dataWorld: dataWorld.data.categorySlug !== null? dataWorld.data.categorySlug.data: [],
+          error: null
         })
       } catch (error) {
-        callback(null, {blogs: [], categories: [], dataHealth: [], dataPilitic: [], dataWorld: []})
+        callback(null, {blogs: [], categories: [], dataHealth: [], error: error})
       }
     },
     data () {
@@ -751,6 +750,9 @@
         chunk: chunk,
         apiUrl: API_URL
       }
+    },
+    computed: {
+      setting () { return this.$store.state.setting},
     },
     components: {
       SlugBlogHome,
