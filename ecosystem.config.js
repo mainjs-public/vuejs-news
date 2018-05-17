@@ -15,7 +15,7 @@ module.exports = {
             ref: 'origin/master',
             repo: 'git@github.com:mainjs-public/vuejs-news.git',
             path: '/var/www/html/new24',
-            'post-deploy': 'npm run storefront:build && npm run dashboard:build && pm2 startOrRestart ecosystem.config.js'
+            'post-deploy': 'npm run install && npm run storefront:build && npm run dashboard:build && pm2 startOrRestart ecosystem.config.js'
         }
     }
 }
