@@ -13,7 +13,7 @@ module.exports = {
             user: 'root',
             host: ['104.236.119.26'],
             ref: 'origin/master',
-            repo: 'git@github.com:dangtienngoc/new24-frontend.git',
+            repo: 'git@github.com:mainjs-public/vuejs-news.git',
             path: '/var/www/html/new24',
             'post-deploy': 'npm run storefront:build && npm run dashboard:build && pm2 startOrRestart ecosystem.config.js'
         }
