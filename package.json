@@ -37,13 +37,13 @@
     "vue-quill-editor": "^3.0.6"
   },
   "scripts": {
-    "storefront:dev": "nuxt --config-file apps/home/nuxt.config.js -p=4000",
-    "dashboard:dev": "nuxt --config-file apps/dashboard/nuxt.config.js -p=2000",
+    "storefront:dev": "nuxt --config-file apps/home/nuxt.config.js -p=3002",
+    "dashboard:dev": "nuxt --config-file apps/dashboard/nuxt.config.js -p=3003",
     "dev": "concurrently \"npm run storefront:dev\" \"npm run dashboard:dev\"",
     "storefront:build": "nuxt build --config-file apps/home/nuxt.config.js",
     "dashboard:build": "nuxt build --config-file apps/dashboard/nuxt.config.js",
-    "storefront:start": "nuxt start --config-file apps/home/nuxt.config.js -p=4000",
-    "dashboard:start": "nuxt start --config-file apps/dashboard/nuxt.config.js -p=2000"
+    "storefront:start": "nuxt start --config-file apps/home/nuxt.config.js -p=3002",
+    "dashboard:start": "nuxt start --config-file apps/dashboard/nuxt.config.js -p=3003"
   },
   "devDependencies": {
     "stylus": "^0.54.5",
