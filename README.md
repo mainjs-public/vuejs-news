@@ -15,7 +15,7 @@ $ npm run dev
 
 Demo: 
 
-http://104.236.119.26/
-http://104.236.119.26/dashboard/
+http://85.25.211.157:3002/
+http://85.25.211.157:3003/dashboard/
 
 login dashboard info: admin@gmail.com/12345
